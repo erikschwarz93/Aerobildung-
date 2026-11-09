@@ -1,0 +1,208 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Modul 11 Lernübersicht</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: eine Lesespalte auf Karopapier wie die Mitschrift. Blaue Tinte, gelber Marker für Merksätze, gestrichelte Kästen für Ergänzungen. Gleiches System wie die Lernübersichten Modul 4 und 5. */
+:root {
+  --paper: #F3F5FA;
+  --card: #FFFFFF;
+  --fg: #1A1F33;
+  --ink: #16256B;
+  --ink-soft: #4F5B8C;
+  --grid: #DCE1EE;
+  --line: #C3CBE0;
+  --marker: #F2F06B;
+  --marker-soft: #F7F59A;
+  --red: #B3261E;
+  --ok: #1B7A4B;
+  --f-display: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0E1323; --card: #161D36; --fg: #E6E9F5; --ink: #B3BFFF; --ink-soft: #8E9AD0;
+    --grid: #1B2342; --line: #2B3664; --marker: #E4DE5A; --marker-soft: #4A4716; --red: #FF9088; --ok: #74D6A3;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0E1323; --card: #161D36; --fg: #E6E9F5; --ink: #B3BFFF; --ink-soft: #8E9AD0;
+  --grid: #1B2342; --line: #2B3664; --marker: #E4DE5A; --marker-soft: #4A4716; --red: #FF9088; --ok: #74D6A3;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--fg); font-family: var(--f-body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 24px 56px;
+}
+.wrap { max-width: 720px; margin-inline: auto; display: flex; flex-direction: column; gap: 22px; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(2.6rem, 11vw, 4rem); line-height: .95; text-transform: uppercase; color: var(--ink); margin: 6px 0 12px; text-wrap: balance; }
+h1 span { background: linear-gradient(transparent 58%, var(--marker-soft) 58%); padding-inline: 2px; }
+.lead { margin: 0; color: var(--ink-soft); max-width: 60ch; }
+nav.toc { display: flex; flex-wrap: wrap; gap: 8px; }
+nav.toc a { font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; border: 1.5px solid var(--line); background: var(--card); border-radius: 6px; padding: 6px 10px; }
+nav.toc a:hover, nav.toc a:focus-visible { border-color: var(--ink); outline: none; }
+section { background: var(--card); border: 1.5px solid var(--line); border-radius: 8px; padding: 20px 18px; display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 16px; }
+h2 { font-family: var(--f-display); font-weight: 700; font-size: 1.7rem; line-height: 1.05; text-transform: uppercase; letter-spacing: .02em; color: var(--ink); margin: 0; text-wrap: balance; overflow-wrap: break-word; hyphens: auto; -webkit-hyphens: auto; }
+h2 .lvl { font-family: var(--f-mono); font-size: 12px; font-weight: 500; letter-spacing: .06em; color: var(--ink-soft); vertical-align: middle; margin-left: 8px; white-space: nowrap; }
+h3 { font-size: 1.05rem; font-weight: 600; color: var(--ink); margin: 6px 0 0; }
+p { margin: 0; max-width: 65ch; }
+ul, ol { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
+sub, sup { line-height: 0; }
+.merk { background: var(--marker-soft); border-radius: 4px; padding: 10px 12px; font-weight: 600; }
+.merk::before { content: "Merksatz "; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 500; display: block; color: var(--ink-soft); }
+.fix { border-left: 4px solid var(--red); padding: 6px 12px; }
+.fix::before { content: "Korrektur zu deinen Notizen"; display: block; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--red); }
+.fixs { border-left: 4px solid var(--red); padding: 6px 12px; }
+.fixs::before { content: "Fehler im Skript"; display: block; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--red); }
+.gxs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.gx { border: 1.5px solid var(--line); border-radius: 6px; padding: 12px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.gx h3 { margin: 0; }
+.gx p { font-size: 14px; }
+.ttx th { font-size: 11px; letter-spacing: .02em; text-transform: none; white-space: normal; }
+.ttx td:last-child { background: var(--marker-soft); font-weight: 600; }
+.erg { border: 1.5px dashed var(--ink-soft); border-radius: 6px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+.erg::before { content: "Ergänzung · nicht aus deinen Notizen"; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+.src { font-family: var(--f-mono); font-size: 12px; color: var(--ink-soft); }
+.tbl { overflow-x: auto; max-width: 100%; }
+section, .erg, section > *, .erg > * { min-width: 0; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-mono); font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
+td.num, .bits td { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.bits td, .bits th { text-align: center; padding: 6px 4px; }
+.bits tr.hl td { background: var(--marker-soft); font-weight: 600; }
+.st { font-family: var(--f-mono); font-size: 12px; white-space: nowrap; }
+.st.ok { color: var(--ok); }
+.st.open { color: var(--ink-soft); }
+.st.na { color: var(--ink-soft); opacity: .7; }
+.formula { font-family: var(--f-mono); font-size: 15px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 8px 12px; overflow-x: auto; }
+.fig { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; overflow-x: auto; }
+.fig figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0; }
+.fig figcaption { font-size: 13px; color: var(--ink-soft); text-align: center; }
+svg { max-width: 100%; height: auto; }
+svg .s { stroke: var(--ink); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+svg .f { fill: var(--ink); }
+svg .t { fill: var(--fg); font-family: var(--f-body); font-size: 13px; }
+svg .tb { fill: var(--ink); font-family: var(--f-display); font-weight: 700; font-size: 17px; }
+svg .tm { fill: var(--ink-soft); font-family: var(--f-mono); font-size: 11px; }
+svg .c { stroke: var(--red); fill: none; stroke-width: 2.5; stroke-linecap: round; }
+svg .ax { stroke: var(--ink-soft); stroke-width: 1.2; fill: none; }
+svg .gd { stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 4; fill: none; }
+svg .dot { fill: var(--red); stroke: none; }
+svg .box { fill: var(--card); stroke: var(--ink); stroke-width: 1.6; }
+svg .boxm { fill: var(--marker-soft); stroke: var(--ink); stroke-width: 1.6; }
+svg .tarea { fill: var(--marker-soft); stroke: var(--ink); stroke-width: 1.6; stroke-linejoin: round; }
+.foot { font-size: 13px; color: var(--ink-soft); }
+.back { align-self: flex-start; font-weight: 600; color: var(--ink); background: var(--marker-soft); border-radius: 6px; padding: 8px 12px; text-decoration: none; }
+.back:hover, .back:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+</style>
+
+<style>.erg::before { content: "Ergänzung · nicht aus deinem Skript"; }</style>
+
+<div class="wrap" lang="de">
+  <header>
+    <div class="eyebrow">AERO-Bildung · EASA Part-66 B1.1 · Modul 11A</div>
+    <h1><span>Strukturen</span> &amp; Systeme</h1>
+    <p class="lead">Lernübersicht zu Modul 11, geordnet nach Part-66-Kapiteln. Bisher ist Kapitel 11.1 Flugtheorie aus deinem Skript enthalten. Gelbe Kästen sind Merksätze, rote Kästen markieren Fehler im Skript.</p>
+  </header>
+  <a class="back" href="./">← Zum Quiz und zu den Karteikarten</a>
+  <nav class="toc" aria-label="Inhalt"><a href="#pruefung">Prüfung</a><a href="#grund">Grundlagen &amp; Achsen</a><a href="#nick">Nicksteuerung &amp; Schwerpunkt</a><a href="#roll">Rollsteuerung &amp; Adverse Yaw</a><a href="#gier">Seitenruder</a><a href="#komb">Kombinierte Steuerflächen</a><a href="#trim">Trimmsysteme</a><a href="#hoch">Slots, Slats &amp; Klappen</a><a href="#brems">Spoiler &amp; Bremsklappen</a><a href="#tabs">Ruderausgleich, Trim &amp; Servo Tab</a><a href="#ausgl">Balance, Anti-Balance &amp; Spring Tab</a><a href="#mass">Ausgleichspaneele &amp; Massenausgleich</a><a href="#grenz">Grenzschicht &amp; Stall Strips</a><a href="#skriptfehler">Skriptfehler</a></nav>
+  <section id="pruefung">
+    <h2>Was geprüft wird</h2>
+    <p>Für B1.1 umfasst Modul 11 insgesamt 140 Multiple-Choice-Fragen in 175 Minuten, bestanden ab 75 %. Die Verteilung auf die Kapitel folgt AMC1 zu Anhang II (Teil-66). 11.1 ist für B1 in beiden Teilen Level 2.</p>
+    <div class="tbl"><table><thead><tr><th>Nr.</th><th>Kapitel</th><th>Fragen</th><th>Stand</th></tr></thead><tbody><tr><td class="num">11.1</td><td>Flugtheorie</td><td class="num">4</td><td><span class="st ok">✓ Skript</span></td></tr><tr><td class="num">11.2</td><td>Flugwerkstrukturen: allgemein (ATA 51)</td><td class="num">10</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.3</td><td>Rumpf, Flügel, Leitwerk (ATA 52–57)</td><td class="num">13</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.4</td><td>Klimaanlage &amp; Kabinendruck (ATA 21)</td><td class="num">11</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.5</td><td>Instrumente &amp; Avionik (ATA 22/23/31/34)</td><td class="num">9</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.6</td><td>Elektrische Energie (ATA 24)</td><td class="num">5</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.7</td><td>Ausrüstung &amp; Einrichtung (ATA 25)</td><td class="num">7</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.8</td><td>Brandschutz (ATA 26)</td><td class="num">5</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.9</td><td>Flugsteuerung (ATA 27)</td><td class="num">13</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.10</td><td>Kraftstoffsysteme (ATA 28/47)</td><td class="num">10</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.11</td><td>Hydraulik (ATA 29)</td><td class="num">8</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.12</td><td>Eis- &amp; Regenschutz (ATA 30)</td><td class="num">10</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.13</td><td>Fahrwerk (ATA 32)</td><td class="num">10</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.14</td><td>Beleuchtung (ATA 33)</td><td class="num">3</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.15</td><td>Sauerstoff (ATA 35)</td><td class="num">4</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.16</td><td>Pneumatik &amp; Vakuum (ATA 36)</td><td class="num">6</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.17</td><td>Wasser &amp; Abwasser (ATA 38)</td><td class="num">3</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.18</td><td>On-Board-Wartungssysteme (ATA 45)</td><td class="num">3</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.19</td><td>Integrated Modular Avionics (ATA 42)</td><td class="num">2</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.20</td><td>Kabinensysteme (ATA 44)</td><td class="num">2</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.21</td><td>Informationssysteme (ATA 46)</td><td class="num">2</td><td><span class="st open">folgt</span></td></tr></tbody></table></div>
+  </section>
+  <section id="grund">
+    <h2>Grundlagen &amp; Achsen <span class="lvl">11.1a · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 6 bis 11</p>
+    <ul><li>Vier Kräfte: Auftrieb, Schub, Gewicht, Widerstand.</li><li>Primär: Quer-, Höhen- und Seitenruder. Sie drehen um die drei Achsen.</li><li>Sekundär: Trimmung, Kraftreduzierung, Auftriebshilfen und Bremsen.</li><li>Moment = Luftkraft an der Fläche × Hebelarm zum Schwerpunkt.</li><li>Die Auslegung hängt von Gewicht, Abmessungen, Höhe, Geschwindigkeit und Stabilitätsgrad ab.</li></ul>
+    <p class="merk">Längs rollt, quer nickt, hoch giert.</p>
+  </section>
+  <section id="nick">
+    <h2>Nicksteuerung &amp; Schwerpunkt <span class="lvl">11.1a · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 12 bis 13</p>
+    <ul><li>Mehr Abtrieb am Leitwerk hebt die Nase, weniger Abtrieb senkt sie.</li><li>Bei Stabilatoren schwenkt die ganze Fläche um einen Punkt 1/3 hinter der Vorderkante.</li><li>Schwerpunkt vor dem Druckpunkt: stabil, aber große Kräfte und Ausschläge.</li><li>Schwerpunkt hinter dem Druckpunkt: leicht zu steuern, kaum Längsstabilität.</li></ul>
+    <p class="merk">Ziehen: Ruder hoch, Heck runter, Nase hoch.</p>
+  </section>
+  <section id="roll">
+    <h2>Rollsteuerung &amp; Adverse Yaw <span class="lvl">11.1a · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 13 bis 14</p>
+    <ul><li>Querruder bewegen sich gegensinnig und erzeugen einen Auftriebsunterschied.</li><li>Der stärker tragende Flügel hat mehr induzierten Widerstand: negatives Wendemoment.</li><li>Gegenmittel: Differentialquerruder, Rollspoiler, Frise-Querruder, Seitenruderkopplung.</li><li>Große Jets: innenliegende Querruder plus Spoiler schnell, innen und außen langsam.</li></ul>
+    <p class="merk">Aufwärtsruder senkt den Auftrieb, der Flügel geht runter.</p>
+  </section>
+  <section id="gier">
+    <h2>Seitenruder <span class="lvl">11.1a · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 15</p>
+    <ul><li>Das Seitenruder dreht um die Hochachse.</li><li>Es gleicht das negative Wendemoment aus und hilft bei Seitenwind und Triebwerksausfall.</li><li>Rechtes Pedal: Heck nach links, Nase nach rechts.</li><li>Der Rudder Limiter begrenzt den Ausschlag bei hoher Geschwindigkeit.</li></ul>
+    <p class="merk">Querruder leiten die Kurve ein, das Seitenruder korrigiert.</p>
+  </section>
+  <section id="komb">
+    <h2>Kombinierte Steuerflächen <span class="lvl">11.1a · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 16 bis 17</p>
+    <ul><li>V-Leitwerk: Steuersäule symmetrisch, Pedale unsymmetrisch.</li><li>Elevons ersetzen bei leitwerkslosen Flugzeugen Quer- und Höhenruder.</li><li>Flaperons arbeiten als Querruder aus dem aktuellen Klappenwinkel.</li></ul>
+    <p class="merk">Ruddervator = Höhe + Seite, Elevon = Höhe + Quer, Flaperon = Klappe + Quer.</p>
+  </section>
+  <section id="trim">
+    <h2>Trimmsysteme <span class="lvl">11.1a · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 18 bis 20</p>
+    <ul><li>Trimmen hält das Gleichgewicht ohne Steuerkraft.</li><li>Nicktrimmung: einstellbare Flosse über Gewindespindeln.</li><li>Giertrimmung nach Triebwerksausfall, heute meist über Stellantrieb im Kabelsystem.</li><li>Rolltrimmung bei Kraftstoffungleichgewicht, über Trimmklappen an den Querrudern.</li></ul>
+    <p class="merk">Nick Last, Gier Schub, Roll Kraftstoff.</p>
+  </section>
+  <section id="hoch">
+    <h2>Slots, Slats &amp; Klappen <span class="lvl">11.1a · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 21 bis 23</p>
+    <ul><li>Vorderkante: Slot, Slat, Krüger, Droop Nose. Sie helfen bei hohen Anstellwinkeln.</li><li>Hinterkante: Wölbung, Spreiz, Fowler, Schlitz.</li><li>Fowler vergrößert auch die Fläche, Schlitzklappen führen energiereiche Luft nach oben.</li><li>Spreizklappe: viel Widerstand, in Transportflugzeugen nicht verwendet.</li></ul>
+<div class="tbl"><table><thead><tr><th>Klappe</th><th>Wirkung</th></tr></thead><tbody><tr><td><strong>Wölbungsklappe</strong></td><td>Wie ein Querruder, aber beide Seiten symmetrisch. Nur langsame Flugzeuge.</td></tr><tr><td><strong>Spreizklappe</strong></td><td>Nur Unterseite klappt ab, sehr viel Widerstand.</td></tr><tr><td><strong>Fowler</strong></td><td>Rollt auf Schienen zurück, mehr Fläche und Wölbung.</td></tr><tr><td><strong>Schlitzklappe</strong></td><td>Luft von unten strömt über die Klappenoberseite.</td></tr><tr><td><strong>Krüger</strong></td><td>Klappt aus dem unteren Teil der Vorderkante.</td></tr><tr><td><strong>Droop Nose</strong></td><td>Absenkbare Vorderkante: mehr Wölbung, kleinerer Anstellwinkel.</td></tr></tbody></table></div>    <p class="merk">Start halb, Landung voll.</p>
+  </section>
+  <section id="brems">
+    <h2>Spoiler &amp; Bremsklappen <span class="lvl">11.1a · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 24 bis 25</p>
+    <ul><li>Flügelspoiler: mehr Widerstand, weniger Auftrieb, höhere Überziehgeschwindigkeit.</li><li>Rumpfbremsen: nur Widerstand.</li><li>Bodenspoiler drücken die Reifen an und bremsen zusätzlich.</li><li>Symmetrisch für Anflug, Abstieg, Landung, unsymmetrisch zum Rollen.</li></ul>
+    <p class="merk">Flügelspoiler zerstören Auftrieb, Rumpfbremsen nicht.</p>
+  </section>
+  <section id="tabs">
+    <h2>Ruderausgleich, Trim &amp; Servo Tab <span class="lvl">11.1a · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 26 bis 27</p>
+    <ul><li>Aerodynamischer Ausgleich: Fläche vor der Drehachse hilft dem Piloten.</li><li>Trim Tab hält die Steuerfläche ohne Handkraft ausgelenkt.</li><li>Servoruder: Pilot bewegt nur das Tab, Luftkraft bewegt die Fläche.</li><li>Eine Tab-Bewegung erzeugt eine Kraft am langen Hebelarm.</li></ul>
+<div class="tbl"><table><thead><tr><th>Tab</th><th>Bedienung</th><th>Zweck</th></tr></thead><tbody><tr><td><strong>Trim Tab</strong></td><td>Cockpit: Seil oder elektrisch</td><td>Fläche ausgelenkt halten</td></tr><tr><td><strong>Servoruder</strong></td><td>Steuersäule bewegt das Tab</td><td>Luftkraft bewegt die Fläche (5 bis 30 t)</td></tr><tr><td><strong>Balance Tab</strong></td><td>Stange an fester Fläche</td><td>Läuft gegen die Fläche, entlastet</td></tr><tr><td><strong>Anti-Balance Tab</strong></td><td>Stange gegenüberliegend</td><td>Läuft mit der Fläche, dämpft Stabilatoren</td></tr><tr><td><strong>Spring Tab</strong></td><td>Über Feder</td><td>Hilft erst bei hohen Steuerkräften</td></tr></tbody></table></div>    <p class="merk">Tab hoch, Ruder runter.</p>
+  </section>
+  <section id="ausgl">
+    <h2>Balance, Anti-Balance &amp; Spring Tab <span class="lvl">11.1b · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 28 bis 29</p>
+    <ul><li>Balance Tab: Stange gleiche Seite wie Tab-Horn, Tab läuft gegen die Fläche und entlastet.</li><li>Anti-Balance Tab: Stange gegenüber, läuft mit der Fläche und dämpft Stabilatoren.</li><li>Spring Tab hilft erst, wenn hohe Steuerkraft die Feder überdrückt.</li></ul>
+    <p class="merk">Balance gegen die Fläche, Anti-Balance mit der Fläche.</p>
+  </section>
+  <section id="mass">
+    <h2>Ausgleichspaneele &amp; Massenausgleich <span class="lvl">11.1b · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 30</p>
+    <ul><li>Ausgleichspaneele teilen eine dichte Kammer. Der Druckunterschied unterstützt die Bewegung.</li><li>Flattern ist eine aufklingende Schwingung durch Biegung und Torsion.</li><li>Massenausgleich bringt den Flächenschwerpunkt zum Drehpunkt.</li><li>Nach Lackieren oder Reparaturen Wuchtung prüfen.</li></ul>
+    <p class="merk">Gewicht vor den Drehpunkt, dann kein Flattern.</p>
+  </section>
+  <section id="grenz">
+    <h2>Grenzschicht &amp; Stall Strips <span class="lvl">11.1b · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 31 bis 33</p>
+    <ul><li>Ablösung der Grenzschicht verursacht Strömungsabriss und Widerstand.</li><li>Slots, Slats und Schlitzklappen bringen energiereiche Luft nach oben.</li><li>Vortex-Generatoren mischen energiereiche Strömung ein.</li><li>Zäune, Sägezahn und Dog-Tooth stoppen die Querströmung am gepfeilten Flügel.</li><li>Stall Strips lassen die Wurzel zuerst abreißen, die Querruder bleiben wirksam.</li></ul>
+    <p class="merk">Energie rein, Querströmung stoppen, Wurzel zuerst abreißen lassen.</p>
+  </section>
+  <section id="skriptfehler">
+    <h2>Fehler und Unstimmigkeiten im Skript</h2>
+    <p class="fixs">Seite 12: Beim Höhenruder drehe die Nase „um ihre Längsachse“. Richtig ist die Querachse, denn das ist Nicken.</p>
+    <p class="fixs">Seite 22: „Große Slats sind immer automatisch“. Das widerspricht Seite 9, wo auch steuerbare Slats genannt werden. Bei großen Verkehrsflugzeugen werden Slats angetrieben und vom Cockpit aus gesteuert.</p>
+    <p class="fixs">Seite 31: Pfeilung solle Stoßwellen „verhindern“. Genauer: Sie verzögert ihr Auftreten zu höheren Machzahlen.</p>
+    <p class="fixs">Seite 9: „Klappen“ meint in dem Absatz zu Trimm- und Steuervorrichtungen die kleinen Tabs an der Ruderhinterkante, nicht die Landeklappen.</p>
+    <p class="fixs">Seiten 28, 29, 31 und 34: Mehrere Abbildungsnummern im Text und im Verzeichnis stimmen nicht mit den Bildern überein.</p>
+  </section>
+  <p class="foot">Quelle: Skript „CAT-B1 Modul 11A – Sub Modul 11-1 Flugtheorie“, AERO-Bildungs GmbH, Version Januar 2025. Seitenangaben beziehen sich auf dieses Skript.</p>
+</div>
+</body></html>

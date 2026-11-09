@@ -1,0 +1,425 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body style="margin:0"><title>Modul 4 Lernübersicht</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: eine Lesespalte auf Karopapier wie die Mitschrift. Blaue Tinte, gelber Marker für Merksätze, gestrichelte Kästen für Ergänzungen. */
+:root {
+  --paper: #F3F5FA;
+  --card: #FFFFFF;
+  --fg: #1A1F33;
+  --ink: #16256B;
+  --ink-soft: #4F5B8C;
+  --grid: #DCE1EE;
+  --line: #C3CBE0;
+  --marker: #F2F06B;
+  --marker-soft: #F7F59A;
+  --red: #B3261E;
+  --f-display: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0E1323; --card: #161D36; --fg: #E6E9F5; --ink: #B3BFFF; --ink-soft: #8E9AD0;
+    --grid: #1B2342; --line: #2B3664; --marker: #E4DE5A; --marker-soft: #4A4716; --red: #FF9088;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0E1323; --card: #161D36; --fg: #E6E9F5; --ink: #B3BFFF; --ink-soft: #8E9AD0;
+  --grid: #1B2342; --line: #2B3664; --marker: #E4DE5A; --marker-soft: #4A4716; --red: #FF9088;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--fg); font-family: var(--f-body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 24px 56px;
+}
+.wrap { max-width: 720px; margin-inline: auto; display: flex; flex-direction: column; gap: 22px; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(2.6rem, 11vw, 4rem); line-height: .95; text-transform: uppercase; color: var(--ink); margin: 6px 0 12px; text-wrap: balance; }
+h1 span { background: linear-gradient(transparent 58%, var(--marker-soft) 58%); padding-inline: 2px; }
+.lead { margin: 0; color: var(--ink-soft); max-width: 60ch; }
+nav.toc { display: flex; flex-wrap: wrap; gap: 8px; }
+nav.toc a { font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; border: 1.5px solid var(--line); background: var(--card); border-radius: 6px; padding: 6px 10px; }
+nav.toc a:hover, nav.toc a:focus-visible { border-color: var(--ink); outline: none; }
+section { background: var(--card); border: 1.5px solid var(--line); border-radius: 8px; padding: 20px 18px; display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 16px; }
+h2 { font-family: var(--f-display); font-weight: 700; font-size: 1.7rem; line-height: 1.05; text-transform: uppercase; letter-spacing: .02em; color: var(--ink); margin: 0; text-wrap: balance; overflow-wrap: break-word; hyphens: auto; -webkit-hyphens: auto; }
+h2 .lvl { font-family: var(--f-mono); font-size: 12px; font-weight: 500; letter-spacing: .06em; color: var(--ink-soft); vertical-align: middle; margin-left: 8px; white-space: nowrap; }
+h3 { font-size: 1.05rem; font-weight: 600; color: var(--ink); margin: 6px 0 0; }
+p { margin: 0; max-width: 65ch; }
+ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
+sub, sup { line-height: 0; }
+.merk { background: var(--marker-soft); border-radius: 4px; padding: 10px 12px; font-weight: 600; }
+.merk::before { content: "Merksatz "; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 500; display: block; color: var(--ink-soft); }
+.erg { border: 1.5px dashed var(--ink-soft); border-radius: 6px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+.erg::before { content: "Ergänzung · nicht aus deinen Notizen"; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+.src { font-family: var(--f-mono); font-size: 12px; color: var(--ink-soft); }
+.tbl { overflow-x: auto; max-width: 100%; }
+section, .erg, section > *, .erg > * { min-width: 0; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-mono); font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
+.formula { font-family: var(--f-mono); font-size: 15px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 8px 12px; overflow-x: auto; }
+.fig { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.fig figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0; }
+.fig figcaption { font-size: 13px; color: var(--ink-soft); text-align: center; }
+svg { max-width: 100%; height: auto; }
+svg .s { stroke: var(--ink); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+svg .f { fill: var(--ink); }
+svg .t { fill: var(--fg); font-family: var(--f-body); font-size: 13px; }
+svg .tm { fill: var(--ink-soft); font-family: var(--f-mono); font-size: 11px; }
+svg .c { stroke: var(--red); fill: none; stroke-width: 2.5; stroke-linecap: round; }
+svg .ax { stroke: var(--ink-soft); stroke-width: 1.2; fill: none; }
+.foot { font-size: 13px; color: var(--ink-soft); }
+.back { align-self: flex-start; font-weight: 600; color: var(--ink); background: var(--marker-soft); border-radius: 6px; padding: 8px 12px; text-decoration: none; }
+.back:hover, .back:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+</style>
+
+<div class="wrap" lang="de">
+  <header>
+    <div class="eyebrow">AERO-Bildung · EASA Part-66 B1 · Modul 4</div>
+    <h1><span>Halbleiter</span> &amp; Dioden</h1>
+    <p class="lead">Alles aus deinen Notizen vom 14. Oktober 2026, verständlich erklärt und nach Themen geordnet. Gelbe Kästen sind Merksätze. Gestrichelte Kästen sind Ergänzungen nach dem Lehrplan, die nicht in deinen Notizen stehen.</p>
+  </header>
+
+  <a class="back" href="./">← Zum Quiz und zu den Karteikarten</a>
+
+  <nav class="toc" aria-label="Inhalt">
+    <a href="#pruefung">Prüfung</a><a href="#pn">PN-Übergang</a><a href="#richtung">Durchlass &amp; Sperr</a><a href="#diode">Diode</a><a href="#kennlinie">Kennlinie</a><a href="#arten">Diodenarten</a><a href="#anwendungen">Anwendungen</a><a href="#bezeichnung">Bezeichnung</a><a href="#widerstaende">NTC · PTC · VDR</a><a href="#transistor">Transistor</a><a href="#ic">IC &amp; OPV</a><a href="#leiterplatten">Leiterplatten</a><a href="#servo">Servo</a><a href="#formeln">Auf einen Blick</a>
+  </nav>
+
+  <section id="pruefung">
+    <h2>Was geprüft wird</h2>
+    <p>Die Prüfung besteht aus Multiple-Choice-Fragen mit je drei Antworten, bestanden ab 75 %. Die Wissensstufe sagt, wie tief gefragt wird.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Thema</th><th>Level B1</th><th>Bedeutet</th></tr></thead>
+      <tbody>
+        <tr><td>Dioden: Beschreibung und Merkmale</td><td>2</td><td>Verstehen, Schaltungen lesen, Formeln anwenden</td></tr>
+        <tr><td>Transistoren: Beschreibung und Merkmale</td><td>1</td><td>Erkennen und einfach beschreiben</td></tr>
+        <tr><td>Integrierte Schaltungen</td><td>1</td><td>Erkennen und einfach beschreiben</td></tr>
+        <tr><td>Leiterplatten</td><td>1</td><td>Erkennen und einfach beschreiben</td></tr>
+        <tr><td>Servomechanismen: Prinzipien</td><td>1</td><td>Erkennen und einfach beschreiben</td></tr>
+      </tbody>
+    </table></div>
+    <p>Dioden sind das einzige Level-2-Thema. Dort lohnt sich der meiste Aufwand.</p>
+  </section>
+
+  <section id="pn">
+    <h2>Halbleiter und PN-Übergang</h2>
+    <p class="src">Seite 1 · Themenliste Seite 10, Punkt 4</p>
+    <p>Reines Silizium hat 4 Valenzelektronen und leitet schlecht. Durch Dotieren mit Fremdatomen entstehen bewegliche Ladungsträger.</p>
+    <div class="tbl"><table>
+      <thead><tr><th></th><th>N-Leiter</th><th>P-Leiter</th></tr></thead>
+      <tbody>
+        <tr><td>Dotiert mit</td><td>5-wertigem Stoff, z. B. Phosphor</td><td>3-wertigem Stoff, z. B. Aluminium</td></tr>
+        <tr><td>Ladungsträger</td><td>freie Elektronen (−)</td><td>Löcher (+), dort fehlt ein Elektron</td></tr>
+      </tbody>
+    </table></div>
+    <div class="merk">N = 5 = Elektron. P = 3 = Loch.</div>
+    <h3>Was an der Grenze passiert</h3>
+    <ul>
+      <li>Elektronen wandern vom N- in den P-Leiter, Löcher vom P- in den N-Leiter. Dort treffen sie sich und rekombinieren. Das nennt man Diffusion.</li>
+      <li>Das passiert nur am Grenzübergang.</li>
+      <li>Danach ist der N-Leiter an der Grenze positiv geladen, der P-Leiter negativ. So entsteht die Diffusionsspannung.</li>
+      <li>Diese Spannung stoppt die weitere Diffusion. Zurück bleibt eine etwa 1 µm dicke Zone ohne freie Ladungsträger: die Sperrschicht.</li>
+    </ul>
+  </section>
+
+  <section id="richtung">
+    <h2>Durchlass- und Sperrrichtung</h2>
+    <p class="src">Seite 2 · Tafelbild</p>
+    <p>Es kommt nur darauf an, welcher Pol wo angeschlossen ist.</p>
+    <div class="fig">
+      <figure>
+        <svg viewBox="0 0 320 210" width="320" role="img" aria-label="Sperrschicht ohne Spannung, in Durchlassrichtung schmal, in Sperrrichtung breit">
+          <text class="tm" x="0" y="14">OHNE SPANNUNG</text>
+          <rect x="0" y="22" width="130" height="36" rx="3" fill="var(--marker-soft)" stroke="var(--ink)" stroke-width="1.2"/>
+          <rect x="130" y="22" width="40" height="36" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.2"/>
+          <rect x="170" y="22" width="130" height="36" rx="3" fill="var(--grid)" stroke="var(--ink)" stroke-width="1.2"/>
+          <text class="t" x="58" y="45">P</text><text class="t" x="230" y="45">N</text>
+          <text class="tm" x="0" y="84">DURCHLASS: + AN P</text>
+          <rect x="0" y="92" width="143" height="36" rx="3" fill="var(--marker-soft)" stroke="var(--ink)" stroke-width="1.2"/>
+          <rect x="143" y="92" width="14" height="36" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.2"/>
+          <rect x="157" y="92" width="143" height="36" rx="3" fill="var(--grid)" stroke="var(--ink)" stroke-width="1.2"/>
+          <text class="t" x="64" y="115">P</text><text class="t" x="224" y="115">N</text>
+          <text class="tm" x="0" y="154">SPERR: − AN P</text>
+          <rect x="0" y="162" width="100" height="36" rx="3" fill="var(--marker-soft)" stroke="var(--ink)" stroke-width="1.2"/>
+          <rect x="100" y="162" width="100" height="36" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.2"/>
+          <rect x="200" y="162" width="100" height="36" rx="3" fill="var(--grid)" stroke="var(--ink)" stroke-width="1.2"/>
+          <text class="t" x="44" y="185">P</text><text class="tm" x="116" y="184">SPERRSCHICHT</text><text class="t" x="244" y="185">N</text>
+        </svg>
+        <figcaption>Die helle Mitte ist die Sperrschicht.</figcaption>
+      </figure>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th></th><th>Durchlassrichtung</th><th>Sperrrichtung</th></tr></thead>
+      <tbody>
+        <tr><td>Polung</td><td>+ an P (Anode), − an N (Kathode)</td><td>− an P, + an N</td></tr>
+        <tr><td>Ladungsträger</td><td>werden zur Grenze gedrückt</td><td>werden von der Grenze weggezogen</td></tr>
+        <tr><td>Sperrschicht</td><td>deutlich schmaler</td><td>breiter</td></tr>
+        <tr><td>Strom</td><td>fließt ab der Schleusenspannung</td><td>praktisch keiner (winziger Sperrstrom)</td></tr>
+        <tr><td>Spannung heißt</td><td>U<sub>F</sub> (forward)</td><td>U<sub>R</sub> (reverse)</td></tr>
+      </tbody>
+    </table></div>
+    <p>„Durchflussrichtung“ an der Tafel bedeutet dasselbe wie Durchlassrichtung.</p>
+    <div class="merk">+ an P, dann fließt Strom.</div>
+    <p>Warum? Gleiche Ladungen stoßen sich ab. Plus am P-Leiter schiebt die Löcher zur Grenze, Minus am N-Leiter schiebt die Elektronen zur Grenze. Andersherum ziehen die Pole die Ladungsträger zu sich, weg von der Grenze.</p>
+  </section>
+
+  <section id="diode">
+    <h2>Die Halbleiterdiode <span class="lvl">LEVEL 2</span></h2>
+    <p class="src">Seite 3</p>
+    <div class="fig">
+      <figure>
+        <svg viewBox="0 0 240 90" width="240" role="img" aria-label="Schaltzeichen einer Diode, links Anode, rechts Kathode">
+          <line class="s" x1="20" y1="45" x2="95" y2="45"/><polygon class="f" points="95,25 95,65 135,45"/><line class="s" x1="137" y1="25" x2="137" y2="65"/><line class="s" x1="137" y1="45" x2="220" y2="45"/>
+          <text class="t" x="20" y="82">Anode (P)</text><text class="t" x="150" y="82">Kathode (N)</text>
+          <text class="tm" x="60" y="18">STROM →</text>
+        </svg>
+        <figcaption>Das Dreieck zeigt die Durchlassrichtung.</figcaption>
+      </figure>
+    </div>
+    <ul>
+      <li>P-Leiter = Anode, N-Leiter = Kathode.</li>
+      <li>Am Bauteil liegt die Kathode auf der Seite des Rings. Bei hellem Gehäuse ist er meist schwarz, bei schwarzem Gehäuse meist hell.</li>
+      <li>Messschaltung: Strommesser in Reihe, Spannungsmesser parallel zur Diode.</li>
+      <li>Schwellspannung (Schleusenspannung): Silizium 0,7 V, Germanium 0,3 V.</li>
+    </ul>
+    <div class="merk">Kathode = Ring = Strich im Schaltzeichen.</div>
+    <div class="erg">
+      <h3>Diode mit dem Multimeter prüfen</h3>
+      <div class="tbl"><table>
+        <thead><tr><th>Anzeige im Diodentest</th><th>Bedeutung</th></tr></thead>
+        <tbody>
+          <tr><td>Durchlass etwa 0,5–0,7 V, Sperr „OL“</td><td>Diode in Ordnung</td></tr>
+          <tr><td>Beide Richtungen fast 0 V</td><td>Kurzschluss, defekt</td></tr>
+          <tr><td>Beide Richtungen „OL“</td><td>Unterbrechung, defekt</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <section id="kennlinie">
+    <h2>Die Diodenkennlinie</h2>
+    <p class="src">Seite 5</p>
+    <div class="fig">
+      <figure>
+        <svg viewBox="0 0 340 230" width="340" role="img" aria-label="Diodenkennlinie: rechts steiler Anstieg ab Schleusenspannung, links Durchbruch bei maximaler Sperrspannung">
+          <line class="ax" x1="20" y1="120" x2="330" y2="120"/><line class="ax" x1="190" y1="10" x2="190" y2="220"/>
+          <path class="c" d="M 40 220 C 52 150, 56 124, 70 121 L 190 120 L 222 119 C 240 116, 252 90, 268 14"/>
+          <text class="tm" x="296" y="138">U<tspan dy="3" font-size="9">F</tspan></text>
+          <text class="tm" x="196" y="20">I<tspan dy="3" font-size="9">F</tspan></text>
+          <text class="tm" x="22" y="112">U<tspan dy="3" font-size="9">R</tspan></text>
+          <text class="tm" x="196" y="216">I<tspan dy="3" font-size="9">R</tspan></text>
+          <line class="ax" x1="230" y1="114" x2="230" y2="126"/><text class="tm" x="216" y="140">0,7 V</text>
+          <text class="t" x="236" y="72">Schleusen-</text><text class="t" x="236" y="88">spannung</text>
+          <text class="t" x="72" y="160">Durchbruch bei</text><text class="t" x="72" y="176">max. Sperrspannung</text>
+        </svg>
+        <figcaption>Rechts Durchlass, links Sperrbereich.</figcaption>
+      </figure>
+    </div>
+    <ul>
+      <li>Durchlass: Bis zur Schleusenspannung fließt kaum Strom, dann steigt I<sub>F</sub> steil an.</li>
+      <li>Sperr: Fast kein Strom, bis die maximale Sperrspannung erreicht ist. Dann bricht die Diode durch und I<sub>R</sub> steigt stark an. Eine normale Diode kann dabei zerstört werden.</li>
+      <li>P<sub>tot</sub> ist die höchstzulässige Verlustleistung. Sie darf nicht überschritten werden.</li>
+    </ul>
+    <div class="merk">Schleusenspannung Siliziumdiode 0,7 V!</div>
+  </section>
+
+  <section id="arten">
+    <h2>Besondere Dioden</h2>
+    <p class="src">Seite 5</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Diode</th><th>Betrieb</th><th>Merkmal</th><th>Schaltzeichen</th></tr></thead>
+      <tbody>
+        <tr><td>Z-Diode</td><td>Sperrrichtung</td><td>Sehr steiler Durchbruch bei der Z-Spannung U<sub>Z</sub>, wird gezielt genutzt</td><td>Kathodenstrich abgeknickt</td></tr>
+        <tr><td>Fotodiode</td><td>Sperrrichtung</td><td>Mehr Licht, mehr Strom</td><td>Pfeile zeigen zur Diode hin</td></tr>
+        <tr><td>LED</td><td>Durchlassrichtung</td><td>Farbe hängt von Halbleiterwerkstoff und Dotierung ab, ebenso die Spannung</td><td>Pfeile zeigen von der Diode weg</td></tr>
+      </tbody>
+    </table></div>
+    <div class="merk">Fotodiode: Licht kommt rein. LED: Licht geht raus.</div>
+    <div class="erg">
+      <h3>Thyristor (SCR)</h3>
+      <p>Eine steuerbare Diode mit Anode, Kathode und Gate. Ein kurzer Gateimpuls zündet ihn. Danach leitet er weiter, bis der Strom unter den Haltestrom fällt.</p>
+    </div>
+  </section>
+
+  <section id="anwendungen">
+    <h2>Anwendungen der Diode</h2>
+    <p class="src">Seiten 3 und 4</p>
+    <h3>1. Freilaufdiode</h3>
+    <p>Sie liegt parallel zur Relaisspule, mit der Kathode an Plus. Im Betrieb sperrt sie. Beim Abschalten will die Spule den Strom weitertreiben und erzeugt eine umgekehrte Spannung. Jetzt leitet die Diode, der Strom kreist durch Spule und Diode und klingt ab. Der Transistor ist vor der Spannungsspitze geschützt.</p>
+    <h3>2. Entkopplungsdiode</h3>
+    <p>Sie lässt Strom nur in eine Richtung und verhindert, dass Stromkreise sich gegenseitig speisen. In deiner Schaltung schaltet S1 nur R1, S3 nur R2, und S2 schaltet über beide Dioden R1 und R2.</p>
+    <h3>3. Spannungsbegrenzer</h3>
+    <p>Die Diode schneidet alle Spannungsanteile über U<sub>D</sub> ab.</p>
+    <div class="erg">
+      <h3>Gleichrichter</h3>
+      <p>Einweggleichrichter: eine Diode, nur eine Halbwelle kommt durch. Brückengleichrichter (Graetz): vier Dioden, beide Halbwellen werden genutzt. Beides ergibt pulsierende Gleichspannung.</p>
+      <h3>Dioden in Reihe und parallel</h3>
+      <p>In Reihe: höhere Sperrspannung, die Durchlassspannungen addieren sich (2 × 0,7 V = 1,4 V). Hochohmige Widerstände parallel zu jeder Diode teilen die Sperrspannung gleichmäßig auf. Parallel: höherer Strom. Kleine Widerstände in Reihe zu jeder Diode teilen den Strom gleichmäßig auf.</p>
+    </div>
+  </section>
+
+  <section id="bezeichnung">
+    <h2>Halbleiter&shy;bezeichnung</h2>
+    <p class="src">Seite 4</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Buchstabe</th><th>1. Buchstabe: Werkstoff</th><th>2. Buchstabe: Bauelement</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td>Germanium</td><td>Diode</td></tr>
+        <tr><td>B</td><td>Silizium</td><td>Kapazitätsdiode</td></tr>
+        <tr><td>C</td><td>Gallium-Arsenid</td><td>NF-Transistor</td></tr>
+      </tbody>
+    </table></div>
+    <p>Beispiele: BA = Silizium-Diode, AA = Germanium-Diode, BC = Silizium-NF-Transistor.</p>
+  </section>
+
+  <section id="widerstaende">
+    <h2>Halbleiter&shy;widerstände</h2>
+    <p class="src">Seite 7</p>
+    <div class="tbl"><table>
+      <thead><tr><th></th><th>NTC</th><th>PTC</th><th>VDR (Varistor)</th></tr></thead>
+      <tbody>
+        <tr><td>Name</td><td>Heißleiter</td><td>Kaltleiter</td><td>Voltage Dependent Resistor</td></tr>
+        <tr><td>Verhalten</td><td>Temperatur ↑, R ↓</td><td>Temperatur ↑, R ↑ (steil)</td><td>Spannung ↑, R ↓</td></tr>
+        <tr><td>Schaltzeichen</td><td>ϑ, Pfeile ↑↓</td><td>ϑ, Pfeile ↑↑</td><td>U</td></tr>
+        <tr><td>Einsatz</td><td>Fühler in Mess- und Regeltechnik</td><td>Ergänzung: selbstrückstellender Überstromschutz</td><td>Überspannungsschutz, Blitzschutz im Flugzeug</td></tr>
+      </tbody>
+    </table></div>
+    <p>Die Kennlinie des VDR ist in beiden Richtungen gleich: bei kleiner Spannung kaum Strom, ab einer bestimmten Spannung steiler Anstieg. Er wird parallel zum Bauteil geschaltet, das er schützen soll (Ergänzung).</p>
+    <div class="merk">Die Pfeile im Schaltzeichen verraten das Verhalten: ↑↓ gegenläufig, ↑↑ gleichlaufend.</div>
+  </section>
+
+  <section id="transistor">
+    <h2>Der bipolare Transistor <span class="lvl">LEVEL 1</span></h2>
+    <p class="src">Seiten 6, 8 und 9</p>
+    <div class="fig">
+      <figure>
+        <svg viewBox="0 0 150 140" width="150" role="img" aria-label="Schaltzeichen NPN-Transistor, Pfeil am Emitter zeigt nach außen">
+          <line class="s" x1="10" y1="70" x2="60" y2="70"/><line class="s" x1="60" y1="40" x2="60" y2="100"/>
+          <line class="s" x1="60" y1="55" x2="100" y2="25"/><line class="s" x1="100" y1="25" x2="100" y2="8"/>
+          <line class="s" x1="60" y1="85" x2="100" y2="115"/><line class="s" x1="100" y1="115" x2="100" y2="132"/>
+          <polygon class="f" points="100,115 86,113 93,103"/>
+          <text class="t" x="8" y="62">B</text><text class="t" x="108" y="18">C (+)</text><text class="t" x="108" y="130">E (−)</text>
+        </svg>
+        <figcaption>NPN: Pfeil zeigt raus</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 150 140" width="150" role="img" aria-label="Schaltzeichen PNP-Transistor, Pfeil am Emitter zeigt zur Basis">
+          <line class="s" x1="10" y1="70" x2="60" y2="70"/><line class="s" x1="60" y1="40" x2="60" y2="100"/>
+          <line class="s" x1="60" y1="55" x2="100" y2="25"/><line class="s" x1="100" y1="25" x2="100" y2="8"/>
+          <line class="s" x1="60" y1="85" x2="100" y2="115"/><line class="s" x1="100" y1="115" x2="100" y2="132"/>
+          <polygon class="f" points="62,86 76,88 69,98"/>
+          <text class="t" x="8" y="62">B</text><text class="t" x="108" y="18">C (−)</text><text class="t" x="108" y="130">E (+)</text>
+        </svg>
+        <figcaption>PNP: Pfeil zeigt rein</figcaption>
+      </figure>
+    </div>
+    <ul>
+      <li>Zwei Bauarten: NPN und PNP. Drei Anschlüsse: Basis (B), Kollektor (C), Emitter (E). Die Basis ist immer die mittlere Schicht.</li>
+      <li>NPN: Pfeil von Basis zu Emitter. Kollektor an +, Emitter an −.</li>
+      <li>PNP: Pfeil von Emitter zu Basis. Kollektor an −, Emitter an +.</li>
+      <li>Ersatzschaltbild: zwei Dioden. Beim NPN liegen beide Anoden an der Basis, beim PNP beide Kathoden.</li>
+    </ul>
+    <div class="merk">Der Transistor wirkt wie ein durch den Basisstrom gesteuerter Widerstand.</div>
+    <h3>Ströme</h3>
+    <div class="formula">I<sub>E</sub> = I<sub>B</sub> + I<sub>C</sub> &nbsp;&nbsp;&nbsp; B = I<sub>C</sub> / I<sub>B</sub> (Gleichstromverhältnis)</div>
+    <p>Beispiel: B = 200 und I<sub>B</sub> = 0,1 mA ergibt I<sub>C</sub> = 200 · 0,1 mA = 20 mA. Der Emitterstrom ist dann I<sub>E</sub> = 0,1 mA + 20 mA = 20,1 mA.</p>
+    <h3>Emitterschaltung</h3>
+    <p>Der Eingang liegt zwischen Basis und Emitter, der Ausgang zwischen Kollektor und Emitter. Der Emitter ist beiden gemeinsam. Das Eingangssignal sitzt auf einem Gleichspannungsanteil (Arbeitspunkt), damit die Basis-Emitter-Strecke über etwa 0,7 V bleibt. Mehr Basisstrom macht R<sub>CE</sub> kleiner, I<sub>C</sub> steigt und U<sub>CE</sub> sinkt. Eine kleine Änderung am Eingang ergibt eine große Änderung am Ausgang.</p>
+    <h3>Kennlinien</h3>
+    <ul>
+      <li>Eingangskennlinie: I<sub>B</sub> über U<sub>BE</sub>, steiler Anstieg ab etwa 0,7 V.</li>
+      <li>Ausgangskennlinienfeld: I<sub>C</sub> über U<sub>CE</sub>, eine Kurve pro Basisstrom. Mehr I<sub>B</sub> ergibt eine höhere Kurve.</li>
+    </ul>
+    <div class="merk">Einen Transistor kann man als Verstärker und als Schalter nutzen.</div>
+    <div class="erg">
+      <p><strong>Als Schalter:</strong> Kein Basisstrom bedeutet AUS, es fließt kein Kollektorstrom. Genug Basisstrom bedeutet EIN, der Transistor ist voll durchgesteuert und U<sub>CE</sub> ist sehr klein (Sättigung).</p>
+      <p><strong>Phasenlage:</strong> In der Emitterschaltung ist das Ausgangssignal um 180° verschoben. In der Skizze auf Seite 6 ist es gleichphasig gezeichnet, dort geht es nur um die Verstärkung.</p>
+      <p><strong>FET:</strong> Feldeffekttransistoren haben Gate, Drain und Source. Sie werden über eine Spannung am Gate gesteuert, fast ohne Steuerstrom.</p>
+    </div>
+  </section>
+
+  <section id="ic">
+    <h2>IC und Operations&shy;verstärker <span class="lvl">LEVEL 1</span></h2>
+    <p class="src">Themen von Seite 10 (Punkte 6 bis 9), Inhalt ergänzt</p>
+    <div class="erg">
+      <p>Eine integrierte Schaltung (IC) vereint viele Bauelemente wie Transistoren und Widerstände auf einem Halbleiterchip. Man unterscheidet lineare ICs (analog, z. B. Operationsverstärker) und digitale ICs (Logikgatter).</p>
+      <div class="formula">Verstärkung v = U<sub>A</sub> / U<sub>E</sub> &nbsp;&nbsp; Beispiel: 5 V / 0,1 V = 50</div>
+      <h3>Differenzverstärker</h3>
+      <p>Er verstärkt die Differenz zweier Eingangsspannungen. Aufbau: zwei möglichst gleiche Transistoren mit gemeinsamem Emitterwiderstand oder Konstantstromquelle. Liegt an beiden Eingängen dieselbe Spannung, bleibt der Ausgang ideal bei null (Gleichtaktunterdrückung). So werden Störungen ausgeblendet.</p>
+      <h3>Operationsverstärker</h3>
+      <p>Dreieck-Symbol mit zwei Eingängen (+ nichtinvertierend, − invertierend), einem Ausgang U<sub>A</sub> und der Versorgung U<sub>B</sub>. Es gilt U<sub>A</sub> = V<sub>0</sub> · (U<sub>E+</sub> − U<sub>E−</sub>), aber nie mehr als die Versorgungsspannung. Ohne Gegenkopplung geht der Ausgang schon bei kleiner Differenz an die Grenze.</p>
+      <div class="tbl"><table>
+        <thead><tr><th>Kennwert</th><th>Ideal</th><th>Real (typisch)</th></tr></thead>
+        <tbody>
+          <tr><td>Leerlaufverstärkung V<sub>0</sub></td><td>unendlich</td><td>etwa 10<sup>5</sup></td></tr>
+          <tr><td>Eingangswiderstand</td><td>unendlich</td><td>sehr groß (MΩ und mehr)</td></tr>
+          <tr><td>Ausgangswiderstand</td><td>null</td><td>klein</td></tr>
+          <tr><td>Gleichtaktunterdrückung CMRR</td><td>unendlich</td><td>groß, CMRR = V<sub>D</sub> / V<sub>G</sub></td></tr>
+        </tbody>
+      </table></div>
+      <p>Weitere Kennwerte: Offsetspannung und Anstiegsgeschwindigkeit (Slew Rate).</p>
+      <h3>Logikgatter</h3>
+      <p>AND: Ausgang 1 nur, wenn alle Eingänge 1 sind. OR: 1, sobald mindestens ein Eingang 1 ist. NOT: kehrt das Signal um.</p>
+    </div>
+  </section>
+
+  <section id="leiterplatten">
+    <h2>Leiterplatten <span class="lvl">LEVEL 1</span></h2>
+    <p class="src">Thema von Seite 10 (Punkt 10), Inhalt ergänzt</p>
+    <div class="erg">
+      <ul>
+        <li>Aufbau: isolierender Träger, meist glasfaserverstärktes Epoxidharz (FR4), mit Leiterbahnen aus Kupfer.</li>
+        <li>Lötstopplack schützt die Leiterbahnen und verhindert ungewollte Lötbrücken.</li>
+        <li>Multilayer: mehrere Kupferlagen, getrennt durch Isolierschichten, verbunden über Durchkontaktierungen (Vias).</li>
+        <li>THT-Bauteile werden durch Bohrungen gesteckt, SMD-Bauteile direkt auf die Oberfläche gelötet.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="servo">
+    <h2>Servo&shy;mechanismen <span class="lvl">LEVEL 1</span></h2>
+    <p class="src">Noch nicht im Unterricht, Inhalt ergänzt</p>
+    <div class="erg">
+      <ul>
+        <li>Offener Regelkreis (Steuerung): keine Rückmeldung.</li>
+        <li>Geschlossener Regelkreis (Regelung): Der Istwert wird zurückgeführt (Feedback) und mit dem Sollwert verglichen.</li>
+        <li>Fehlersignal = Sollwert − Istwert. Solange es nicht null ist, führt der Antrieb den Ausgang dem Sollwert nach (Follow-up). Bei null stoppt er.</li>
+        <li>Analoge Messwandler wandeln Weg oder Winkel in ein elektrisches Signal, z. B. ein Potentiometer. Kapazitive Geber messen etwa den Tankinhalt, induktive Geber (LVDT) einen Weg.</li>
+        <li>Synchros übertragen Winkelstellungen elektrisch. Torque-Synchro: dreht kleine Lasten wie Zeiger direkt. Control-Synchro: liefert ein Fehlersignal für Servoverstärker und Motor. Resolver liefern Sinus- und Kosinus-Signal des Winkels.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="formeln">
+    <h2>Auf einen Blick</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Was</th><th>Wert oder Formel</th></tr></thead>
+      <tbody>
+        <tr><td>Schleusenspannung Silizium</td><td>0,7 V</td></tr>
+        <tr><td>Schleusenspannung Germanium</td><td>0,3 V</td></tr>
+        <tr><td>Sperrschicht ohne Spannung</td><td>etwa 1 µm</td></tr>
+        <tr><td>Dotierung N / P</td><td>5-wertig / 3-wertig</td></tr>
+        <tr><td>Durchlassrichtung</td><td>+ an P (Anode)</td></tr>
+        <tr><td>Transistorströme</td><td>I<sub>E</sub> = I<sub>B</sub> + I<sub>C</sub></td></tr>
+        <tr><td>Gleichstromverhältnis</td><td>B = I<sub>C</sub> / I<sub>B</sub></td></tr>
+        <tr><td>NPN / PNP Pfeil</td><td>raus / rein</td></tr>
+        <tr><td>VDR</td><td>U ↑, R ↓</td></tr>
+        <tr><td>Verstärkung</td><td>v = U<sub>A</sub> / U<sub>E</sub></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <p class="foot">Quelle: deine Mitschrift Modul 4 vom 14. Oktober 2026 (Seiten 1 bis 10) und das Tafelbild. Ergänzungen nach EASA Part-66, Anhang III, Modul 4 für B1. Gleiche die Ergänzungen mit deinem Buch ab.</p>
+</div>
+</body></html>

@@ -1,0 +1,358 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Modul 10 Lernübersicht</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: eine Lesespalte auf Karopapier wie die Mitschrift. Blaue Tinte, gelber Marker für Merksätze, gestrichelte Kästen für Ergänzungen. Gleiches System wie die Lernübersicht Modul 4. */
+:root {
+  --paper: #F3F5FA;
+  --card: #FFFFFF;
+  --fg: #1A1F33;
+  --ink: #16256B;
+  --ink-soft: #4F5B8C;
+  --grid: #DCE1EE;
+  --line: #C3CBE0;
+  --marker: #F2F06B;
+  --marker-soft: #F7F59A;
+  --red: #B3261E;
+  --ok: #1B7A4B;
+  --f-display: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0E1323; --card: #161D36; --fg: #E6E9F5; --ink: #B3BFFF; --ink-soft: #8E9AD0;
+    --grid: #1B2342; --line: #2B3664; --marker: #E4DE5A; --marker-soft: #4A4716; --red: #FF9088; --ok: #74D6A3;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0E1323; --card: #161D36; --fg: #E6E9F5; --ink: #B3BFFF; --ink-soft: #8E9AD0;
+  --grid: #1B2342; --line: #2B3664; --marker: #E4DE5A; --marker-soft: #4A4716; --red: #FF9088; --ok: #74D6A3;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--fg); font-family: var(--f-body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 24px 56px;
+}
+.wrap { max-width: 720px; margin-inline: auto; display: flex; flex-direction: column; gap: 22px; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(2.6rem, 11vw, 4rem); line-height: .95; text-transform: uppercase; color: var(--ink); margin: 6px 0 12px; text-wrap: balance; }
+h1 span { background: linear-gradient(transparent 58%, var(--marker-soft) 58%); padding-inline: 2px; }
+.lead { margin: 0; color: var(--ink-soft); max-width: 60ch; }
+nav.toc { display: flex; flex-wrap: wrap; gap: 8px; }
+nav.toc a { font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; border: 1.5px solid var(--line); background: var(--card); border-radius: 6px; padding: 6px 10px; }
+nav.toc a:hover, nav.toc a:focus-visible { border-color: var(--ink); outline: none; }
+section { background: var(--card); border: 1.5px solid var(--line); border-radius: 8px; padding: 20px 18px; display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 16px; }
+h2 { font-family: var(--f-display); font-weight: 700; font-size: 1.7rem; line-height: 1.05; text-transform: uppercase; letter-spacing: .02em; color: var(--ink); margin: 0; text-wrap: balance; overflow-wrap: break-word; hyphens: auto; -webkit-hyphens: auto; }
+h2 .lvl { font-family: var(--f-mono); font-size: 12px; font-weight: 500; letter-spacing: .06em; color: var(--ink-soft); vertical-align: middle; margin-left: 8px; white-space: nowrap; }
+h3 { font-size: 1.05rem; font-weight: 600; color: var(--ink); margin: 6px 0 0; }
+p { margin: 0; max-width: 65ch; }
+ul, ol { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
+sub, sup { line-height: 0; }
+.merk { background: var(--marker-soft); border-radius: 4px; padding: 10px 12px; font-weight: 600; }
+.merk::before { content: "Merksatz "; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 500; display: block; color: var(--ink-soft); }
+.fix { border-left: 4px solid var(--red); padding: 6px 12px; }
+.fix::before { content: "Korrektur zu deinen Notizen"; display: block; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--red); }
+.fixs { border-left: 4px solid var(--red); padding: 6px 12px; }
+.fixs::before { content: "Fehler im Skript"; display: block; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--red); }
+.gxs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.gx { border: 1.5px solid var(--line); border-radius: 6px; padding: 12px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.gx h3 { margin: 0; }
+.gx p { font-size: 14px; }
+.ttx th { font-size: 11px; letter-spacing: .02em; text-transform: none; white-space: normal; }
+.ttx td:last-child { background: var(--marker-soft); font-weight: 600; }
+.erg { border: 1.5px dashed var(--ink-soft); border-radius: 6px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+.erg::before { content: "Ergänzung · nicht aus deinen Notizen"; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+.src { font-family: var(--f-mono); font-size: 12px; color: var(--ink-soft); }
+.tbl { overflow-x: auto; max-width: 100%; }
+section, .erg, section > *, .erg > * { min-width: 0; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-mono); font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
+td.num, .bits td { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.bits td, .bits th { text-align: center; padding: 6px 4px; }
+.bits tr.hl td { background: var(--marker-soft); font-weight: 600; }
+.st { font-family: var(--f-mono); font-size: 12px; white-space: nowrap; }
+.st.ok { color: var(--ok); }
+.st.open { color: var(--ink-soft); }
+.st.na { color: var(--ink-soft); opacity: .7; }
+.formula { font-family: var(--f-mono); font-size: 15px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 8px 12px; overflow-x: auto; }
+.fig { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; overflow-x: auto; }
+.fig figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0; }
+.fig figcaption { font-size: 13px; color: var(--ink-soft); text-align: center; }
+svg { max-width: 100%; height: auto; }
+svg .s { stroke: var(--ink); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+svg .f { fill: var(--ink); }
+svg .t { fill: var(--fg); font-family: var(--f-body); font-size: 13px; }
+svg .tb { fill: var(--ink); font-family: var(--f-display); font-weight: 700; font-size: 17px; }
+svg .tm { fill: var(--ink-soft); font-family: var(--f-mono); font-size: 11px; }
+svg .c { stroke: var(--red); fill: none; stroke-width: 2.5; stroke-linecap: round; }
+svg .ax { stroke: var(--ink-soft); stroke-width: 1.2; fill: none; }
+svg .gd { stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 4; fill: none; }
+svg .dot { fill: var(--red); stroke: none; }
+svg .box { fill: var(--card); stroke: var(--ink); stroke-width: 1.6; }
+svg .boxm { fill: var(--marker-soft); stroke: var(--ink); stroke-width: 1.6; }
+svg .tarea { fill: var(--marker-soft); stroke: var(--ink); stroke-width: 1.6; stroke-linejoin: round; }
+.foot { font-size: 13px; color: var(--ink-soft); }
+.back { align-self: flex-start; font-weight: 600; color: var(--ink); background: var(--marker-soft); border-radius: 6px; padding: 8px 12px; text-decoration: none; }
+.back:hover, .back:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+</style>
+
+<div class="wrap" lang="de">
+  <header>
+    <div class="eyebrow">AERO-Bildung · EASA Part-66 B1 · Modul 10</div>
+    <h1><span>Luft</span>recht</h1>
+    <p class="lead">Das Wichtigste aus deinem Skript „Luftfahrtgesetzgebung, Modul 10“ (Version 06/2026), kurz erklärt und nach den Part-66-Untermodulen geordnet. Gelbe Kästen sind Merksätze. Gestrichelte Kästen sind Ergänzungen, die nicht im Skript stehen.</p>
+  </header>
+
+  <a class="back" href="./">← Zum Quiz und zu den Karteikarten</a>
+
+  <nav class="toc" aria-label="Inhalt">
+    <a href="#pruefung">Prüfung</a><a href="#recht">Behörden</a><a href="#regeln">Verordnungen</a><a href="#begriffe">Begriffe</a><a href="#p66">Teil-66</a><a href="#p66e">Fristen Teil-66</a><a href="#p145">Teil-145</a><a href="#crs">Freigabe</a><a href="#sms">SMS</a><a href="#iars">IARS</a><a href="#ops">Flugbetrieb</a><a href="#p21">Teil 21</a><a href="#teilm">Teil-M &amp; ML</a><a href="#camo">CAMO &amp; ARC</a><a href="#aufsicht">Aufsicht</a><a href="#extra">Außerhalb EU</a><a href="#cyber">Cyber</a><a href="#hinweise">Hinweise zum Skript</a><a href="#zahlen">Zahlen auf einen Blick</a>
+  </nav>
+
+  <section id="pruefung">
+    <h2>Was geprüft wird</h2>
+    <p>Modul 10 heißt „Luftrecht“. Level für Kategorie B nach Part-66, Anhang I (Verordnung 2023/989), wie auf Folie 5.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Nr.</th><th>Untermodul</th><th>B1</th></tr></thead>
+      <tbody>
+        <tr><td class="num">10.1</td><td>Rechtsrahmen (ICAO, EU, EASA, LBA, Verordnungen, Soft Law)</td><td class="num">1</td></tr>
+        <tr><td class="num">10.2</td><td>Freigabeberechtigtes Personal (Teil-66)</td><td class="num">2</td></tr>
+        <tr><td class="num">10.3</td><td>Genehmigter Instandhaltungsbetrieb (Teil-145, CAO)</td><td class="num">2</td></tr>
+        <tr><td class="num">10.4</td><td>Unabhängiges freigabeberechtigtes Personal</td><td class="num"><strong>3</strong></td></tr>
+        <tr><td class="num">10.5</td><td>Flugbetrieb (965/2012)</td><td class="num">1</td></tr>
+        <tr><td class="num">10.6</td><td>Zertifizierung von Luftfahrzeugen und Teilen (Teil 21, CS)</td><td class="num">2</td></tr>
+        <tr><td class="num">10.7</td><td>Aufrechterhaltung der Lufttüchtigkeit (Teil-M, ML, CAMO)</td><td class="num">2</td></tr>
+        <tr><td class="num">10.8</td><td>Aufsichtsgrundsätze</td><td class="num">1</td></tr>
+        <tr><td class="num">10.9</td><td>Instandhaltung außerhalb der EU-Regeln</td><td class="num">1</td></tr>
+        <tr><td class="num">10.10</td><td>Cybersicherheit (Teil-IS)</td><td class="num">1</td></tr>
+      </tbody>
+    </table></div>
+    <p class="merk">10.4 ist das einzige Level-3-Thema. Dort kommen Fragen zu Rechten, Pflichten, Aufzeichnungen und Grenzen von IARS.</p>
+  </section>
+
+  <section id="recht">
+    <h2>Wer macht was <span class="lvl">10.1 · LEVEL 1</span></h2>
+    <p class="src">Folien 7 bis 14</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Stelle</th><th>Aufgabe</th></tr></thead>
+      <tbody>
+        <tr><td>ICAO (Montreal)</td><td>weltweite Standards in 19 Annexen. Annex 8 = Lufttüchtigkeit, Annex 19 = Sicherheitsmanagement</td></tr>
+        <tr><td>EU-Kommission</td><td>Exekutive, erlässt Durchführungsverordnungen (z. B. 1321/2014)</td></tr>
+        <tr><td>EASA (Köln)</td><td>Musterzulassung, Entwicklungsbetriebe, CS, AMC/GM, Aufsicht über die Staaten, Betriebe außerhalb der EU</td></tr>
+        <tr><td>LBA (Braunschweig)</td><td>Lizenzen, Genehmigung von 145er, CAMO, Herstellern, Eintragung und Verkehrszulassung</td></tr>
+      </tbody>
+    </table></div>
+    <p>Mit Nicht-EU-Ländern gibt es BASA (gegenseitige Anerkennung von Zeugnissen) und Arbeitsvereinbarungen der EASA (technische Fragen).</p>
+    <p class="merk">ICAO macht Standards, die EU macht Gesetze, die EASA setzt um, das LBA vollzieht.</p>
+  </section>
+
+  <section id="regeln">
+    <h2>Verordnungen &amp; Soft Law <span class="lvl">10.1 · LEVEL 1</span></h2>
+    <p class="src">Folien 15 bis 23, 82</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Verordnung</th><th>Inhalt</th></tr></thead>
+      <tbody>
+        <tr><td>2018/1139</td><td>Grundverordnung</td></tr>
+        <tr><td>748/2012</td><td>erstmalige Lufttüchtigkeit: Teil-21</td></tr>
+        <tr><td>1321/2014</td><td>Aufrechterhaltung: I Teil-M, II 145, III 66, IV 147, Va T, Vb ML, Vc CAMO, Vd CAO</td></tr>
+        <tr><td>965/2012</td><td>Flugbetrieb (CAT, NCC, NCO, SPO)</td></tr>
+        <tr><td>1178/2011</td><td>Aircrew (fliegendes Personal)</td></tr>
+        <tr><td>376/2014</td><td>Meldung von Ereignissen</td></tr>
+        <tr><td>2023/203</td><td>Teil-IS (Informationssicherheit)</td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Hard Law</strong> ist verbindlich (Verordnungen). <strong>Soft Law</strong> kommt von der EASA: AMC = das Wie, GM = das Warum, CS = Bauvorschriften. Ein <strong>AltMoC</strong> entwickelt der Betrieb, die Behörde genehmigt es und meldet es an die EASA.</p>
+    <p>Nicht unter 2018/1139 fallen Luftfahrzeuge für Militär, Polizei, Zoll, SAR, Brandbekämpfung und Grenzschutz sowie z. B. historische Luftfahrzeuge (national geregelt).</p>
+    <p class="merk">Anhänge der 1321/2014: M – 145 – 66 – 147.</p>
+  </section>
+
+  <section id="begriffe">
+    <h2>Begriffe &amp; Klassen <span class="lvl">10.1 / 10.6</span></h2>
+    <p class="src">Folien 47 bis 49, 59 bis 61</p>
+    <p><strong>Complex (Flugzeug):</strong> MTOM über 5700 kg <em>oder</em> über 19 Sitze <em>oder</em> mindestens 2 Piloten <em>oder</em> Strahltriebwerk <em>oder</em> mehr als ein Turboprop. <strong>Hubschrauber:</strong> über 3175 kg, über 9 Passagiere oder 2 Piloten.</p>
+    <p class="fix">Auf Folie 47 stehen die Kriterien untereinander, als müssten alle zutreffen. Gemeint ist „oder“: Ein Kriterium reicht.</p>
+    <p>Leichte Klassen: LSA ≤ 600 kg, ELA1 ≤ 1200 kg, ELA2 ≤ 2000 kg. CS-23 kleine, CS-25 große Flugzeuge, CS-27/29 kleine/große Hubschrauber, CS-22 Segelflugzeuge.</p>
+    <p>Line Maintenance = während des Flugbetriebs, unter C-Check. Base Maintenance = C-Check und höher, alle Strukturreparaturen. Die Vorflugkontrolle zählt nicht dazu.</p>
+    <p class="merk">5700 – 19 – 2 – Jet: eins reicht.</p>
+  </section>
+
+  <section id="p66">
+    <h2>Teil-66 Lizenzen <span class="lvl">10.2 · LEVEL 2</span></h2>
+    <p class="src">Folien 213 bis 227</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Kat.</th><th>Rechte</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td>einfache Line-Arbeiten, selbst durchgeführt, Task Training im 145er, keine Musterberechtigung</td></tr>
+        <tr><td>B1</td><td>Struktur, Triebwerk, Mechanik, Elektrik, einfache Avionik-Tests. Enthält A</td></tr>
+        <tr><td>B2</td><td>Avionik und Elektrik. Enthält A <em>nicht</em> (erst nach Task Training, 6 Monaten, Assessment)</td></tr>
+        <tr><td>B3</td><td>nicht druckbelüftete Kolbenflugzeuge bis 2000 kg</td></tr>
+        <tr><td>C</td><td>ganzes Luftfahrzeug nach Base Maintenance</td></tr>
+      </tbody>
+    </table></div>
+    <p>Gruppen: 1 complex (Musterberechtigung), 2 einmotorige Turboprop/Hubschrauber, 3 Kolbenflugzeuge, 4 Segler, Ballone, Luftschiffe. Antrag mit Form 19, ab 18 Jahren.</p>
+    <p>Rechte ausüben nur mit Freigabeberechtigung eines Betriebs, 6 Monaten Erfahrung in 2 Jahren und Sprachkenntnis der Unterlagen.</p>
+    <p class="merk">B1 hat A dabei, B2 muss A nachlernen.</p>
+  </section>
+
+  <section id="p66e">
+    <h2>Erfahrung &amp; Fristen <span class="lvl">10.2 · LEVEL 2</span></h2>
+    <p class="src">Folien 228 bis 250</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Kategorie</th><th>ohne Ausbildung</th><th>Facharbeiter</th><th>147-Kurs</th></tr></thead>
+      <tbody>
+        <tr><td>A, B1.2, B1.4, B3</td><td class="num">3 J.</td><td class="num">2 J.</td><td class="num">1 J.</td></tr>
+        <tr><td>B1.1, B1.3, B2</td><td class="num">5 J.</td><td class="num">3 J.</td><td class="num">2 J.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Module und Erfahrung höchstens 10 Jahre alt. Musterlehrgang + OJT innerhalb 3 Jahren. Lizenz gilt 5 Jahre. Vorlage auf Verlangen innerhalb 24 Stunden.</p>
+    <p>Widerruf bei Fälschung, nachlässiger Instandhaltung, falscher Freigabe, Alkohol oder Drogen.</p>
+    <p class="merk">Klein 3-2-1, Turbine 5-3-2.</p>
+  </section>
+
+  <section id="p145">
+    <h2>Teil-145 Betrieb <span class="lvl">10.3 · LEVEL 2</span></h2>
+    <p class="src">Folien 160 bis 186</p>
+    <p>Zuständig ist die Behörde am Hauptsitz (außerhalb EU: EASA). Klassen: A Luftfahrzeuge, B Triebwerke/APU, C Komponenten (C1–C22, Capability List), D1 NDT.</p>
+    <p><strong>Accountable Manager:</strong> Ressourcen, Sicherheitsrichtlinie, benennt Compliance und Safety Manager. <strong>Compliance Manager:</strong> erteilt die Freigabeberechtigungen.</p>
+    <p>Freigabepersonal: Mindestalter (B) 21, 6 Monate Erfahrung in 2 Jahren, Weiterbildung alle 2 Jahre. Base complex: C mit B1/B2-Unterstützungspersonal. Sonderfreigaben (z. B. AOG) innerhalb 7 Tagen an die Behörde melden.</p>
+    <p>Schlechtes Wetter bei Line-Arbeiten: aussetzen. Werkzeuge regelmäßig kalibrieren.</p>
+    <p class="merk">A Flieger, B Motor, C Teil, D Prüfung.</p>
+  </section>
+
+  <section id="crs">
+    <h2>Freigabe, Form 1, Aufzeichnungen <span class="lvl">10.3 · LEVEL 2</span></h2>
+    <p class="src">Folien 187 bis 210</p>
+    <p>CRS vor dem Flug nach Abschluss aller Arbeiten. Neue Mängel an die CAMO melden. AOG ohne Freigabedokument: höchstens 30 Flugstunden.</p>
+    <p><strong>EASA Form 1</strong> ist eine Urkunde. 21.G: „Neu“, „Prototyp“. 145er: überholt, inspiziert/getestet, geändert, repariert. Normteile und Material brauchen einen CoC.</p>
+    <p>Aufzeichnungen im 145er 3 Jahre. Ereignisse innerhalb 72 Stunden an Behörde, Entwicklungsbetrieb und Betreiber/CAMO.</p>
+    <p class="merk">Keine CRS, kein Flug. 72 Stunden zum Melden.</p>
+  </section>
+
+  <section id="sms">
+    <h2>Rollen &amp; SMS <span class="lvl">10.3</span></h2>
+    <p class="src">Folien 38 bis 45, 55 bis 57, 135 bis 145</p>
+    <p>SMS: Gefahren erkennen, Risiken bewerten, auf akzeptables Niveau senken, Wirkung prüfen. SRB unter Vorsitz des AM, darunter Safety Action Groups. Audits systematisch, geplant, unabhängig.</p>
+    <p>Just Culture: unbeabsichtigte Fehler werden nicht bestraft, Vorsatz und grobe Fahrlässigkeit schon. Auch anonyme Meldungen zählen.</p>
+    <p>Handbücher: DOH (21.J), POE (21.G), MOE (145), CAME (CAMO), CAE (CAO), MTOE (147).</p>
+    <p class="merk">Aufgaben kann man delegieren, Rechenschaft nicht.</p>
+  </section>
+
+  <section id="iars">
+    <h2>Unabhängiges Personal (IARS) <span class="lvl">10.4 · LEVEL 3</span></h2>
+    <p class="src">Folien 253 bis 255</p>
+    <p>Teil-66-Lizenzinhaber, der im eigenen Namen arbeitet, nicht für einen Betrieb. Nur für Teil-ML-Luftfahrzeuge: Flugzeuge ≤ 2730 kg, Drehflügler ≤ 1200 kg bis 4 Insassen, andere ELA2, nicht im AOC.</p>
+    <p>Darf: Instandhaltung nach Teil-ML und CS-STAN, CRS (ML.A.801), IHP überprüfen, Lufttüchtigkeitsprüfung mit ARC Form 15c (1 Jahr). Die Prüfung umfasst Besichtigung, Aufzeichnungen, ADs, Reparaturen und Änderungen.</p>
+    <p>Berechtigung als IARS: nach einer erfolgreichen Lufttüchtigkeitsprüfung unter Aufsicht der Behörde, begrenzt auf die Luftfahrzeuge in der Lizenz.</p>
+    <div class="erg"><p>Level 3 heißt: du musst das auch anwenden können. Präge dir die Pflichten ein: Arbeit nur mit gültigen Unterlagen, alles lückenlos aufzeichnen, nur im Rahmen der eigenen Lizenz und Berechtigung, die Behörde darf jederzeit prüfen. Das Skript hat dazu nur drei Folien. Nimm dein Buch oder den Unterricht dazu.</p></div>
+    <p class="merk">IARS = allein, klein, privat.</p>
+  </section>
+
+  <section id="ops">
+    <h2>Flugbetrieb <span class="lvl">10.5 · LEVEL 1</span></h2>
+    <p class="src">Folien 72 bis 82</p>
+    <p>965/2012: CAT gewerblich, NCC nicht gewerblich complex, NCO nicht gewerblich andere, SPO Spezialeinsätze. Prüfflug (MCF) verantwortet der Betreiber.</p>
+    <p><strong>MEL</strong> vom Betreiber, behördlich genehmigt, mindestens so streng wie die MMEL des Herstellers, Fristen zwingend. <strong>CDL</strong> für fehlende Anbauteile. Entscheidung: Kommandant.</p>
+    <p>ETOPS: Zweistrahler mit Ausweichflughafen über 60 Minuten. Mitzuführen u. a. AOC, CofR, CofA (Form 25), ARC (Form 15), TLB, MEL. Aufbruchstellen rot oder gelb. Neu wiegen, wenn Masse/Schwerpunkt-Änderung unbekannt (z. B. nach Lackierung).</p>
+    <p class="merk">MEL = kaputt drin, CDL = fehlt außen.</p>
+  </section>
+
+  <section id="p21">
+    <h2>Teil 21 &amp; Zulassung <span class="lvl">10.6 · LEVEL 2</span></h2>
+    <p class="src">Folien 50 bis 54, 63 bis 70</p>
+    <p>Musterzulassung durch die EASA in 4 Schritten: Zertifizierungsgrundlage (CS), Programm (Nachweismethoden), Nachweis, TC mit TCDS.</p>
+    <p>21.J Entwicklungsbetrieb, 21.G Herstellungsbetrieb. Form 52 = Konformität mit dem Muster, Form 53 = Freigabe nach Instandhaltung im 21.G.</p>
+    <p>SB vom TC-Holder, meist freiwillig. Verpflichtend durch AD (EASA) oder LTA (LBA). Änderungen und Reparaturen nur mit genehmigten Daten. ETSO-Teile sind typunabhängig zugelassen.</p>
+    <p class="merk">J entwickelt, G baut, EASA lässt das Muster zu, LBA das einzelne Flugzeug.</p>
+  </section>
+
+  <section id="teilm">
+    <h2>Teil-M &amp; Teil-ML <span class="lvl">10.7 · LEVEL 2</span></h2>
+    <p class="src">Folien 84 bis 128</p>
+    <p>Verantwortlich: Eigentümer, bei Airlines der Betreiber über die eigene CAMO mit 145er. Vorflugkontrolle: Pilot bzw. Betreiber.</p>
+    <p>IHP von der Behörde genehmigt, oder indirekt über CAMO/CAO. Mängel bewertet freigabeberechtigtes Personal (Pilot nur nach MEL). Ausgebaute Komponenten nur im 145er mit C-Rating.</p>
+    <p>Aufbewahrung: TLB 36 Monate nach letzter Eintragung, Aufzeichnungen 36 Monate nach dauerhafter Außerbetriebnahme.</p>
+    <p>Teil-ML: nicht complex, nicht im AOC, Flugzeuge ≤ 2730 kg, Drehflügler ≤ 1200 kg bis 4 Insassen, andere ELA2.</p>
+    <p class="merk">Eigentümer verantwortlich, Freigabeberechtigter bewertet Mängel.</p>
+  </section>
+
+  <section id="camo">
+    <h2>CAMO, CAO &amp; ARC <span class="lvl">10.7 · LEVEL 2</span></h2>
+    <p class="src">Folien 117 bis 157</p>
+    <p>ARC gilt 1 Jahr. 15a Behörde, 15b CAMO/CAO, 15c Teil-ML. In überwachter Umgebung (12 Monate dieselbe CAMO, nur genehmigte Instandhaltung, kein Halterwechsel) darf die CAMO das ARC zweimal um je 1 Jahr verlängern.</p>
+    <p>ARC ungültig, wenn CofA ausgesetzt, Luftfahrzeug aus dem Register gelöscht oder TC ausgesetzt. Registerwechsel innerhalb der EU: ARC bleibt gültig.</p>
+    <p>ARS der CAMO: mindestens 5 Jahre Erfahrung. CAMO-Verträge 5 Jahre aufbewahren. CAO = CAMO plus Instandhaltung für nicht complex Luftfahrzeuge außerhalb eines AOC.</p>
+    <p class="merk">a = Amt, b = Betrieb, c = klein.</p>
+  </section>
+
+  <section id="aufsicht">
+    <h2>Aufsicht <span class="lvl">10.8 · LEVEL 1</span></h2>
+    <p class="src">Folien 46, 257 bis 266</p>
+    <p>LBA als Bundesoberbehörde unter dem BMDV. Aufsicht über CAMO, CAO, 145er und Unterauftragnehmer, Planungszyklus höchstens 24 Monate.</p>
+    <p>ACAM: Stichproben aus dem eigenen Register. SAFA: ausländische Luftfahrzeuge. NfL: amtliches Veröffentlichungsmittel des LBA, auch für LTAs.</p>
+    <p class="merk">ACAM = eigene, SAFA = fremde Flugzeuge.</p>
+  </section>
+
+  <section id="extra">
+    <h2>Außerhalb der EU-Regeln <span class="lvl">10.9 · LEVEL 1</span></h2>
+    <p class="src">Folien 263 bis 274</p>
+    <p>Historische Luftfahrzeuge, UL, Luftsportgeräte: national, LBA mit DAeC und DULV. Militär: EMAR bzw. DEMAR, Lizenz MAML.</p>
+    <p>PvL 4: Motoren, APU, Propeller, Flugsicherungsausrüstung. PvL 5: UL. Schweißen: DIN 29595, DIN ISO 24394. NDT: DIN EN 4179. Lackierbetriebe brauchen keine eigene Genehmigung, ein 145er überwacht.</p>
+  </section>
+
+  <section id="cyber">
+    <h2>Cybersicherheit <span class="lvl">10.10 · LEVEL 1</span></h2>
+    <p class="src">Folien 276 bis 278</p>
+    <p>Teil-IS (Verordnung 2023/203) verlangt ein ISMS: Informationssicherheitsrisiken mit Auswirkung auf die Flugsicherheit erkennen und managen. Gefahr durch unbefugte elektronische Interaktion, absichtlich oder unbeabsichtigt, z. B. manipulierte Wartungsdaten oder Software-Updates.</p>
+  </section>
+
+  <section id="hinweise">
+    <h2>Hinweise zum Skript</h2>
+    <p class="fix">Folie 47: Die complex-Kriterien gelten mit „oder“, nicht alle zusammen.</p>
+    <p class="fix">Folie 2 ordnet die Kapitel anderen Untermodul-Nummern zu als die Level-Tabelle auf Folie 5 (z. B. Kapitel 10 „IARS“ → 10.4). Quiz und Übersicht folgen der Level-Tabelle, die der aktuellen Part-66 entspricht.</p>
+    <p class="fix">Folie 221 nennt B1 „Line Maintenance Certifying Technician“. Die offizielle Bezeichnung ist „Maintenance Certifying Technician (Mechanical)“, B1 ist nicht auf Line beschränkt.</p>
+  </section>
+
+  <section id="zahlen">
+    <h2>Zahlen auf einen Blick</h2>
+    <div class="tbl"><table>
+      <tbody>
+        <tr><td>Complex Flugzeug / Hubschrauber</td><td>&gt; 5700 kg / &gt; 3175 kg</td></tr>
+        <tr><td>LSA / ELA1 / ELA2 / Teil-ML</td><td>600 / 1200 / 2000 / 2730 kg</td></tr>
+        <tr><td>B3</td><td>≤ 2000 kg, Kolben, keine Druckkabine</td></tr>
+        <tr><td>Mindestalter Lizenz / Freigabe B</td><td>18 / 21 Jahre</td></tr>
+        <tr><td>Lizenz gültig</td><td>5 Jahre (Form 19)</td></tr>
+        <tr><td>Laufende Erfahrung</td><td>6 Monate in 2 Jahren</td></tr>
+        <tr><td>Weiterbildung</td><td>alle 2 Jahre</td></tr>
+        <tr><td>Module / Erfahrung max. alt</td><td>10 Jahre</td></tr>
+        <tr><td>Musterlehrgang + OJT</td><td>innerhalb 3 Jahren</td></tr>
+        <tr><td>Lizenz vorlegen</td><td>24 Stunden</td></tr>
+        <tr><td>Ereignis melden</td><td>72 Stunden</td></tr>
+        <tr><td>Sonderfreigabe melden</td><td>7 Tage</td></tr>
+        <tr><td>AOG-Teil ohne Dokument</td><td>30 Flugstunden</td></tr>
+        <tr><td>145er-Aufzeichnungen</td><td>3 Jahre</td></tr>
+        <tr><td>TLB</td><td>36 Monate</td></tr>
+        <tr><td>CAMO-Verträge</td><td>5 Jahre</td></tr>
+        <tr><td>ARC</td><td>1 Jahr, 2× verlängerbar</td></tr>
+        <tr><td>ARS-Erfahrung</td><td>5 Jahre</td></tr>
+        <tr><td>Aufsichtszyklus</td><td>max. 24 Monate</td></tr>
+        <tr><td>ETOPS</td><td>&gt; 60 min zum Ausweichplatz</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <p class="foot">Quelle: dein Skript „Luftfahrtgesetzgebung“ (AERO-Bildung, Modul 10, Kategorie A/B1/B2, Version 06/2026). Gliederung und Level nach EASA Part-66, Anhang I, Modul 10 (Verordnung 2023/989). Maßgeblich bleibt immer die aktuelle Verordnung.</p>
+</div>
+
+</body></html>

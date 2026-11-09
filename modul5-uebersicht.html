@@ -1,0 +1,1087 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Modul 5 Lernübersicht</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: eine Lesespalte auf Karopapier wie die Mitschrift. Blaue Tinte, gelber Marker für Merksätze, gestrichelte Kästen für Ergänzungen. Gleiches System wie die Lernübersicht Modul 4. */
+:root {
+  --paper: #F3F5FA;
+  --card: #FFFFFF;
+  --fg: #1A1F33;
+  --ink: #16256B;
+  --ink-soft: #4F5B8C;
+  --grid: #DCE1EE;
+  --line: #C3CBE0;
+  --marker: #F2F06B;
+  --marker-soft: #F7F59A;
+  --red: #B3261E;
+  --ok: #1B7A4B;
+  --f-display: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0E1323; --card: #161D36; --fg: #E6E9F5; --ink: #B3BFFF; --ink-soft: #8E9AD0;
+    --grid: #1B2342; --line: #2B3664; --marker: #E4DE5A; --marker-soft: #4A4716; --red: #FF9088; --ok: #74D6A3;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0E1323; --card: #161D36; --fg: #E6E9F5; --ink: #B3BFFF; --ink-soft: #8E9AD0;
+  --grid: #1B2342; --line: #2B3664; --marker: #E4DE5A; --marker-soft: #4A4716; --red: #FF9088; --ok: #74D6A3;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--fg); font-family: var(--f-body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 24px 56px;
+}
+.wrap { max-width: 720px; margin-inline: auto; display: flex; flex-direction: column; gap: 22px; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(2.6rem, 11vw, 4rem); line-height: .95; text-transform: uppercase; color: var(--ink); margin: 6px 0 12px; text-wrap: balance; }
+h1 span { background: linear-gradient(transparent 58%, var(--marker-soft) 58%); padding-inline: 2px; }
+.lead { margin: 0; color: var(--ink-soft); max-width: 60ch; }
+nav.toc { display: flex; flex-wrap: wrap; gap: 8px; }
+nav.toc a { font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; border: 1.5px solid var(--line); background: var(--card); border-radius: 6px; padding: 6px 10px; }
+nav.toc a:hover, nav.toc a:focus-visible { border-color: var(--ink); outline: none; }
+section { background: var(--card); border: 1.5px solid var(--line); border-radius: 8px; padding: 20px 18px; display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 16px; }
+h2 { font-family: var(--f-display); font-weight: 700; font-size: 1.7rem; line-height: 1.05; text-transform: uppercase; letter-spacing: .02em; color: var(--ink); margin: 0; text-wrap: balance; overflow-wrap: break-word; hyphens: auto; -webkit-hyphens: auto; }
+h2 .lvl { font-family: var(--f-mono); font-size: 12px; font-weight: 500; letter-spacing: .06em; color: var(--ink-soft); vertical-align: middle; margin-left: 8px; white-space: nowrap; }
+h3 { font-size: 1.05rem; font-weight: 600; color: var(--ink); margin: 6px 0 0; }
+p { margin: 0; max-width: 65ch; }
+ul, ol { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
+sub, sup { line-height: 0; }
+.merk { background: var(--marker-soft); border-radius: 4px; padding: 10px 12px; font-weight: 600; }
+.merk::before { content: "Merksatz "; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 500; display: block; color: var(--ink-soft); }
+.fix { border-left: 4px solid var(--red); padding: 6px 12px; }
+.fix::before { content: "Korrektur zu deinen Notizen"; display: block; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--red); }
+.fixs { border-left: 4px solid var(--red); padding: 6px 12px; }
+.fixs::before { content: "Fehler im Skript"; display: block; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--red); }
+.gxs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.gx { border: 1.5px solid var(--line); border-radius: 6px; padding: 12px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.gx h3 { margin: 0; }
+.gx p { font-size: 14px; }
+.ttx th { font-size: 11px; letter-spacing: .02em; text-transform: none; white-space: normal; }
+.ttx td:last-child { background: var(--marker-soft); font-weight: 600; }
+.erg { border: 1.5px dashed var(--ink-soft); border-radius: 6px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+.erg::before { content: "Ergänzung · nicht aus deinen Notizen"; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+.src { font-family: var(--f-mono); font-size: 12px; color: var(--ink-soft); }
+.tbl { overflow-x: auto; max-width: 100%; }
+section, .erg, section > *, .erg > * { min-width: 0; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-mono); font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
+td.num, .bits td { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.bits td, .bits th { text-align: center; padding: 6px 4px; }
+.bits tr.hl td { background: var(--marker-soft); font-weight: 600; }
+.st { font-family: var(--f-mono); font-size: 12px; white-space: nowrap; }
+.st.ok { color: var(--ok); }
+.st.open { color: var(--ink-soft); }
+.st.na { color: var(--ink-soft); opacity: .7; }
+.formula { font-family: var(--f-mono); font-size: 15px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 8px 12px; overflow-x: auto; }
+.fig { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; overflow-x: auto; }
+.fig figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0; }
+.fig figcaption { font-size: 13px; color: var(--ink-soft); text-align: center; }
+svg { max-width: 100%; height: auto; }
+svg .s { stroke: var(--ink); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+svg .f { fill: var(--ink); }
+svg .t { fill: var(--fg); font-family: var(--f-body); font-size: 13px; }
+svg .tb { fill: var(--ink); font-family: var(--f-display); font-weight: 700; font-size: 17px; }
+svg .tm { fill: var(--ink-soft); font-family: var(--f-mono); font-size: 11px; }
+svg .c { stroke: var(--red); fill: none; stroke-width: 2.5; stroke-linecap: round; }
+svg .ax { stroke: var(--ink-soft); stroke-width: 1.2; fill: none; }
+svg .gd { stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 4; fill: none; }
+svg .dot { fill: var(--red); stroke: none; }
+svg .box { fill: var(--card); stroke: var(--ink); stroke-width: 1.6; }
+svg .boxm { fill: var(--marker-soft); stroke: var(--ink); stroke-width: 1.6; }
+svg .tarea { fill: var(--marker-soft); stroke: var(--ink); stroke-width: 1.6; stroke-linejoin: round; }
+.foot { font-size: 13px; color: var(--ink-soft); }
+.back { align-self: flex-start; font-weight: 600; color: var(--ink); background: var(--marker-soft); border-radius: 6px; padding: 8px 12px; text-decoration: none; }
+.back:hover, .back:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+</style>
+
+<div class="wrap" lang="de">
+  <header>
+    <div class="eyebrow">AERO-Bildung · EASA Part-66 B1 · Modul 5</div>
+    <h1><span>Digital</span>technik &amp; Displays</h1>
+    <p class="lead">Alles aus deinen Notizen vom 16. bis 21. Oktober 2026 und aus deinem Skript „CAT-B1 Modul 5“, verständlich erklärt und nach den Part-66-Untermodulen geordnet. Gelbe Kästen sind Merksätze. Gestrichelte Kästen sind Ergänzungen, die nicht in deinen Notizen stehen.</p>
+  </header>
+
+  <a class="back" href="./">← Zum Quiz, zu den Karteikarten und zum Test</a>
+
+  <nav class="toc" aria-label="Inhalt">
+    <a href="#pruefung">Prüfung</a><a href="#basict">Basic T</a><a href="#displays">Displays</a><a href="#zahlen">Zahlensysteme</a><a href="#komplement">Komplement</a><a href="#wandlung">Signalkette</a><a href="#aliasing">Aliasing</a><a href="#adu">A/D-Wandler</a><a href="#busse">Bussysteme</a><a href="#signale">Signalformen</a><a href="#osi">OSI</a><a href="#arinc">ARINC 429</a><a href="#logik">Logik</a><a href="#wahrheit">Wahrheitstabellen</a><a href="#kodierer">Encoder &amp; Decoder</a><a href="#computer">Computer</a><a href="#faseroptik">Faseroptik</a><a href="#anzeigen">Anzeigen</a><a href="#esd">ESD</a><a href="#software">Software</a><a href="#emv">EMV</a><a href="#systeme">Systeme</a><a href="#skriptfehler">Fehler im Skript</a><a href="#formeln">Auf einen Blick</a>
+  </nav>
+
+  <section id="pruefung">
+    <h2>Was geprüft wird</h2>
+    <p>Modul 5 heißt „Digitaltechniken / Elektronische Instrumentensysteme“. Die Tabelle zeigt die Untermodule mit dem Level für B1 und was deine Notizen bisher abdecken.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Nr.</th><th>Untermodul</th><th>B1</th><th>Stand</th></tr></thead>
+      <tbody>
+        <tr><td class="num">5.1</td><td>Elektronische Instrumentensysteme</td><td class="num">1</td><td><span class="st ok">✓ Notizen</span></td></tr>
+        <tr><td class="num">5.2</td><td>Zahlensysteme</td><td class="num">1</td><td><span class="st ok">✓ Notizen</span></td></tr>
+        <tr><td class="num">5.3</td><td>Datenumwandlung</td><td class="num">1</td><td><span class="st ok">✓ Notizen</span></td></tr>
+        <tr><td class="num">5.4</td><td>Datenbusse</td><td class="num">2</td><td><span class="st ok">✓ Notizen</span></td></tr>
+        <tr><td class="num">5.5 a</td><td>Logikschaltungen: Identifikation und Anwendungen</td><td class="num">2</td><td><span class="st ok">✓ Notizen</span></td></tr>
+        <tr><td class="num">5.6 a</td><td>Computerterminologie und -technologie</td><td class="num">2</td><td><span class="st ok">✓ Skript</span></td></tr>
+        <tr><td class="num">5.10</td><td>Faseroptik</td><td class="num">1</td><td><span class="st ok">✓ Skript</span></td></tr>
+        <tr><td class="num">5.11</td><td>Elektronische Anzeigen</td><td class="num">2</td><td><span class="st ok">✓ Skript</span></td></tr>
+        <tr><td class="num">5.12</td><td>Elektrostatisch empfindliche Komponenten</td><td class="num">2</td><td><span class="st ok">✓ Skript</span></td></tr>
+        <tr><td class="num">5.13</td><td>Software-Management-Kontrolle</td><td class="num">2</td><td><span class="st ok">✓ Skript</span></td></tr>
+        <tr><td class="num">5.14</td><td>Elektromagnetische Umgebung</td><td class="num">2</td><td><span class="st ok">✓ Skript</span></td></tr>
+        <tr><td class="num">5.15</td><td>Typische elektronische/digitale Luftfahrzeugsysteme</td><td class="num">1</td><td><span class="st ok">✓ Notizen + Skript</span></td></tr>
+      </tbody>
+    </table></div>
+    <p>Für B1 nicht gefordert (N/A): 5.5 b Logische Schaltpläne, 5.6 b Arbeitsweise von Computern, 5.7 Mikroprozessoren, 5.8 Integrierte Schaltungen, 5.9 Multiplexing.</p>
+    <p>Level 1 heißt: Begriffe kennen und einfach beschreiben. Level 2 heißt: Zusammenhänge verstehen und anwenden. Mit deinem Skript sind jetzt alle Untermodule abgedeckt.</p>
+  </section>
+
+  <section id="basict">
+    <h2>Das Basic T <span class="lvl">5.1 · LEVEL 1</span></h2>
+    <p class="src">Seite 1 · Testblatt Frage 1</p>
+    <p>Das Basic T ist die feste Anordnung der wichtigsten Fluginstrumente. Der Blick wandert so in jedem Cockpit gleich.</p>
+    <div class="fig">
+      <figure>
+        <svg viewBox="0 0 320 196" width="320" role="img" aria-label="Basic T: oben ASI, ADI, Altimeter, unten in der Mitte HSI. Links unten RMI, rechts unten VSI außerhalb des T.">
+          <path class="tarea" d="M 4 4 H 316 V 96 H 210 V 192 H 110 V 96 H 4 Z"/>
+          <circle class="box" cx="54" cy="50" r="38"/><circle class="box" cx="160" cy="50" r="38"/><circle class="box" cx="266" cy="50" r="38"/>
+          <circle class="box" cx="160" cy="144" r="38"/>
+          <circle class="box" cx="54" cy="144" r="34" stroke-dasharray="5 4"/><circle class="box" cx="266" cy="144" r="34" stroke-dasharray="5 4"/>
+          <text class="tb" x="54" y="56" text-anchor="middle">ASI</text>
+          <text class="tb" x="160" y="56" text-anchor="middle">ADI</text>
+          <text class="tb" x="266" y="56" text-anchor="middle">ALT</text>
+          <text class="tb" x="160" y="150" text-anchor="middle">HSI</text>
+          <text class="tb" x="54" y="150" text-anchor="middle">RMI</text>
+          <text class="tb" x="266" y="150" text-anchor="middle">VSI</text>
+        </svg>
+        <figcaption>Gelb hinterlegt: das T. RMI und VSI (gestrichelt) liegen daneben.</figcaption>
+      </figure>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th>Kürzel</th><th>Ausgeschrieben</th><th>Zeigt</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ASI</strong></td><td>Air Speed Indicator</td><td>Fahrt gegenüber der Luft</td></tr>
+        <tr><td><strong>ADI</strong></td><td>Attitude Director Indicator</td><td>Fluglage (künstlicher Horizont)</td></tr>
+        <tr><td><strong>Altimeter</strong></td><td>Barometrischer Höhenmesser</td><td>Höhe</td></tr>
+        <tr><td><strong>HSI</strong></td><td>Horizontal Situation Indicator</td><td>Kurs und Lage in der Waagerechten</td></tr>
+        <tr><td>RMI</td><td>Radio Magnetic Indicator</td><td>Kompass zum magnetischen Norden</td></tr>
+        <tr><td>VSI</td><td>Vertical Speed Indicator</td><td>Steig- und Sinkgeschwindigkeit</td></tr>
+      </tbody>
+    </table></div>
+    <div class="merk">Oben drei: ASI, ADI, Altimeter. Unten in der Mitte: HSI.</div>
+    <p class="fix">In deinen Notizen steht ADI = „Altitude Direction Indicator“. Richtig ist Attitude Director Indicator. Attitude heißt Fluglage, Altitude heißt Höhe.</p>
+    <p>Das (E) vor ADI und HSI steht für Electronic. EADI und EHSI sind die Bildschirme eines älteren EFIS.</p>
+    <h3>Aufgabenteilung im Cockpit</h3>
+    <ul>
+      <li><strong>Pilot Flying:</strong> kurzzeitige Überwachung in Echtzeit.</li>
+      <li><strong>Pilot Monitoring (Copilot):</strong> Monitoring über lange Zeit, Navigation.</li>
+    </ul>
+  </section>
+
+  <section id="displays">
+    <h2>Displays im Glascockpit <span class="lvl">5.1 · LEVEL 1</span></h2>
+    <p class="src">Seite 1 · Testblatt Fragen 2 bis 4</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Kürzel</th><th>Ausgeschrieben</th><th>Zeigt</th></tr></thead>
+      <tbody>
+        <tr><td><strong>PFD</strong></td><td>Primary Flight Display</td><td>die Basic-T-Anzeige</td></tr>
+        <tr><td><strong>ND</strong></td><td>Navigation Display</td><td>Navigation</td></tr>
+        <tr><td><strong>MFD</strong></td><td>Multifunction Display</td><td>wechselnde Inhalte</td></tr>
+        <tr><td><strong>ECAM</strong></td><td>Electronic Centralized Aircraft Monitoring</td><td>Airbus: Triebwerke, Warnungen, System Pages</td></tr>
+        <tr><td><strong>EICAS</strong></td><td>Engine Indicating and Crew Alerting System</td><td>Boeing: Triebwerke, Warnungen, System Pages</td></tr>
+      </tbody>
+    </table></div>
+    <div class="merk">ECAM = Airbus, EICAS = Boeing. Engine Parameter stehen im EICAS oder ECAM.</div>
+    <p>System Pages zeigen einzelne Flugzeugsysteme, zum Beispiel die Wheel, Door/Oxy und Fuel Pages.</p>
+    <p>Auf Seite 1 steht „Primär Fly Display“. Gemeint ist das Primary Flight Display, so wie auf deinem Testblatt.</p>
+  </section>
+
+  <section id="zahlen">
+    <h2>Zahlensysteme <span class="lvl">5.2 · LEVEL 1</span></h2>
+    <p class="src">Seiten 2 und 3 · Testblatt Frage 5</p>
+    <p>Jedes Stellenwertsystem hat eine Basis. Die Stellenwerte sind Potenzen dieser Basis, von rechts beginnend mit Basis<sup>0</sup> = 1. Die Ziffern gehen von 0 bis Basis − 1.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>System</th><th>Basis</th><th>Ziffern</th><th>Stellenwerte (rechts beginnend)</th></tr></thead>
+      <tbody>
+        <tr><td>Binär</td><td class="num">2</td><td>0, 1</td><td class="num">1, 2, 4, 8, 16, 32, 64, 128</td></tr>
+        <tr><td>Oktal</td><td class="num">8</td><td>0 bis 7</td><td class="num">1, 8, 64, 512</td></tr>
+        <tr><td>Dezimal</td><td class="num">10</td><td>0 bis 9</td><td class="num">1, 10, 100, 1000, 10.000</td></tr>
+        <tr><td>Hexadezimal</td><td class="num">16</td><td>0 bis 9, A bis F</td><td class="num">1, 16, 256, 4096</td></tr>
+      </tbody>
+    </table></div>
+    <p>Bei Hex stehen Buchstaben für zweistellige Werte: A = 10, B = 11, C = 12, D = 13, E = 14, F = 15.</p>
+    <ul>
+      <li>Ein Bit hat 2 Werte (0 oder 1).</li>
+      <li>Ein Byte hat 8 Bit und damit 2<sup>8</sup> = 256 Werte.</li>
+    </ul>
+    <h3>So rechnest du um</h3>
+    <ol>
+      <li>Stellenwerte des Zielsystems aufschreiben.</li>
+      <li>Bei der größten Stelle beginnen, die noch in die Zahl passt.</li>
+      <li>Aufschreiben, wie oft sie passt. Den Rest an die nächste Stelle weitergeben.</li>
+    </ol>
+    <h3>Beispiel: 154<sub>10</sub> in binär</h3>
+    <div class="tbl"><table class="bits">
+      <thead><tr><th>2<sup>7</sup></th><th>2<sup>6</sup></th><th>2<sup>5</sup></th><th>2<sup>4</sup></th><th>2<sup>3</sup></th><th>2<sup>2</sup></th><th>2<sup>1</sup></th><th>2<sup>0</sup></th></tr></thead>
+      <tbody>
+        <tr><td>128</td><td>64</td><td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td></tr>
+        <tr class="hl"><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+      </tbody>
+    </table></div>
+    <div class="formula">154 = 128 + 16 + 8 + 2 → 1001 1010<sub>2</sub></div>
+    <h3>Beispiel: 560<sub>10</sub> in oktal</h3>
+    <div class="formula">560 = 1·512 + 0·64 + 6·8 + 0·1 → 1060<sub>8</sub></div>
+    <h3>Beispiel: 777<sub>10</sub> in hexadezimal</h3>
+    <div class="formula">777 = 3·256 + 0·16 + 9·1 → 309<sub>16</sub></div>
+    <div class="merk">Zurückrechnen: jede Ziffer mal ihren Stellenwert, dann alles addieren.</div>
+  </section>
+
+  <section id="komplement">
+    <h2>Negative Zahlen: Einer- und Zweier&shy;komplement <span class="lvl">5.2 · LEVEL 1</span></h2>
+    <p class="src">Seite 4 · Testblatt Frage 6</p>
+    <h3>Einerkomplement</h3>
+    <p>Das Vorzeichen ändert sich, wenn man alle Bits umkehrt.</p>
+    <div class="tbl"><table class="bits">
+      <tbody>
+        <tr><th>+15</th><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+        <tr class="hl"><th>−15</th><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+      </tbody>
+    </table></div>
+    <p>Nachteil: Es gibt zwei Nullen. +0 = 0000 0000 und −0 = 1111 1111.</p>
+    <h3>Zweierkomplement</h3>
+    <ol>
+      <li>Einerkomplement bilden.</li>
+      <li>Eine 1 addieren.</li>
+    </ol>
+    <div class="tbl"><table class="bits">
+      <tbody>
+        <tr><th>+15</th><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+        <tr><th>umgekehrt</th><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr class="hl"><th>+1 = −15</th><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+      </tbody>
+    </table></div>
+    <p>Bei −0 wird aus 1111 1111 + 1 wieder 0000 0000. Das neunte Bit passt nicht mehr in 8 Bit und fällt weg. Im Zweierkomplement gibt es deshalb nur eine Null.</p>
+    <div class="merk">Einerkomplement: umkehren. Zweierkomplement: umkehren, dann plus 1.</div>
+    <div class="tbl"><table>
+      <thead><tr><th>8 Bit</th><th>Bereich</th></tr></thead>
+      <tbody>
+        <tr><td>Ohne Vorzeichen</td><td class="num">0 bis 255</td></tr>
+        <tr><td>Mit Vorzeichen (Zweierkomplement)</td><td class="num">−128 bis 127</td></tr>
+        <tr><td>Anzahl Darstellungen</td><td class="num">2<sup>8</sup> = 256</td></tr>
+      </tbody>
+    </table></div>
+    <h3>MSB und LSB</h3>
+    <ul>
+      <li><strong>MSB</strong> = Most Significant Bit: ganz links, höchste Wertigkeit (bei 8 Bit: 128).</li>
+      <li><strong>LSB</strong> = Least Significant Bit: ganz rechts, Wertigkeit 1.</li>
+    </ul>
+    <div class="formula"><strong>1</strong>101 011<strong>1</strong> &nbsp;→ linke 1 = MSB, rechte 1 = LSB</div>
+    <div class="erg">
+      <p>Im Zweierkomplement zeigt das MSB das Vorzeichen: 1 bedeutet negativ, 0 bedeutet positiv oder null.</p>
+    </div>
+  </section>
+
+  <section id="wandlung">
+    <h2>Signalkette und A/D-Wandlung <span class="lvl">5.3 · LEVEL 1</span></h2>
+    <p class="src">Seite 5 · Testblatt Frage 7</p>
+    <div class="fig">
+      <figure>
+        <svg viewBox="0 0 330 336" width="330" role="img" aria-label="Signalkette von oben nach unten: Sensor, A/D-Wandler, Busleitung, D/A-Wandler, Aktuator">
+          <rect class="box" x="4" y="6" width="130" height="40" rx="4"/><text class="tb" x="69" y="32" text-anchor="middle">SENSOR</text>
+          <rect class="boxm" x="4" y="76" width="130" height="40" rx="4"/><text class="tb" x="69" y="102" text-anchor="middle">A/D</text>
+          <rect class="box" x="4" y="146" width="130" height="40" rx="4"/><text class="tb" x="69" y="172" text-anchor="middle">BUSLEITUNG</text>
+          <rect class="boxm" x="4" y="216" width="130" height="40" rx="4"/><text class="tb" x="69" y="242" text-anchor="middle">D/A</text>
+          <rect class="box" x="4" y="286" width="130" height="40" rx="4"/><text class="tb" x="69" y="312" text-anchor="middle">AKTUATOR</text>
+          <line class="s" x1="69" y1="46" x2="69" y2="72"/><polygon class="f" points="63,66 75,66 69,76"/>
+          <line class="s" x1="69" y1="116" x2="69" y2="142"/><polygon class="f" points="63,136 75,136 69,146"/>
+          <line class="s" x1="69" y1="186" x2="69" y2="212"/><polygon class="f" points="63,206 75,206 69,216"/>
+          <line class="s" x1="69" y1="256" x2="69" y2="282"/><polygon class="f" points="63,276 75,276 69,286"/>
+          <text class="t" x="148" y="24">Druck → Spannung</text><text class="tm" x="148" y="40">ANALOG</text>
+          <text class="t" x="148" y="94">analog → digital</text><text class="tm" x="148" y="110">WANDLER</text>
+          <text class="t" x="148" y="164">z. B. 10100</text><text class="tm" x="148" y="180">DIGITAL</text>
+          <text class="t" x="148" y="234">digital → analog</text><text class="tm" x="148" y="250">WANDLER</text>
+          <text class="t" x="148" y="304">bewegt etwas</text><text class="tm" x="148" y="320">ANALOG</text>
+        </svg>
+        <figcaption>So läuft ein Messwert durch das Flugzeug.</figcaption>
+      </figure>
+    </div>
+    <ul>
+      <li>Der Sensor ist ein elektrischer Halbleiter. Er wandelt Druck in eine Spannung um. Diese Spannung ist analog, sie kann jeden Wert annehmen.</li>
+      <li>Der A/D-Wandler (Analog-Digital-Wandler) macht daraus eine Binärzahl.</li>
+      <li>Über die Busleitung läuft das Signal digital als Rechtecksignal.</li>
+      <li>Der D/A-Wandler macht daraus wieder eine Spannung für den Aktuator.</li>
+    </ul>
+    <h3>Sampling und Quantisierung</h3>
+    <div class="fig">
+      <figure>
+        <svg viewBox="0 0 340 236" width="340" role="img" aria-label="Analoges Signal über 8 Sekunden mit Abtastpunkten im Sekundentakt und Spannungsstufen von 2 Volt">
+<line class="gd" x1="44" y1="204" x2="316" y2="204"/><line class="gd" x1="44" y1="176" x2="316" y2="176"/><line class="gd" x1="44" y1="148" x2="316" y2="148"/><line class="gd" x1="44" y1="92" x2="316" y2="92"/><line class="gd" x1="44" y1="64" x2="316" y2="64"/><line class="gd" x1="44" y1="36" x2="316" y2="36"/><line class="gd" x1="78" y1="30" x2="78" y2="210"/><line class="gd" x1="112" y1="30" x2="112" y2="210"/><line class="gd" x1="146" y1="30" x2="146" y2="210"/><line class="gd" x1="180" y1="30" x2="180" y2="210"/><line class="gd" x1="214" y1="30" x2="214" y2="210"/><line class="gd" x1="248" y1="30" x2="248" y2="210"/><line class="gd" x1="282" y1="30" x2="282" y2="210"/><line class="gd" x1="316" y1="30" x2="316" y2="210"/>
+<line class="ax" x1="44" y1="120" x2="324" y2="120"/><line class="ax" x1="44" y1="24" x2="44" y2="214"/>
+<path class="s" d="M 44.0 120.0 C 49.7 110.7, 66.7 74.7, 78.0 64.0 C 89.3 53.3, 100.7 55.6, 112.0 55.6 C 123.3 55.6, 134.7 53.3, 146.0 64.0 C 157.3 74.7, 168.7 96.7, 180.0 120.0 C 191.3 143.3, 202.7 188.1, 214.0 204.0 C 225.3 219.9, 236.7 215.2, 248.0 215.2 C 259.3 215.2, 270.7 219.9, 282.0 204.0 C 293.3 188.1, 310.3 134.0, 316.0 120.0"/><circle class="dot" cx="78.0" cy="64.0" r="4"/><circle class="dot" cx="146.0" cy="64.0" r="4"/><circle class="dot" cx="180.0" cy="120.0" r="4"/><circle class="dot" cx="214.0" cy="204.0" r="4"/><circle class="dot" cx="282.0" cy="204.0" r="4"/><circle class="dot" cx="316.0" cy="120.0" r="4"/><text class="tm" x="4" y="40">+6 V</text><text class="tm" x="4" y="68">+4 V</text><text class="tm" x="4" y="96">+2 V</text><text class="tm" x="4" y="124">0 V</text><text class="tm" x="4" y="152">-2 V</text><text class="tm" x="4" y="180">-4 V</text><text class="tm" x="4" y="208">-6 V</text><text class="tm" x="74" y="226">1</text><text class="tm" x="108" y="226">2</text><text class="tm" x="142" y="226">3</text><text class="tm" x="176" y="226">4</text><text class="tm" x="210" y="226">5</text><text class="tm" x="244" y="226">6</text><text class="tm" x="278" y="226">7</text><text class="tm" x="312" y="226">8</text>
+<text class="tm" x="300" y="112">t [s]</text>
+<text class="t" x="58" y="52">(1 s, 4 V)</text><text class="t" x="150" y="52">(3 s, 4 V)</text>
+</svg>
+        <figcaption>Senkrechte Linien: Sampling jede Sekunde. Waagerechte Linien: Quantisierung in 2-V-Stufen. Rote Punkte: Werte aus deinen Notizen.</figcaption>
+      </figure>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th>Begriff</th><th>Teilt auf</th><th>Achse</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Sampling</strong></td><td>die Zeit</td><td>x-Achse</td></tr>
+        <tr><td><strong>Quantisierung</strong></td><td>die Spannung</td><td>y-Achse</td></tr>
+      </tbody>
+    </table></div>
+    <div class="merk">Sampling = Zeit, Quantisierung = Spannung.</div>
+    <h3>Abtastpunkte als Binärzahlen</h3>
+    <p>Jeder Punkt ist ein Wertepaar (Zeit, Spannung). In deinen Notizen hat jede Zahl 4 Bit, also 16 mögliche Werte (0 bis 15).</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Punkt</th><th>Zeit</th><th>Spannung</th><th>4 Bit</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="num">1 s</td><td class="num">4 V</td><td class="num">(0001, 0100)</td></tr>
+        <tr><td>2</td><td class="num">3 s</td><td class="num">4 V</td><td class="num">(0011, 0100)</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="aliasing">
+    <h2>Aliasing und Abtastrate <span class="lvl">5.3 · LEVEL 1</span></h2>
+    <p class="src">Seite 6</p>
+    <p>Wird ein Signal zu selten abgetastet, erscheint es als andere, falsche Frequenz. Das digitalisierte Signal ist dann unbrauchbar. Das nennt man Aliasing.</p>
+    <div class="formula">Abtastrate ≥ 2 · f<sub>max</sub> &nbsp;&nbsp; Beispiel: 20 Hz → mindestens 40 Hz</div>
+    <div class="fig">
+      <figure>
+        <svg viewBox="0 0 340 130" width="340" role="img" aria-label="Sinussignal, einmal pro Periode abgetastet: alle Abtastpunkte liegen auf der Nulllinie, erkannt wird eine flache Linie">
+<line class="ax" x1="20" y1="75" x2="330" y2="75"/>
+<path class="s" d="M 20.0 75.0 L 22.5 68.7 L 25.0 62.6 L 27.5 56.8 L 30.0 51.5 L 32.5 46.7 L 35.0 42.6 L 37.5 39.4 L 40.0 37.0 L 42.5 35.5 L 45.0 35.0 L 47.5 35.5 L 50.0 37.0 L 52.5 39.4 L 55.0 42.6 L 57.5 46.7 L 60.0 51.5 L 62.5 56.8 L 65.0 62.6 L 67.5 68.7 L 70.0 75.0 L 72.5 81.3 L 75.0 87.4 L 77.5 93.2 L 80.0 98.5 L 82.5 103.3 L 85.0 107.4 L 87.5 110.6 L 90.0 113.0 L 92.5 114.5 L 95.0 115.0 L 97.5 114.5 L 100.0 113.0 L 102.5 110.6 L 105.0 107.4 L 107.5 103.3 L 110.0 98.5 L 112.5 93.2 L 115.0 87.4 L 117.5 81.3 L 120.0 75.0 L 122.5 68.7 L 125.0 62.6 L 127.5 56.8 L 130.0 51.5 L 132.5 46.7 L 135.0 42.6 L 137.5 39.4 L 140.0 37.0 L 142.5 35.5 L 145.0 35.0 L 147.5 35.5 L 150.0 37.0 L 152.5 39.4 L 155.0 42.6 L 157.5 46.7 L 160.0 51.5 L 162.5 56.8 L 165.0 62.6 L 167.5 68.7 L 170.0 75.0 L 172.5 81.3 L 175.0 87.4 L 177.5 93.2 L 180.0 98.5 L 182.5 103.3 L 185.0 107.4 L 187.5 110.6 L 190.0 113.0 L 192.5 114.5 L 195.0 115.0 L 197.5 114.5 L 200.0 113.0 L 202.5 110.6 L 205.0 107.4 L 207.5 103.3 L 210.0 98.5 L 212.5 93.2 L 215.0 87.4 L 217.5 81.3 L 220.0 75.0 L 222.5 68.7 L 225.0 62.6 L 227.5 56.8 L 230.0 51.5 L 232.5 46.7 L 235.0 42.6 L 237.5 39.4 L 240.0 37.0 L 242.5 35.5 L 245.0 35.0 L 247.5 35.5 L 250.0 37.0 L 252.5 39.4 L 255.0 42.6 L 257.5 46.7 L 260.0 51.5 L 262.5 56.8 L 265.0 62.6 L 267.5 68.7 L 270.0 75.0 L 272.5 81.3 L 275.0 87.4 L 277.5 93.2 L 280.0 98.5 L 282.5 103.3 L 285.0 107.4 L 287.5 110.6 L 290.0 113.0 L 292.5 114.5 L 295.0 115.0 L 297.5 114.5 L 300.0 113.0 L 302.5 110.6 L 305.0 107.4 L 307.5 103.3 L 310.0 98.5 L 312.5 93.2 L 315.0 87.4 L 317.5 81.3 L 320.0 75.0"/>
+<line class="c" x1="20" y1="75" x2="320" y2="75" stroke-dasharray="6 5"/><circle class="dot" cx="20" cy="75" r="4.5"/><circle class="dot" cx="120" cy="75" r="4.5"/><circle class="dot" cx="220" cy="75" r="4.5"/><circle class="dot" cx="320" cy="75" r="4.5"/>
+<text class="tm" x="20" y="126">ABTASTRATE = f</text>
+</svg>
+        <figcaption>Ein 20-Hz-Signal, mit 20 Hz abgetastet: Alle Punkte liegen auf der Nulllinie. Erkannt wird eine flache Linie.</figcaption>
+      </figure>
+    </div>
+    <h3>Abtastrate und Hertz</h3>
+    <p class="src">Seite 7</p>
+    <div class="formula">Abtastrate = 1 / Sampledauer [s] &nbsp;&nbsp; Hertz = 1/s</div>
+    <p>Beispiel: Sampledauer 0,025 s → 1 / 0,025 s = 40 Hz. Das reicht für Signale bis 20 Hz.</p>
+    <div class="merk">Mindestens doppelt so oft abtasten wie die höchste Frequenz.</div>
+  </section>
+
+  <section id="adu">
+    <h2>A/D-Wandler: Flash, SAR, Single Slope <span class="lvl">5.3 · LEVEL 1</span></h2>
+    <p class="src">Testblatt Fragen 8 und 9 · Erklärungen ergänzt</p>
+    <p>Part-66 verlangt bei 5.3 auch die Arten von Wandlern und ihre Grenzen. Dein Testblatt fragt nach zwei Bauarten.</p>
+    <div class="erg">
+      <h3>Flash-ADU (Parallelwandler)</h3>
+      <ul>
+        <li>Ein Spannungsteiler erzeugt alle Referenzstufen auf einmal.</li>
+        <li>Für jede Stufengrenze gibt es einen Komparator, insgesamt 2<sup>n</sup> − 1 Stück. Bei 3 Bit sind das 7.</li>
+        <li>Alle Komparatoren vergleichen gleichzeitig. Ein Encoder macht daraus die Binärzahl.</li>
+        <li>Vorteil: das schnellste Verfahren, ein einziger Schritt.</li>
+        <li>Nachteil: sehr viele Komparatoren, deshalb teuer und stromhungrig. Meist nur bis etwa 8 Bit.</li>
+        <li>Einsatz: wo es sehr schnell gehen muss, z. B. Radar, Radarhöhenmesser, Oszilloskope.</li>
+      </ul>
+      <h3>SAR (Successive Approximation Register)</h3>
+      <ul>
+        <li>Er arbeitet wie eine Balkenwaage: das größte Gewicht zuerst.</li>
+        <li>Das MSB wird probeweise auf 1 gesetzt. Ein interner D/A-Wandler erzeugt die passende Spannung, ein Komparator vergleicht sie mit dem Eingang.</li>
+        <li>Ist der Eingang größer oder gleich, bleibt das Bit 1. Sonst wird es 0. Dann folgt das nächste Bit bis zum LSB.</li>
+        <li>n Bit brauchen n Schritte. Mittlere Geschwindigkeit, gute Auflösung, wenig Strom.</li>
+      </ul>
+    </div>
+    <h3>Rechenbeispiel SAR</h3>
+    <p>4 Bit, 1 V pro Stufe, Eingang 11,3 V:</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Schritt</th><th>Probe</th><th>Vergleich</th><th>Bit</th></tr></thead>
+      <tbody>
+        <tr><td>1 (MSB)</td><td class="num">8 V</td><td>8 ≤ 11,3</td><td class="num">1</td></tr>
+        <tr><td>2</td><td class="num">8 + 4 = 12 V</td><td>12 &gt; 11,3</td><td class="num">0</td></tr>
+        <tr><td>3</td><td class="num">8 + 2 = 10 V</td><td>10 ≤ 11,3</td><td class="num">1</td></tr>
+        <tr><td>4 (LSB)</td><td class="num">10 + 1 = 11 V</td><td>11 ≤ 11,3</td><td class="num">1</td></tr>
+      </tbody>
+    </table></div>
+    <div class="formula">Ergebnis: 1011<sub>2</sub> = 11</div>
+    <p><strong>Einsatz laut deinem Testblatt:</strong> Triebwerksüberwachung, FCC (Flight Control Computer), ADC (Air Data Computer) und Überwachung von Batterien.</p>
+    <h3>Single Slope (Ramp Type ADC)</h3>
+    <p class="src">Seite 7 · Flash-ADU = Parallelverfahren</p>
+    <div class="erg">
+      <ul>
+        <li>Eine Rampenspannung steigt von 0 V gleichmäßig an, gleichzeitig zählt ein Zähler die Takte.</li>
+        <li>Erreicht die Rampe die Eingangsspannung, schaltet der Komparator und stoppt den Zähler. Der Zählerstand ist der Digitalwert.</li>
+        <li>Vorteil: einfach und billig, nur ein Komparator. Nachteil: langsam, die Wandelzeit hängt von der Spannung ab (bei 8 Bit bis zu 255 Takte).</li>
+      </ul>
+    </div>
+    <div class="merk">Flash = parallel und schnell. SAR = Bit für Bit wie eine Balkenwaage. Single Slope = Rampe hoch und mitzählen.</div>
+  </section>
+
+  <section id="busse">
+    <h2>Bussysteme <span class="lvl">5.4 · LEVEL 2</span></h2>
+    <p class="src">Seiten 8 und 9</p>
+    <p>Ein Sensor misst eine analoge Größe. Der A/D-Wandler macht daraus Binärdaten, der Bus bringt sie zum Rechner, zum Beispiel zum Air Data Computer. Ein D/A-Wandler steuert am Ende wieder ein Stellglied an.</p>
+    <div class="formula">Sensor → A/D → Bus (z. B. 0100) → Rechner → D/A → Stellglied</div>
+    <p><strong>Achtung Abkürzung:</strong> In deiner Skizze ist ADC der Air Data Computer. ADC heißt aber auch Analog-Digital-Converter. Den Wandler hast du als A/D eingezeichnet.</p>
+    <h3>Unidirektional und bidirektional</h3>
+    <div class="fig"><figure>
+<svg viewBox="0 0 340 250" width="340" role="img" aria-label="Oben unidirektional: ein Sender, zwei Empfänger, Pfeile nur in eine Richtung. Unten bidirektional: drei Geräte, Pfeile in beide Richtungen">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="currentColor" stroke-width="1.6"/></marker></defs>
+<g style="color:var(--ink)">
+<text class="tm" x="10" y="14">UNIDIREKTIONAL · ARINC 429</text>
+<rect class="boxm" x="10" y="40" width="90" height="36" rx="4"/><text class="t" x="55" y="63" text-anchor="middle">Sender</text>
+<rect class="box" x="220" y="24" width="110" height="34" rx="4"/><text class="t" x="275" y="46" text-anchor="middle">Empfänger 1</text>
+<rect class="box" x="220" y="70" width="110" height="34" rx="4"/><text class="t" x="275" y="92" text-anchor="middle">Empfänger 2</text>
+<path class="s" d="M 100 58 L 160 58 L 160 41 L 216 41" marker-end="url(#ah)"/>
+<path class="s" d="M 160 58 L 160 87 L 216 87" marker-end="url(#ah)"/>
+<text class="tm" x="10" y="146">BIDIREKTIONAL · RS-232</text>
+<rect class="boxm" x="10" y="166" width="90" height="44" rx="4"/><text class="t" x="55" y="185" text-anchor="middle">Sender</text><text class="t" x="55" y="202" text-anchor="middle">Empfänger</text>
+<rect class="boxm" x="220" y="160" width="110" height="34" rx="4"/><text class="t" x="275" y="182" text-anchor="middle">Sender/Empf.</text>
+<rect class="boxm" x="220" y="206" width="110" height="34" rx="4"/><text class="t" x="275" y="228" text-anchor="middle">Sender/Empf.</text>
+<path class="s" d="M 104 188 L 160 188 L 160 177 L 216 177" marker-start="url(#ah)" marker-end="url(#ah)"/>
+<path class="s" d="M 160 188 L 160 223 L 216 223" marker-end="url(#ah)"/>
+</g></svg>
+      <figcaption>Unidirektional: ein Sender, Daten nur in eine Richtung. Bidirektional: jedes Gerät sendet und empfängt.</figcaption>
+    </figure></div>
+    <ul>
+      <li><strong>Unidirektional:</strong> Datenübertragung nur in eine Richtung, 1 Sender. Beispiel: ARINC 429.</li>
+      <li><strong>Bidirektional:</strong> Datenübertragung in beide Richtungen. Beispiel: RS-232.</li>
+    </ul>
+    <h3>Seriell und parallel</h3>
+    <div class="tbl"><table>
+      <thead><tr><th></th><th>Seriell</th><th>Parallel</th></tr></thead>
+      <tbody>
+        <tr><td>Leitungen</td><td>eine</td><td>mehrere</td></tr>
+        <tr><td>Bits</td><td>nacheinander, wie eine einspurige Straße</td><td>alle gleichzeitig</td></tr>
+        <tr><td>Vorteil</td><td>wenige Leitungen, wenig Gewicht</td><td>schneller</td></tr>
+        <tr><td>Beispiele</td><td>ARINC 429, RS-232</td><td>interne CPU-Systeme</td></tr>
+      </tbody>
+    </table></div>
+    <div class="merk">Uni = eine Richtung, bi = beide. Seriell = nacheinander, parallel = gleichzeitig.</div>
+  </section>
+
+  <section id="signale">
+    <h2>Signalformen und RS-232 <span class="lvl">5.4 · LEVEL 2</span></h2>
+    <p class="src">Seiten 10, 11 und 12</p>
+    <h3>NRZ (Non-Return-to-Zero)</h3>
+    <p>Der Pegel bleibt die ganze Bitzeit stehen und kehrt zwischen den Bits nicht auf null zurück. RS-232 arbeitet so.</p>
+    <ul>
+      <li><strong>NRZ-L (Level):</strong> Der Pegel zählt. Hoch = 1, tief = 0. Vertauschte Leitungen drehen alle Bits um.</li>
+      <li><strong>NRZ-M (Mark):</strong> Wechsel bei jeder 1, bei 0 bleibt der Pegel. Mark = 1, aus der Telegrafie: der Strich auf dem Papierstreifen. Polarität egal, aber lange Nullfolgen ohne Wechsel lassen den Takt verloren gehen.</li>
+      <li><strong>NRZ-S (Space):</strong> Wechsel bei jeder 0. Schwachstelle: lange Einsfolgen.</li>
+    </ul>
+    <div class="fig"><figure>
+<svg viewBox="0 0 340 250" width="340" role="img" aria-label="Bitfolge 1 0 1 1 0 als NRZ-L, NRZ-M und NRZ-S, Start tief. Rote Punkte markieren die Pegelwechsel">
+<line class="gd" x1="70" y1="22" x2="70" y2="240"/>
+<text class="tb" x="96" y="18" text-anchor="middle">1</text>
+<line class="gd" x1="122" y1="22" x2="122" y2="240"/>
+<text class="tb" x="148" y="18" text-anchor="middle">0</text>
+<line class="gd" x1="174" y1="22" x2="174" y2="240"/>
+<text class="tb" x="200" y="18" text-anchor="middle">1</text>
+<line class="gd" x1="226" y1="22" x2="226" y2="240"/>
+<text class="tb" x="252" y="18" text-anchor="middle">1</text>
+<line class="gd" x1="278" y1="22" x2="278" y2="240"/>
+<text class="tb" x="304" y="18" text-anchor="middle">0</text>
+<line class="gd" x1="330" y1="22" x2="330" y2="240"/>
+<text class="tm" x="2" y="59">NRZ-L</text>
+<path class="s" d="M 54 70 L 70 70 L 70 40 L 122 40 L 122 40 L 122 70 L 174 70 L 174 70 L 174 40 L 226 40 L 278 40 L 278 40 L 278 70 L 330 70"/>
+<circle class="dot" cx="70" cy="55" r="4"/>
+<circle class="dot" cx="122" cy="55" r="4"/>
+<circle class="dot" cx="174" cy="55" r="4"/>
+<circle class="dot" cx="278" cy="55" r="4"/>
+<text class="tm" x="2" y="129">NRZ-M</text>
+<path class="s" d="M 54 140 L 70 140 L 70 110 L 122 110 L 174 110 L 174 110 L 174 140 L 226 140 L 226 140 L 226 110 L 278 110 L 330 110"/>
+<circle class="dot" cx="70" cy="125" r="4"/>
+<circle class="dot" cx="174" cy="125" r="4"/>
+<circle class="dot" cx="226" cy="125" r="4"/>
+<text class="tm" x="2" y="199">NRZ-S</text>
+<path class="s" d="M 54 210 L 122 210 L 122 210 L 122 180 L 174 180 L 226 180 L 278 180 L 278 180 L 278 210 L 330 210"/>
+<circle class="dot" cx="122" cy="195" r="4"/>
+<circle class="dot" cx="278" cy="195" r="4"/>
+</svg>
+      <figcaption>Beispiel 1 0 1 1 0, Start tief. L: H T H H T · M: H H T H H · S: T H H H T. Rote Punkte = Pegelwechsel.</figcaption>
+    </figure></div>
+    <div class="merk">L = Höhe zählt. M = Wechsel bei 1. S = Wechsel bei 0.</div>
+    <h3>RZ (Return-to-Zero)</h3>
+    <p>In jeder Bitzeit kehrt der Pegel auf null zurück. In deiner Skizze ist die 1 ein positiver und die 0 ein negativer Impuls. Das nennt man bipolares RZ.</p>
+    <div class="fig"><figure>
+<svg viewBox="0 0 340 150" width="340" role="img" aria-label="Bipolares RZ-Signal für 1 0 1 0: positive Impulse für 1, negative für 0, dazwischen jeweils null">
+<line class="ax" x1="20" y1="75" x2="330" y2="75"/>
+<text class="tm" x="296" y="69">NULL</text>
+<text class="tb" x="47" y="27" text-anchor="middle">1</text>
+<text class="tb" x="117" y="135" text-anchor="middle">0</text>
+<text class="tb" x="187" y="27" text-anchor="middle">1</text>
+<text class="tb" x="257" y="135" text-anchor="middle">0</text>
+<path class="s" d="M 20 75 L 30 75 L 30 35 L 65 35 L 65 75 L 100 75 L 100 75 L 100 115 L 135 115 L 135 75 L 170 75 L 170 75 L 170 35 L 205 35 L 205 75 L 240 75 L 240 75 L 240 115 L 275 115 L 275 75 L 310 75"/>
+<text class="tm" x="296" y="39">HI</text><text class="tm" x="296" y="119">LO</text>
+</svg>
+      <figcaption>Bipolares RZ für 1 0 1 0: Nach jedem Impuls zurück auf null.</figcaption>
+    </figure></div>
+    <div class="erg">
+      <p>ARINC 429 arbeitet mit bipolarem RZ: HI ≈ +10 V, NULL = 0 V, LO ≈ −10 V. Weil jedes Bit zur Null zurückkehrt, erkennt der Empfänger jeden Bitbeginn selbst. Eine eigene Taktleitung ist nicht nötig.</p>
+    </div>
+    <h3>RS-232</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Logischer Wert</th><th>Spannung</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td class="num">+3 V bis +15 V</td></tr>
+        <tr><td>1</td><td class="num">−3 V bis −15 V</td></tr>
+      </tbody>
+    </table></div>
+    <p>Signalform: NRZ. RS-232 ist seriell und bidirektional.</p>
+    <div class="erg"><p>Zwischen −3 V und +3 V ist der Pegel undefiniert. Dieser Abstand schützt gegen Störungen.</p></div>
+    <div class="merk">RS-232: Die 1 ist negativ.</div>
+  </section>
+
+  <section id="osi">
+    <h2>OSI-Modell <span class="lvl">5.4 · LEVEL 2</span></h2>
+    <p class="src">Seite 11</p>
+    <p>Das OSI-Modell teilt die Datenübertragung in 7 Schichten. Jede Schicht arbeitet unabhängig von der Schicht darunter oder darüber. Sie nutzt nur deren feste Schnittstelle, deshalb kann man eine Schicht austauschen, ohne die anderen zu ändern.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Nr.</th><th>Schicht</th><th>Merksatz</th></tr></thead>
+      <tbody>
+        <tr><td class="num">7</td><td>Anwendung</td><td>Alle</td></tr>
+        <tr><td class="num">6</td><td>Darstellung</td><td>Deutschen</td></tr>
+        <tr><td class="num">5</td><td>Sitzung</td><td>Schüler</td></tr>
+        <tr><td class="num">4</td><td>Transport</td><td>Trinken</td></tr>
+        <tr><td class="num">3</td><td>Vermittlung</td><td>Verschiedene</td></tr>
+        <tr><td class="num">2</td><td>Sicherung</td><td>Sorten</td></tr>
+        <tr><td class="num">1</td><td>Bitübertragung</td><td>Bier</td></tr>
+      </tbody>
+    </table></div>
+    <div class="erg"><p>Schicht 1 ist alles Physikalische: Kabel, Stecker, Spannungspegel und Signalform (NRZ, RZ). Schicht 2 kümmert sich um die Fehlererkennung, zum Beispiel mit einem Paritätsbit.</p></div>
+    <div class="merk">Alle Deutschen Schüler Trinken Verschiedene Sorten Bier (7 → 1).</div>
+  </section>
+
+  <section id="arinc">
+    <h2>ARINC 429 <span class="lvl">5.4 · LEVEL 2</span></h2>
+    <p class="src">Seite 12 · Erklärungen aus unseren Chats ergänzt</p>
+    <p>Ein ARINC-429-Wort hat 32 Bits in fünf festen Feldern. Bit 32 steht links, Bit 1 rechts.</p>
+    <div class="tbl"><table class="bits">
+      <thead><tr><th>P</th><th>SSM</th><th>Daten</th><th>SDI</th><th>Label</th></tr></thead>
+      <tbody>
+        <tr><td>32</td><td>31–30</td><td>29–11</td><td>10–9</td><td>8–1</td></tr>
+        <tr class="hl"><td>heil?</td><td>stimmt's?</td><td>wie viel?</td><td>wer?</td><td>was?</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Label (Bit 1–8)</h3>
+    <p>Das Label sagt, welcher Parameter im Wort steht, z. B. 203 = barometrische Höhe. Es wird <strong>oktal</strong> angegeben. Die erste Oktalziffer bekommt nur 2 Bits, die beiden anderen je 3 Bits. Deshalb ist das höchste Label 377<sub>8</sub>.</p>
+    <div class="formula">100<sub>8</sub> → 1 = 01 · 0 = 000 · 0 = 000 → 01 000 000</div>
+    <p class="fix">In deiner Skizze steht beim mittleren Block 001. Die mittlere 0 ergibt 000. Außerdem hat die erste Ziffer nur 2 Bits, sonst wären es 9.</p>
+    <h3>SDI (Bit 9–10)</h3>
+    <p>Source/Destination Identifier: Er sagt, von welchem System das Wort kommt oder für welches es bestimmt ist. Systeme gibt es oft doppelt (ADIRU 1, 2, 3), und alle senden dasselbe Label.</p>
+    <div class="erg"><p>Typische Belegung: 00 = alle, 01 = System 1, 10 = System 2, 11 = System 3. Wird das SDI nicht gebraucht, können Bit 9 und 10 auch Daten tragen.</p></div>
+    <h3>Daten (Bit 11–29)</h3>
+    <p>Der eigentliche Messwert, als <strong>BNR</strong> (binär) oder <strong>BCD</strong> (Dezimalziffern, z. B. für Frequenzanzeigen). Bei BNR ist Bit 29 das Vorzeichen.</p>
+    <p class="fix">In deinen Notizen steht „BNC“. Gemeint ist BCD (Binary Coded Decimal).</p>
+    <h3>SSM (Bit 30–31)</h3>
+    <p>Sign/Status Matrix, wie ein Stempel auf dem Brief: bei BNR „Kann ich dem Wert trauen?“, bei BCD „In welche Richtung?“.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Bits</th><th>BNR</th><th>BCD</th></tr></thead>
+      <tbody>
+        <tr><td class="num">11</td><td>Normal Operation</td><td>minus, Süd, West, links</td></tr>
+        <tr><td class="num">10</td><td>Functional Test</td><td>Functional Test</td></tr>
+        <tr><td class="num">01</td><td>No Computed Data</td><td>No Computed Data</td></tr>
+        <tr><td class="num">00</td><td>Failure Warning</td><td>plus, Nord, Ost, rechts</td></tr>
+      </tbody>
+    </table></div>
+    <p>Bei Failure Warning zeigt das Display keinen falschen Wert an, sondern ein Fehler-Flag.</p>
+    <h3>Paritätsbit (Bit 32)</h3>
+    <p>ARINC 429 nutzt <strong>ungerade Parität</strong>. Der Sender zählt die Einsen in Bit 1 bis 31 und setzt Bit 32 so, dass die Gesamtzahl ungerade wird. Der Empfänger zählt alle 32 Bits nach: ungerade = in Ordnung, gerade = Wort verwerfen.</p>
+    <p class="fix">In deinen Notizen steht „Bit 1 bis 32“. Gezählt wird Bit 1 bis 31, Bit 32 ist das Ergebnis.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Einsen in Bit 1–31</th><th>P (Bit 32)</th><th>Einsen gesamt</th></tr></thead>
+      <tbody>
+        <tr><td class="num">6 (gerade)</td><td class="num">1</td><td class="num">7 ✓</td></tr>
+        <tr><td class="num">7 (ungerade)</td><td class="num">0</td><td class="num">7 ✓</td></tr>
+      </tbody>
+    </table></div>
+    <p>Warum? Durch Störungen (Radar, Funk, Blitz), lange Kabelwege oder schlechte Kontakte kann ein Bit kippen. Ein verworfenes Wort ist harmlos, weil die Werte ständig neu gesendet werden. Grenze: Kippen zwei Bits gleichzeitig, fällt es nicht auf. Ob der Wert selbst gültig ist, sagt das SSM, nicht die Parität.</p>
+    <div class="erg">
+      <h3>Eckdaten</h3>
+      <ul>
+        <li>Seriell, unidirektional, bipolares RZ. 1 Sender, bis zu 20 Empfänger.</li>
+        <li>12,5 kbit/s (Low Speed) oder 100 kbit/s (High Speed).</li>
+        <li>Gesendet wird zuerst das Label mit Bit 8 zuerst, dann Bit 9 bis 32 mit dem LSB zuerst.</li>
+        <li>Zwischen zwei Wörtern liegen mindestens 4 Bitzeiten Pause.</li>
+        <li>BNR-Labels liegen meist im Bereich 1xx bis 3xx, BCD meist bei 0xx. Das ist eine Konvention der Label-Tabelle, keine Regel.</li>
+      </ul>
+      <h3>Wo welcher Standard</h3>
+      <div class="tbl"><table>
+        <thead><tr><th>Standard</th><th>Art</th><th>Beispiele</th></tr></thead>
+        <tbody>
+          <tr><td>ARINC 429</td><td>unidirektional, 12,5/100 kbit/s</td><td>A320, A330, A340, 737, 747-400, 757, 767, E-Jets, CRJ, ATR 72</td></tr>
+          <tr><td>ARINC 629</td><td>bidirektional, 2 Mbit/s</td><td>Boeing 777</td></tr>
+          <tr><td>ARINC 664 (AFDX)</td><td>Ethernet, 100 Mbit/s</td><td>A380, A350, A400M, 787</td></tr>
+        </tbody>
+      </table></div>
+      <p>Weitere ARINC-Standards: 653 Software-Partitionierung, 717 Flugdatenschreiber, 708 Wetterradar, 424 Navigationsdatenbank, 600 Gehäuse und Stecker. Militärflugzeuge nutzen meist MIL-STD-1553.</p>
+    </div>
+    <div class="merk">Label = was, SDI = wer, Daten = wie viel, SSM = stimmt's, Parität = heil angekommen.</div>
+  </section>
+
+  <section id="logik">
+    <h2>Logikschaltungen <span class="lvl">5.5 a · LEVEL 2</span></h2>
+    <p class="src">Seite 13 · Wahrheitstabelle und Anwendungen ergänzt</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Gatter</th><th>Formel</th><th>Ausgang 1, wenn …</th></tr></thead>
+      <tbody>
+        <tr><td>UND (AND)</td><td class="num">A ∧ B</td><td>alle Eingänge 1</td></tr>
+        <tr><td>ODER (OR)</td><td class="num">A ∨ B</td><td>mindestens ein Eingang 1</td></tr>
+        <tr><td>NICHT (NOT)</td><td class="num">Ā</td><td>Eingang 0</td></tr>
+        <tr><td>NAND</td><td class="num"><span style="text-decoration:overline">A ∧ B</span></td><td>nicht alle Eingänge 1</td></tr>
+        <tr><td>NOR</td><td class="num"><span style="text-decoration:overline">A ∨ B</span></td><td>alle Eingänge 0</td></tr>
+        <tr><td>XOR</td><td class="num">(A ∧ B̄) ∨ (Ā ∧ B)</td><td>Eingänge verschieden</td></tr>
+        <tr><td>Äquivalenz (XNOR)</td><td class="num">(A ∧ B) ∨ (Ā ∧ B̄)</td><td>Eingänge gleich</td></tr>
+      </tbody>
+    </table></div>
+    <div class="fig"><figure>
+<svg viewBox="0 0 340 200" width="340" role="img" aria-label="Gattersymbole UND, ODER, NICHT, NAND, NOR, XOR und XNOR">
+<path class="s" d="M 26 20 L 40 20 A 14 14 0 0 1 40 48 L 26 48 Z"/>
+<line class="s" x1="14" y1="27" x2="28" y2="27"/>
+<line class="s" x1="14" y1="41" x2="28" y2="41"/>
+<line class="s" x1="54" y1="34" x2="66" y2="34"/>
+<text class="tb" x="44" y="70" text-anchor="middle">UND</text>
+<path class="s" d="M 106 20 Q 128 20 138 34 Q 128 48 106 48 Q 114 34 106 20 Z"/>
+<line class="s" x1="96" y1="27" x2="110" y2="27"/>
+<line class="s" x1="96" y1="41" x2="110" y2="41"/>
+<line class="s" x1="138" y1="34" x2="150" y2="34"/>
+<text class="tb" x="126" y="70" text-anchor="middle">ODER</text>
+<path class="s" d="M 190 20 L 218 34 L 190 48 Z"/>
+<line class="s" x1="178" y1="34" x2="190" y2="34"/>
+<circle cx="222" cy="34" r="4" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+<line class="s" x1="226" y1="34" x2="238" y2="34"/>
+<text class="tb" x="208" y="70" text-anchor="middle">NICHT</text>
+<path class="s" d="M 272 20 L 286 20 A 14 14 0 0 1 286 48 L 272 48 Z"/>
+<line class="s" x1="260" y1="27" x2="274" y2="27"/>
+<line class="s" x1="260" y1="41" x2="274" y2="41"/>
+<circle cx="304" cy="34" r="4" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+<line class="s" x1="308" y1="34" x2="320" y2="34"/>
+<text class="tb" x="290" y="70" text-anchor="middle">NAND</text>
+<path class="s" d="M 24 112 Q 46 112 56 126 Q 46 140 24 140 Q 32 126 24 112 Z"/>
+<line class="s" x1="14" y1="119" x2="28" y2="119"/>
+<line class="s" x1="14" y1="133" x2="28" y2="133"/>
+<circle cx="60" cy="126" r="4" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+<line class="s" x1="64" y1="126" x2="76" y2="126"/>
+<text class="tb" x="44" y="162" text-anchor="middle">NOR</text>
+<path class="s" d="M 106 112 Q 128 112 138 126 Q 128 140 106 140 Q 114 126 106 112 Z"/>
+<path class="s" d="M 100 112 Q 108 126 100 140"/>
+<line class="s" x1="96" y1="119" x2="110" y2="119"/>
+<line class="s" x1="96" y1="133" x2="110" y2="133"/>
+<line class="s" x1="138" y1="126" x2="150" y2="126"/>
+<text class="tb" x="126" y="162" text-anchor="middle">XOR</text>
+<path class="s" d="M 188 112 Q 210 112 220 126 Q 210 140 188 140 Q 196 126 188 112 Z"/>
+<path class="s" d="M 182 112 Q 190 126 182 140"/>
+<line class="s" x1="178" y1="119" x2="192" y2="119"/>
+<line class="s" x1="178" y1="133" x2="192" y2="133"/>
+<circle cx="224" cy="126" r="4" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+<line class="s" x1="228" y1="126" x2="240" y2="126"/>
+<text class="tb" x="208" y="162" text-anchor="middle">XNOR</text>
+</svg>
+      <figcaption>Symbole wie in deinen Notizen (US-Norm). Kreis am Ausgang = negiert, gebogene Eingangsseite = ODER-Familie, doppelter Bogen = XOR/XNOR.</figcaption>
+    </figure></div>
+    <div class="erg">
+      <h3>Wahrheitstabelle</h3>
+      <div class="tbl"><table class="bits">
+        <thead><tr><th>A</th><th>B</th><th>UND</th><th>ODER</th><th>NAND</th><th>NOR</th><th>XOR</th><th>XNOR</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+          <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+          <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+          <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+        </tbody>
+      </table></div>
+      <h3>IEC-Symbole (Kästen, in Europa üblich)</h3>
+      <p>&amp; = UND · ≥1 = ODER · 1 = NICHT (mit Kreis) · =1 = XOR · = = Äquivalenz. NAND und NOR haben zusätzlich den Kreis am Ausgang.</p>
+      <h3>Universalgatter und Anwendungen</h3>
+      <ul>
+        <li>NAND und NOR sind Universalgatter: Aus jedem allein lässt sich jede andere Funktion bauen.</li>
+        <li>UND: Warnhupe, wenn das Fahrwerk nicht ausgefahren ist und gleichzeitig der Schubhebel im Leerlauf steht.</li>
+        <li>ODER: Türwarnung, sobald irgendeine Tür offen ist.</li>
+      </ul>
+    </div>
+    <div class="merk">UND: alle. ODER: mindestens einer. XOR: verschieden. XNOR: gleich. Kreis = umgekehrt.</div>
+  </section>
+
+  <section id="skriptfehler">
+    <h2>Fehler im Skript</h2>
+    <p class="src">Skript „CAT-B1 Modul 5“, AERO-Bildung, Januar 2025</p>
+    <p>Beim Einarbeiten sind mir vier Stellen aufgefallen, die nicht stimmen oder veraltet sind. Die Fragen auf der Lernseite verwenden die richtige Fassung.</p>
+    <p class="fixs"><strong>S. 153, Gradientenfaser:</strong> Im Skript steht, die Brechzahl „steigt von innen nach außen“. Richtig ist: Sie <em>nimmt</em> nach außen <em>ab</em>. Nur so wird das Licht zur Mitte zurückgelenkt und läuft außen schneller.</p>
+    <p class="fixs"><strong>S. 105, ARINC 629:</strong> Im Skript steht, er werde in der Boeing 777, im A330 und im A340 eingesetzt. Tatsächlich ist ARINC 629 praktisch nur aus der Boeing 777 bekannt, A330 und A340 arbeiten mit ARINC 429. Für die Prüfung: „Boeing 777“ ist immer richtig.</p>
+    <p class="fixs"><strong>S. 149, ARINC 636:</strong> Im Skript steht 1 Mbit/s. ARINC 636 beruht auf FDDI und arbeitet mit 100 Mbit/s (so steht es auch auf S. 105 bei FDDI).</p>
+    <p class="fixs"><strong>S. 198, DO-178B/ED-12B:</strong> Das ist die alte Fassung. Aktuell gilt DO-178C/ED-12C. In der Prüfung reicht meist „DO-178“.</p>
+  </section>
+
+  <section id="wahrheit">
+    <h2>Wahrheitstabellen mit Beispielen <span class="lvl">5.5 a · LEVEL 2</span></h2>
+    <p class="src">Testblatt Frage 18 · Beispiele ergänzt</p>
+    <p>Eine Wahrheitstabelle zeigt für jede Kombination der Eingänge den Ausgang. Bei 2 Eingängen gibt es 4 Zeilen, bei 3 Eingängen 8 Zeilen, allgemein <strong>2<sup>n</sup></strong>.</p>
+    <h3>So erkennst du das Gatter in 5 Sekunden</h3>
+    <ol>
+      <li>Schau nur auf die Spalte X.</li>
+      <li>Nur eine 1 ganz unten (bei 1 1) → <strong>UND</strong>. Nur eine 1 ganz oben (bei 0 0) → <strong>NOR</strong>.</li>
+      <li>Nur eine 0 ganz oben → <strong>ODER</strong>. Nur eine 0 ganz unten → <strong>NAND</strong>.</li>
+      <li>1 in der Mitte (0 1 1 0) → <strong>XOR</strong>. 1 außen (1 0 0 1) → <strong>XNOR</strong>.</li>
+    </ol>
+    <div class="merk">X-Spalte von oben: UND 0001 · ODER 0111 · NAND 1110 · NOR 1000 · XOR 0110 · XNOR 1001</div>
+    <h3>Beispiele aus dem Flugzeug</h3>
+    <p>NICHT: Der Weight-on-Wheels-Sensor meldet 1 = Gewicht auf den Rädern. Ein NICHT macht daraus „in der Luft“: 1 → 0, 0 → 1.</p>
+    <div class="gxs"><div class="gx"><h3>Fahrwerkswarnung <span class="lvl">UND</span></h3><p>Die Hupe kommt nur, wenn <strong>beide</strong> Bedingungen erfüllt sind.</p><div class="tbl"><table class="bits ttx"><thead><tr><th>A: Fahrwerk nicht unten</th><th>B: Schub Leerlauf</th><th>Hupe</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></tbody></table></div></div><div class="gx"><h3>Türwarnung <span class="lvl">ODER</span></h3><p><strong>Eine</strong> offene Tür reicht für die Warnung.</p><div class="tbl"><table class="bits ttx"><thead><tr><th>A: Tür 1 offen</th><th>B: Tür 2 offen</th><th>Warnung</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></tbody></table></div></div><div class="gx"><h3>Pumpenwarnung <span class="lvl">NAND</span></h3><p>Ruhig nur, wenn <strong>beide</strong> laufen. Sonst Warnung.</p><div class="tbl"><table class="bits ttx"><thead><tr><th>A: Pumpe 1 läuft</th><th>B: Pumpe 2 läuft</th><th>Warnung</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>0</td></tr></tbody></table></div></div><div class="gx"><h3>Notstromturbine (RAT) <span class="lvl">NOR</span></h3><p>Nur wenn <strong>weder</strong> Generator 1 <strong>noch</strong> 2 liefert. (vereinfacht)</p><div class="tbl"><table class="bits ttx"><thead><tr><th>A: Generator 1 liefert</th><th>B: Generator 2 liefert</th><th>RAT aus</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>0</td></tr></tbody></table></div></div><div class="gx"><h3>Vergleich zweier Kanäle <span class="lvl">XOR</span></h3><p>Meldung, wenn die Kanäle <strong>verschieden</strong> sind.</p><div class="tbl"><table class="bits ttx"><thead><tr><th>A: Kanal 1</th><th>B: Kanal 2</th><th>DISAGREE</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>0</td></tr></tbody></table></div></div><div class="gx"><h3>Übereinstimmung <span class="lvl">XNOR</span></h3><p>1, wenn beide Kanäle <strong>gleich</strong> sind.</p><div class="tbl"><table class="bits ttx"><thead><tr><th>A: Kanal 1</th><th>B: Kanal 2</th><th>AGREE</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></tbody></table></div></div></div>
+    <h3>Schaltungen aus mehreren Gattern</h3>
+    <p>Immer zuerst die Klammer, dann das Gatter außen.</p>
+    <div class="formula">X = (A ∧ B) ∨ C &nbsp; bei A = 1, B = 0, C = 1 → (1 ∧ 0) ∨ 1 = 0 ∨ 1 = 1</div>
+    <div class="tbl"><table class="bits">
+      <thead><tr><th>A</th><th>B</th><th>C</th><th>A ∧ B</th><th>X = (A ∧ B) ∨ C</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+        <tr><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+        <tr><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr class="hl"><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+        <tr><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+        <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+      </tbody>
+    </table></div>
+    <p>Tipp: Für die Zwischenspalte (hier A ∧ B) eine eigene Spalte anlegen. Dann ist jede Zeile ein einfacher Schritt.</p>
+    <div class="erg">
+      <h3>Ersatzschaltungen (De Morgan)</h3>
+      <ul>
+        <li>NAND = ODER mit negierten Eingängen: <span class="num">NICHT(A ∧ B) = Ā ∨ B̄</span></li>
+        <li>NOR = UND mit negierten Eingängen: <span class="num">NICHT(A ∨ B) = Ā ∧ B̄</span></li>
+      </ul>
+      <p>Merksatz: Strich teilen, Zeichen tauschen.</p>
+    </div>
+  </section>
+
+  <section id="kodierer">
+    <h2>Encoder und Decoder <span class="lvl">5.5 a · LEVEL 2</span></h2>
+    <p class="src">Testblatt Fragen 19 und 20 · Skript S. 136 bis 139</p>
+    <div class="tbl"><table>
+      <thead><tr><th></th><th>Eingänge</th><th>Ausgänge</th><th>Was passiert</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Encoder</strong> (Kodierer)</td><td>viele, z. B. 7</td><td>wenige, z. B. 3 Bit</td><td>Die aktive Leitung wird zur Binärzahl</td></tr>
+        <tr><td><strong>Decoder</strong> (Dekodierer)</td><td>wenige, n Bit</td><td>viele, 2<sup>n</sup></td><td>Eine Binärzahl schaltet genau einen Ausgang ein</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Encoder: 7 Eingänge, 3 Ausgänge</h3>
+    <div class="tbl"><table class="bits">
+      <thead><tr><th>Aktiver Eingang</th><th>Q2</th><th>Q1</th><th>Q0</th></tr></thead>
+      <tbody>
+        <tr><td>keiner</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td>2</td><td>0</td><td>1</td><td>0</td></tr>
+        <tr><td>3</td><td>0</td><td>1</td><td>1</td></tr>
+        <tr><td>4</td><td>1</td><td>0</td><td>0</td></tr>
+        <tr class="hl"><td>5</td><td>1</td><td>0</td><td>1</td></tr>
+        <tr><td>6</td><td>1</td><td>1</td><td>0</td></tr>
+        <tr><td>7</td><td>1</td><td>1</td><td>1</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Decoder: 1-aus-4 (2 Eingänge, 4 Ausgänge)</h3>
+    <div class="tbl"><table class="bits">
+      <thead><tr><th>A1</th><th>A0</th><th>Y0</th><th>Y1</th><th>Y2</th><th>Y3</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+        <tr class="hl"><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+        <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+      </tbody>
+    </table></div>
+    <p>Anwendungen: Encoder bei Zifferntastaturen (Taste → BCD). Decoder bei Ziffernanzeigen (BCD → Segment) und bei der Auswahl von Speicherbausteinen im Computer.</p>
+    <div class="merk">Encoder: viele rein, Binärzahl raus. Decoder: Binärzahl rein, genau ein Ausgang an.</div>
+    <div class="erg">
+      <h3>Flipflops (Notizen S. 14 und 15, für B1 kein Pflichtstoff)</h3>
+      <p>Ein Flipflop speichert 1 Bit. RS-Flipflop aus zwei NOR-Gattern:</p>
+      <div class="tbl"><table class="bits">
+        <thead><tr><th>S</th><th>R</th><th>Q<sup>n+1</sup></th><th>Bedeutung</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>0</td><td>Q<sup>n</sup></td><td>speichern</td></tr>
+          <tr><td>1</td><td>0</td><td>1</td><td>setzen</td></tr>
+          <tr><td>0</td><td>1</td><td>0</td><td>rücksetzen</td></tr>
+          <tr><td>1</td><td>1</td><td>–</td><td>verboten</td></tr>
+        </tbody>
+      </table></div>
+      <p>D-Flipflop: übernimmt den Dateneingang nur mit dem Takt, sonst speichert es (Taktflankensteuerung). JK-Flipflop: bei J = K = 1 kippt der Ausgang (toggeln). T-Flipflop: kippt bei jedem Takt.</p>
+      <p class="fix">In deiner RS-Tabelle auf S. 14 heißen zwei Spalten Q₁<sup>n+1</sup>. Die erste ist der alte Zustand Q<sup>n</sup>, erst die zweite der neue Zustand Q<sup>n+1</sup>. Die Werte stimmen.</p>
+    </div>
+  </section>
+
+  <section id="computer">
+    <h2>Computer und Speicher <span class="lvl">5.6 a · LEVEL 2</span></h2>
+    <p class="src">Skript S. 140 bis 147</p>
+    <p>Ein Computer arbeitet nach dem <strong>EVA-Prinzip</strong>: Eingabe, Verarbeitung, Ausgabe. Programme und Daten liegen in Halbleiterspeichern.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Speicher</th><th>Flüchtig?</th><th>Merkmal</th></tr></thead>
+      <tbody>
+        <tr><td><strong>DRAM</strong></td><td>ja</td><td>Kondensatoren, braucht ständig Refresh</td></tr>
+        <tr><td><strong>SRAM</strong></td><td>ja</td><td>Flipflops, kein Refresh, schnell</td></tr>
+        <tr><td>Masken-ROM</td><td>nein</td><td>im Werk fest programmiert, nur für große Stückzahlen</td></tr>
+        <tr><td>OTP-PROM</td><td>nein</td><td>einmal programmierbar, Sicherungen werden durchgebrannt</td></tr>
+        <tr><td><strong>EPROM</strong></td><td>nein</td><td>mit UV-Licht durch ein Fenster löschbar</td></tr>
+        <tr><td><strong>EEPROM / Flash</strong></td><td>nein</td><td>elektrisch löschbar, schreibt etwa 1000-mal langsamer als es liest</td></tr>
+      </tbody>
+    </table></div>
+    <div class="merk">RAM vergisst beim Abschalten, ROM behält. 1 KByte = 2<sup>10</sup> = 1024 Byte.</div>
+    <ul>
+      <li><strong>Betriebssystem:</strong> verbindet Hardware und Anwendungsprogramme.</li>
+      <li><strong>Firmware:</strong> steuert die Grundfunktionen einer Hardware-Komponente.</li>
+      <li><strong>Befehlssatz:</strong> alle Befehle, die ein bestimmter Prozessortyp versteht.</li>
+    </ul>
+    <h3>Drei Busse im PC</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Bus</th><th>Richtung</th><th>Aufgabe</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Datenbus</strong></td><td>bidirektional</td><td>Daten lesen und schreiben</td></tr>
+        <tr><td><strong>Adressbus</strong></td><td>unidirektional</td><td>CPU wählt die Speicherstelle</td></tr>
+        <tr><td><strong>Steuerbus</strong></td><td>bidirektional</td><td>Steuersignale wie Lesen, Schreiben, Takt</td></tr>
+      </tbody>
+    </table></div>
+    <p class="src">Notizen S. 16 · Testblatt Fragen 21 bis 24</p>
+  </section>
+
+  <section id="faseroptik">
+    <h2>Faseroptik <span class="lvl">5.10 · LEVEL 1</span></h2>
+    <p class="src">Skript S. 148 bis 163</p>
+    <div class="fig">
+      <figure>
+        <svg viewBox="0 0 340 120" width="340" role="img" aria-label="Lichtwellenleiter im Schnitt: Mantel oben und unten, Kern in der Mitte, Lichtstrahl wird im Zickzack an der Grenze zum Mantel reflektiert">
+          <rect class="box" x="10" y="14" width="320" height="92" rx="4"/>
+          <rect class="boxm" x="10" y="38" width="320" height="44"/>
+          <polyline class="c" points="10,60 50,40 110,80 170,40 230,80 290,40 330,60"/>
+          <text class="tm" x="16" y="30">MANTEL · kleinerer Brechungsindex</text>
+          <text class="tm" x="16" y="100">MANTEL</text>
+          <text class="tb" x="250" y="66">KERN</text>
+        </svg>
+        <figcaption>Das Licht wird an der Grenze zum Mantel total reflektiert und bleibt im Kern.</figcaption>
+      </figure>
+    </div>
+    <ul>
+      <li>Elektrisches Signal → Sender (LED oder Laser) → Glasfaser → Empfänger (Fotodiode) → elektrisches Signal.</li>
+      <li>Der <strong>Kern</strong> hat einen höheren Brechungsindex als der <strong>Mantel</strong>. Am Mantel findet die Reflexion statt.</li>
+      <li>Licht muss innerhalb des Akzeptanzkegels eintreten (numerische Apertur), sonst geht es verloren.</li>
+    </ul>
+    <div class="merk">Kern dichter als Mantel. Licht bleibt durch Totalreflexion drin.</div>
+    <p class="fix">In deiner Skizze auf S. 17 steht „Äußerer Kern (Glas)“. Die äußere Glasschicht heißt <strong>Mantel</strong> (Cladding).</p>
+    <h3>Vor- und Nachteile</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Vorteile</th><th>Nachteile</th></tr></thead>
+      <tbody>
+        <tr><td>Keine elektromagnetischen Störungen (EMI, HIRF, Blitz)</td><td>Teurer in Material und Montage</td></tr>
+        <tr><td>Kein Übersprechen, keine Masseprobleme</td><td>Bruchempfindlich, Biegeradius beachten</td></tr>
+        <tr><td>Geringe Dämpfung, sehr hohe Datenrate</td><td>Spezialwerkzeug und geschultes Personal</td></tr>
+        <tr><td>Leicht, darf neben Stromleitungen liegen</td><td>Stecker müssen sehr sauber und genau sein</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Fasertypen</h3>
+    <ul>
+      <li><strong>Modendispersion:</strong> Strahlen laufen verschieden lange Wege, der Impuls wird breiter.</li>
+      <li><strong>Gradientenfaser:</strong> Brechzahl nimmt nach außen ab, die langen Wege werden schneller.</li>
+      <li><strong>Monomodefaser (Singlemode):</strong> Kern nur wenige Wellenlängen dick, nur ein Weg. Für <strong>lange Strecken</strong>, schwer einzukoppeln.</li>
+      <li><strong>Multimode:</strong> dickerer Kern, viele Wege. Für <strong>kurze Strecken</strong>, im Flugzeug üblich.</li>
+      <li>Weitere Verluste: Streuung und Absorption im Glas.</li>
+    </ul>
+    <h3>Im Flugzeug</h3>
+    <ul>
+      <li>Außenhülle <strong>violett</strong>, flammhemmend, wenig giftiger Rauch.</li>
+      <li>Stecker nach ARINC 404 und 600, auch Hybrid-Stecker mit Licht- und Kupferkontakten.</li>
+      <li>Steckerdämpfung durch Versatz, Luftspalt, Kippwinkel und Schmutz. Stirnflächen mit dem Mikroskop prüfen.</li>
+      <li>Spleiß: Fusionsspleiß (schmelzen) oder mechanischer Spleiß (kleben). Danach Dämpfungsprüfung.</li>
+    </ul>
+    <div class="erg">
+      <p>Im Part-66-Lehrplan stehen auch Koppler und Terminals, im Skript fehlen sie. Ein <strong>Sternkoppler</strong> verteilt das Licht auf alle Teilnehmer, ein <strong>T-Koppler</strong> zweigt an einer Stelle ab. Das <strong>Control Terminal</strong> steuert den Bus, die <strong>Remote Terminals</strong> sind die Teilnehmer, wie bei MIL-STD-1553 (Glasfaser-Version: MIL-STD-1773).</p>
+    </div>
+  </section>
+
+  <section id="anzeigen">
+    <h2>Elektronische Anzeigen <span class="lvl">5.11 · LEVEL 2</span></h2>
+    <p class="src">Skript S. 164 bis 181</p>
+    <h3>CRT (Bildröhre)</h3>
+    <ol>
+      <li>Geheizte <strong>Kathode</strong> sendet Elektronen aus.</li>
+      <li><strong>Wehnelt-Zylinder</strong> formt den Strahl und steuert die Helligkeit.</li>
+      <li><strong>Anode</strong> beschleunigt mit mehreren 10 000 V, die Fokussiereinheit bündelt.</li>
+      <li><strong>Ablenkspulen</strong> führen den Strahl Zeile für Zeile über den Schirm.</li>
+      <li><strong>Phosphor</strong> wandelt den Strahl in Licht um.</li>
+    </ol>
+    <p>Farbe: drei Strahlen für Rot, Grün, Blau (additiv). Die Lochmaske sorgt dafür, dass jeder Strahl nur seinen Leuchtpunkt trifft. Nachteil im Cockpit: schwer, Hochspannung, schlechte EMV.</p>
+    <h3>LCD</h3>
+    <ul>
+      <li>Flüssigkristalle zwischen zwei gekreuzten Polarisationsfiltern.</li>
+      <li>TN ohne Spannung: Kristalle drehen das Licht, Punkt ist <strong>hell</strong>. Mit Spannung: keine Drehung, Punkt ist <strong>dunkel</strong>.</li>
+      <li><strong>TFT / AMLCD:</strong> ein Transistor pro Pixel. Schnell, kontrastreich, keine Störlinien. Heute Standard im Cockpit.</li>
+      <li>Das Licht ist polarisiert. Deshalb im Cockpit keine polarisierten Sonnenbrillen.</li>
+    </ul>
+    <h3>LED</h3>
+    <ul>
+      <li>Elektronen rekombinieren am pn-Übergang und geben ein Photon ab. Die Bandlücke bestimmt die Farbe.</li>
+      <li>Wärme durch zu hohen Strom verkürzt die Lebensdauer. Zu hohe Spannung zerstört die LED.</li>
+      <li>Vorteile: stoßfest, langlebig, sparsam, schnell schaltbar.</li>
+    </ul>
+    <div class="merk">CRT: Strahl auf Phosphor. LCD: Licht wird gedreht. LED: Rekombination.</div>
+  </section>
+
+  <section id="esd">
+    <h2>ESD-empfindliche Bauteile <span class="lvl">5.12 · LEVEL 2</span></h2>
+    <p class="src">Skript S. 182 bis 195</p>
+    <ul>
+      <li><strong>ESDS</strong> = Electrostatic Discharge Sensitive. Besonders gefährdet sind MOS- und CMOS-Bauteile, teils schon ab etwa 10 V.</li>
+      <li>Man erkennt sie nicht an der Bauform. Deshalb gilt jede Avionik als ESD-empfindlich.</li>
+      <li>Ladung entsteht schon durch Berührung und Trennen zweier Stoffe (triboelektrischer Effekt).</li>
+    </ul>
+    <div class="tbl"><table>
+      <thead><tr><th>Schaden</th><th>Folge</th></tr></thead>
+      <tbody>
+        <tr><td>Direkter Totalausfall</td><td>Bauteil sofort kaputt, fällt beim Test auf</td></tr>
+        <tr><td><strong>Verborgener (latenter) Schaden</strong></td><td>Besteht den Test, fällt später im Betrieb aus. Am gefährlichsten.</td></tr>
+        <tr><td>Störung</td><td>Datenverlust oder falsch gespeicherte Daten</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Schutz</h3>
+    <ul>
+      <li><strong>Erden:</strong> Handgelenkband über <strong>1 MΩ</strong>, täglich testen. Alternativ Fersenbänder an beiden Füßen.</li>
+      <li><strong>Abschirmen:</strong> grauer, metallisierter Beutel (Faradayscher Käfig). Die rosa Tüte lädt sich nur selbst nicht auf und schirmt nicht ab.</li>
+      <li><strong>Neutralisieren:</strong> Ionisator für Isolatoren wie Kunststoff. Ersetzt Erdung nicht.</li>
+      <li>Beutel nur am geerdeten ESD-Arbeitsplatz öffnen. Kaffeebecher und Kunststoffe weg vom Arbeitsplatz.</li>
+    </ul>
+    <div class="merk">Erden, Abschirmen, Neutralisieren. Handgelenkband = 1 MΩ.</div>
+  </section>
+
+  <section id="software">
+    <h2>Software-Management <span class="lvl">5.13 · LEVEL 2</span></h2>
+    <p class="src">Skript S. 196 bis 200</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Level</th><th>Folge bei einem Fehler</th><th>Wahrscheinlichkeit pro Flugstunde</th></tr></thead>
+      <tbody>
+        <tr><td class="num"><strong>A</strong></td><td>katastrophal (z. B. Flugsteuerung, Triebwerk)</td><td class="num"><strong>&lt; 10<sup>−9</sup></strong></td></tr>
+        <tr><td class="num">B</td><td>gefährlich</td><td class="num">10<sup>−7</sup> bis 10<sup>−9</sup></td></tr>
+        <tr><td class="num">C</td><td>erheblich</td><td class="num">10<sup>−5</sup> bis 10<sup>−7</sup></td></tr>
+        <tr><td class="num">D</td><td>gering</td><td class="num">&gt; 10<sup>−5</sup></td></tr>
+        <tr><td class="num"><strong>E</strong></td><td>keine Auswirkung auf die Sicherheit (z. B. Entertainment)</td><td class="num">–</td></tr>
+      </tbody>
+    </table></div>
+    <ul>
+      <li>Zertifizierung nach <strong>DO-178 / ED-12</strong>.</li>
+      <li>Softwareänderungen gelten wie Hardwareänderungen: nur mit Genehmigung der Design Organisation und nach dem <strong>Configuration Management Plan (CMP)</strong>.</li>
+    </ul>
+    <h3>Field Loadable Software (FLS)</h3>
+    <p>Wird geladen, ohne das Gerät auszubauen, nach dem Wartungshandbuch, zum Beispiel mit einem Data Loader.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Art</th><th>Bedeutung</th><th>Beispiele</th></tr></thead>
+      <tbody>
+        <tr><td><strong>LSAP</strong></td><td>Flugzeugteil mit Zulassungsdokumentation</td><td>EEC, DFDAU, FGC, APU-ECU</td></tr>
+        <tr><td><strong>UMS</strong></td><td>Betreiber darf ohne Behörde ändern</td><td>IFE, ACMS</td></tr>
+        <tr><td><strong>OSS</strong></td><td>Optionen innerhalb der Herstellergrenzen</td><td>IMA</td></tr>
+        <tr><td><strong>DFLD</strong></td><td>Datenbanken laden</td><td>FMC (alle 28 Tage), TAWS, IMA</td></tr>
+      </tbody>
+    </table></div>
+    <p>Geladene Daten prüft man mit <strong>Prüfsumme (Checksum)</strong> oder <strong>CRC</strong>.</p>
+    <div class="merk">A = Absturzgefahr, E = Entertainment. Ändern nur mit Genehmigung.</div>
+  </section>
+
+  <section id="emv">
+    <h2>Elektromagnetische Umgebung <span class="lvl">5.14 · LEVEL 2</span></h2>
+    <p class="src">Skript S. 201 bis 215</p>
+    <ul>
+      <li><strong>EMI</strong> (Electromagnetic Interference): die Störung selbst.</li>
+      <li><strong>EMV / EMC</strong>: ein Gerät stört nicht und lässt sich nicht stören.</li>
+      <li><strong>HIRF</strong> (High Intensity Radiated Fields): starke Felder von Radar und Sendern von außen.</li>
+    </ul>
+    <p>Ein EMV-Problem braucht immer drei Dinge: <strong>Störquelle</strong>, <strong>Kopplungsweg</strong> (Leitung oder Strahlung) und <strong>gestörten Empfänger</strong>. Fällt eines weg, ist das Problem gelöst.</p>
+    <h3>Warum Rechtecksignale stören</h3>
+    <div class="formula">Rechteck = f (V) + 3f (V/3) + 5f (V/5) + 7f (V/7) + …</div>
+    <p>Steile Flanken enthalten viele Harmonische bis in den MHz-Bereich. Deshalb Flanken nicht steiler als nötig.</p>
+    <h3>Gegenmaßnahmen</h3>
+    <ul>
+      <li>Leitungen verdrillen und abschirmen, Strom- und Signalleitungen getrennt verlegen.</li>
+      <li>Masseleitungen kurz halten, Kabelabstände nach Handbuch einhalten.</li>
+      <li>Störquellen in geerdete Metallgehäuse, Löschdioden an Relais.</li>
+      <li>Wo möglich Glasfaser verwenden.</li>
+      <li><strong>Bonding</strong> mit wenigen Milliohm (etwa 1 bis 3 mΩ). Schützt auch vor HIRF und Blitz.</li>
+    </ul>
+    <p>Folgen schlechter EMV: falsche Anzeigen, Fehlalarme, Pfeiftöne im Audio, Streifen auf Bildschirmen, schlechter Funk- und Radarempfang.</p>
+    <div class="merk">Quelle, Weg, Empfänger. Bonding = Milliohm, Handgelenkband = Megaohm.</div>
+  </section>
+
+  <section id="systeme">
+    <h2>Typische Flugzeugsysteme <span class="lvl">5.15 · LEVEL 1</span></h2>
+    <p class="src">Skript S. 216 bis 238</p>
+    <div class="tbl"><table>
+      <thead><tr><th>System</th><th>Kurz erklärt</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ACARS</strong></td><td>Digitaler Datenfunk Flugzeug–Boden über VHF oder SATCOM. Downlink vom Flugzeug, Uplink vom Boden.</td></tr>
+        <tr><td><strong>EFIS</strong></td><td>Glascockpit mit PFD, ND und MFD. Die Display Processor Unit (Symbolgenerator) erzeugt die Bilder.</td></tr>
+        <tr><td><strong>EICAS / ECAM</strong></td><td>Triebwerksanzeigen und Crew-Warnungen. Weniger Einzelinstrumente, weniger Workload.</td></tr>
+        <tr><td><strong>Fly-by-Wire</strong></td><td>Steuerbefehle als elektrische Signale über Computer an die Ruderantriebe. Zuerst A320 (1988). Leichter, redundant, mit Backup.</td></tr>
+        <tr><td><strong>FMS</strong></td><td>FMC, Displays, Datenbank, CDU. Plant Route, Höhe und Treibstoff. Datenbank alle 28 Tage neu.</td></tr>
+        <tr><td><strong>GPS</strong></td><td>Mindestens 24 Satelliten in 20 200 km Höhe. 3 Satelliten: 2D, 4 Satelliten: 3D mit Höhe.</td></tr>
+        <tr><td><strong>INS / IRS</strong></td><td>Kreisel, Beschleunigungsmesser, Rechner und Uhr. Ohne Funksignale. Strap-down mit Laserkreiseln.</td></tr>
+        <tr><td><strong>TCAS</strong></td><td>Fragt Transponder anderer Flugzeuge ab. TCAS I: Verkehrsinfo (TA). TCAS II: zusätzlich Steigen oder Sinken (RA).</td></tr>
+      </tbody>
+    </table></div>
+    <div class="merk">ACARS funkt, EFIS zeigt, FMS plant, IRS rechnet, TCAS warnt.</div>
+  </section>
+
+  <section id="formeln">
+    <h2>Auf einen Blick</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Was</th><th>Wert oder Formel</th></tr></thead>
+      <tbody>
+        <tr><td>Basic T</td><td>ASI, ADI, Altimeter, HSI</td></tr>
+        <tr><td>Basic T wird angezeigt im</td><td>PFD</td></tr>
+        <tr><td>Engine Parameter</td><td>EICAS (Boeing) oder ECAM (Airbus)</td></tr>
+        <tr><td>Basis Binär / Oktal / Hex</td><td class="num">2 / 8 / 16</td></tr>
+        <tr><td>Byte</td><td class="num">8 Bit = 256 Werte</td></tr>
+        <tr><td>154<sub>10</sub></td><td class="num">1001 1010<sub>2</sub></td></tr>
+        <tr><td>560<sub>10</sub></td><td class="num">1060<sub>8</sub></td></tr>
+        <tr><td>777<sub>10</sub></td><td class="num">309<sub>16</sub></td></tr>
+        <tr><td>Zweierkomplement</td><td>umkehren, dann +1</td></tr>
+        <tr><td>8 Bit mit Vorzeichen</td><td class="num">−128 bis 127</td></tr>
+        <tr><td>Sampling / Quantisierung</td><td>Zeit (x) / Spannung (y)</td></tr>
+        <tr><td>Mindest-Abtastrate</td><td class="num">2 · f<sub>max</sub></td></tr>
+        <tr><td>Flash-ADU Komparatoren</td><td class="num">2<sup>n</sup> − 1</td></tr>
+        <tr><td>SAR Schritte</td><td class="num">n</td></tr>
+        <tr><td>Abtastrate</td><td class="num">1 / Sampledauer [s] = Hz</td></tr>
+        <tr><td>Unidirektional / bidirektional</td><td>ARINC 429 / RS-232</td></tr>
+        <tr><td>Seriell / parallel</td><td>ARINC 429, RS-232 / CPU-intern</td></tr>
+        <tr><td>NRZ-L / NRZ-M / NRZ-S</td><td>Pegel zählt / Wechsel bei 1 / Wechsel bei 0</td></tr>
+        <tr><td>RS-232</td><td class="num">0 = +3…+15 V, 1 = −3…−15 V</td></tr>
+        <tr><td>OSI-Modell</td><td>7 Schichten, Anwendung bis Bitübertragung</td></tr>
+        <tr><td>ARINC-429-Wort</td><td class="num">P 32 · SSM 31–30 · Daten 29–11 · SDI 10–9 · Label 8–1</td></tr>
+        <tr><td>ARINC-429-Parität</td><td>ungerade</td></tr>
+        <tr><td>Höchstes Label</td><td class="num">377<sub>8</sub></td></tr>
+        <tr><td>XOR / XNOR</td><td>verschieden / gleich</td></tr>
+        <tr><td>BCD 27</td><td><span class="num">0010 0111</span></td></tr>
+        <tr><td>RAM / ROM</td><td>flüchtig / nicht flüchtig</td></tr>
+        <tr><td>1 KByte</td><td><span class="num">1024 Byte</span></td></tr>
+        <tr><td>LWL-Prinzip</td><td>Totalreflexion, Kern dichter als Mantel</td></tr>
+        <tr><td>LWL im Flugzeug</td><td>violette Hülle</td></tr>
+        <tr><td>LCD ohne Spannung (TN)</td><td>hell</td></tr>
+        <tr><td>Handgelenkband</td><td><span class="num">1 MΩ</span></td></tr>
+        <tr><td>Bonding</td><td><span class="num">1–3 mΩ</span></td></tr>
+        <tr><td>ESD-Schutz</td><td>Erden, Abschirmen, Neutralisieren</td></tr>
+        <tr><td>Software-Level</td><td>A katastrophal … E keine Auswirkung</td></tr>
+        <tr><td>FMS-Datenbank</td><td>alle 28 Tage</td></tr>
+        <tr><td>GPS 3D-Fix</td><td>mindestens 4 Satelliten</td></tr>
+        <tr><td>TCAS II</td><td>vertikale Ausweichempfehlung (RA)</td></tr>
+        <tr><td>ASCII</td><td>7 Bit = 128 Zeichen</td></tr>
+        <tr><td>Wahrheitstabelle</td><td>2<sup>n</sup> Zeilen</td></tr>
+        <tr><td>Encoder</td><td>7 Eingänge → 3 Bit</td></tr>
+        <tr><td>Decoder</td><td>n Eingänge → 2<sup>n</sup> Ausgänge</td></tr>
+        <tr><td>Busse im PC</td><td>Daten (bi), Adresse (uni), Steuer (bi)</td></tr>
+        <tr><td>Singlemode / Multimode</td><td>lange / kurze Strecken</td></tr>
+        <tr><td>Level A</td><td>&lt; 10<sup>−9</sup> pro Flugstunde</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <p class="foot">Quelle: deine Mitschrift Modul 5 vom 16. bis 21. Oktober 2026 (Seiten 1 bis 18), deine Testblätter (Fragen 1 bis 28), dein Skript „CAT-B1 Modul 5“ (AERO-Bildung, Januar 2025) und Erklärungen aus unseren Chats zu ARINC 429 und NRZ. Gliederung und Level nach EASA Part-66, Anhang III, Modul 5 für B1 (Verordnung 1142/2018). Gleiche die Ergänzungen mit deinem Buch ab.</p>
+</div>
+
+</body></html>

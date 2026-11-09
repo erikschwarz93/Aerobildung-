@@ -1,0 +1,656 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Modul 8 Lernübersicht</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: eine Lesespalte auf Karopapier wie die Mitschrift. Blaue Tinte, gelber Marker für Merksätze, gestrichelte Kästen für Ergänzungen. Gleiches System wie die Lernübersichten Modul 4 und 5. */
+:root {
+  --paper: #F3F5FA;
+  --card: #FFFFFF;
+  --fg: #1A1F33;
+  --ink: #16256B;
+  --ink-soft: #4F5B8C;
+  --grid: #DCE1EE;
+  --line: #C3CBE0;
+  --marker: #F2F06B;
+  --marker-soft: #F7F59A;
+  --red: #B3261E;
+  --ok: #1B7A4B;
+  --f-display: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0E1323; --card: #161D36; --fg: #E6E9F5; --ink: #B3BFFF; --ink-soft: #8E9AD0;
+    --grid: #1B2342; --line: #2B3664; --marker: #E4DE5A; --marker-soft: #4A4716; --red: #FF9088; --ok: #74D6A3;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0E1323; --card: #161D36; --fg: #E6E9F5; --ink: #B3BFFF; --ink-soft: #8E9AD0;
+  --grid: #1B2342; --line: #2B3664; --marker: #E4DE5A; --marker-soft: #4A4716; --red: #FF9088; --ok: #74D6A3;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--fg); font-family: var(--f-body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 24px 56px;
+}
+.wrap { max-width: 720px; margin-inline: auto; display: flex; flex-direction: column; gap: 22px; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(2.6rem, 11vw, 4rem); line-height: .95; text-transform: uppercase; color: var(--ink); margin: 6px 0 12px; text-wrap: balance; }
+h1 span { background: linear-gradient(transparent 58%, var(--marker-soft) 58%); padding-inline: 2px; }
+.lead { margin: 0; color: var(--ink-soft); max-width: 60ch; }
+nav.toc { display: flex; flex-wrap: wrap; gap: 8px; }
+nav.toc a { font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; border: 1.5px solid var(--line); background: var(--card); border-radius: 6px; padding: 6px 10px; }
+nav.toc a:hover, nav.toc a:focus-visible { border-color: var(--ink); outline: none; }
+section { background: var(--card); border: 1.5px solid var(--line); border-radius: 8px; padding: 20px 18px; display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 16px; }
+h2 { font-family: var(--f-display); font-weight: 700; font-size: 1.7rem; line-height: 1.05; text-transform: uppercase; letter-spacing: .02em; color: var(--ink); margin: 0; text-wrap: balance; overflow-wrap: break-word; hyphens: auto; -webkit-hyphens: auto; }
+h2 .lvl { font-family: var(--f-mono); font-size: 12px; font-weight: 500; letter-spacing: .06em; color: var(--ink-soft); vertical-align: middle; margin-left: 8px; white-space: nowrap; }
+h3 { font-size: 1.05rem; font-weight: 600; color: var(--ink); margin: 6px 0 0; }
+p { margin: 0; max-width: 65ch; }
+ul, ol { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
+sub, sup { line-height: 0; }
+.merk { background: var(--marker-soft); border-radius: 4px; padding: 10px 12px; font-weight: 600; }
+.merk::before { content: "Merksatz "; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 500; display: block; color: var(--ink-soft); }
+.fix { border-left: 4px solid var(--red); padding: 6px 12px; }
+.fix::before { content: "Korrektur zu deinen Notizen"; display: block; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--red); }
+.fixs { border-left: 4px solid var(--red); padding: 6px 12px; }
+.fixs::before { content: "Fehler im Skript"; display: block; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--red); }
+.gxs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.gx { border: 1.5px solid var(--line); border-radius: 6px; padding: 12px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.gx h3 { margin: 0; }
+.gx p { font-size: 14px; }
+.ttx th { font-size: 11px; letter-spacing: .02em; text-transform: none; white-space: normal; }
+.ttx td:last-child { background: var(--marker-soft); font-weight: 600; }
+.erg { border: 1.5px dashed var(--ink-soft); border-radius: 6px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+.erg::before { content: "Ergänzung · nicht aus deinen Notizen"; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+.src { font-family: var(--f-mono); font-size: 12px; color: var(--ink-soft); }
+.tbl { overflow-x: auto; max-width: 100%; }
+section, .erg, section > *, .erg > * { min-width: 0; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-mono); font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
+td.num, .bits td { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.bits td, .bits th { text-align: center; padding: 6px 4px; }
+.bits tr.hl td { background: var(--marker-soft); font-weight: 600; }
+.st { font-family: var(--f-mono); font-size: 12px; white-space: nowrap; }
+.st.ok { color: var(--ok); }
+.st.open { color: var(--ink-soft); }
+.st.na { color: var(--ink-soft); opacity: .7; }
+.formula { font-family: var(--f-mono); font-size: 15px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 8px 12px; overflow-x: auto; }
+.fig { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; overflow-x: auto; }
+.fig figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0; }
+.fig figcaption { font-size: 13px; color: var(--ink-soft); text-align: center; }
+svg { max-width: 100%; height: auto; }
+svg .s { stroke: var(--ink); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+svg .f { fill: var(--ink); }
+svg .t { fill: var(--fg); font-family: var(--f-body); font-size: 13px; }
+svg .tb { fill: var(--ink); font-family: var(--f-display); font-weight: 700; font-size: 17px; }
+svg .tm { fill: var(--ink-soft); font-family: var(--f-mono); font-size: 11px; }
+svg .c { stroke: var(--red); fill: none; stroke-width: 2.5; stroke-linecap: round; }
+svg .ax { stroke: var(--ink-soft); stroke-width: 1.2; fill: none; }
+svg .gd { stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 4; fill: none; }
+svg .dot { fill: var(--red); stroke: none; }
+svg .box { fill: var(--card); stroke: var(--ink); stroke-width: 1.6; }
+svg .boxm { fill: var(--marker-soft); stroke: var(--ink); stroke-width: 1.6; }
+svg .tarea { fill: var(--marker-soft); stroke: var(--ink); stroke-width: 1.6; stroke-linejoin: round; }
+.foot { font-size: 13px; color: var(--ink-soft); }
+.back { align-self: flex-start; font-weight: 600; color: var(--ink); background: var(--marker-soft); border-radius: 6px; padding: 8px 12px; text-decoration: none; }
+.back:hover, .back:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+</style>
+
+<style>.erg::before { content: "Ergänzung · nicht aus deinem Skript"; }</style>
+
+<div class="wrap" lang="de">
+  <header>
+    <div class="eyebrow">AERO-Bildung · EASA Part-66 B1 · Modul 8</div>
+    <h1><span>Aero</span>dynamik</h1>
+    <p class="lead">Alles aus deinem Skript „CAT B1&amp;B2 Modul 8 – Grundlagen der Aerodynamik“, kurz erklärt und nach den Part-66-Untermodulen geordnet. Gelbe Kästen sind Merksätze. Gestrichelte Kästen sind Ergänzungen, die nicht im Skript stehen. Rote Kästen markieren Fehler im Skript.</p>
+  </header>
+
+  <a class="back" href="./">← Zum Quiz und zu den Karteikarten</a>
+
+  <nav class="toc" aria-label="Inhalt">
+    <a href="#pruefung">Prüfung</a><a href="#atmosphaere">Atmosphäre</a><a href="#isa">ISA &amp; Dichtehöhe</a><a href="#eis">Vereisung</a><a href="#stroemung">Bernoulli</a><a href="#messung">Pitot &amp; Statik</a><a href="#grenzschicht">Grenzschicht</a><a href="#auftrieb">Auftrieb</a><a href="#widerstand">Widerstand</a><a href="#profil">Profil &amp; Flügel</a><a href="#hilfen">Klappen &amp; Slats</a><a href="#kraefte">Kräfte</a><a href="#kurve">Kurve &amp; Lastfaktor</a><a href="#mach">Machzahl</a><a href="#stoss">Stoßwellen</a><a href="#pfeilung">Pfeilung</a><a href="#stabilitaet">Stabilität</a><a href="#skriptfehler">Fehler im Skript</a><a href="#formeln">Auf einen Blick</a>
+  </nav>
+
+  <section id="pruefung">
+    <h2>Was geprüft wird</h2>
+    <p>Modul 8 heißt „Grundlagen der Aerodynamik“. Für B1 sind alle fünf Untermodule auf Level 2 gefordert.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Nr.</th><th>Untermodul</th><th>B1</th><th>Stand</th></tr></thead>
+      <tbody>
+        <tr><td class="num">8.1</td><td>Atmosphärenphysik: ISA, Anwendung auf die Aerodynamik</td><td class="num">2</td><td><span class="st ok">✓ Skript</span></td></tr>
+        <tr><td class="num">8.2</td><td>Aerodynamik: Umströmung, Grenzschicht, Profilbegriffe, Auftrieb, Widerstand, Polare, Stall, Verunreinigung</td><td class="num">2</td><td><span class="st ok">✓ Skript</span></td></tr>
+        <tr><td class="num">8.3</td><td>Flugtheorie: Kräfte, Gleitzahl, Kurvenflug, Lastfaktor, Hüllkurve, Auftriebshilfen</td><td class="num">2</td><td><span class="st ok">✓ Skript</span></td></tr>
+        <tr><td class="num">8.4</td><td>Hochgeschwindigkeitsaerodynamik: Machzahl, Stöße, Aufheizung, Flächenregel, Einläufe, Pfeilung</td><td class="num">2</td><td><span class="st ok">✓ Skript</span></td></tr>
+        <tr><td class="num">8.5</td><td>Flugstabilität: Längs-, Quer- und Richtungsstabilität</td><td class="num">2</td><td><span class="st ok">✓ Skript</span></td></tr>
+      </tbody>
+    </table></div>
+    <p>Level 2 heißt: Theorie erklären, Formeln anwenden, Skizzen lesen. Rechne die Beispiele zu Dichtehöhe, Staudruck, Lastfaktor und Gleitzahl also wirklich einmal selbst.</p>
+  </section>
+
+  <section id="atmosphaere">
+    <h2>Aufbau der Atmosphäre <span class="lvl">8.1 · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 7 bis 13</p>
+    <p>Luft besteht zu 78 % aus Stickstoff, 21 % aus Sauerstoff und knapp 1 % aus Argon. Bis etwa 100 km bleibt dieses Verhältnis gleich. Nach dem Temperaturverlauf teilt man die Atmosphäre in fünf Schichten.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Schicht</th><th>Höhe</th><th>Kennzeichen</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Troposphäre</strong></td><td class="num">0 bis 11 km</td><td>Fast der ganze Wasserdampf, Wetter. Temperatur sinkt 0,65 °C je 100 m. Äquator 16,8 km, Pole 8,5 km.</td></tr>
+        <tr><td><strong>Stratosphäre</strong></td><td class="num">bis 50 km</td><td>Trocken, ruhig. Ozonschicht (15 bis 40 km) absorbiert UV, deshalb wird es oben wieder wärmer bis 0 °C.</td></tr>
+        <tr><td>Mesosphäre</td><td class="num">bis 80 km</td><td>Turbulent, Temperatur fällt bis −92,5 °C.</td></tr>
+        <tr><td>Thermosphäre</td><td class="num">80 bis 400 km</td><td>Ionisiert (Ionosphäre), Funk, Nordlichter.</td></tr>
+        <tr><td>Exosphäre</td><td class="num">ab 500 bis 600 km</td><td>Nur noch Atome und Ionen, geht in den Weltraum über.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="merk">Tropo, Strato, Meso, Thermo, Exo. Wetter gibt es nur in der Troposphäre.</div>
+    <h3>Luftfeuchte</h3>
+    <ul>
+      <li>Warme Luft kann mehr Wasserdampf aufnehmen. 1 °C wärmer heißt etwa 7 % mehr.</li>
+      <li><strong>Feuchte Luft ist leichter</strong> als trockene: H₂O-Moleküle sind leichter als N₂ und O₂. An feuchten Tagen ist die Dichte geringer.</li>
+      <li>Relative Feuchte = aktuelle Feuchte / maximal mögliche Feuchte · 100 %.</li>
+      <li><strong>Spread</strong> = Temperatur minus Taupunkt. Spread 0 = gesättigt, Nebel. Kleiner Spread = feucht.</li>
+    </ul>
+  </section>
+
+  <section id="isa">
+    <h2>ISA, Druck und Dichtehöhe <span class="lvl">8.1 · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 10 bis 16</p>
+    <p>Die Internationale Standardatmosphäre ist ein gedachter Durchschnittstag (40 bis 45° Nord). Mit ihr lassen sich Flugleistungen vergleichen.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Größe</th><th>ISA auf MSL</th></tr></thead>
+      <tbody>
+        <tr><td>Druck</td><td class="num">1013,25 hPa = 29,92 inHg = 760 mm Hg</td></tr>
+        <tr><td>Temperatur</td><td class="num">15 °C</td></tr>
+        <tr><td>Dichte</td><td class="num">1,225 kg/m³</td></tr>
+        <tr><td>Temperaturgradient</td><td class="num">−6,5 °C je km bis 11 km</td></tr>
+        <tr><td>Relative Feuchte</td><td class="num">0 %</td></tr>
+      </tbody>
+    </table></div>
+    <div class="fig">
+      <figure>
+        <svg viewBox="0 0 340 240" width="340" role="img" aria-label="ISA-Temperatur über der Höhe: von 15 Grad am Boden linear bis minus 56,5 Grad in 11 Kilometern, dann konstant bis 20 Kilometer, darüber leicht steigend">
+          <line class="ax" x1="40" y1="200" x2="324" y2="200"/><line class="ax" x1="40" y1="200" x2="40" y2="14"/>
+          <line class="gd" x1="40" y1="120.8" x2="324" y2="120.8"/><line class="gd" x1="40" y1="56" x2="324" y2="56"/>
+          <line class="gd" x1="257.8" y1="20" x2="257.8" y2="200"/>
+          <polyline class="c" points="304.4,200 82,120.8 82,56 97.6,20"/>
+          <circle class="dot" cx="304.4" cy="200" r="4"/><circle class="dot" cx="82" cy="120.8" r="4"/>
+          <text class="tm" x="34" y="204" text-anchor="end">0</text>
+          <text class="tm" x="34" y="125" text-anchor="end">11</text>
+          <text class="tm" x="34" y="60" text-anchor="end">20</text>
+          <text class="tm" x="34" y="24" text-anchor="end">km</text>
+          <text class="tm" x="257.8" y="216" text-anchor="middle">0 °C</text>
+          <text class="tm" x="304.4" y="216" text-anchor="middle">15</text>
+          <text class="tm" x="82" y="216" text-anchor="middle">−56,5</text>
+          <text class="t" x="200" y="150">−6,5 °C je km</text>
+          <text class="t" x="94" y="92">konstant</text>
+          <text class="t" x="104" y="114">Tropopause</text>
+          <text class="tm" x="190" y="234" text-anchor="middle">Temperatur</text>
+        </svg>
+        <figcaption>ISA-Temperatur: bis 11 km fallend, bis 20 km konstant.</figcaption>
+      </figure>
+    </div>
+    <h3>Druck und Dichte</h3>
+    <ul>
+      <li>Der Luftdruck ist das Gewicht der Luftsäule darüber: p = F / A = ρ · g · h.</li>
+      <li>Faustregel: 5,5 km = ½, 11 km = ¼, 22 km = 1/16 des Bodendrucks.</li>
+      <li>Gasgleichung: p / (ρ · T) = konstant, T in Kelvin. Mehr Druck = mehr Dichte. Mehr Wärme = weniger Dichte.</li>
+    </ul>
+    <h3>Dichtehöhe</h3>
+    <p>Die Dichtehöhe ist die Höhe, in der sich das Luftfahrzeug wegen der aktuellen Wetterlage scheinbar befindet. Hitze, Feuchte und große Platzhöhe machen sie größer. Dann sinken Auftrieb, Triebwerks- und Steigleistung.</p>
+    <div class="formula">Druckhöhe = Platzhöhe + (1013 − QNH) · 30 ft<br>ISA-Temperatur ≈ 15 °C − 2 °C je 1000 ft<br>Dichtehöhe = Druckhöhe + (T − T<sub>ISA</sub>) · 120 ft</div>
+    <h3>Beispiel aus dem Skript: EDMO Oberpaffenhofen</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Schritt</th><th>Rechnung</th></tr></thead>
+      <tbody>
+        <tr><td>Druckdifferenz</td><td class="num">1013 − 950 = 63 hPa → 63 · 30 = 1890 ft</td></tr>
+        <tr><td>Druckhöhe</td><td class="num">1947 + 1890 = 3837 ft</td></tr>
+        <tr><td>ISA-Temperatur auf 1947 ft</td><td class="num">15 − 4 = 11 °C → 35 °C = ISA +24</td></tr>
+        <tr><td>Temperaturkorrektur</td><td class="num">24 · 120 = 2880 ft</td></tr>
+        <tr><td><strong>Dichtehöhe</strong></td><td class="num"><strong>3837 + 2880 = 6717 ft</strong></td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Dienstgipfelhöhe:</strong> ISA-Höhe, in der das Luftfahrzeug noch mit 0,5 m/s steigt. Die statische Gipfelhöhe (0 m/s) wird nie ganz erreicht.</p>
+    <div class="merk">15 °C · 1013 hPa · 1,225 kg/m³. 30 ft je hPa, 120 ft je °C.</div>
+  </section>
+
+  <section id="eis">
+    <h2>Vereisung und Verunreinigung <span class="lvl">8.1 / 8.2 · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 16 und 43 bis 44</p>
+    <p>Vereisungsbedingungen herrschen bei <strong>+10 °C bis −40 °C mit sichtbarer Feuchtigkeit</strong> (Wolken, Dunst, Nebel). Unterkühlte Tröpfchen gefrieren beim Auftreffen an Vorderkanten, Leitwerk, Propeller, Staurohr, Antennen und Scheiben.</p>
+    <ul>
+      <li>Je kleiner der Nasenradius, desto mehr Eis. Das Leitwerk vereist oft stärker als der Flügel.</li>
+      <li>Vier Faktoren: Temperatur, Tröpfchengröße, Profil und Fluggeschwindigkeit. Mehr Fahrt erwärmt die Haut durch Reibung.</li>
+      <li>Folgen: mehr Gewicht, schlechteres Profil, raue Oberfläche, Unwucht am Propeller, Fehlanzeige am Staurohr.</li>
+    </ul>
+    <div class="tbl"><table>
+      <thead><tr><th>Eisart</th><th>Entsteht</th><th>Eigenschaften</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Klareis</strong></td><td>0 bis −15 °C, große Tropfen, Cumulus</td><td>Glatt, durchsichtig, wächst schnell, schwer. Mit Enteisungsmatten schwer zu entfernen.</td></tr>
+        <tr><td><strong>Raueis (Rime)</strong></td><td>unter −15 °C, Stratus</td><td>Rau, milchig (Lufteinschlüsse), viel Widerstand, wächst langsam. Leicht zu entfernen.</td></tr>
+        <tr><td>Mischeis</td><td>meist 0 bis −15 °C</td><td>Raueis mit Klareis darüber, Eiskronen. Schwerer als Raueis, mehr Widerstand als Klareis.</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Frost</h3>
+    <ul>
+      <li>Eis, Schnee oder Frost mit der Rauigkeit von Schleifpapier: <strong>bis −30 % Auftrieb, bis +40 % Widerstand.</strong></li>
+      <li>2 mm Frost: Stall-Geschwindigkeit bis +35 %, Startrollstrecke etwa doppelt.</li>
+      <li>Ab 2,5 mm Frost liegt der kritische Anstellwinkel unter dem Wert der Stallwarnung. Der Stall kommt dann ohne Warnung.</li>
+    </ul>
+    <div class="merk">Kein Start mit Frost, Eis oder Schnee auf dem Flügel. Die Rauigkeit ist gefährlicher als das Gewicht.</div>
+  </section>
+
+  <section id="stroemung">
+    <h2>Staudruck, Kontinuität und Bernoulli <span class="lvl">8.2 · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 17 bis 20</p>
+    <ul>
+      <li><strong>Statischer Druck</strong>: entsteht durch die Bewegung der Moleküle, wirkt in alle Richtungen.</li>
+      <li><strong>Staudruck</strong> q: Bewegungsenergie je m³ Luft. Hängt von Dichte und v² ab. Ohne Dichte kein Staudruck, darum endet über der Kármán-Linie das Fliegen mit Flügeln.</li>
+      <li><strong>Kontinuität</strong>: Durch jeden Querschnitt fließt gleich viel Luft. Bis etwa 600 km/h gilt Luft als inkompressibel.</li>
+      <li><strong>Bernoulli</strong>: Statischer Druck + Staudruck = konstant. Statischer Druck = potenzielle Energie, Staudruck = kinetische Energie.</li>
+    </ul>
+    <div class="formula">q = ρ/2 · v²<br>A₁ · v₁ = A₂ · v₂<br>p + ρ/2 · v² = konstant</div>
+    <div class="fig">
+      <figure>
+        <svg viewBox="0 0 340 162" width="340" role="img" aria-label="Venturirohr: links weit mit kleiner Geschwindigkeit und hohem Druck, in der Mitte eng mit hoher Geschwindigkeit und niedrigem Druck, rechts wieder weit">
+          <path class="s" d="M 10 30 H 90 C 130 30 140 58 170 58 C 200 58 210 30 250 30 H 330"/>
+          <path class="s" d="M 10 120 H 90 C 130 120 140 92 170 92 C 200 92 210 120 250 120 H 330"/>
+          <line class="ax" x1="30" y1="75" x2="70" y2="75"/><path class="f" d="M 70 70 L 80 75 L 70 80 Z"/>
+          <line class="ax" x1="140" y1="75" x2="196" y2="75"/><path class="f" d="M 196 70 L 206 75 L 196 80 Z"/>
+          <line class="ax" x1="270" y1="75" x2="310" y2="75"/><path class="f" d="M 310 70 L 320 75 L 310 80 Z"/>
+          <text class="tm" x="50" y="12" text-anchor="middle">v klein</text><text class="tm" x="50" y="24" text-anchor="middle">p groß</text>
+          <text class="tm" x="170" y="12" text-anchor="middle">v groß</text><text class="tm" x="170" y="24" text-anchor="middle">p klein</text>
+          <text class="tm" x="290" y="12" text-anchor="middle">v klein</text><text class="tm" x="290" y="24" text-anchor="middle">p groß</text>
+          <text class="t" x="120" y="142" text-anchor="middle">Düse</text>
+          <text class="t" x="220" y="142" text-anchor="middle">Diffusor</text>
+          <text class="tm" x="170" y="158" text-anchor="middle">Engstelle</text>
+        </svg>
+        <figcaption>Venturirohr: In der Engstelle ist die Luft schnell und der statische Druck niedrig.</figcaption>
+      </figure>
+    </div>
+    <p><strong>Düse</strong> (Verengung): schneller, Druck sinkt. Schubdüse am Triebwerk. <strong>Diffusor</strong> (Erweiterung): langsamer, Druck steigt. Vor dem Verdichter. Der Öffnungswinkel darf nicht zu groß sein, sonst löst die Strömung ab.</p>
+    <div class="merk">Eng = schnell = wenig statischer Druck. Doppelte Geschwindigkeit = vierfacher Staudruck.</div>
+  </section>
+
+  <section id="messung">
+    <h2>Pitotrohr, Drucksonde, Staurohr <span class="lvl">8.2 · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 20 bis 22</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Gerät</th><th>Misst</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Drucksonde</strong> (Statik)</td><td>Statischen Druck. Öffnungen quer zur Strömung.</td></tr>
+        <tr><td><strong>Pitotrohr</strong></td><td>Gesamtdruck = statisch + Staudruck. Öffnung gegen die Strömung.</td></tr>
+        <tr><td><strong>Staurohr (Prandtl)</strong></td><td>Differenz aus beiden = Staudruck. Im Stand 0.</td></tr>
+        <tr><td>Venturidüse</td><td>Fahrtmessung an langsamen Luftfahrzeugen, Saugquelle für Kreisel.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Weil die Dichte mit der Höhe sinkt, entspricht derselbe Staudruck oben einer höheren wahren Geschwindigkeit.</p>
+    <div class="erg"><p>Das ist der Grund, warum IAS (angezeigte Fahrt) und TAS (wahre Fahrt) in großer Höhe weit auseinanderliegen. Das Fahrtmessinstrument misst den Staudruck, nicht die wahre Geschwindigkeit.</p></div>
+  </section>
+
+  <section id="grenzschicht">
+    <h2>Grenzschicht und Strömungsformen <span class="lvl">8.2 · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 23 bis 26 und 41</p>
+    <p>Die <strong>Grenzschicht</strong> ist die dünne Schicht, in der die Geschwindigkeit von 0 an der Oberfläche bis zur freien Strömung ansteigt.</p>
+    <div class="formula">laminar → Umschlagpunkt → turbulent → Ablösepunkt</div>
+    <div class="gxs">
+      <div class="gx"><h3>Laminar</h3><p>Geordnete Schichten, die sich nicht vermischen. Wenig Reibung. Bei kleinen Geschwindigkeiten.</p></div>
+      <div class="gx"><h3>Turbulent</h3><p>Schichten vermischen sich. Dicker und energiereicher, mehr Reibung. Hält dafür besser an der Oberfläche.</p></div>
+    </div>
+    <p>Zehrt die Reibung zu viel Energie auf, löst die Strömung am <strong>Ablösepunkt</strong> ab. Das ist der Anfang des Stalls.</p>
+    <h3>Anströmung und Staupunkt</h3>
+    <ul>
+      <li><strong>Ungestörte Strömung</strong>: Idealfall, Luft trifft horizontal auf. <strong>Relative Strömung</strong>: Richtung der Luft bezogen auf das Luftfahrzeug.</li>
+      <li><strong>Staupunkt</strong>: Hier teilt sich die Strömung nach oben und unten. Bei großem Anstellwinkel wandert er nach unten und hinten. Das nutzt man zur Stallwarnung.</li>
+      <li>Ein zweiter Staupunkt liegt an der Hinterkante, wo sich die Strömungen wieder treffen.</li>
+    </ul>
+  </section>
+
+  <section id="auftrieb">
+    <h2>Auftrieb, Polare und Stall <span class="lvl">8.2 · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 26 bis 34 und 42</p>
+    <div class="gxs">
+      <div class="gx"><h3>Einstellwinkel</h3><p>Profilsehne zur Längsachse. Baulich fest.</p></div>
+      <div class="gx"><h3>Anstellwinkel (AOA)</h3><p>Profilsehne zur relativen Anströmung. Ändert sich im Flug.</p></div>
+    </div>
+    <ul>
+      <li>Die <strong>resultierende Luftkraft</strong> wird zerlegt: senkrecht zur Anströmung = Auftrieb, parallel = Widerstand.</li>
+      <li>Die Druckverteilung zeigt: Der <strong>Unterdruck auf der Oberseite</strong> liefert den größten Teil des Auftriebs.</li>
+      <li><strong>Upwash</strong> lenkt die Luft vor der Vorderkante nach oben, <strong>Downwash</strong> hinter dem Flügel nach unten.</li>
+      <li><strong>Druckpunkt</strong>: Angriffspunkt der Luftkraft. Wandert bei größerem Anstellwinkel nach vorne. Symmetrische Profile sind druckpunktfest (Hubschrauber).</li>
+      <li>Fünf Faktoren: Profilform, Fläche, Luftdichte, Geschwindigkeit, Anstellwinkel.</li>
+    </ul>
+    <div class="formula">F<sub>A</sub> = ρ/2 · v² · A · c<sub>A</sub> = q · A · c<sub>A</sub></div>
+    <h3>Polare</h3>
+    <p>c<sub>A</sub> steigt fast linear mit dem Anstellwinkel bis c<sub>A,max</sub> beim kritischen Winkel. Danach löst die Strömung ab und c<sub>A</sub> bricht ein. In der <strong>Polare nach Lilienthal</strong> steht c<sub>A</sub> über c<sub>W</sub>. Die Tangente aus dem Ursprung berührt die Polare bei der besten Gleitzahl.</p>
+    <div class="formula">E = c<sub>A</sub> / c<sub>W</sub> = 1 / ε   ·   ε = c<sub>W</sub> / c<sub>A</sub> = tan γ</div>
+    <h3>Stall</h3>
+    <ul>
+      <li>Laut Skript beginnt die Ablösung bei etwa 14° an der Hinterkante und wandert nach vorne.</li>
+      <li><strong>Rechteckflügel</strong>: Abriss beginnt an der Wurzel. Die Nase fällt, die Querruder bleiben wirksam. Bestes Abrissverhalten.</li>
+      <li><strong>Elliptischer Flügel</strong>: geringster induzierter Widerstand, aber teuer und ungünstigeres Abrissverhalten.</li>
+    </ul>
+    <div class="merk">Auftrieb wächst mit v². Über dem kritischen Anstellwinkel bricht er ein, egal wie schnell man fliegt.</div>
+  </section>
+
+  <section id="widerstand">
+    <h2>Widerstandsarten <span class="lvl">8.2 / 8.3 · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 35 bis 40 und 58</p>
+    <div class="formula">F<sub>W</sub> = ρ/2 · v² · A · c<sub>W</sub>   (linear mit ρ, quadratisch mit v)</div>
+    <div class="tbl"><table>
+      <thead><tr><th>Art</th><th>Ursache</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Profilwiderstand</strong></td><td>Druck- und Reibungswiderstand der tragenden Teile.</td></tr>
+        <tr><td><strong>Induzierter Widerstand</strong></td><td>Druckausgleich an den Flügelspitzen, Randwirbel. Steigt mit dem Anstellwinkel, sinkt mit der Fahrt.</td></tr>
+        <tr><td><strong>Schädlicher Widerstand</strong></td><td>Alle Teile ohne Auftrieb: Rumpf, Fahrwerk, Triebwerk. Steigt mit v².</td></tr>
+        <tr><td>Interferenzwiderstand</td><td>Gegenseitige Beeinflussung zusammengebauter Teile.</td></tr>
+        <tr><td>Wellenwiderstand</td><td>Stoßwellen im schallnahen Bereich und im Überschall.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="fig">
+      <figure>
+        <svg viewBox="0 0 340 220" width="340" role="img" aria-label="Widerstand über Geschwindigkeit: induzierter Widerstand fällt, schädlicher steigt, der Gesamtwiderstand hat sein Minimum genau bei der Geschwindigkeit, bei der beide gleich groß sind">
+          <line class="ax" x1="36" y1="190" x2="326" y2="190"/><line class="ax" x1="36" y1="190" x2="36" y2="12"/>
+          <polyline class="s" stroke-dasharray="6 4" points="50.0,14.0 53.4,16.8 56.8,30.6 60.1,42.9 63.5,53.8 66.9,63.5 70.2,72.2 73.6,80.1 77.0,87.2 80.4,93.6 83.8,99.4 87.1,104.8 90.5,109.6 93.9,114.1 97.2,118.2 100.6,122.0 104.0,125.5 107.4,128.7 110.8,131.7 114.1,134.5 117.5,137.0 120.9,139.5 124.2,141.7 127.6,143.8 131.0,145.8 134.4,147.6 137.8,149.3 141.1,151.0 144.5,152.5 147.9,153.9 151.2,155.3 154.6,156.6 158.0,157.8 161.4,158.9 164.8,160.0 168.1,161.1 171.5,162.0 174.9,163.0 178.2,163.9 181.6,164.7 185.0,165.5 188.4,166.3 191.8,167.0 195.1,167.7 198.5,168.4 201.9,169.0 205.3,169.6 208.6,170.2 212.0,170.8 215.4,171.3 218.8,171.8 222.1,172.3 225.5,172.8 228.9,173.2 232.2,173.7 235.6,174.1 239.0,174.5 242.4,174.9 245.8,175.2 249.1,175.6 252.5,175.9 255.9,176.3 259.2,176.6 262.6,176.9 266.0,177.2 269.4,177.5 272.8,177.8 276.1,178.1 279.5,178.3 282.9,178.6 286.2,178.8 289.6,179.1 293.0,179.3 296.4,179.5 299.8,179.7 303.1,179.9 306.5,180.1 309.9,180.3 313.3,180.5 316.6,180.7 320.0,180.9"/>
+          <polyline class="s" stroke-dasharray="2 4" points="50.0,182.3 53.4,181.5 56.8,180.8 60.1,180.0 63.5,179.3 66.9,178.4 70.2,177.6 73.6,176.7 77.0,175.8 80.4,174.8 83.8,173.8 87.1,172.8 90.5,171.8 93.9,170.7 97.2,169.6 100.6,168.5 104.0,167.3 107.4,166.1 110.8,164.9 114.1,163.6 117.5,162.4 120.9,161.0 124.2,159.7 127.6,158.3 131.0,156.9 134.4,155.5 137.8,154.0 141.1,152.5 144.5,151.0 147.9,149.4 151.2,147.8 154.6,146.2 158.0,144.5 161.4,142.9 164.8,141.1 168.1,139.4 171.5,137.6 174.9,135.8 178.2,134.0 181.6,132.1 185.0,130.2 188.4,128.3 191.8,126.3 195.1,124.3 198.5,122.3 201.9,120.3 205.3,118.2 208.6,116.1 212.0,113.9 215.4,111.8 218.8,109.6 222.1,107.3 225.5,105.1 228.9,102.8 232.2,100.4 235.6,98.1 239.0,95.7 242.4,93.3 245.8,90.8 249.1,88.3 252.5,85.8 255.9,83.3 259.2,80.7 262.6,78.1 266.0,75.5 269.4,72.8 272.8,70.1 276.1,67.4 279.5,64.7 282.9,61.9 286.2,59.1 289.6,56.2 293.0,53.3 296.4,50.4 299.8,47.5 303.1,44.5 306.5,41.5 309.9,38.5 313.3,35.4 316.6,32.3 320.0,29.2"/>
+          <polyline class="c" points="56.8,21.5 60.1,32.9 63.5,43.0 66.9,51.9 70.2,59.8 73.6,66.8 77.0,72.9 80.4,78.4 83.8,83.3 87.1,87.6 90.5,91.4 93.9,94.8 97.2,97.8 100.6,100.5 104.0,102.8 107.4,104.8 110.8,106.6 114.1,108.1 117.5,109.4 120.9,110.5 124.2,111.4 127.6,112.1 131.0,112.7 134.4,113.1 137.8,113.3 141.1,113.5 144.5,113.5 147.9,113.3 151.2,113.1 154.6,112.8 158.0,112.3 161.4,111.8 164.8,111.2 168.1,110.5 171.5,109.7 174.9,108.8 178.2,107.8 181.6,106.8 185.0,105.7 188.4,104.6 191.8,103.3 195.1,102.0 198.5,100.7 201.9,99.3 205.3,97.8 208.6,96.3 212.0,94.7 215.4,93.0 218.8,91.4 222.1,89.6 225.5,87.8 228.9,86.0 232.2,84.1 235.6,82.2 239.0,80.2 242.4,78.1 245.8,76.1 249.1,73.9 252.5,71.8 255.9,69.6 259.2,67.3 262.6,65.0 266.0,62.7 269.4,60.3 272.8,57.9 276.1,55.5 279.5,53.0 282.9,50.4 286.2,47.9 289.6,45.3 293.0,42.6 296.4,39.9 299.8,37.2 303.1,34.5 306.5,31.7 309.9,28.8 313.3,26.0 316.6,23.0 320.0,20.1"/>
+          <circle class="dot" cx="142.8" cy="113.5" r="4"/><circle class="f" cx="142.8" cy="151.7" r="3"/>
+          <line class="gd" x1="142.8" y1="113.5" x2="142.8" y2="190"/>
+          <text class="t" x="250" y="160">induziert</text>
+          <text class="t" x="262" y="112">schädlich</text>
+          <text class="tb" x="142.8" y="101.5" text-anchor="middle">Gesamt</text>
+          <text class="tm" x="142.8" y="206" text-anchor="middle">Minimum</text>
+          <text class="tm" x="326" y="206" text-anchor="end">Geschwindigkeit</text>
+          <text class="tm" x="40" y="10">Widerstand</text>
+        </svg>
+        <figcaption>Das Minimum liegt dort, wo induzierter und schädlicher Widerstand gleich groß sind.</figcaption>
+      </figure>
+    </div>
+    <h3>Induzierten Widerstand verringern</h3>
+    <ul>
+      <li>Große Flügelstreckung (schlanker Flügel)</li>
+      <li>Elliptischer Grundriss</li>
+      <li>Verwindung (Spitze weniger angestellt)</li>
+      <li>Abgerundete Endkappen, Endscheiben, Winglets, Tiptanks</li>
+    </ul>
+    <p>Eine ebene Scheibe hat etwa das 1,2-Fache des berechneten Werts q · A. Ein guter Stromlinienkörper hat nur etwa <strong>1/20</strong> davon.</p>
+    <div class="merk">Induziert runter, schädlich rauf. Das Minimum liegt am Schnittpunkt.</div>
+  </section>
+
+  <section id="profil">
+    <h2>Profil und Flügelform <span class="lvl">8.2 · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 45 bis 50</p>
+    <div class="fig">
+      <figure>
+        <svg viewBox="0 0 340 170" width="340" role="img" aria-label="Tragflügelprofil mit gerader Profilsehne von der Vorder- zur Hinterkante, gestrichelter Skelettlinie in der Mitte, Wölbung f als Abstand zwischen Skelettlinie und Sehne und Dicke d als Abstand von Ober- zu Unterseite">
+          <path class="box" d="M 20 84 C 20 40 110 30 170 40 C 240 52 300 74 322 84 C 290 88 240 96 170 100 C 100 104 20 110 20 84 Z"/>
+          <line class="ax" x1="20" y1="84" x2="322" y2="84"/>
+          <path class="s" stroke-dasharray="6 4" d="M 20 84 C 70 72 130 68 170 70 C 240 74 290 80 322 84"/>
+          <line class="c" x1="160" y1="70" x2="160" y2="84"/>
+          <line class="c" x1="96" y1="38" x2="96" y2="104"/>
+          <text class="tb" x="104" y="122">d</text>
+          <text class="tb" x="166" y="82">f</text>
+          <line class="s" stroke-dasharray="6 4" x1="180" y1="122" x2="206" y2="122"/><text class="tm" x="212" y="126">Skelettlinie</text>
+          <line class="ax" x1="180" y1="140" x2="206" y2="140"/><text class="tm" x="212" y="144">Profilsehne</text>
+          <line class="ax" x1="20" y1="162" x2="322" y2="162"/><line class="ax" x1="20" y1="156" x2="20" y2="168"/><line class="ax" x1="322" y1="156" x2="322" y2="168"/>
+          <text class="tm" x="40" y="154">Profiltiefe l</text>
+          <text class="tm" x="20" y="22">Vorderkante</text>
+          <text class="tm" x="322" y="22" text-anchor="end">Hinterkante</text>
+        </svg>
+        <figcaption>f = Wölbung, d = Dicke. Beide in % der Profiltiefe l.</figcaption>
+      </figure>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th>Begriff</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+        <tr><td>Skelettlinie</td><td>Mittellinie mit gleichem Abstand zu Ober- und Unterseite</td></tr>
+        <tr><td>Profilsehne</td><td>Gerade vom vordersten zum hintersten Punkt der Skelettlinie</td></tr>
+        <tr><td>Profiltiefe l</td><td>Länge auf der Sehne von Vorder- bis Hinterkante</td></tr>
+        <tr><td>Wölbung f</td><td>Größter Abstand Skelettlinie zu Sehne</td></tr>
+        <tr><td>Dicke d</td><td>Abstand Ober- zu Unterseite</td></tr>
+        <tr><td>Dicken- / Wölbungsrücklage</td><td>Lage der größten Dicke / Wölbung ab Vorderkante</td></tr>
+      </tbody>
+    </table></div>
+    <ul>
+      <li>Gerade Skelettlinie = <strong>symmetrisch</strong>. Gekrümmte = unsymmetrisch.</li>
+      <li>Langsame Luftfahrzeuge: dicke Profile, Dickenrücklage um 30 %. Schnelle: dünn, bis 60 %.</li>
+    </ul>
+    <h3>Flügelgeometrie</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Größe</th><th>Formel / Bedeutung</th></tr></thead>
+      <tbody>
+        <tr><td>Streckung Λ</td><td class="num">Λ = b² / A</td></tr>
+        <tr><td>Zuspitzung λ</td><td class="num">λ = L<sub>a</sub> / L<sub>i</sub></td></tr>
+        <tr><td>Pfeilung</td><td>Nach hinten = positiv. Erhöht die kritische Machzahl.</td></tr>
+        <tr><td>V-Stellung</td><td>Spitzen oben = positiv, verbessert die Querstabilität. Negativ z. B. F-104.</td></tr>
+        <tr><td>MAC</td><td>Bezugssehne für Luftkräfte und Schwerpunkt (% MAC). Delta: 2/3 · C<sub>R</sub>.</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Verwindung (Schränkung)</h3>
+    <div class="gxs">
+      <div class="gx"><h3>Geometrisch</h3><p>Profil bleibt gleich. Einstellwinkel an der Spitze kleiner als an der Wurzel.</p></div>
+      <div class="gx"><h3>Aerodynamisch</h3><p>Einstellwinkel bleibt gleich. Profil geht zur Spitze von gewölbt zu fast symmetrisch über.</p></div>
+    </div>
+    <p>Ziel: günstige Auftriebsverteilung, kein Abriss auf der ganzen Spannweite gleichzeitig, wirksame Querruder.</p>
+    <div class="erg"><p>Der Syllabus nennt „positive und negative Verwindung“. Gemeint ist meist: Wash-out = Spitze weniger angestellt als die Wurzel (wie im Skript beschrieben). Wash-in = Spitze stärker angestellt. Welche Richtung „positiv“ heißt, ist nicht überall gleich festgelegt. Merke dir die Wirkung, nicht nur das Vorzeichen.</p></div>
+  </section>
+
+  <section id="hilfen">
+    <h2>Klappen, Slats und Spoiler <span class="lvl">8.2 / 8.3 · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 51 bis 56</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Hilfe</th><th>Wirkung</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Flügelklappen</strong> (Spalt-, Spreiz-, Fowlerklappe)</td><td>Mehr Wölbung, mehr Auftrieb. Start: wenig Ausschlag. Landung: viel, auch mehr Widerstand.</td></tr>
+        <tr><td><strong>Fowlerklappe</strong></td><td>Mehr Wölbung und mehr Fläche. Schwerer wegen der Führung.</td></tr>
+        <tr><td>Nasenklappe</td><td>Verhindert Ablösung hinter scharfer Nase bei großem Anstellwinkel.</td></tr>
+        <tr><td><strong>Slot / Slat</strong></td><td>Spalt leitet energiereiche Luft nach oben. Stall erst bei höherem Anstellwinkel.</td></tr>
+        <tr><td>Grenzschichtzaun</td><td>Verhindert, dass sich ein Abriss über den ganzen Flügel ausbreitet.</td></tr>
+        <tr><td>Absaugen / Einblasen</td><td>Führt der Grenzschicht Energie zu, Umschlag und Ablösung später.</td></tr>
+        <tr><td>Vortex Generator</td><td>Gezielter Wirbel bringt energiereiche Luft an die Oberfläche.</td></tr>
+        <tr><td><strong>Bremsklappen</strong></td><td>Nur mehr (schädlicher) Widerstand. Steiler Abstieg ohne Fahrtzunahme.</td></tr>
+        <tr><td><strong>Störklappen</strong></td><td>Stören die Strömung oben, mindern den Auftrieb. Einseitig als Rollhilfe.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Klappen nach dem Start nur <strong>schrittweise</strong> einfahren. Plötzliches Einfahren lässt das Luftfahrzeug durchsacken.</p>
+    <div class="merk">Hinten Klappen = mehr Wölbung. Vorne Slats = mehr Anstellwinkel bis zum Stall.</div>
+  </section>
+
+  <section id="kraefte">
+    <h2>Kräfte, Achsen und Gleitflug <span class="lvl">8.3 · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 57 bis 62</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Achse</th><th>Drehung</th><th>Steuerfläche</th></tr></thead>
+      <tbody>
+        <tr><td>Längsachse (X)</td><td><strong>Rollen</strong></td><td>Querruder</td></tr>
+        <tr><td>Querachse (Y)</td><td><strong>Nicken</strong></td><td>Höhenruder</td></tr>
+        <tr><td>Hochachse (Z)</td><td><strong>Gieren</strong></td><td>Seitenruder</td></tr>
+      </tbody>
+    </table></div>
+    <p>Vier Kräfte: <strong>Auftrieb gegen Gewicht, Schub gegen Widerstand.</strong> Im unbeschleunigten Geradeausflug sind beide Paare und alle Momente ausgeglichen (Newtons erstes Gesetz).</p>
+    <ul>
+      <li>Schub unter dem Schwerpunkt und Widerstand darüber: Nase-hoch-Moment.</li>
+      <li>Auftrieb hinter dem Schwerpunkt: Nase-runter-Moment.</li>
+      <li>Das Höhenleitwerk gleicht aus. Seine Kraft ist klein, wirkt am langen Hebel und kann nach oben oder unten zeigen. Getrimmt wird mit der Sekundärsteuerung.</li>
+    </ul>
+    <h3>Gleitflug und Gleitzahl</h3>
+    <p>Im Gleitflug steht die Resultierende aus Auftrieb und Widerstand dem Gewicht gegenüber. Der Vortrieb kommt aus Höhe, die in Fahrt umgesetzt wird.</p>
+    <div class="formula">Strecke = Höhe · Gleitzahl   ·   1 : 20 aus 3000 ft → 60 000 ft</div>
+    <p>Typisch: Trainer 1 : 12, Verkehrsflugzeug 1 : 20, Segelflugzeug 1 : 50.</p>
+  </section>
+
+  <section id="kurve">
+    <h2>Kurvenflug, Lastfaktor und Hüllkurve <span class="lvl">8.3 · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 63 bis 68</p>
+    <h3>Negatives Wendemoment</h3>
+    <p>Beim Rollen hat der äußere Flügel mehr Auftrieb und damit mehr induzierten Widerstand. Die Nase giert zuerst <strong>gegen</strong> die Kurve. Gegenmittel:</p>
+    <ul>
+      <li>Querruder-Seitenruder-Kopplung</li>
+      <li>Differentialquerruder: das hochgehende Ruder schlägt weiter aus</li>
+      <li>Rollspoiler am Flügel mit dem hochgehenden Querruder (bis 70 % der Rollrate)</li>
+      <li>Frise-Querruder: Nasenkante ragt beim Hochschlagen unten in die Strömung</li>
+    </ul>
+    <h3>Lastfaktor</h3>
+    <div class="formula">n = L / (m · g) = 1 / cos φ<br>v<sub>S,Kurve</sub> = v<sub>S</sub> · √n</div>
+    <div class="tbl"><table>
+      <thead><tr><th>Querlage</th><th>Lastfaktor</th><th>Stall-Speed</th></tr></thead>
+      <tbody>
+        <tr><td class="num">0°</td><td class="num">1 g</td><td class="num">× 1</td></tr>
+        <tr><td class="num">30°</td><td class="num">1,15 g</td><td class="num">× 1,07</td></tr>
+        <tr><td class="num">45°</td><td class="num">1,41 g</td><td class="num">× 1,19</td></tr>
+        <tr><td class="num">60°</td><td class="num">2 g</td><td class="num">× 1,41</td></tr>
+        <tr><td class="num">75,5°</td><td class="num">4 g</td><td class="num">× 2</td></tr>
+      </tbody>
+    </table></div>
+    <ul>
+      <li>Abfangkurve: Im untersten Punkt addieren sich Fliehkraft und Gewicht. Höchster Lastfaktor, höchste Stall-Geschwindigkeit.</li>
+      <li>Grenzlastfaktoren Großflugzeug (CS-25): typisch <strong>+2,5 g und −1,0 g</strong>.</li>
+      <li>Kräftiges Drücken kann den Lastfaktor negativ machen (Gefühl der Schwerelosigkeit).</li>
+      <li>Eine scharfe Aufwärtsböe wirkt wie ein plötzliches Ziehen: Der Anstellwinkel steigt. Böenlasten steigen mit der Fahrt, daher in Turbulenz die Manövergeschwindigkeit fliegen.</li>
+    </ul>
+    <div class="merk">60° Querlage = 2 g. 4 g = doppelte Stall-Geschwindigkeit.</div>
+  </section>
+
+  <section id="mach">
+    <h2>Schallgeschwindigkeit und Machzahl <span class="lvl">8.4 · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 69 bis 72</p>
+    <div class="formula">M = v / a<br>a = √(κ · R · T)   mit κ = 1,4 und R = 287 J/(kg·K)</div>
+    <ul>
+      <li>Die Schallgeschwindigkeit hängt von der Temperatur ab. ISA auf MSL etwa <strong>340 m/s = 1224 km/h</strong>, in der Tropopause etwa 295 m/s.</li>
+      <li><strong>Kritische Machzahl</strong>: Bei ihr wird irgendwo am Flugzeug zum ersten Mal örtlich Mach 1 erreicht. Sie liegt unter 1.</li>
+      <li>Ab etwa Mach 0,3 (umgelenkte Strömung) bzw. 0,6 (gerade Strömung) wird Luft merklich kompressibel.</li>
+      <li>Im Überschall kehrt sich die Laval-Düse um: Verengung bremst und verdichtet, Erweiterung beschleunigt.</li>
+    </ul>
+    <div class="tbl"><table>
+      <thead><tr><th>Bereich</th><th>Machzahl</th><th>Strömung</th></tr></thead>
+      <tbody>
+        <tr><td>Unterschall</td><td class="num">&lt; 0,8</td><td>überall unter Mach 1</td></tr>
+        <tr><td><strong>Transsonisch</strong></td><td class="num">0,8 bis 1,2 (1,3)</td><td>gemischt, erste Stöße am Flügel</td></tr>
+        <tr><td>Überschall</td><td class="num">1,2 bis 5</td><td>überall über Mach 1</td></tr>
+        <tr><td>Hyperschall</td><td class="num">&gt; 5</td><td></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="stoss">
+    <h2>Stoßwellen und Überschall <span class="lvl">8.4 · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 72 bis 81</p>
+    <div class="tbl"><table>
+      <thead><tr><th></th><th>Gerader Stoß</th><th>Schräger Stoß</th><th>Expansion</th></tr></thead>
+      <tbody>
+        <tr><td>Danach</td><td>Unterschall</td><td>noch Überschall</td><td>schneller Überschall</td></tr>
+        <tr><td>Richtung</td><td>gleich</td><td>folgt Oberfläche</td><td>folgt Oberfläche</td></tr>
+        <tr><td>Druck, Dichte</td><td>steigen stark</td><td>steigen</td><td>sinken</td></tr>
+        <tr><td>Energieverlust</td><td>groß</td><td>kleiner</td><td>keiner</td></tr>
+      </tbody>
+    </table></div>
+    <ul>
+      <li><strong>Transsonisch</strong>: Über dem Flügel entsteht ein gerader Stoß, der mit der Fahrt nach hinten wandert. Dahinter kann die Strömung ablösen.</li>
+      <li><strong>Machkegel</strong>: je höher die Machzahl, desto kleiner der Winkel. Bug- und Heckstoß ergeben den Doppelknall.</li>
+      <li><strong>Einläufe</strong>: Der Verdichter braucht Unterschall. Schnelle Flugzeuge bremsen mit mehreren schwachen schrägen Stößen, das spart Energie und Wärme.</li>
+      <li><strong>Aufheizung</strong>: Concorde bei Mach 2,1: Nase etwa 130 °C, Heck 93 °C, Zelle etwa 18 cm länger. Daher warmfeste Werkstoffe (Hiduminium RR58, Stahl, Glasfaser).</li>
+      <li><strong>Flächenregel</strong>: Querschnitt entlang der Längsachse glatt ändern. Folgen: Wespentaille, Anti-Schock-Körper. Senkt den Wellenwiderstand.</li>
+    </ul>
+    <div class="merk">Gerade: dahinter Unterschall, großer Verlust. Schräg: bleibt Überschall. Expansion: schneller, kein Verlust.</div>
+  </section>
+
+  <section id="pfeilung">
+    <h2>Pfeilung, superkritische Profile, Buffeting <span class="lvl">8.4 · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 75 bis 78</p>
+    <ul>
+      <li><strong>Pfeilung</strong>: Die Luft legt über den Flügel einen längeren Weg zurück. Das wirksame Dickenverhältnis sinkt, die kritische Machzahl steigt. Der Flügel kann trotzdem dick genug für die Festigkeit bleiben.</li>
+      <li><strong>Superkritisches Profil</strong>: flache Oberseite, großer Nasenradius, wenig Wölbung, hinten unten konkav. Vermeidet starke gerade Stöße und Ablösung.</li>
+      <li><strong>Schockstall</strong>: stoßbedingte Ablösung. c<sub>A</sub> sinkt, der Widerstand steigt stark.</li>
+      <li><strong>Buffeting</strong>: Schütteln der Struktur durch diese Ablösung. Am Flügel am kritischsten. Hängt von Höhe und Gewicht ab.</li>
+      <li><strong>Coffin Corner</strong>: Mit der Höhe rücken Stall-Grenze (unten) und Buffet-Grenze (oben) zusammen, bis sie sich treffen.</li>
+      <li>Gegen Buffeting: Pfeilung, superkritische Profile, geringere Flächenlast.</li>
+    </ul>
+    <div class="merk">Pfeilung und superkritisches Profil erhöhen die kritische Machzahl.</div>
+  </section>
+
+  <section id="stabilitaet">
+    <h2>Flugstabilität <span class="lvl">8.5 · LEVEL 2</span></h2>
+    <p class="src">Skript Seiten 82 bis 87</p>
+    <p>Stabilität heißt: Das Luftfahrzeug kehrt nach einer Störung von selbst zurück. Mit Festigkeit hat das nichts zu tun.</p>
+    <div class="gxs">
+      <div class="gx"><h3>Stabil</h3><p>Kehrt in die Ausgangslage zurück.</p></div>
+      <div class="gx"><h3>Indifferent</h3><p>Bleibt in jeder neuen Lage.</p></div>
+      <div class="gx"><h3>Labil</h3><p>Ein kleiner Anstoß reicht für eine große Lageänderung.</p></div>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th>Stabilität</th><th>Um die</th><th>Erzeugt durch</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Längsstabilität</strong></td><td>Querachse</td><td>Höhenleitwerk am langen Hebel</td></tr>
+        <tr><td><strong>Querstabilität</strong></td><td>Längsachse</td><td>V-Stellung der Tragflügel</td></tr>
+        <tr><td><strong>Kursstabilität</strong></td><td>Hochachse</td><td>Seitenflosse (Wetterfahne), Pfeilung</td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Dutch Roll</strong>: Kurs- und Querstabilität wirken zusammen. Beim Rollen giert das Flugzeug mit und umgekehrt. Pfeilflügel neigen dazu.</p>
+    <h3>Statisch und dynamisch</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Statisch</th><th>Dynamisch</th><th>Verhalten</th></tr></thead>
+      <tbody>
+        <tr><td>positiv</td><td>positiv</td><td>gedämpfte Schwingung, kehrt zurück</td></tr>
+        <tr><td>positiv</td><td>neutral</td><td>ungedämpfte Schwingung, bleibt gleich groß</td></tr>
+        <tr><td>positiv</td><td>negativ</td><td>Schwingung wird immer größer (divergent)</td></tr>
+        <tr><td>negativ</td><td>–</td><td>nie dynamisch stabil</td></tr>
+      </tbody>
+    </table></div>
+    <div class="merk">Längs = Querachse = Höhenleitwerk. Quer = Längsachse = V-Stellung. Kurs = Hochachse = Seitenflosse.</div>
+  </section>
+
+  <section id="skriptfehler">
+    <h2>Fehler und Widersprüche im Skript</h2>
+    <p>Diese Stellen solltest du kennen, damit sie dich in der Prüfung nicht verwirren.</p>
+    <p class="fixs">Seite 8: Die Temperatur bleibe „von 11 bis 30 km“ konstant. Nach ISA (Skript Seite 14) gilt das nur von 11 bis 20 km. Darüber steigt sie wieder.</p>
+    <p class="fixs">Seite 7 nennt für die Kármán-Linie etwa 90 km, Seite 17 über 100 km. Die übliche Festlegung ist 100 km.</p>
+    <p class="fixs">Seite 8: Die Troposphäre enthalte „etwa 90 Prozent der Luft“, auf derselben Seite steht „ca. 75 % der Masse“. Gängig sind etwa 75 bis 80 % der Masse.</p>
+    <p class="fixs">Seite 36: Ein Stromlinienkörper habe „1/20 oder 3 %“ des Widerstands einer Scheibe. 1/20 sind 5 %, nicht 3 %.</p>
+    <p class="fixs">Seite 67: 4 g entsprächen 77° Querlage. Mit n = 1 / cos φ sind 4 g genau 75,5°. 77° ergeben etwa 4,4 g.</p>
+    <p class="fixs">Seite 75: Die ersten superkritischen Profile seien in den 1950er-Jahren entstanden. Richard Whitcomb entwickelte sie bei der NASA in den 1960er-Jahren. In den 1950ern entstand seine Flächenregel.</p>
+  </section>
+
+  <section id="formeln">
+    <h2>Auf einen Blick</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Thema</th><th>Wert / Formel</th></tr></thead>
+      <tbody>
+        <tr><td>ISA MSL</td><td class="num">15 °C · 1013,25 hPa · 1,225 kg/m³</td></tr>
+        <tr><td>ISA-Gradient</td><td class="num">−6,5 °C/km (≈ 2 °C/1000 ft) bis 11 km</td></tr>
+        <tr><td>Tropopause (ISA)</td><td class="num">11 km · −56,5 °C</td></tr>
+        <tr><td>Druck halb / viertel</td><td class="num">5,5 km / 11 km</td></tr>
+        <tr><td>Dichtehöhe</td><td class="num">30 ft/hPa · 120 ft/°C</td></tr>
+        <tr><td>Vereisung</td><td class="num">+10 bis −40 °C + sichtbare Feuchte</td></tr>
+        <tr><td>Staudruck</td><td class="num">q = ρ/2 · v²</td></tr>
+        <tr><td>Kontinuität</td><td class="num">A₁ · v₁ = A₂ · v₂</td></tr>
+        <tr><td>Bernoulli</td><td class="num">p + q = konstant</td></tr>
+        <tr><td>Auftrieb</td><td class="num">F<sub>A</sub> = q · A · c<sub>A</sub></td></tr>
+        <tr><td>Widerstand</td><td class="num">F<sub>W</sub> = q · A · c<sub>W</sub></td></tr>
+        <tr><td>Gleitzahl</td><td class="num">E = c<sub>A</sub> / c<sub>W</sub></td></tr>
+        <tr><td>Streckung</td><td class="num">Λ = b² / A</td></tr>
+        <tr><td>MAC Delta</td><td class="num">2/3 · C<sub>R</sub></td></tr>
+        <tr><td>Lastfaktor</td><td class="num">n = 1 / cos φ · 60° = 2 g</td></tr>
+        <tr><td>Stall in Kurve</td><td class="num">v<sub>S</sub> · √n</td></tr>
+        <tr><td>CS-25 Grenzlast</td><td class="num">+2,5 g / −1,0 g</td></tr>
+        <tr><td>Machzahl</td><td class="num">M = v / a</td></tr>
+        <tr><td>Schall MSL</td><td class="num">340 m/s = 1224 km/h</td></tr>
+        <tr><td>Transsonisch</td><td class="num">M 0,8 bis 1,2</td></tr>
+        <tr><td>Hyperschall</td><td class="num">&gt; M 5</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <p class="foot">Quelle: Skript „Teil 66 Basisschulung CAT-B1&amp;B2 Modul 8 – Grundlagen der Aerodynamik“, AERO-Bildungs GmbH, Version Mai 2025 (89 Seiten). Seitenangaben beziehen sich auf dieses Skript.</p>
+</div>
+
+</body></html>
