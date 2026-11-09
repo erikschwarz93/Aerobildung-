@@ -110,18 +110,50 @@ svg .tarea { fill: var(--marker-soft); stroke: var(--ink); stroke-width: 1.6; st
 
 <style>.erg::before { content: "Ergänzung · nicht aus deinem Skript"; }</style>
 
+<style>
+.chapnav{display:flex;flex-wrap:wrap;gap:6px}
+.ch{font-family:var(--f-mono);font-size:13px;min-height:40px;min-width:52px;padding:6px 10px;border:1.5px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink);cursor:pointer}
+.ch[aria-pressed="true"]{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.ch:disabled{opacity:.4;cursor:default}
+.ch:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.chapnote{font-size:13px;color:var(--ink-soft)}
+.chap{display:flex;flex-direction:column;gap:22px}
+.chap section{scroll-margin-top:16px}
+.chap[hidden]{display:none}
+.chaptitle{font-size:2rem}
+.chaptitle span{background:var(--marker-soft);padding-inline:4px}
+@media print{.chapnav,.chapnote{display:none}.chap[hidden]{display:flex!important}}
+</style>
 <div class="wrap" lang="de">
   <header>
     <div class="eyebrow">AERO-Bildung · EASA Part-66 B1.1 · Modul 11A</div>
     <h1><span>Strukturen</span> &amp; Systeme</h1>
-    <p class="lead">Lernübersicht zu Modul 11, geordnet nach Part-66-Kapiteln. Bisher ist Kapitel 11.1 Flugtheorie aus deinem Skript enthalten. Gelbe Kästen sind Merksätze, rote Kästen markieren Fehler im Skript.</p>
+    <p class="lead">Lernübersicht zu Modul 11, oben nach Part-66-Kapiteln umschaltbar. Bisher sind die Kapitel 11.1 Flugtheorie und 11.2 Zellenstrukturen aus deinen Skripten enthalten. Gelbe Kästen sind Merksätze, rote Kästen markieren Fehler im Skript.</p>
   </header>
   <a class="back" href="./">← Zum Quiz und zu den Karteikarten</a>
-  <nav class="toc" aria-label="Inhalt"><a href="#pruefung">Prüfung</a><a href="#grund">Grundlagen &amp; Achsen</a><a href="#nick">Nicksteuerung &amp; Schwerpunkt</a><a href="#roll">Rollsteuerung &amp; Adverse Yaw</a><a href="#gier">Seitenruder</a><a href="#komb">Kombinierte Steuerflächen</a><a href="#trim">Trimmsysteme</a><a href="#hoch">Slots, Slats &amp; Klappen</a><a href="#brems">Spoiler &amp; Bremsklappen</a><a href="#tabs">Ruderausgleich, Trim &amp; Servo Tab</a><a href="#ausgl">Balance, Anti-Balance &amp; Spring Tab</a><a href="#mass">Ausgleichspaneele &amp; Massenausgleich</a><a href="#grenz">Grenzschicht &amp; Stall Strips</a><a href="#skriptfehler">Skriptfehler</a></nav>
+  <nav class="chapnav" aria-label="Kapitel"><button type="button" class="ch" data-t="kpruefung">Prüfung</button><button type="button" class="ch" data-t="k11-1" title="Flugtheorie">11.1</button><button type="button" class="ch" data-t="k11-2" title="Flugwerkstrukturen: allgemein (ATA 51)">11.2</button><button type="button" class="ch" disabled title="Rumpf, Flügel, Leitwerk (ATA 52–57): folgt">11.3</button><button type="button" class="ch" disabled title="Klimaanlage &amp; Kabinendruck (ATA 21): folgt">11.4</button><button type="button" class="ch" disabled title="Instrumente &amp; Avionik (ATA 22/23/31/34): folgt">11.5</button><button type="button" class="ch" disabled title="Elektrische Energie (ATA 24): folgt">11.6</button><button type="button" class="ch" disabled title="Ausrüstung &amp; Einrichtung (ATA 25): folgt">11.7</button><button type="button" class="ch" disabled title="Brandschutz (ATA 26): folgt">11.8</button><button type="button" class="ch" disabled title="Flugsteuerung (ATA 27): folgt">11.9</button><button type="button" class="ch" disabled title="Kraftstoffsysteme (ATA 28/47): folgt">11.10</button><button type="button" class="ch" disabled title="Hydraulik (ATA 29): folgt">11.11</button><button type="button" class="ch" disabled title="Eis- &amp; Regenschutz (ATA 30): folgt">11.12</button><button type="button" class="ch" disabled title="Fahrwerk (ATA 32): folgt">11.13</button><button type="button" class="ch" disabled title="Beleuchtung (ATA 33): folgt">11.14</button><button type="button" class="ch" disabled title="Sauerstoff (ATA 35): folgt">11.15</button><button type="button" class="ch" disabled title="Pneumatik &amp; Vakuum (ATA 36): folgt">11.16</button><button type="button" class="ch" disabled title="Wasser &amp; Abwasser (ATA 38): folgt">11.17</button><button type="button" class="ch" disabled title="On-Board-Wartungssysteme (ATA 45): folgt">11.18</button><button type="button" class="ch" disabled title="Integrated Modular Avionics (ATA 42): folgt">11.19</button><button type="button" class="ch" disabled title="Kabinensysteme (ATA 44): folgt">11.20</button><button type="button" class="ch" disabled title="Informationssysteme (ATA 46): folgt">11.21</button></nav>
+  <p class="chapnote">Graue Kapitel folgen, sobald das Skript vorliegt.</p>
+  <div class="chap" data-ch="kpruefung" hidden>
   <section id="pruefung">
     <h2>Was geprüft wird</h2>
     <p>Für B1.1 umfasst Modul 11 insgesamt 140 Multiple-Choice-Fragen in 175 Minuten, bestanden ab 75 %. Die Verteilung auf die Kapitel folgt AMC1 zu Anhang II (Teil-66). 11.1 ist für B1 in beiden Teilen Level 2.</p>
-    <div class="tbl"><table><thead><tr><th>Nr.</th><th>Kapitel</th><th>Fragen</th><th>Stand</th></tr></thead><tbody><tr><td class="num">11.1</td><td>Flugtheorie</td><td class="num">4</td><td><span class="st ok">✓ Skript</span></td></tr><tr><td class="num">11.2</td><td>Flugwerkstrukturen: allgemein (ATA 51)</td><td class="num">10</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.3</td><td>Rumpf, Flügel, Leitwerk (ATA 52–57)</td><td class="num">13</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.4</td><td>Klimaanlage &amp; Kabinendruck (ATA 21)</td><td class="num">11</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.5</td><td>Instrumente &amp; Avionik (ATA 22/23/31/34)</td><td class="num">9</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.6</td><td>Elektrische Energie (ATA 24)</td><td class="num">5</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.7</td><td>Ausrüstung &amp; Einrichtung (ATA 25)</td><td class="num">7</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.8</td><td>Brandschutz (ATA 26)</td><td class="num">5</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.9</td><td>Flugsteuerung (ATA 27)</td><td class="num">13</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.10</td><td>Kraftstoffsysteme (ATA 28/47)</td><td class="num">10</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.11</td><td>Hydraulik (ATA 29)</td><td class="num">8</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.12</td><td>Eis- &amp; Regenschutz (ATA 30)</td><td class="num">10</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.13</td><td>Fahrwerk (ATA 32)</td><td class="num">10</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.14</td><td>Beleuchtung (ATA 33)</td><td class="num">3</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.15</td><td>Sauerstoff (ATA 35)</td><td class="num">4</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.16</td><td>Pneumatik &amp; Vakuum (ATA 36)</td><td class="num">6</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.17</td><td>Wasser &amp; Abwasser (ATA 38)</td><td class="num">3</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.18</td><td>On-Board-Wartungssysteme (ATA 45)</td><td class="num">3</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.19</td><td>Integrated Modular Avionics (ATA 42)</td><td class="num">2</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.20</td><td>Kabinensysteme (ATA 44)</td><td class="num">2</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.21</td><td>Informationssysteme (ATA 46)</td><td class="num">2</td><td><span class="st open">folgt</span></td></tr></tbody></table></div>
+    <div class="tbl"><table><thead><tr><th>Nr.</th><th>Kapitel</th><th>Fragen</th><th>Stand</th></tr></thead><tbody><tr><td class="num">11.1</td><td>Flugtheorie</td><td class="num">4</td><td><span class="st ok">✓ Skript</span></td></tr><tr><td class="num">11.2</td><td>Flugwerkstrukturen: allgemein (ATA 51)</td><td class="num">10</td><td><span class="st ok">✓ Skript</span></td></tr><tr><td class="num">11.3</td><td>Rumpf, Flügel, Leitwerk (ATA 52–57)</td><td class="num">13</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.4</td><td>Klimaanlage &amp; Kabinendruck (ATA 21)</td><td class="num">11</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.5</td><td>Instrumente &amp; Avionik (ATA 22/23/31/34)</td><td class="num">9</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.6</td><td>Elektrische Energie (ATA 24)</td><td class="num">5</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.7</td><td>Ausrüstung &amp; Einrichtung (ATA 25)</td><td class="num">7</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.8</td><td>Brandschutz (ATA 26)</td><td class="num">5</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.9</td><td>Flugsteuerung (ATA 27)</td><td class="num">13</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.10</td><td>Kraftstoffsysteme (ATA 28/47)</td><td class="num">10</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.11</td><td>Hydraulik (ATA 29)</td><td class="num">8</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.12</td><td>Eis- &amp; Regenschutz (ATA 30)</td><td class="num">10</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.13</td><td>Fahrwerk (ATA 32)</td><td class="num">10</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.14</td><td>Beleuchtung (ATA 33)</td><td class="num">3</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.15</td><td>Sauerstoff (ATA 35)</td><td class="num">4</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.16</td><td>Pneumatik &amp; Vakuum (ATA 36)</td><td class="num">6</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.17</td><td>Wasser &amp; Abwasser (ATA 38)</td><td class="num">3</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.18</td><td>On-Board-Wartungssysteme (ATA 45)</td><td class="num">3</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.19</td><td>Integrated Modular Avionics (ATA 42)</td><td class="num">2</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.20</td><td>Kabinensysteme (ATA 44)</td><td class="num">2</td><td><span class="st open">folgt</span></td></tr><tr><td class="num">11.21</td><td>Informationssysteme (ATA 46)</td><td class="num">2</td><td><span class="st open">folgt</span></td></tr></tbody></table></div>
+  </section>
+  </div>
+  <div class="chap" data-ch="k11-1" hidden>
+  <h2 class="chaptitle"><span>11.1</span> Flugtheorie</h2>
+  <nav class="toc" aria-label="Inhalt"><a href="#schwerpunkt">★ Schwerpunkte</a><a href="#grund">Grundlagen &amp; Achsen</a><a href="#nick">Nicksteuerung &amp; Schwerpunkt</a><a href="#roll">Rollsteuerung &amp; Adverse Yaw</a><a href="#gier">Seitenruder</a><a href="#komb">Kombinierte Steuerflächen</a><a href="#trim">Trimmsysteme</a><a href="#hoch">Slots, Slats &amp; Klappen</a><a href="#brems">Spoiler &amp; Bremsklappen</a><a href="#tabs">Ruderausgleich, Trim &amp; Servo Tab</a><a href="#ausgl">Balance, Anti-Balance &amp; Spring Tab</a><a href="#mass">Ausgleichspaneele &amp; Massenausgleich</a><a href="#grenz">Grenzschicht &amp; Stall Strips</a><a href="#skriptfehler-11-1">Skriptfehler</a></nav>
+  <section id="schwerpunkt">
+    <h2>★ Schwerpunkte 11.1 <span class="lvl">VORFLÜGEL &amp; TABS</span></h2>
+    <p>Auf diesen vier Themen liegt das Hauptaugenmerk in 11.1. Die Skriptinhalte stehen weiter unten bei <a href="#hoch">Slots &amp; Slats</a>, <a href="#tabs">Servo Tab</a> und <a href="#ausgl">Balance &amp; Spring Tab</a>.</p>
+    <div class="tbl"><table><thead><tr><th>Bauteil</th><th>Pilot steuert</th><th>Am Tab passiert</th><th>Effekt</th></tr></thead><tbody><tr><td><strong>Servo Tab</strong></td><td>nur das Tab, Fläche frei drehbar</td><td>schlägt gegen die gewünschte Flächenrichtung aus</td><td>Luftkraft bewegt die Fläche</td></tr><tr><td><strong>Balance Tab</strong></td><td>die Fläche direkt</td><td>Gestänge an fester Struktur, läuft gegensinnig</td><td>weniger Steuerkraft</td></tr><tr><td><strong>Spring Tab</strong></td><td>über eine Feder</td><td>langsam fast neutral, schnell Ausschlag</td><td>Hilfe wächst mit der Fahrt</td></tr></tbody></table></div>
+    <p class="merk">Servo: nur das Tab. Balance: die Fläche. Spring: je schneller, desto mehr Hilfe.</p>
+    <div class="erg">
+      <h3>Vorflügel (Slat)</h3>
+      <ul><li>Sitzt an der Flügelvorderkante und öffnet ausgefahren einen Spalt.</li><li>Energiereiche Luft von unten stabilisiert die Grenzschicht auf der Oberseite.</li><li>Kritischer Anstellwinkel und CAmax steigen, die Überziehgeschwindigkeit sinkt.</li><li>Bei kleinem Anstellwinkel kaum Auftriebsgewinn, im Reiseflug eingefahren.</li><li>Automatische Vorflügel fahren durch den Unterdruck an der Vorderkante aus.</li></ul>
+      <h3>Prüfungsfallen bei den Tabs</h3>
+      <ul><li>Servo Tab am Boden: Nur das Tab bewegt sich, die Fläche nicht.</li><li>Servo Tab bei geringer Fahrt: wenig wirksam, die Luftkraft fehlt.</li><li>Balance Tab: entlastet, kostet aber etwas Ruderwirkung.</li><li>Spring Tab bei hoher Fahrt: wirkt annähernd wie ein Servo Tab.</li></ul>
+    </div>
   </section>
   <section id="grund">
     <h2>Grundlagen &amp; Achsen <span class="lvl">11.1a · LEVEL 2</span></h2>
@@ -195,7 +227,7 @@ svg .tarea { fill: var(--marker-soft); stroke: var(--ink); stroke-width: 1.6; st
     <ul><li>Ablösung der Grenzschicht verursacht Strömungsabriss und Widerstand.</li><li>Slots, Slats und Schlitzklappen bringen energiereiche Luft nach oben.</li><li>Vortex-Generatoren mischen energiereiche Strömung ein.</li><li>Zäune, Sägezahn und Dog-Tooth stoppen die Querströmung am gepfeilten Flügel.</li><li>Stall Strips lassen die Wurzel zuerst abreißen, die Querruder bleiben wirksam.</li></ul>
     <p class="merk">Energie rein, Querströmung stoppen, Wurzel zuerst abreißen lassen.</p>
   </section>
-  <section id="skriptfehler">
+  <section id="skriptfehler-11-1">
     <h2>Fehler und Unstimmigkeiten im Skript</h2>
     <p class="fixs">Seite 12: Beim Höhenruder drehe die Nase „um ihre Längsachse“. Richtig ist die Querachse, denn das ist Nicken.</p>
     <p class="fixs">Seite 22: „Große Slats sind immer automatisch“. Das widerspricht Seite 9, wo auch steuerbare Slats genannt werden. Bei großen Verkehrsflugzeugen werden Slats angetrieben und vom Cockpit aus gesteuert.</p>
@@ -203,6 +235,132 @@ svg .tarea { fill: var(--marker-soft); stroke: var(--ink); stroke-width: 1.6; st
     <p class="fixs">Seite 9: „Klappen“ meint in dem Absatz zu Trimm- und Steuervorrichtungen die kleinen Tabs an der Ruderhinterkante, nicht die Landeklappen.</p>
     <p class="fixs">Seiten 28, 29, 31 und 34: Mehrere Abbildungsnummern im Text und im Verzeichnis stimmen nicht mit den Bildern überein.</p>
   </section>
-  <p class="foot">Quelle: Skript „CAT-B1 Modul 11A – Sub Modul 11-1 Flugtheorie“, AERO-Bildungs GmbH, Version Januar 2025. Seitenangaben beziehen sich auf dieses Skript.</p>
+  </div>
+  <div class="chap" data-ch="k11-2" hidden>
+  <h2 class="chaptitle"><span>11.2</span> Flugwerkstrukturen: allgemein (ATA 51)</h2>
+  <nav class="toc" aria-label="Inhalt"><a href="#ata">ATA 100, Pageblocks &amp; Inspektionen</a><a href="#zone">Zonen, Stationen &amp; Baugruppen</a><a href="#blitz">Blitzschutz &amp; Masseanbindung</a><a href="#cs">Zulassung &amp; Strukturklassen</a><a href="#konz">Fail-Safe, Safe-Life &amp; Damage Tolerance</a><a href="#last">Lasten &amp; Spannungen</a><a href="#ermued">Materialermüdung &amp; Lasttests</a><a href="#drain">Drainage, Belüftung &amp; Installation</a><a href="#bau">Bauweisen &amp; Rumpf</a><a href="#flug">Flügel &amp; Gesamtauslegung</a><a href="#mont">Montage &amp; Leitungen</a><a href="#verb">Niete, Bolzen &amp; Sicherungen</a><a href="#schutz">Oberflächenschutz &amp; Lack</a><a href="#rein">Reinigung</a><a href="#symm">Symmetrie &amp; Ausrichtung</a><a href="#skriptfehler-11-2">Skriptfehler</a></nav>
+  <section id="ata">
+    <h2>ATA 100, Pageblocks &amp; Inspektionen <span class="lvl">11.2a · LEVEL 2</span></h2>
+    <p class="src">Skript 11.2, Seiten 11 bis 17</p>
+    <ul><li>ATA 27 Flight Controls, 32 Landing Gear, 53 Fuselage, 57 Wings.</li><li>Pageblocks gliedern das Handbuch nach Tätigkeiten: 001 bis 899.</li><li>Operational Test: einsatzbereit oder nicht.</li><li>Functional Test: Mindestanforderungen, ggf. mit Bodengerät.</li><li>GVC aus Armlänge, DI intensiv, SDI mit Spezialtechnik.</li></ul>
+    <p class="merk">Zwei Ziffern System, zwei Subsystem, zwei Einheit.</p>
+  </section>
+  <section id="zone">
+    <h2>Zonen, Stationen &amp; Baugruppen <span class="lvl">11.2a · LEVEL 2</span></h2>
+    <p class="src">Skript 11.2, Seiten 7 bis 9, 18 bis 23</p>
+    <ul><li>FS: Abstand in Zoll von Station 0.</li><li>BL: seitlicher Abstand von der Mittellinie.</li><li>WL: horizontale Bezugslinien für die Höhe.</li><li>Hauptzonen: 100 unten, 200 oben, 300 Leitwerk, 400 Triebwerk, 500 links, 600 rechts, 700 Fahrwerk, 800 Türen.</li><li>Einzelteil, Unterbaugruppe, Baugruppe, Fertigungsbaugruppe, Hauptbaugruppe.</li></ul>
+    <p class="merk">Station längs, Buttock seitlich, Water hoch.</p>
+  </section>
+  <section id="blitz">
+    <h2>Blitzschutz &amp; Masseanbindung <span class="lvl">11.2a · LEVEL 2</span></h2>
+    <p class="src">Skript 11.2, Seiten 24 bis 25, 69 bis 71</p>
+    <ul><li>Blitz: bis 100 000 A.</li><li>Masseanbindung sorgt für gleiches Potential und niederohmige Wege.</li><li>Statische Ableiter reduzieren Funkstörungen durch Korona.</li><li>Maximal 0,1 Ohm von der Halterung zur Zelle.</li><li>Vor der Verbindung die Schutzschicht entfernen.</li><li>Verbundwerkstoffe brauchen eingelagertes leitfähiges Material.</li></ul>
+    <p class="merk">Kein Potentialunterschied, kein Lichtbogen.</p>
+  </section>
+  <section id="cs">
+    <h2>Zulassung &amp; Strukturklassen <span class="lvl">11.2b · LEVEL 2</span></h2>
+    <p class="src">Skript 11.2, Seiten 26 bis 28, 55</p>
+    <ul><li>CS-23 kleine Flugzeuge, CS-25 große, CS-27/29 Drehflügler.</li><li>Subpart C und D sind strukturell am wichtigsten.</li><li>PSE tragen Flug-, Boden- und Drucklasten.</li><li>Die Kategorie steht im Reparaturhandbuch.</li></ul>
+    <p class="merk">Primär katastrophal, sekundär tragend, tertiär leicht.</p>
+  </section>
+  <section id="konz">
+    <h2>Fail-Safe, Safe-Life &amp; Damage Tolerance <span class="lvl">11.2b · LEVEL 2</span></h2>
+    <p class="src">Skript 11.2, Seiten 29 bis 30, 46 bis 47</p>
+    <ul><li>Fail-Safe: mehrere Lastpfade.</li><li>Safe-Life: rissfrei, Tausch nach Zyklen (TCI).</li><li>Damage Tolerance: Schäden finden, bevor die Restfestigkeit zu klein wird.</li><li>Multi-Site-Cracking schwächt alternative Lastpfade.</li><li>Comet: Ermüdung durch Kabinendruck-Zyklen.</li></ul>
+    <p class="merk">Fail-Safe Lastpfade, Safe-Life Tausch, Damage Tolerance Inspektion.</p>
+  </section>
+  <section id="last">
+    <h2>Lasten &amp; Spannungen <span class="lvl">11.2b · LEVEL 2</span></h2>
+    <p class="src">Skript 11.2, Seiten 34 bis 38, 40 bis 44</p>
+    <ul><li>Spannung = Kraft / Fläche, Dehnung = Längenänderung / Ursprungslänge.</li><li>Normalspannung: Zug, Druck, Biegung.</li><li>Tangentialspannung: Schub, Torsion.</li><li>Ringspannung am druckbelasteten Rumpf.</li><li>Ultimate = Limit × Sicherheitsfaktor.</li><li>Massen am Flügel entlasten gegen den Auftrieb.</li></ul>
+    <p class="merk">Flug: Holm oben Druck, unten Zug.</p>
+  </section>
+  <section id="ermued">
+    <h2>Materialermüdung &amp; Lasttests <span class="lvl">11.2b · LEVEL 2</span></h2>
+    <p class="src">Skript 11.2, Seiten 39, 45 bis 47</p>
+    <ul><li>Ermüdung: Versagen durch zyklische Lastwechsel.</li><li>Wöhlerdiagramm (S-n-Kurve).</li><li>Dauerfestigkeit: Kurve wird horizontal.</li><li>Boden-Luft-Boden-Zyklus: einmal pro Flug.</li><li>Tests: statisch, dynamisch, Bauteile, Vogelschlag.</li></ul>
+    <p class="merk">Wechselnde Last ist am kritischsten.</p>
+  </section>
+  <section id="drain">
+    <h2>Drainage, Belüftung &amp; Installation <span class="lvl">11.2b · LEVEL 2</span></h2>
+    <p class="src">Skript 11.2, Seiten 48 bis 49</p>
+    <ul><li>Drainagen verhindern Korrosion und Brandgefahr.</li><li>Ablaufventile schließt der Kabinendruck.</li><li>Drain-Masten sind beheizt.</li><li>Hohlräume werden belüftet.</li><li>LRUs müssen schnell tauschbar sein.</li></ul>
+    <p class="merk">Flüssigkeit raus, Dampf raus, Öffnungen frei.</p>
+  </section>
+  <section id="bau">
+    <h2>Bauweisen &amp; Rumpf <span class="lvl">11.2c · LEVEL 2</span></h2>
+    <p class="src">Skript 11.2, Seiten 42, 50 bis 55</p>
+    <ul><li>Holz, Metall, Gemischt, Kunststoff.</li><li>Pratt: Streben Druck, Stege Zug. Warren: Diagonalen beides.</li><li>Monocoque: Haut trägt alles.</li><li>Semi-Monocoque: Lasten verteilt, Restkonstruktion trägt weiter.</li><li>Druckkabine: Zylinder mit halbkugeligem Abschluss.</li></ul>
+    <p class="merk">Spante quer, Stringer längs.</p>
+  </section>
+  <section id="flug">
+    <h2>Flügel &amp; Gesamtauslegung <span class="lvl">11.2c · LEVEL 2</span></h2>
+    <p class="src">Skript 11.2, Seiten 56 bis 63</p>
+    <ul><li>Holm: Hauptelement für Biegung.</li><li>Rippen geben das Profil und übertragen lokale Lasten.</li><li>Größere Streckung: weniger induzierter Widerstand, mehr Gewicht.</li><li>Rumpf: Länge zu Durchmesser 8 bis 12.</li><li>Hochdecker: ungestörte Saugseite. Tiefdecker: kurzes Fahrwerk.</li></ul>
+    <p class="merk">Holm Biegung, Druckpunkt Torsion.</p>
+  </section>
+  <section id="mont">
+    <h2>Montage &amp; Leitungen <span class="lvl">11.2c · LEVEL 2</span></h2>
+    <p class="src">Skript 11.2, Seiten 65 bis 80</p>
+    <ul><li>Montage: Erstmontage, Zwischenmontage, Endmontage, jeweils Prüfung.</li><li>Slave-Bolzen in jedem vierten Loch.</li><li>Entgraten verhindert Spannungsspitzen.</li><li>Hydraulikverbindungen nicht überziehen.</li><li>Offene Rohrenden mit Blindstopfen schützen.</li></ul>
+    <p class="merk">Erst trocken, dann mit Dichtmasse.</p>
+  </section>
+  <section id="verb">
+    <h2>Niete, Bolzen &amp; Sicherungen <span class="lvl">11.2c · LEVEL 2</span></h2>
+    <p class="src">Skript 11.2, Seiten 81 bis 91</p>
+    <ul><li>Vollniet für Scherlast, Blindniet bei wenig Last oder Zugang.</li><li>Bolzen für Zug und Querkraft, Schrauben für geringere Last.</li><li>Wärmebehandelte Teile nicht schweißen.</li><li>Duroplast fest, Thermoplast schwach, Elastomer flexibel.</li><li>Sicherungsblech nur einmal.</li></ul>
+    <p class="merk">Löst sich die Schraube, zieht der Draht fest.</p>
+  </section>
+  <section id="schutz">
+    <h2>Oberflächenschutz &amp; Lack <span class="lvl">11.2c · LEVEL 2</span></h2>
+    <p class="src">Skript 11.2, Seiten 92 bis 110</p>
+    <ul><li>Plattieren: Reinaluminium, anodisch.</li><li>Eloxieren elektrolytisch, Alodieren chemisch.</li><li>Cadmium und Zink: Opferkorrosion.</li><li>Polyurethan: Induktion 15–30 min, Topfzeit 6–8 h.</li><li>Sandstrahlen schadet Aluminium, GFK mechanisch entlacken.</li></ul>
+    <p class="merk">Eloxal isoliert, Alodine leitet.</p>
+  </section>
+  <section id="rein">
+    <h2>Reinigung <span class="lvl">11.2c · LEVEL 2</span></h2>
+    <p class="src">Skript 11.2, Seiten 111 bis 113</p>
+    <ul><li>Staurohre und statische Öffnungen verschließen.</li><li>Nicht zugelassene Mittel: Wasserstoffversprödung.</li><li>Aluminium: keine Stahlwolle.</li><li>Reifen nur mit Seife und Wasser.</li><li>Nach dem Waschen schmieren.</li></ul>
+    <p class="merk">Nur zugelassene Reiniger.</p>
+  </section>
+  <section id="symm">
+    <h2>Symmetrie &amp; Ausrichtung <span class="lvl">11.2c · LEVEL 2</span></h2>
+    <p class="src">Skript 11.2, Seiten 114 bis 117</p>
+    <ul><li>Aufbocken und nivellieren, möglichst im Hangar.</li><li>V-Stellung, Einstellwinkel, Finne, Triebwerk prüfen.</li><li>Einstellwinkel an mindestens zwei Stellen.</li><li>Prüfung nach harten Landungen.</li><li>Große Flugzeuge: Senklot und Kreidemarken.</li></ul>
+    <p class="merk">Erst nivellieren, dann messen.</p>
+  </section>
+  <section id="skriptfehler-11-2">
+    <h2>Fehler und Unstimmigkeiten im Skript</h2>
+    <p class="fixs">Seite 6: Die Tabelle nennt „M11.1 Flugtheorie“. Das Skript behandelt aber 11.2.</p>
+    <p class="fixs">Seite 11: „Air Traffic Association“. Richtig ist Air Transport Association.</p>
+    <p class="fixs">Seite 27: CS-25 für „mindestens 5700 kg“. Die CS-25 gilt oberhalb von 5700 kg. Seite 26 zeigt die Grenze korrekt.</p>
+    <p class="fixs">Seite 44: Das Lastvielfache steige „aufgrund der Schwerkraft“. Ursache ist die Beschleunigung im Manöver, also die Fliehkraft.</p>
+    <p class="fixs">Seite 55: 8,3 bis 9,9 PSI entsprächen 55 000 bis 60 000 N/m². Tatsächlich sind es etwa 57 000 bis 68 000 N/m².</p>
+    <p class="fixs">Seiten 36 und 81: Seite 36 nennt Niete primär auf Kopfzug belastet, Seite 81 setzt Vollniete bei hohen Scherkräften ein. Klassisch gelten Niete als Scherverbindung, frage bei der Schulung nach.</p>
+    <p class="fixs">Seite 79: Löcher „im Abstand von 90 mm“. Gemeint sind vermutlich 90 Grad.</p>
+    <p class="fixs">Seite 83: Hi-Shear und Huck werden als Handelsnamen für Stahlrohrniete genannt. Das sind eigene Bauarten (Stiftniete).</p>
+    <p class="fixs">Seite 86: Punktschweißen werde „nur selten“ und im nächsten Satz „häufig“ verwendet.</p>
+    <p class="fixs">Seite 96: Steuerflächen müssten nach der Neulackierung „entfernt“ werden. Vermutlich ein Übersetzungsfehler, denn entfernt werden sie vor dem Abbeizen, und nach dem Lackieren ist die Wuchtung zu prüfen.</p>
+    <p class="fixs">Seiten 18, 24, 36, 39, 42, 43, 47, 63, 83 und 85: Mehrere Abbildungsverweise passen nicht zur Nummerierung.</p>
+  </section>
+  </div>
+  <p class="foot">Quellen: Skripte „CAT-B1 Modul 11A“, Sub Modul 11.1 Flugtheorie und Sub Modul 11.2 Luftfahrzeugzellenstrukturen, AERO-Bildungs GmbH, Version Januar 2025. Seitenangaben ohne Zusatz beziehen sich auf 11.1.</p>
 </div>
+<script>
+(function(){
+  var chaps=[].slice.call(document.querySelectorAll('.chap')),btns=[].slice.call(document.querySelectorAll('.ch[data-t]'));
+  function show(k){chaps.forEach(function(c){c.hidden=c.dataset.ch!==k});btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.t===k?'true':'false')});}
+  function route(){
+    var h=decodeURIComponent(location.hash.slice(1)),el=h?document.getElementById(h):null,c=el&&el.closest('.chap');
+    if(c){show(c.dataset.ch);el.scrollIntoView();return;}
+    if(chaps.some(function(x){return x.dataset.ch===h})){show(h);return;}
+    show('k11-1');
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    if(location.hash==='#'+b.dataset.t)route();else location.hash=b.dataset.t;
+    var n=document.querySelector('.chapnav');window.scrollTo(0,n.parentNode.offsetTop);
+  })});
+  window.addEventListener('hashchange',route);route();
+})();
+</script>
 </body></html>
