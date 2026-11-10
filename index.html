@@ -1424,7 +1424,7 @@ sub, sup { line-height: 0; }
       h += '<h3>Grundlagen: ' + CATS[current.c] + '</h3><ol>' + (tc.t || []).map(function (x) { return '<li>' + x + '</li>'; }).join("") + '</ol>';
       if (tc.m) h += '<p class="merk">Merksatz: ' + tc.m + '</p>';
       h += '<p class="good">Richtig hier: ' + right + '</p>';
-      if (tc.a) h += '<p><a href="' + MODS[BASE].ov + '#' + tc.a + '">In der Lernübersicht nachlesen →</a></p>';
+      if (tc.a) h += '<p><a class="ovlink" href="' + MODS[BASE].ov + '#' + tc.a + '">In der Lernübersicht nachlesen →</a></p>';
     } else if (r === "calc") {
       if (xd.s) h += '<h3>Rechenweg</h3><ol>' + xd.s.map(function (x) { return '<li>' + x + '</li>'; }).join("") + '</ol>';
       if (tc.f) h += '<h3>Formeln zum Thema</h3>' + tc.f.map(function (x) { return '<div class="fx">' + x + '</div>'; }).join("");
@@ -1484,4 +1484,28 @@ sub, sup { line-height: 0; }
 })();
 </script>
 
+<style>
+#ovLayer{position:fixed;inset:0;z-index:100;background:var(--paper);display:flex;flex-direction:column}
+#ovLayer[hidden]{display:none}
+#ovBar{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px max(12px,env(safe-area-inset-left,0px));padding-top:max(8px,env(safe-area-inset-top,0px));border-bottom:1.5px solid var(--line);background:var(--card)}
+#ovClose{font:inherit;font-weight:600;min-height:44px;padding:8px 14px;border-radius:6px;border:1.5px solid var(--ink);background:var(--ink);color:var(--card);cursor:pointer}
+#ovNew{font-size:14px;color:var(--ink)}
+#ovFrame{flex:1;width:100%;border:0;background:var(--paper)}
+body.ovopen{overflow:hidden}
+</style>
+<div id="ovLayer" hidden role="dialog" aria-modal="true" aria-label="Lernübersicht"><div id="ovBar"><button type="button" id="ovClose">← Zurück zum Quiz</button><a id="ovNew" href="#" target="_blank" rel="noopener">In neuem Tab</a></div><iframe id="ovFrame" title="Lernübersicht"></iframe></div>
+<script>
+(function(){
+  var L=document.getElementById("ovLayer"),Fr=document.getElementById("ovFrame"),N=document.getElementById("ovNew"),C=document.getElementById("ovClose"),last=null;
+  function hideBack(){try{var d=Fr.contentDocument;if(d){[].forEach.call(d.querySelectorAll("a.back"),function(a){a.style.display="none";});}}catch(e){}}
+  Fr.addEventListener("load",hideBack);
+  function open(url){last=document.activeElement;N.href=url;var base=url.split("#")[0],cur=(Fr.getAttribute("src")||"").split("#")[0];
+    if(cur===base&&Fr.contentWindow){try{Fr.contentWindow.location.hash=url.split("#")[1]||"";}catch(e){Fr.src=url;}}else{Fr.src=url;}
+    L.hidden=false;document.body.classList.add("ovopen");C.focus();}
+  function close(){L.hidden=true;document.body.classList.remove("ovopen");if(last&&last.focus)last.focus();}
+  document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a.ovlink");if(!a||e.ctrlKey||e.metaKey||e.shiftKey)return;e.preventDefault();open(a.getAttribute("href"));},true);
+  C.addEventListener("click",close);
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!L.hidden){e.stopPropagation();e.preventDefault();close();}},true);
+})();
+</script>
 </body></html>
