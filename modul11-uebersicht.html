@@ -107,6 +107,49 @@ svg .tarea { fill: var(--marker-soft); stroke: var(--ink); stroke-width: 1.6; st
 .back { align-self: flex-start; font-weight: 600; color: var(--ink); background: var(--marker-soft); border-radius: 6px; padding: 8px 12px; text-decoration: none; }
 .back:hover, .back:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 </style>
+<style>.tabsim{display:flex;flex-direction:column;gap:10px;border:1.5px solid var(--line);border-radius:8px;padding:12px;background:var(--card)}
+.tabsim svg{width:100%;max-width:340px;height:auto;align-self:center}
+.tsb{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.tabsim button{font:inherit;font-size:14px;font-weight:600;min-height:40px;padding:6px 10px;border-radius:6px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.tabsim button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.tabsim button:focus-visible,.tabsim input:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.tsr{display:flex;flex-direction:column;gap:8px}
+.tsr label{display:flex;flex-direction:column;gap:2px;font-size:14px;font-weight:600;color:var(--ink)}
+.tsr output{font-family:var(--f-mono);font-size:12px;font-weight:500;color:var(--ink-soft)}
+.tsr input{width:100%;accent-color:var(--ink);min-height:28px}
+.tsp{margin:0;font-size:14px;min-height:3em}
+.tsrow{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.tsfl{font-family:var(--f-mono);font-size:12px;color:var(--ink-soft)}
+.tsbar{height:10px;background:var(--grid);border-radius:5px;overflow:hidden}
+.tsbar i{display:block;height:100%;background:var(--ink);transition:width .1s}
+.tabsim .tsflow{stroke:var(--line);stroke-width:1.2;fill:none}
+.tabsim .tslink{stroke:var(--ink);stroke-width:2;stroke-dasharray:5 4}
+.tabsim .tstabp{fill:var(--tsred,#B3261E);stroke:var(--tsred,#B3261E);stroke-width:2;stroke-linejoin:round}
+.tabsim .tsforce{stroke:var(--tsred,#B3261E);stroke-width:2.5}
+.tabsim .tsforce + text{}
+.tabsim svg .s{stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tabsim svg .f{fill:var(--ink)}
+.tabsim svg .tm{fill:var(--ink-soft);font-family:var(--f-mono);font-size:11px}
+.tabsim svg .box{fill:var(--card);stroke:var(--ink);stroke-width:1.6}
+.tabsim svg .boxm{fill:var(--marker-soft);stroke:var(--ink);stroke-width:1.6}
+@media (prefers-reduced-motion:reduce){.tsbar i{transition:none}}
+.tabsim .ax{stroke:var(--ink-soft);stroke-width:1.2;fill:none}
+.tabsim .ssfl{stroke:var(--ink-soft);stroke-width:1.4}
+.tabsim .ssline{stroke:var(--ink);stroke-width:1.4;fill:none;opacity:.7}
+.tabsim .sswave{stroke:var(--tsred,#B3261E);stroke-width:1.6;fill:none}
+.tabsim .sscur0,.tabsim .sscur1{fill:none;stroke-width:2.5}
+.tabsim .sson{stroke:var(--tsred,#B3261E)}.tabsim .ssoff{stroke:var(--line);stroke-dasharray:4 4}
+.tabsim .ssdot{fill:var(--tsred,#B3261E)}
+.tabsim .sbwall{fill:var(--grid);stroke:var(--ink);stroke-width:1.4}
+.tabsim .sbtop,.tabsim .sbbot{fill:none;stroke-width:4}
+.tabsim .sbc{stroke:var(--tsred,#B3261E)}.tabsim .sbz{stroke:#2D5BD3}.tabsim .sbn0{stroke:var(--ink)}
+.tabsim .sbtxt{font-family:var(--f-body);font-size:13px;font-weight:600;fill:var(--fg)}
+.tabsim .sbcf{fill:var(--tsred,#B3261E)}.tabsim .sbzf{fill:#2D5BD3}
+.tabsim .snhole{fill:var(--paper,#F3F5FA);stroke:var(--ink-soft);stroke-width:1}
+.tabsim .sncl,.tabsim .snF1,.tabsim .snF2{stroke:var(--ink);stroke-width:2}
+.tabsim svg .snshear{fill:var(--tsred,#B3261E)}
+@media (prefers-color-scheme:dark){.tabsim .sbz{stroke:#8FB0FF}.tabsim .sbzf{fill:#8FB0FF}}
+.tabsim{--tsred:var(--red)}</style>
 
 <style>.erg::before { content: "Ergänzung · nicht aus deinem Skript"; }</style>
 
@@ -152,26 +195,7 @@ svg .tarea { fill: var(--marker-soft); stroke: var(--ink); stroke-width: 1.6; st
   <section id="schwerpunkt">
     <h2>★ Schwerpunkte 11.1 <span class="lvl">VORFLÜGEL &amp; TABS</span></h2>
     <p>Auf diesen vier Themen liegt das Hauptaugenmerk in 11.1. Die Skriptinhalte stehen weiter unten bei <a href="#hoch">Slots &amp; Slats</a>, <a href="#tabs">Servo Tab</a> und <a href="#ausgl">Balance &amp; Spring Tab</a>.</p>
-    <div class="fig"><figure><svg viewBox="0 0 340 250" width="340" role="img" aria-label="Servo, Balance und Spring Tab im Vergleich">
-<rect class="box" x="10" y="28" width="70" height="12" rx="3"/>
-<circle class="f" cx="86" cy="34" r="3.5"/>
-<line class="s" x1="86" y1="34" x2="160" y2="54" stroke-width="5"/>
-<line class="c" x1="160" y1="54" x2="190" y2="43" stroke-width="4"/>
-<path class="s" d="M190,14 L190,40" stroke-dasharray="3 3"/><text class="tm" x="150" y="10">Steuerung</text>
-<text class="tb" x="210" y="36">Servo Tab</text><text class="tm" x="210" y="52">Pilot → nur Tab</text>
-<rect class="box" x="10" y="108" width="70" height="12" rx="3"/>
-<circle class="f" cx="86" cy="114" r="3.5"/>
-<line class="s" x1="86" y1="114" x2="160" y2="134" stroke-width="5"/>
-<line class="c" x1="160" y1="134" x2="190" y2="123" stroke-width="4"/>
-<line class="gd" x1="66" y1="108" x2="182" y2="124" stroke="var(--ink)" stroke-width="1.6" stroke-dasharray="5 4"/><text class="tm" x="40" y="96">Stange an fester Struktur</text>
-<text class="tb" x="210" y="116">Balance Tab</text><text class="tm" x="210" y="132">Pilot → Fläche</text>
-<rect class="box" x="10" y="188" width="70" height="12" rx="3"/>
-<circle class="f" cx="86" cy="194" r="3.5"/>
-<line class="s" x1="86" y1="194" x2="160" y2="214" stroke-width="5"/>
-<line class="c" x1="160" y1="214" x2="190" y2="203" stroke-width="4"/>
-<path class="s" d="M100,176 l6,-6 l6,12 l6,-12 l6,12 l6,-12 l6,6"/><text class="tm" x="100" y="162">Feder</text>
-<text class="tb" x="210" y="196">Spring Tab</text><text class="tm" x="210" y="212">über Feder</text>
-</svg><figcaption>Alle drei: Fläche nach unten, Tab (rot) nach oben. Unterschied ist, was der Pilot bewegt.</figcaption></figure></div>
+    <div class="tabsim" data-sim="tab"></div><p class="src">Schalte die Tab-Art um und verschiebe Steuereingabe und Fahrt. Rot ist das Tab, der Pfeil die Luftkraft am Tab. Vereinfachtes Modell, Winkel überzeichnet.</p>
     <div class="tbl"><table><thead><tr><th>Bauteil</th><th>Pilot steuert</th><th>Am Tab passiert</th><th>Effekt</th></tr></thead><tbody><tr><td><strong>Servo Tab</strong></td><td>nur das Tab, Fläche frei drehbar</td><td>schlägt gegen die gewünschte Flächenrichtung aus</td><td>Luftkraft bewegt die Fläche</td></tr><tr><td><strong>Balance Tab</strong></td><td>die Fläche direkt</td><td>Gestänge an fester Struktur, läuft gegensinnig</td><td>weniger Steuerkraft</td></tr><tr><td><strong>Spring Tab</strong></td><td>über eine Feder</td><td>langsam fast neutral, schnell Ausschlag</td><td>Hilfe wächst mit der Fahrt</td></tr></tbody></table></div>
     <p class="merk">Servo: nur das Tab. Balance: die Fläche. Spring: je schneller, desto mehr Hilfe.</p>
     <div class="erg">
@@ -237,24 +261,7 @@ svg .tarea { fill: var(--marker-soft); stroke: var(--ink); stroke-width: 1.6; st
     <h2>Slots, Slats &amp; Klappen <span class="lvl">11.1a · LEVEL 2</span></h2>
     <p class="src">Skript Seiten 21 bis 23</p>
     <ul><li>Vorderkante: Slot, Slat, Krüger, Droop Nose. Sie helfen bei hohen Anstellwinkeln.</li><li>Hinterkante: Wölbung, Spreiz, Fowler, Schlitz.</li><li>Fowler vergrößert auch die Fläche, Schlitzklappen führen energiereiche Luft nach oben.</li><li>Spreizklappe: viel Widerstand, in Transportflugzeugen nicht verwendet.</li></ul>
-<div class="tbl"><table><thead><tr><th>Klappe</th><th>Wirkung</th></tr></thead><tbody><tr><td><strong>Wölbungsklappe</strong></td><td>Wie ein Querruder, aber beide Seiten symmetrisch. Nur langsame Flugzeuge.</td></tr><tr><td><strong>Spreizklappe</strong></td><td>Nur Unterseite klappt ab, sehr viel Widerstand.</td></tr><tr><td><strong>Fowler</strong></td><td>Rollt auf Schienen zurück, mehr Fläche und Wölbung.</td></tr><tr><td><strong>Schlitzklappe</strong></td><td>Luft von unten strömt über die Klappenoberseite.</td></tr><tr><td><strong>Krüger</strong></td><td>Klappt aus dem unteren Teil der Vorderkante.</td></tr><tr><td><strong>Droop Nose</strong></td><td>Absenkbare Vorderkante: mehr Wölbung, kleinerer Anstellwinkel.</td></tr></tbody></table></div>    <div class="fig"><figure><svg viewBox="0 0 340 160" width="340" role="img" aria-label="Profil mit ausgefahrenem Vorflügel und Spalt"><defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f"/></marker></defs>
-<path class="boxm" d="M74,96 C84,74 140,62 210,66 C262,69 300,80 330,92 C292,96 214,100 132,106 C100,108 80,106 74,96 Z"/>
-<path class="box" d="M22,112 C24,88 42,72 66,70 C54,80 46,94 44,112 Z"/>
-<path class="s" d="M30,148 C46,132 56,112 62,96 C70,78 100,68 140,64" stroke="var(--red)" marker-end="url(#ar2)"/>
-<text class="t" x="4" y="64">Vorflügel</text>
-<text class="t" x="70" y="132">Spalt</text>
-<text class="tm" x="150" y="40">energiereiche Luft von unten</text>
-<text class="tm" x="150" y="53">auf die Oberseite</text>
-<text class="t" x="216" y="122">Flügel</text>
-</svg><figcaption>Ausgefahren öffnet der Vorflügel einen Spalt an der Vorderkante.</figcaption></figure></div><div class="fig"><figure><svg viewBox="0 0 340 200" width="340" role="img" aria-label="Auftriebskurve mit und ohne Vorflügel">
-<line class="ax" x1="40" y1="170" x2="330" y2="170"/><line class="ax" x1="40" y1="170" x2="40" y2="12"/>
-<text class="tm" x="316" y="186">α</text><text class="tm" x="46" y="14">CA</text>
-<path class="s" d="M40,160 L170,74 Q186,64 196,72 L222,104"/>
-<path class="c" d="M40,160 L170,74 L232,34 Q246,26 256,36 L284,72"/>
-<line class="gd" x1="190" y1="68" x2="190" y2="170"/><line class="gd" x1="248" y1="30" x2="248" y2="170"/>
-<text class="tm" x="160" y="186">αkrit</text><text class="tm" x="226" y="186">αkrit neu</text>
-<text class="t" x="200" y="120">ohne Vorflügel</text><text class="t" x="262" y="26" fill="var(--red)">mit</text>
-</svg><figcaption>Mit Vorflügel: Kurve läuft weiter, höheres CAmax und höherer kritischer Anstellwinkel. Bei kleinem α kaum Unterschied.</figcaption></figure></div><div class="tbl"><table><thead><tr><th>Vorderkantenhilfe</th><th>Aufbau</th><th>Spalt</th></tr></thead><tbody><tr><td>Slot</td><td>fester Schlitz im Flügel</td><td>immer offen</td></tr><tr><td>Slat (Vorflügel)</td><td>fährt nach vorn aus</td><td>nur ausgefahren</td></tr><tr><td>Krüger-Klappe</td><td>klappt aus der Unterseite</td><td>nein</td></tr><tr><td>Droop Nose</td><td>Vorderkante senkt sich ab</td><td>nein</td></tr></tbody></table></div><h3>So hängt es zusammen</h3><p>Vorderkantenhilfen wirken erst bei hohem Anstellwinkel: Sie verhindern, dass die Strömung an der Oberseite zu früh abreißt. Hinterkantenklappen erhöhen dagegen die Wölbung und damit den Auftrieb schon bei kleinem Anstellwinkel. Fowler-Klappen vergrößern zusätzlich die Fläche.</p><div class="falle"><ul><li>Der feste Slot kostet immer Widerstand, der Slat nur ausgefahren.</li><li>Spreizklappe: sehr viel Widerstand, in Transportflugzeugen nicht verwendet.</li><li>Mit Vorflügeln sinkt die Überziehgeschwindigkeit, mit ausgefahrenen Flügelspoilern steigt sie.</li></ul></div>
+<div class="tbl"><table><thead><tr><th>Klappe</th><th>Wirkung</th></tr></thead><tbody><tr><td><strong>Wölbungsklappe</strong></td><td>Wie ein Querruder, aber beide Seiten symmetrisch. Nur langsame Flugzeuge.</td></tr><tr><td><strong>Spreizklappe</strong></td><td>Nur Unterseite klappt ab, sehr viel Widerstand.</td></tr><tr><td><strong>Fowler</strong></td><td>Rollt auf Schienen zurück, mehr Fläche und Wölbung.</td></tr><tr><td><strong>Schlitzklappe</strong></td><td>Luft von unten strömt über die Klappenoberseite.</td></tr><tr><td><strong>Krüger</strong></td><td>Klappt aus dem unteren Teil der Vorderkante.</td></tr><tr><td><strong>Droop Nose</strong></td><td>Absenkbare Vorderkante: mehr Wölbung, kleinerer Anstellwinkel.</td></tr></tbody></table></div>    <div class="tabsim" data-sim="slat"></div><p class="src">Erhöhe den Anstellwinkel und schalte den Vorflügel ein und aus. Der Punkt läuft auf der Auftriebskurve mit.</p><div class="tbl"><table><thead><tr><th>Vorderkantenhilfe</th><th>Aufbau</th><th>Spalt</th></tr></thead><tbody><tr><td>Slot</td><td>fester Schlitz im Flügel</td><td>immer offen</td></tr><tr><td>Slat (Vorflügel)</td><td>fährt nach vorn aus</td><td>nur ausgefahren</td></tr><tr><td>Krüger-Klappe</td><td>klappt aus der Unterseite</td><td>nein</td></tr><tr><td>Droop Nose</td><td>Vorderkante senkt sich ab</td><td>nein</td></tr></tbody></table></div><h3>So hängt es zusammen</h3><p>Vorderkantenhilfen wirken erst bei hohem Anstellwinkel: Sie verhindern, dass die Strömung an der Oberseite zu früh abreißt. Hinterkantenklappen erhöhen dagegen die Wölbung und damit den Auftrieb schon bei kleinem Anstellwinkel. Fowler-Klappen vergrößern zusätzlich die Fläche.</p><div class="falle"><ul><li>Der feste Slot kostet immer Widerstand, der Slat nur ausgefahren.</li><li>Spreizklappe: sehr viel Widerstand, in Transportflugzeugen nicht verwendet.</li><li>Mit Vorflügeln sinkt die Überziehgeschwindigkeit, mit ausgefahrenen Flügelspoilern steigt sie.</li></ul></div>
     <p class="merk">Start halb, Landung voll.</p>
   </section>
   <section id="brems">
@@ -392,13 +399,7 @@ svg .tarea { fill: var(--marker-soft); stroke: var(--ink); stroke-width: 1.6; st
     <h2>Lasten &amp; Spannungen <span class="lvl">11.2b · LEVEL 2</span></h2>
     <p class="src">Skript 11.2, Seiten 34 bis 38, 40 bis 44</p>
     <ul><li>Spannung = Kraft / Fläche, Dehnung = Längenänderung / Ursprungslänge.</li><li>Normalspannung: Zug, Druck, Biegung.</li><li>Tangentialspannung: Schub, Torsion.</li><li>Ringspannung am druckbelasteten Rumpf.</li><li>Ultimate = Limit × Sicherheitsfaktor.</li><li>Massen am Flügel entlasten gegen den Auftrieb.</li></ul>
-    <div class="fig"><figure><svg viewBox="0 0 340 170" width="340" role="img" aria-label="Biegung des Flügelholms im Flug"><defs><marker id="ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f"/></marker></defs>
-<rect x="10" y="40" width="22" height="90" fill="var(--grid)" stroke="var(--ink)" stroke-width="1.4"/><text class="tm" x="6" y="150">Rumpf</text>
-<path class="boxm" d="M32,76 Q190,74 324,40 L326,54 Q190,92 32,94 Z"/>
-<line class="s" x1="170" y1="140" x2="170" y2="96" marker-end="url(#ar4)"/><line class="s" x1="230" y1="132" x2="230" y2="84" marker-end="url(#ar4)"/><line class="s" x1="290" y1="120" x2="290" y2="66" marker-end="url(#ar4)"/>
-<text class="tm" x="236" y="150">Auftrieb</text>
-<text class="t" x="70" y="66" fill="var(--red)">oben: Druck</text><text class="t" x="70" y="114">unten: Zug</text>
-</svg><figcaption>Im Flug biegt der Auftrieb den Flügel nach oben. Am Boden hängt er durch, dann kehrt sich die Belastung um.</figcaption></figure></div><div class="tbl"><table><thead><tr><th>Spannungsart</th><th>Kraftrichtung</th><th>Beispiel</th></tr></thead><tbody><tr><td>Zug, Druck</td><td>senkrecht zur Fläche (Normalspannung)</td><td>Flügelstrebe, Holmgurt</td></tr><tr><td>Biegung</td><td>senkrecht, oben/unten verschieden</td><td>Flügelholm</td></tr><tr><td>Schub (Scherung)</td><td>parallel zur Fläche (Tangentialspannung)</td><td>Niet, Bolzen</td></tr><tr><td>Torsion</td><td>parallel, als Verdrehung</td><td>Flügel durch wandernden Druckpunkt</td></tr></tbody></table></div><h3>So hängt es zusammen</h3><p>Die zulässige Last (Limit Load) darf im Betrieb auftreten, ohne dass etwas bleibend verformt wird. Die Höchstlast (Ultimate Load) ist Limit Load mal Sicherheitsfaktor. Das Lastvielfache n ist im Horizontalflug 1 und steigt beim Ziehen und im Kurvenflug.</p><div class="falle"><ul><li>Flügelholm im Flug: oben Druck, unten Zug. Am Boden umgekehrt.</li><li>Streben eines Hochdeckers: im Flug Zug, am Boden Druck.</li><li>Kraftstoff und Triebwerke am Flügel entlasten ihn gegen den Auftrieb.</li></ul></div>
+    <div class="tabsim" data-sim="bieg"></div><p class="src">Schiebe vom Boden über den Horizontalflug bis in die Kurve. Rot = Druck, blau = Zug.</p><div class="tbl"><table><thead><tr><th>Spannungsart</th><th>Kraftrichtung</th><th>Beispiel</th></tr></thead><tbody><tr><td>Zug, Druck</td><td>senkrecht zur Fläche (Normalspannung)</td><td>Flügelstrebe, Holmgurt</td></tr><tr><td>Biegung</td><td>senkrecht, oben/unten verschieden</td><td>Flügelholm</td></tr><tr><td>Schub (Scherung)</td><td>parallel zur Fläche (Tangentialspannung)</td><td>Niet, Bolzen</td></tr><tr><td>Torsion</td><td>parallel, als Verdrehung</td><td>Flügel durch wandernden Druckpunkt</td></tr></tbody></table></div><h3>So hängt es zusammen</h3><p>Die zulässige Last (Limit Load) darf im Betrieb auftreten, ohne dass etwas bleibend verformt wird. Die Höchstlast (Ultimate Load) ist Limit Load mal Sicherheitsfaktor. Das Lastvielfache n ist im Horizontalflug 1 und steigt beim Ziehen und im Kurvenflug.</p><div class="falle"><ul><li>Flügelholm im Flug: oben Druck, unten Zug. Am Boden umgekehrt.</li><li>Streben eines Hochdeckers: im Flug Zug, am Boden Druck.</li><li>Kraftstoff und Triebwerke am Flügel entlasten ihn gegen den Auftrieb.</li></ul></div>
     <p class="merk">Flug: Holm oben Druck, unten Zug.</p>
   </section>
   <section id="ermued">
@@ -452,18 +453,7 @@ svg .tarea { fill: var(--marker-soft); stroke: var(--ink); stroke-width: 1.6; st
     <h2>Niete, Bolzen &amp; Sicherungen <span class="lvl">11.2c · LEVEL 2</span></h2>
     <p class="src">Skript 11.2, Seiten 81 bis 91</p>
     <ul><li>Vollniet für Scherlast, Blindniet bei wenig Last oder Zugang.</li><li>Bolzen für Zug und Querkraft, Schrauben für geringere Last.</li><li>Wärmebehandelte Teile nicht schweißen.</li><li>Duroplast fest, Thermoplast schwach, Elastomer flexibel.</li><li>Sicherungsblech nur einmal.</li></ul>
-    <div class="fig"><figure><svg viewBox="0 0 340 190" width="340" role="img" aria-label="Kraftschluss und Formschluss beim Niet"><defs><marker id="ar5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f"/></marker></defs>
-<rect class="box" x="16" y="70" width="110" height="14"/><rect class="box" x="16" y="84" width="110" height="14"/>
-<rect class="boxm" x="65" y="60" width="12" height="48"/>
-<path class="boxm" d="M54,60 Q71,44 88,60 Z"/><rect class="boxm" x="56" y="108" width="30" height="8" rx="3"/>
-<line class="c" x1="71" y1="22" x2="71" y2="44" marker-end="url(#ar5)"/><line class="c" x1="71" y1="150" x2="71" y2="120" marker-end="url(#ar5)"/>
-<text class="tb" x="16" y="16">Kraftschluss</text><text class="tm" x="16" y="168">Kopfzug presst Bleche,</text><text class="tm" x="16" y="181">Kraft über Reibung</text>
-<rect class="box" x="196" y="70" width="110" height="14"/><rect class="box" x="206" y="84" width="110" height="14"/>
-<rect class="boxm" x="245" y="60" width="12" height="48"/>
-<path class="boxm" d="M234,60 Q251,44 268,60 Z"/><rect class="boxm" x="236" y="108" width="30" height="8" rx="3"/>
-<line class="c" x1="186" y1="77" x2="210" y2="77" marker-end="url(#ar5)"/><line class="c" x1="330" y1="91" x2="308" y2="91" marker-end="url(#ar5)"/>
-<text class="tb" x="196" y="16">Formschluss</text><text class="tm" x="196" y="168">Schaft an Lochwand,</text><text class="tm" x="196" y="181">Kraft über Scherung</text>
-</svg><figcaption>Laut Skript trägt zuerst der Kraftschluss. Lässt die Spannkraft nach, trägt der Niet auf Scherung (Formschluss).</figcaption></figure></div><div class="tbl"><table><thead><tr><th>Element</th><th>Einsatz</th></tr></thead><tbody><tr><td>Vollniet</td><td>hohe Scherkräfte, häufigster: Rundkopf aus Aluminium</td></tr><tr><td>Blindniet</td><td>geringe Last oder Zugang nur von einer Seite</td></tr><tr><td>Stahlniet</td><td>Brandschotte (hitzebeständig)</td></tr><tr><td>Bolzen</td><td>Zug- und Querkräfte</td></tr><tr><td>Schraube</td><td>geringere Lasten</td></tr></tbody></table></div><div class="falle"><ul><li>Laut Skript trägt die Nietverbindung primär über Kopfzug und Kraftschluss. In der Praxis gelten Strukturniete als Scher- und Lochleibungsverbindung. Kläre in der Schulung, was in der Prüfung gilt.</li><li>Sicherungsblech nur einmal verwenden. Selbstsichernde Mutter tauschen, wenn sie sich von Hand drehen lässt.</li></ul></div>
+    <div class="tabsim" data-sim="niet"></div><p class="src">Verringere die Spannkraft im Niet und beobachte, wann die Bleche rutschen.</p><div class="tbl"><table><thead><tr><th>Element</th><th>Einsatz</th></tr></thead><tbody><tr><td>Vollniet</td><td>hohe Scherkräfte, häufigster: Rundkopf aus Aluminium</td></tr><tr><td>Blindniet</td><td>geringe Last oder Zugang nur von einer Seite</td></tr><tr><td>Stahlniet</td><td>Brandschotte (hitzebeständig)</td></tr><tr><td>Bolzen</td><td>Zug- und Querkräfte</td></tr><tr><td>Schraube</td><td>geringere Lasten</td></tr></tbody></table></div><div class="falle"><ul><li>Laut Skript trägt die Nietverbindung primär über Kopfzug und Kraftschluss. In der Praxis gelten Strukturniete als Scher- und Lochleibungsverbindung. Kläre in der Schulung, was in der Prüfung gilt.</li><li>Sicherungsblech nur einmal verwenden. Selbstsichernde Mutter tauschen, wenn sie sich von Hand drehen lässt.</li></ul></div>
     <p class="merk">Löst sich die Schraube, zieht der Draht fest.</p>
   </section>
   <section id="schutz">
@@ -527,4 +517,151 @@ svg .tarea { fill: var(--marker-soft); stroke: var(--ink); stroke-width: 1.6; st
   window.addEventListener('hashchange',route);route();
 })();
 </script>
+<script>function tabSim(root){
+  if(!root||root.dataset.ready)return;root.dataset.ready="1";
+  var T={servo:{n:"Servo Tab",p:"Pilot bewegt nur das Tab. Die Luftkraft am Tab bewegt die Fläche."},
+         bal:{n:"Balance Tab",p:"Pilot bewegt die Fläche. Ein Gestänge zur festen Struktur dreht das Tab gegensinnig."},
+         spring:{n:"Spring Tab",p:"Pilot steuert über eine Feder. Erst hohe Kräfte drücken sie zusammen, dann schlägt das Tab aus."},
+         anti:{n:"Anti-Balance Tab",p:"Pilot bewegt die Fläche. Das Tab läuft gleichsinnig mit und erhöht die Steuerkraft."}};
+  root.innerHTML='<div class="tsb" role="group" aria-label="Tab-Art">'+Object.keys(T).map(function(k){return '<button type="button" data-k="'+k+'">'+T[k].n+'</button>';}).join("")+'</div>'+
+  '<svg viewBox="0 0 340 190" role="img" aria-label="Bewegliches Modell der Steuerfläche mit Tab"><defs><marker id="tsA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f"/></marker></defs>'+
+  '<path class="tsflow" d="M8,40 H332 M8,150 H332" stroke-dasharray="4 8"/>'+
+  '<rect class="box" x="14" y="86" width="104" height="16" rx="5"/><text class="tm" x="22" y="78">feste Fläche</text>'+
+  '<line class="tslink" x1="0" y1="0" x2="0" y2="0"/><path class="tsspring s" d=""/><text class="tm tssl" x="150" y="30">Feder</text>'+
+  '<g class="tssurf"><path class="boxm" d="M0,-8 L120,-3 L120,3 L0,8 Z"/><g class="tstab"><path class="tstabp" d="M0,-3 L40,-1 L40,1 L0,3 Z"/></g></g>'+
+  '<circle class="f" cx="122" cy="94" r="4"/><line class="tsforce" x1="0" y1="0" x2="0" y2="0" marker-end="url(#tsA)"/>'+
+  '<text class="tm tsl1" x="10" y="182"></text></svg>'+
+  '<p class="tsp"></p>'+
+  '<div class="tsr"><label>Steuereingabe <output class="o1"></output><input type="range" min="-100" max="100" value="60" step="1" class="r1"></label>'+
+  '<label>Fahrt <output class="o2"></output><input type="range" min="0" max="100" value="70" step="1" class="r2"></label></div>'+
+  '<div class="tsrow"><button type="button" class="tsplay">▶ Bewegen</button><span class="tsfl">Steuerkraft für den Piloten</span></div><div class="tsbar"><i></i></div>';
+  var q=function(s){return root.querySelector(s);},k=root.dataset.k||"servo",play=false,t0=0,raf=0;
+  var surf=q(".tssurf"),tab=q(".tstab"),link=q(".tslink"),spr=q(".tsspring"),force=q(".tsforce"),r1=q(".r1"),r2=q(".r2");
+  function rot(a,x,y){a=a*Math.PI/180;return [x*Math.cos(a)-y*Math.sin(a),x*Math.sin(a)+y*Math.cos(a)];}
+  function draw(){
+    var s=r1.value/100,v=r2.value/100,qd=v*v,ds,dt,F;
+    if(k==="servo"){dt=-s*22;ds=s*18*qd/(qd+0.06);F=0.04+0.18*qd*Math.abs(s);}
+    else if(k==="bal"){ds=s*18;dt=-0.6*ds;F=0.04+0.55*qd*Math.abs(s);}
+    else if(k==="anti"){ds=s*18;dt=0.6*ds;F=0.04+1.35*qd*Math.abs(s);}
+    else{ds=s*18;var c=qd/(qd+0.25);dt=-s*24*c;F=0.04+qd*Math.abs(s)*(1-0.75*c);}
+    var hx=122,hy=94;
+    var DS=ds*1.5,DT=dt*1.6;surf.setAttribute("transform","translate("+hx+","+hy+") rotate("+DS+")");
+    tab.setAttribute("transform","translate(120,0) rotate("+DT+")");
+    var te=rot(DS,120,0),tx=hx+te[0],ty=hy+te[1],tm=rot(DS+DT,20,0),mx=tx+tm[0],my=ty+tm[1];
+    link.style.display=(k==="bal"||k==="anti")?"":"none";
+    if(k==="bal"||k==="anti"){var fx=96,fy=k==="bal"?110:78;link.setAttribute("x1",fx);link.setAttribute("y1",fy);link.setAttribute("x2",mx);link.setAttribute("y2",my+(k==="bal"?6:-6));}
+    spr.style.display=k==="spring"?"":"none";q(".tssl").style.display=spr.style.display;
+    if(k==="spring"){var comp=Math.abs(dt)/24,len=60*(1-0.45*comp),x0=150,y0=44,d="M"+x0+","+y0;for(var i=1;i<=8;i++){d+=" L"+(x0+len*i/8)+","+(y0+(i%2?-6:6));}spr.setAttribute("d",d+" L"+(x0+len+10)+","+y0);}
+    var fa=qd*Math.abs(dt)*3,dir=dt<0?1:-1,n=rot(DS+DT,0,dir*(fa+6));
+    force.style.display=fa>4?"":"none";force.setAttribute("x1",mx-n[0]);force.setAttribute("y1",my-n[1]);force.setAttribute("x2",mx);force.setAttribute("y2",my);
+    q(".tsl1").textContent="Fläche "+(ds>=0?"↓ ":"↑ ")+Math.abs(ds).toFixed(0)+"°   Tab "+(ds+dt>=ds?"↓ ":"↑ ")+Math.abs(dt).toFixed(0)+"° zur Fläche";
+    q(".o1").textContent=(s>0?"Fläche runter":s<0?"Fläche hoch":"neutral");
+    q(".o2").textContent=v<0.05?"Boden (0)":v<0.4?"langsam":v<0.75?"mittel":"schnell";
+    q(".tsbar i").style.width=Math.min(100,F*100).toFixed(0)+"%";
+    q(".tsp").textContent=T[k].p;
+    [].forEach.call(root.querySelectorAll(".tsb button"),function(b){b.setAttribute("aria-pressed",b.dataset.k===k?"true":"false");});
+  }
+  function loop(ts){if(!play)return;if(!t0)t0=ts||1;r1.value=Math.round(80*Math.sin((ts-t0)/700));draw();raf=requestAnimationFrame(loop);}
+  root.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+    if(b.dataset.k){k=b.dataset.k;draw();}
+    if(b.classList.contains("tsplay")){play=!play;b.textContent=play?"❚❚ Anhalten":"▶ Bewegen";if(play){t0=0;raf=requestAnimationFrame(loop);}else cancelAnimationFrame(raf);}});
+  r1.addEventListener("input",function(){if(play){play=false;q(".tsplay").textContent="▶ Bewegen";cancelAnimationFrame(raf);}draw();});
+  r2.addEventListener("input",draw);
+  draw();
+}
+
+function simEl(root,html){root.innerHTML=html;return function(s){return root.querySelector(s);};}
+function slatSim(root){
+  if(!root||root.dataset.ready)return;root.dataset.ready="1";
+  var q=simEl(root,'<div class="tsb" role="group" aria-label="Vorflügel"><button type="button" data-v="0">Vorflügel eingefahren</button><button type="button" data-v="1">Vorflügel ausgefahren</button></div>'+
+  '<svg viewBox="0 0 340 150" role="img" aria-label="Profil mit Strömung"><defs><marker id="ssA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="f"/></marker></defs>'+
+  '<g class="ssfree"></g><g class="ssprof"><path class="boxm" d="M-100,6 C-96,-14 -50,-24 10,-20 C60,-16 100,-6 130,2 C90,6 20,10 -50,13 C-80,14 -98,12 -100,6 Z"/><path class="box ssslat" d="M-122,12 C-124,-6 -112,-19 -92,-21 L-90,-16 C-104,-14 -112,-4 -113,12 Z"/><g class="ssflow"></g><g class="sssep"></g></g>'+
+  '<text class="tm ssa" x="170" y="14"></text></svg>'+
+  '<svg viewBox="0 0 340 170" role="img" aria-label="Auftriebskurve"><line class="ax" x1="40" y1="140" x2="330" y2="140"/><line class="ax" x1="40" y1="140" x2="40" y2="8"/><text class="tm" x="318" y="158">α</text><text class="tm" x="46" y="14">CA</text><path class="sscur0"/><path class="sscur1"/><circle class="ssdot" r="6"/><text class="tm" x="250" y="36">mit</text><text class="tm" x="190" y="60">ohne</text></svg>'+
+  '<p class="tsp ssp"></p><div class="tsr"><label>Anstellwinkel <output class="o1"></output><input type="range" min="0" max="26" value="12" step="1" class="r1"></label></div>'+
+  '<div class="tsrow"><button type="button" class="tsplay">▶ Bewegen</button><span class="tsfl">Modellwerte, nicht maßstäblich</span></div>');
+  var on=0,r1=q(".r1"),play=false,raf=0,t0=0,P={0:{c:15,m:1.45},1:{c:22,m:2.0}};
+  function ca(a,s){var p=P[s];if(a<=p.c-4)return 0.1*a;if(a<=p.c){var u=(a-(p.c-4))/4;return 0.1*(p.c-4)+(p.m-0.1*(p.c-4))*(1-(1-u)*(1-u));}return p.m-0.09*(a-p.c);}
+  function X(a){return 40+a*11;}function Y(c){return 140-c*62;}
+  [0,1].forEach(function(s){var d="";for(var a=0;a<=26;a+=0.5)d+=(a?" L":"M")+X(a).toFixed(1)+","+Y(ca(a,s)).toFixed(1);q(".sscur"+s).setAttribute("d",d);});
+  var free="";for(var i=0;i<4;i++)free+='<line class="ssfl" x1="6" y1="'+(30+i*28)+'" x2="40" y2="'+(30+i*28)+'" marker-end="url(#ssA)"/>';q(".ssfree").innerHTML=free;
+  function draw(){
+    var a=+r1.value,p=P[on],sep=Math.max(0,Math.min(1,(a-(p.c-2))/6));
+    q(".ssprof").setAttribute("transform","translate(180,78) rotate("+(-a)+")");
+    q(".ssslat").style.display=on?"":"none";
+    var f="",x1=-96+(on?-14:0),end=130-sep*200;
+    for(var i=0;i<3;i++){var y=-26-i*9;f+='<path class="ssline" d="M'+(x1-20)+','+(y+12)+' C'+(x1+10)+','+(y-6)+' '+(end-60)+','+(y+2)+' '+end+','+(y+10+i*2)+'"/>';}
+    q(".ssflow").innerHTML=f;
+    var w="";if(sep>0){for(var j=0;j<3;j++){var x=end+j*14,yy=-26-j*6;w+='<path class="sswave" d="M'+x+','+yy+' q8,-12 16,0 t16,0 t16,0"/>';}}q(".sssep").innerHTML=w;
+    q(".ssdot").setAttribute("cx",X(a));q(".ssdot").setAttribute("cy",Y(ca(a,on)));
+    q(".sscur"+on).setAttribute("class","sscur"+on+" sson");q(".sscur"+(1-on)).setAttribute("class","sscur"+(1-on)+" ssoff");
+    q(".ssa").textContent="α = "+a+"°   CA = "+ca(a,on).toFixed(2);
+    q(".o1").textContent=a+"°";
+    var st=a<p.c-2?"Strömung liegt an.":a<=p.c?"Strömung beginnt sich hinten abzulösen, CA nahe am Maximum.":"Strömung abgerissen: CA fällt, das Flugzeug überzieht.";
+    q(".ssp").textContent=st+(on?" Mit Vorflügel liegt der kritische Anstellwinkel höher (hier "+p.c+"° statt 15°).":" Ohne Vorflügel liegt der kritische Anstellwinkel hier bei "+p.c+"°.");
+    [].forEach.call(root.querySelectorAll(".tsb button"),function(b){b.setAttribute("aria-pressed",+b.dataset.v===on?"true":"false");});
+  }
+  function loop(ts){if(!play)return;if(!t0)t0=ts||1;r1.value=Math.round(13+13*Math.sin((ts-t0)/900));draw();raf=requestAnimationFrame(loop);}
+  root.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;if(b.dataset.v!==undefined){on=+b.dataset.v;draw();}
+    if(b.classList.contains("tsplay")){play=!play;b.textContent=play?"❚❚ Anhalten":"▶ Bewegen";if(play){t0=0;raf=requestAnimationFrame(loop);}else cancelAnimationFrame(raf);}});
+  r1.addEventListener("input",function(){if(play){play=false;q(".tsplay").textContent="▶ Bewegen";cancelAnimationFrame(raf);}draw();});
+  draw();
+}
+function biegSim(root){
+  if(!root||root.dataset.ready)return;root.dataset.ready="1";
+  var q=simEl(root,'<svg viewBox="0 0 340 180" role="img" aria-label="Flügelbiegung"><defs><marker id="sbA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="f"/></marker></defs>'+
+  '<rect x="8" y="40" width="22" height="100" class="sbwall"/><text class="tm" x="4" y="156">Rumpf</text><path class="boxm sbbeam"/><path class="sbtop"/><path class="sbbot"/><g class="sbarr"></g><text class="sbt1" x="60"></text><text class="sbt2" x="60"></text><text class="tm sbn" x="120" y="174"></text></svg>'+
+  '<p class="tsp sbp"></p><div class="tsr"><label>Lastfall <output class="o1"></output><input type="range" min="0" max="100" value="40" step="1" class="r1"></label></div>'+
+  '<div class="tsrow"><button type="button" class="tsplay">▶ Bewegen</button><span class="tsfl">Biegung überzeichnet</span></div>');
+  var r1=q(".r1"),play=false,raf=0,t0=0;
+  function draw(){
+    var v=+r1.value,n=v<15?-1+v/15*1:(v<=40?(v-15)/25:1+(v-40)/60*1.5);
+    var L=n,len=290,x0=30,y0=90,pts=function(off){var d="";for(var i=0;i<=20;i++){var x=i/20,y=y0+off*(1-0.5*x)-L*26*x*x;d+=(i?" L":"M")+(x0+x*len).toFixed(1)+","+y.toFixed(1);}return d;};
+    var top=pts(-9),bot=pts(9),back=bot.replace(/^M/,"").split(" L").reverse().join(" L");
+    q(".sbbeam").setAttribute("d",top+" L"+back+" Z");q(".sbtop").setAttribute("d",top);q(".sbbot").setAttribute("d",bot);
+    var up=L>0.05,dn=L<-0.05;
+    q(".sbtop").setAttribute("class","sbtop "+(up?"sbc":dn?"sbz":"sbn0"));q(".sbbot").setAttribute("class","sbbot "+(up?"sbz":dn?"sbc":"sbn0"));
+    var a="";if(Math.abs(L)>0.05){[0.4,0.65,0.9].forEach(function(x){var y=y0-L*26*x*x,X=x0+x*len,l=12+Math.abs(L)*12;a+=up?'<line class="s" x1="'+X+'" y1="'+(y+16+l)+'" x2="'+X+'" y2="'+(y+14)+'" marker-end="url(#sbA)"/>':'<line class="s" x1="'+X+'" y1="'+(y-16-l)+'" x2="'+X+'" y2="'+(y-14)+'" marker-end="url(#sbA)"/>';});}
+    q(".sbarr").innerHTML=a;
+    var t1=q(".sbt1"),t2=q(".sbt2");t1.setAttribute("y",y0-16);t2.setAttribute("y",y0+26);
+    t1.textContent=up?"oben: Druck":dn?"oben: Zug":"oben: fast spannungsfrei";t2.textContent=up?"unten: Zug":dn?"unten: Druck":"unten: fast spannungsfrei";
+    t1.setAttribute("class","sbt1 sbtxt "+(up?"sbcf":dn?"sbzf":""));t2.setAttribute("class","sbt2 sbtxt "+(up?"sbzf":dn?"sbcf":""));
+    q(".sbn").textContent=dn?"Gewicht zieht nach unten":up?(Math.abs(L)<1.05?"Auftrieb = Gewicht":"Auftrieb = n × Gewicht"):"";
+    q(".o1").textContent=v<15?"am Boden":v<=40&&v>=38?"Horizontalflug, n = 1":v<38?"Übergang":"Kurve/Abfangen, n ≈ "+(n).toFixed(1).replace(".",",");
+    q(".sbp").textContent=dn?"Am Boden hängt der Flügel durch: oben Zug, unten Druck.":up?"Im Flug biegt der Auftrieb den Flügel nach oben: oben Druck (rot), unten Zug (blau). Je größer n, desto stärker.":"Beim Übergang ist der Flügel kaum gebogen.";
+  }
+  function loop(ts){if(!play)return;if(!t0)t0=ts||1;r1.value=Math.round(50+50*Math.sin((ts-t0)/1000));draw();raf=requestAnimationFrame(loop);}
+  root.addEventListener("click",function(e){var b=e.target.closest("button.tsplay");if(!b)return;play=!play;b.textContent=play?"❚❚ Anhalten":"▶ Bewegen";if(play){t0=0;raf=requestAnimationFrame(loop);}else cancelAnimationFrame(raf);});
+  r1.addEventListener("input",function(){if(play){play=false;q(".tsplay").textContent="▶ Bewegen";cancelAnimationFrame(raf);}draw();});
+  draw();
+}
+function nietSim(root){
+  if(!root||root.dataset.ready)return;root.dataset.ready="1";
+  var q=simEl(root,'<svg viewBox="0 0 340 180" role="img" aria-label="Nietverbindung"><defs><marker id="snA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="f"/></marker></defs>'+
+  '<g class="snup"><rect class="box" x="40" y="70" width="200" height="18"/><rect class="snhole" x="133" y="70" width="22" height="18"/></g>'+
+  '<g class="sndn"><rect class="box" x="100" y="88" width="200" height="18"/><rect class="snhole" x="133" y="88" width="22" height="18"/></g>'+
+  '<rect class="boxm snshank" x="137" y="64" width="14" height="48"/><path class="boxm" d="M124,66 Q144,40 164,66 Z"/><rect class="boxm" x="128" y="110" width="32" height="9" rx="3"/>'+
+  '<g class="snclamp"></g><line class="snF1" x1="10" y1="79" x2="36" y2="79" marker-end="url(#snA)"/><line class="snF2" x1="330" y1="97" x2="304" y2="97" marker-end="url(#snA)"/>'+
+  '<text class="tm" x="6" y="70">Last</text><text class="tm" x="300" y="122">Last</text><text class="tm snst" x="10" y="160"></text><text class="tm snst2" x="10" y="174"></text></svg>'+
+  '<p class="tsp snp"></p><div class="tsr"><label>Spannkraft im Niet <output class="o1"></output><input type="range" min="0" max="100" value="100" step="1" class="r1"></label></div>'+
+  '<div class="tsrow"><button type="button" class="tsplay">▶ Bewegen</button><span class="tsfl">laut Skript Seite 36</span></div>');
+  var r1=q(".r1"),play=false,raf=0,t0=0;
+  function draw(){
+    var c=r1.value/100,slip=c>=0.5?0:Math.min(1,(0.5-c)/0.35),gap=4;
+    q(".snup").setAttribute("transform","translate("+(slip*gap)+",0)");q(".sndn").setAttribute("transform","translate("+(-slip*gap)+",0)");
+    var l=6+c*20,cl="";if(c>0.02)cl='<line class="sncl" x1="144" y1="'+(30-l)+'" x2="144" y2="34" marker-end="url(#snA)"/><line class="sncl" x1="144" y1="'+(146+l)+'" x2="144" y2="124" marker-end="url(#snA)"/>';
+    q(".snclamp").innerHTML=cl;
+    var form=slip>=0.99;q(".snshank").setAttribute("class","boxm snshank"+(form?" snshear":""));
+    q(".o1").textContent=Math.round(c*100)+" %";
+    q(".snst").textContent=form?"Schaft liegt an der Lochwand":"Bleche haften durch Reibung";
+    q(".snst2").textContent=form?"→ Formschluss, Niet auf Scherung":"→ Kraftschluss über Kopfzug";
+    q(".snp").textContent=c>=0.5?"Der Kopfzug presst die Bleche zusammen. Die Last wird über Reibung übertragen: Kraftschluss.":form?"Die Bleche sind verrutscht, der Schaft liegt an und wird abgeschert: Formschluss. Laut Skript der schlechteste Fall.":"Die Spannkraft lässt nach, die Reibung reicht nicht mehr, die Bleche beginnen zu rutschen.";
+  }
+  function loop(ts){if(!play)return;if(!t0)t0=ts||1;r1.value=Math.round(50+50*Math.cos((ts-t0)/1100));draw();raf=requestAnimationFrame(loop);}
+  root.addEventListener("click",function(e){var b=e.target.closest("button.tsplay");if(!b)return;play=!play;b.textContent=play?"❚❚ Anhalten":"▶ Bewegen";if(play){t0=0;raf=requestAnimationFrame(loop);}else cancelAnimationFrame(raf);});
+  r1.addEventListener("input",function(){if(play){play=false;q(".tsplay").textContent="▶ Bewegen";cancelAnimationFrame(raf);}draw();});
+  draw();
+}
+function initSims(scope){[].forEach.call((scope||document).querySelectorAll("[data-sim]"),function(el){var f={tab:tabSim,slat:slatSim,bieg:biegSim,niet:nietSim}[el.dataset.sim];if(f)f(el);});}
+initSims();</script>
 </body></html>
