@@ -118,6 +118,60 @@ svg .tarea { fill: var(--marker-soft); stroke: var(--ink); stroke-width: 1.6; st
 .tsr output{font-family:var(--f-mono);font-size:12px;font-weight:500;color:var(--ink-soft)}
 .tsr input{width:100%;accent-color:var(--ink);min-height:28px}
 .tsp{margin:0;font-size:14px;min-height:3em}
+.tabsim.bgsim svg{max-width:440px}
+.tabsim.bgsim svg .tm{font-size:12px}
+.bgsim .tl{fill:var(--fg);font-family:var(--f-mono);font-size:14px;font-weight:600}
+.bgsim .bgh{fill:var(--ink);font-family:var(--f-display);font-weight:700;font-size:14px;letter-spacing:.04em}
+.bgsim .bgsub{fill:var(--ink-soft);font-family:var(--f-mono);font-size:11px;font-weight:400;letter-spacing:0}
+.bgsim .bgt{fill:var(--ink-soft);font-family:var(--f-mono);font-size:11px;font-weight:600;letter-spacing:.08em}
+.bgsim .band{fill:var(--paper);stroke:var(--line);stroke-width:1}
+.bgsim .gap{stroke:var(--ink-soft);stroke-width:1.2;stroke-dasharray:2 4}
+.bgsim .w{stroke:var(--ink);stroke-width:2;fill:none;stroke-linejoin:round}
+.bgsim .ind{stroke:var(--ink-soft);stroke-width:2;stroke-dasharray:3 4;fill:none}
+.bgsim .bgm{fill:var(--ink);fill:context-stroke}
+.bgsim .shaft{stroke:var(--ink-soft);stroke-width:6;stroke-dasharray:4 6;fill:none}
+.bgsim .bgn{fill:var(--tsred,#B3261E)}.bgsim .bgs{fill:#2D5BD3}
+.bgsim .bgnt{fill:#fff;font-family:var(--f-mono);font-size:10px;font-weight:700}
+.bgsim .rot{transform-box:view-box}
+.csdsim .csod{fill:var(--tsred,#B3261E);opacity:.16}.csdsim .csud{fill:#2D5BD3;opacity:.16}
+.csdsim .ax,.csdsim .tk{stroke:var(--ink-soft);stroke-width:1.2;fill:none}
+.csdsim .csl{stroke:var(--ink);stroke-width:2;stroke-dasharray:6 4;fill:none}
+.csdsim .csodt{fill:var(--tsred,#B3261E);font-size:11px}.csdsim .csudt{fill:#2D5BD3;font-size:11px}
+.csdsim .csp{fill:var(--ink)}.csdsim .csq{fill:var(--card);stroke:var(--ink);stroke-width:2}
+.csdsim .csv{stroke-width:3;fill:none}
+.csdsim .cw{transform-box:view-box}
+.csdsim[data-m="od"] .csv,.csdsim[data-m="od"] .csha{stroke:var(--tsred,#B3261E)}
+.csdsim[data-m="ud"] .csv,.csdsim[data-m="ud"] .csha{stroke:#2D5BD3}
+.csdsim[data-m="od"] .csh{stroke:var(--tsred,#B3261E);stroke-width:2.6}.csdsim[data-m="ud"] .csh{stroke:#2D5BD3;stroke-width:2.6}
+.csdsim[data-m="od"] .csnh{fill:var(--tsred,#B3261E);font-weight:700}.csdsim[data-m="ud"] .csnh{fill:#2D5BD3;font-weight:700}
+.csdsim[data-m="od"] .bgst{color:var(--tsred,#B3261E)}.csdsim[data-m="ud"] .bgst{color:#2D5BD3}
+.csdsim .csrow{display:grid;grid-template-columns:auto 1fr 52px;gap:10px;align-items:center;font-weight:700}
+.csdsim .csrow input{width:100%;accent-color:var(--ink);min-height:32px}
+.csdsim .bgbar.csbar{grid-template-columns:1fr}
+.bgsim .halo{paint-order:stroke;stroke:var(--paper);stroke-width:4px;stroke-linejoin:round}
+.bgsim .iron{fill:var(--grid);stroke:var(--ink-soft);stroke-width:1.2}
+.bgsim .bglegend{margin:0;font-size:12px;color:var(--ink-soft);text-align:center}
+.bgsim .bgk{display:inline-block;min-width:16px;padding:0 3px;border-radius:3px;color:#fff;font-family:var(--f-mono);font-size:11px;font-weight:700;text-align:center}
+.bgsim .bgkn{background:var(--tsred,#B3261E)}.bgsim .bgks{background:#2D5BD3;margin-right:4px}
+.bgsim .bgkc{color:var(--ink);font-weight:700}
+.bgsim .bgdot{fill:var(--ink)}
+.bgsim .dim{opacity:.22;transition:opacity .35s}
+.bgsim .on{opacity:1;transition:opacity .35s}
+.bgsim .w.on,.bgsim .ind.on,.bgsim .on .w,.bgsim .shaft.on{stroke:var(--tsred,#B3261E)}
+.bgsim path.w.on,.bgsim .ind.on{stroke-width:2.6;stroke-dasharray:7 5;animation:bgfl .6s linear infinite}
+.bgsim .shaft.on{animation:bgsh .45s linear infinite}
+.bgsim .on .rot{animation:bgrot 1.6s linear infinite}
+.bgsim .on .box,.bgsim .on .boxm{stroke:var(--tsred,#B3261E);stroke-width:2.6}
+.bgsim text.on{fill:var(--tsred,#B3261E)}.bgsim .bgdot.on{fill:var(--tsred,#B3261E)}
+@keyframes bgfl{to{stroke-dashoffset:-12}}
+@keyframes bgsh{to{stroke-dashoffset:-10}}
+@keyframes bgrot{to{transform:rotate(360deg)}}
+.bgsim .bgbar{display:grid;grid-template-columns:52px 1fr 52px;gap:6px}
+.bgsim .bgdots{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.bgsim .bgdots button{min-height:36px;padding:2px;font-size:13px}
+.bgsim .bgtxt{min-height:8em}
+.bgsim .bgst{margin:0 0 4px;font-weight:700;font-size:15px;color:var(--ink)}
+@media (prefers-reduced-motion:reduce){.bgsim *{animation:none!important;transition:none!important}}
 .tsrow{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
 .tsfl{font-family:var(--f-mono);font-size:12px;color:var(--ink-soft)}
 .tsbar{height:10px;background:var(--grid);border-radius:5px;overflow:hidden}
@@ -235,7 +289,7 @@ section:has(>details.sec:not([open])){padding-top:14px;padding-bottom:14px}
   <div class="chap" data-ch="kschwer" hidden>
   <h2 class="chaptitle"><span>★</span> Schwerpunkte</h2>
   <p class="chapnote">Nur die Themen, die in der Prüfung abgefragt werden. Jede Karte: Kern, Details, typische Fragen, Fallen, Merksatz. Die vollständigen Inhalte stehen in den Kapitel-Tabs.</p>
-  <nav class="toc" aria-label="Inhalt"><a href="#schwerpunkt">11.1 Vorflügel &amp; Tabs</a><a href="#schwerpunkt112">11.2 Zellenstrukturen</a><a href="#schwerpunkt113">11.3 Rumpf, Flügel, Leitwerk</a><a href="#schwerpunkt116">11.6 Batterie, Anker, Wendepole, Loop, Neben-/Reihenschluss</a><a href="#schwerpunkt118">11.8 Brandschutz</a><a href="#schwerpunkt1114">11.14 Candela</a></nav>
+  <nav class="toc" aria-label="Inhalt"><a href="#schwerpunkt">11.1 Vorflügel &amp; Tabs</a><a href="#schwerpunkt112">11.2 Zellenstrukturen</a><a href="#schwerpunkt113">11.3 Rumpf, Flügel, Leitwerk</a><a href="#schwerpunkt116">11.6 Batterie, Anker, Wendepole, Loop, Neben-/Reihenschluss, bürstenloser Generator, CSD</a><a href="#schwerpunkt118">11.8 Brandschutz</a><a href="#schwerpunkt1114">11.14 Candela</a></nav>
   <section id="schwerpunkt">
     <h2>★ Schwerpunkte 11.1 <span class="lvl">VORFLÜGEL &amp; TABS</span></h2>
 <p>Auf diesen vier Themen liegt das Hauptaugenmerk in 11.1. Die Prüfungsauswahl zieht aus 11.1a und 11.1b je zwei Fragen aus diesen Themen. Jede Karte unten ist für sich lernbar: Kern, Details, typische Fragen, Fallen.</p><nav class="sptoc" aria-label="Schwerpunkte"><a href="#sp-slat">1 Vorflügel</a><a href="#sp-servo">2 Servo Tab</a><a href="#sp-balance">3 Balance Tab</a><a href="#sp-spring">4 Spring Tab</a><a href="#sp-tabvgl">∑ Vergleich</a></nav><div class="spall"><button type="button" data-a="1">Alle aufklappen</button><button type="button" data-a="0">Alle zuklappen</button></div><details class="sp" id="sp-slat"><summary><h3><span class="spn">1</span>Vorflügel (Slat)</h3></summary><div class="spb"><p class="src">Skript 11.1, Seiten 21 und 31, ergänzt</p><p class="kern">Der Vorflügel öffnet an der Flügelvorderkante einen Spalt. Dadurch reißt die Strömung erst bei größerem Anstellwinkel ab.</p><div class="fig"><figure><svg viewBox="0 0 340 150" role="img" aria-label="Flügelprofil mit ausgefahrenem Vorflügel und Spalt">
@@ -281,8 +335,8 @@ section:has(>details.sec:not([open])){padding-top:14px;padding-bottom:14px}
 </svg><figcaption>Der Pylon leitet den Schub waagerecht und das Gewicht senkrecht in den Flügel.</figcaption></figure></div><ul><li>Kastenbauweise: zwei gefräste Alu-Seitenwände, vernietet mit oberer und unterer Wand.</li><li>Unten ein waagerechtes Brandschott aus Titan. Es begrenzt ein Feuer für etwa 15 Minuten.</li><li>Innen Leitungen für Triebwerkssteuerung, Kraftstoff, Zapfluft und Feuerlöschung.</li><li>Befestigung im Skriptbeispiel: vorn zwei Bolzen, hinten zwei verschiebbare Streben für die Wärmedehnung.</li><li>Thrust Links (zwei Streben, ca. 20° geneigt) leiten den Schub vom Triebwerksgehäuse zum Pylon.</li><li>Das Triebwerk muss sich längs und radial frei ausdehnen können.</li><li>Aufhängungen nehmen auch Vibrationen auf. Werkstoffe: geschweißte Stahl- oder Titanrohre, Bleche, Schmiedebeschläge.</li><li>Übergangsverkleidungen senken den Widerstand, abnehmbare Seitenverkleidungen geben Zugang.</li></ul><div class="erg"><p>Fuse Pins (Sollbruchbolzen): Bei extremer Überlast, etwa bei einer Notlandung, trennt sich das Triebwerk kontrolliert. Flügelkasten und Tank bleiben dicht.</p></div><div class="fragen"><h4>So wird gefragt</h4><dl><dt>Welche Kräfte nimmt der Pylon auf?</dt><dd>Waagerecht den Schub, senkrecht das Gewicht.</dd><dt>Wo sitzt das Brandschott?</dt><dd>Unten, waagerecht, aus Titan.</dd><dt>Wie lange begrenzt es einen Brand?</dt><dd>Etwa 15 Minuten.</dd><dt>Wozu verschiebbare hintere Streben?</dt><dd>Für die Wärmedehnung.</dd><dt>Was sind Thrust Links?</dt><dd>Zusätzlicher Lastpfad für den Schub zum Pylon.</dd></dl></div><div class="falle"><ul><li>Das Brandschott hält etwa 15 Minuten, nicht dauerhaft.</li><li>Der Pylon ist Primärstruktur, keine Verkleidung.</li></ul></div><p class="merk">Schub waagerecht, Gewicht senkrecht, Titan unten.</p><p class="mehr">Mehr: <a href="#pyl">Pylon, Brandschott &amp; Aufhängung</a></p></div></details>
   </section>
   <section id="schwerpunkt116">
-    <h2>★ Schwerpunkte 11.6 <span class="lvl">7 THEMEN · 5 FRAGEN</span></h2>
-<p>Sieben Schwerpunkte für 11.6. Die Prüfungsauswahl im Quiz zieht alle fünf Fragen aus diesen Themen, höchstens eine je Thema. Welche fünf Themen drankommen, wechselt bei jeder Prüfung. 11.6 ist für B1 Level 3.</p><nav class="sptoc" aria-label="Schwerpunkte"><a href="#sp-bat30">1 Batterie</a><a href="#sp-blech">2 Anker</a><a href="#sp-komp">3 Wendepole und Kompensationswicklung</a><a href="#sp-eqloop">4 Lastaufteilungs-Loop &amp; Spannungsregler</a><a href="#sp-neben">5 Nebenschluss (Generator)</a><a href="#sp-reihe">6 Reihenschluss (Motor)</a><a href="#sp-strom">7 Ia = IA − IE</a></nav><div class="spall"><button type="button" data-a="1">Alle aufklappen</button><button type="button" data-a="0">Alle zuklappen</button></div><details class="sp" id="sp-bat30"><summary><h3><span class="spn">1</span>Batterie: 30 Minuten Notversorgung</h3></summary><div class="spb"><p class="src">Skript 11.6, Seiten 11, 106 und 113 bis 115</p><p class="kern">Fallen alle Generatoren und die APU aus, muss die Batterie mindestens <strong>30 min</strong> alles versorgen, was für Landeanflug und Landung unbedingt nötig ist. Ihre Kapazität (Ah) wird danach bemessen.</p><div class="tbl"><table><thead><tr><th>Frage</th><th>Antwort laut Skript</th></tr></thead><tbody><tr><td>Wann?</td><td>Ausfall aller Generatoren und der APU (mit ADG: erst wenn auch der ADG ausfällt)</td></tr><tr><td>Wie lange?</td><td><strong>mindestens 30 min</strong></td></tr><tr><td>Was?</td><td>die essentiellen (lebenswichtigen) Verbraucher für Anflug und Landung</td></tr><tr><td>Über welche Busse?</td><td>HOT BUS und BATT BUS</td></tr><tr><td>DC-Verbraucher</td><td>direkt aus der Batterie</td></tr><tr><td>AC-Verbraucher</td><td>über einen statischen Inverter aus der Batterie</td></tr><tr><td>Laden im Flug</td><td>DC-Netz: direkt vom Generator. AC-Netz: Battery Charger</td></tr></tbody></table></div><ul><li>Im einfachen DC-Bordnetz hält der Generator die Batterie ständig geladen. Deshalb 28 V am Bus bei 24 V Batterie.</li><li>Mit ADG: Der ADG speist Essential AC direkt und Essential DC über die ESS TRU. Die Batterie liefert dann nichts und hat ihre 30 min noch voll.</li><li>Fällt auch der ADG aus, sind alle AC-Verbraucher stromlos. Nur die lebenswichtigen DC-Verbraucher laufen 30 min weiter.</li><li>In dieser Zeit muss ein geeigneter Flugplatz angeflogen werden, mit Notbeleuchtung und Notinstrumentierung.</li><li>Der Hersteller weist nach, dass dieser Power Loss seltener ist als ein Grenzwert. Der hängt davon ab, ob in 30 min ein Landeplatz erreichbar ist. Deshalb flogen früher keine Zweimotorigen über den Atlantik.</li></ul><div class="fx">C = I · t · Beispiel: 40 A · 0,5 h = 20 Ah</div><div class="fragen"><h4>So wird gefragt</h4><dl><dt>Wie lange muss die Batterie im Notfall mindestens versorgen?</dt><dd>30 Minuten.</dd><dt>Was wird versorgt?</dt><dd>Alles, was für Anflug und Landung unbedingt nötig ist (Essential).</dd><dt>Wie bekommen Essential-AC-Verbraucher Strom?</dt><dd>Über den statischen Inverter aus der Batterie.</dd><dt>Wie wird die Batterie im Flug geladen gehalten?</dt><dd>DC-Netz: Generator. AC-Netz: Battery Charger.</dd><dt>Wonach richtet sich die Kapazität?</dt><dd>Nach den 30 Minuten Notversorgung.</dd></dl></div><div class="falle"><ul><li>30 min ist die Bordbatterie, 10 min die Notbeleuchtung (11.14), 90 s die Evakuierung.</li><li>Die Batterie versorgt nicht alle Verbraucher, nur die essentiellen.</li><li>Mit ADG läuft die 30-min-Uhr erst, wenn auch der ADG ausgefallen ist.</li></ul></div><p class="merk">30 Minuten bis zur Landung, versorgt über HOT BUS und BATT BUS.</p><p class="mehr">Mehr: <a href="#e6allg">Einfaches DC-Bordnetz</a> · <a href="#e6bat">Notstrom &amp; Batterien</a> · <a href="#e6adg">ADG &amp; Bus-Prioritäten</a></p></div></details><details class="sp" id="sp-blech"><summary><h3><span class="spn">2</span>Anker aus vielen, voneinander isolierten Blechen</h3></summary><div class="spb"><p class="src">Skript 11.6, Seite 13; Physik der Wirbelströme ergänzt</p><p class="kern">Der Anker (Läufer) besteht aus vielen, voneinander isolierten Blechen. So werden <strong>Wirbelstromverluste</strong> vermieden. In den Nuten der Bleche liegen die Ankerwicklungen.</p><div class="fig"><figure><svg viewBox="0 0 340 190" role="img" aria-label="Massiver Anker mit großem Wirbelstrom, geblechter Anker mit kleinen Strömen">
+    <h2>★ Schwerpunkte 11.6 <span class="lvl">9 THEMEN · 5 FRAGEN</span></h2>
+<p>Neun Schwerpunkte für 11.6. Die Prüfungsauswahl im Quiz zieht alle fünf Fragen aus diesen Themen, höchstens eine je Thema. Welche fünf der neun Themen drankommen, wechselt bei jeder Prüfung. 11.6 ist für B1 Level 3.</p><nav class="sptoc" aria-label="Schwerpunkte"><a href="#sp-bat30">1 Batterie</a><a href="#sp-blech">2 Anker</a><a href="#sp-komp">3 Wendepole und Kompensationswicklung</a><a href="#sp-eqloop">4 Lastaufteilungs-Loop &amp; Spannungsregler</a><a href="#sp-neben">5 Nebenschluss (Generator)</a><a href="#sp-reihe">6 Reihenschluss (Motor)</a><a href="#sp-strom">7 Ia = IA − IE</a><a href="#sp-brush">8 Bürstenloser Generator</a><a href="#sp-csd">9 CSD Overdrive</a></nav><div class="spall"><button type="button" data-a="1">Alle aufklappen</button><button type="button" data-a="0">Alle zuklappen</button></div><details class="sp" id="sp-bat30"><summary><h3><span class="spn">1</span>Batterie: 30 Minuten Notversorgung</h3></summary><div class="spb"><p class="src">Skript 11.6, Seiten 11, 106 und 113 bis 115</p><p class="kern">Fallen alle Generatoren und die APU aus, muss die Batterie mindestens <strong>30 min</strong> alles versorgen, was für Landeanflug und Landung unbedingt nötig ist. Ihre Kapazität (Ah) wird danach bemessen.</p><div class="tbl"><table><thead><tr><th>Frage</th><th>Antwort laut Skript</th></tr></thead><tbody><tr><td>Wann?</td><td>Ausfall aller Generatoren und der APU (mit ADG: erst wenn auch der ADG ausfällt)</td></tr><tr><td>Wie lange?</td><td><strong>mindestens 30 min</strong></td></tr><tr><td>Was?</td><td>die essentiellen (lebenswichtigen) Verbraucher für Anflug und Landung</td></tr><tr><td>Über welche Busse?</td><td>HOT BUS und BATT BUS</td></tr><tr><td>DC-Verbraucher</td><td>direkt aus der Batterie</td></tr><tr><td>AC-Verbraucher</td><td>über einen statischen Inverter aus der Batterie</td></tr><tr><td>Laden im Flug</td><td>DC-Netz: direkt vom Generator. AC-Netz: Battery Charger</td></tr></tbody></table></div><ul><li>Im einfachen DC-Bordnetz hält der Generator die Batterie ständig geladen. Deshalb 28 V am Bus bei 24 V Batterie.</li><li>Mit ADG: Der ADG speist Essential AC direkt und Essential DC über die ESS TRU. Die Batterie liefert dann nichts und hat ihre 30 min noch voll.</li><li>Fällt auch der ADG aus, sind alle AC-Verbraucher stromlos. Nur die lebenswichtigen DC-Verbraucher laufen 30 min weiter.</li><li>In dieser Zeit muss ein geeigneter Flugplatz angeflogen werden, mit Notbeleuchtung und Notinstrumentierung.</li><li>Der Hersteller weist nach, dass dieser Power Loss seltener ist als ein Grenzwert. Der hängt davon ab, ob in 30 min ein Landeplatz erreichbar ist. Deshalb flogen früher keine Zweimotorigen über den Atlantik.</li></ul><div class="fx">C = I · t · Beispiel: 40 A · 0,5 h = 20 Ah</div><div class="fragen"><h4>So wird gefragt</h4><dl><dt>Wie lange muss die Batterie im Notfall mindestens versorgen?</dt><dd>30 Minuten.</dd><dt>Was wird versorgt?</dt><dd>Alles, was für Anflug und Landung unbedingt nötig ist (Essential).</dd><dt>Wie bekommen Essential-AC-Verbraucher Strom?</dt><dd>Über den statischen Inverter aus der Batterie.</dd><dt>Wie wird die Batterie im Flug geladen gehalten?</dt><dd>DC-Netz: Generator. AC-Netz: Battery Charger.</dd><dt>Wonach richtet sich die Kapazität?</dt><dd>Nach den 30 Minuten Notversorgung.</dd></dl></div><div class="falle"><ul><li>30 min ist die Bordbatterie, 10 min die Notbeleuchtung (11.14), 90 s die Evakuierung.</li><li>Die Batterie versorgt nicht alle Verbraucher, nur die essentiellen.</li><li>Mit ADG läuft die 30-min-Uhr erst, wenn auch der ADG ausgefallen ist.</li></ul></div><p class="merk">30 Minuten bis zur Landung, versorgt über HOT BUS und BATT BUS.</p><p class="mehr">Mehr: <a href="#e6allg">Einfaches DC-Bordnetz</a> · <a href="#e6bat">Notstrom &amp; Batterien</a> · <a href="#e6adg">ADG &amp; Bus-Prioritäten</a></p></div></details><details class="sp" id="sp-blech"><summary><h3><span class="spn">2</span>Anker aus vielen, voneinander isolierten Blechen</h3></summary><div class="spb"><p class="src">Skript 11.6, Seite 13; Physik der Wirbelströme ergänzt</p><p class="kern">Der Anker (Läufer) besteht aus vielen, voneinander isolierten Blechen. So werden <strong>Wirbelstromverluste</strong> vermieden. In den Nuten der Bleche liegen die Ankerwicklungen.</p><div class="fig"><figure><svg viewBox="0 0 340 190" role="img" aria-label="Massiver Anker mit großem Wirbelstrom, geblechter Anker mit kleinen Strömen">
 <rect class="box" x="20" y="30" width="120" height="110" rx="4"/>
 <ellipse cx="80" cy="85" rx="44" ry="38" fill="none" stroke="var(--red)" stroke-width="2.2"/>
 <path class="c" d="M120,80 L124,88 L128,80"/>
@@ -330,7 +384,7 @@ section:has(>details.sec:not([open])){padding-top:14px;padding-bottom:14px}
 <rect class="box" x="290" y="80" width="20" height="40"/>
 <text class="t" x="226" y="70">I</text>
 <text class="tm" x="206" y="186">Reihenschluss: IA = IE = Ia</text>
-</svg><figcaption>Links teilt sich der Strom am Knoten (rote Punkte). Rechts gibt es nur einen Stromkreis, überall fließt derselbe Strom.</figcaption></figure></div><div class="tbl"><table><thead><tr><th>Zeichen</th><th>Strom</th><th>Größe</th></tr></thead><tbody><tr><td>IA</td><td>Ankerstrom, fließt durch den Anker</td><td>der größte</td></tr><tr><td>IE</td><td>Erregerstrom, durch die Nebenschlusswicklung</td><td>klein, einige A</td></tr><tr><td>Ia</td><td>abgegebener Strom (Laststrom) ans Bordnetz</td><td>IA minus IE</td></tr></tbody></table></div><ul><li>Umgestellt: IA = Ia + IE und IE = IA − Ia.</li><li>Der Generator muss im Anker also immer etwas mehr Strom liefern, als die Verbraucher bekommen.</li><li>Beim Reihenschluss gibt es keine Aufteilung: IA = IE = Ia.</li></ul><div class="fx">Ia = IA − IE · Beispiel: 105 A − 5 A = 100 A</div><div class="erg"><p>Kirchhoffs Knotenregel: Was in den Knoten hineinfließt (IA), fließt auch wieder heraus (IE + Ia). In der Lastaufteilung schreibt das Skript Ia · RA. Dort ist der kleine Unterschied zwischen Ia und IA vernachlässigt.</p></div><div class="fragen"><h4>So wird gefragt</h4><dl><dt>Ankerstrom 105 A, Erregerstrom 5 A. Wie groß ist der abgegebene Strom?</dt><dd>100 A.</dd><dt>Die Verbraucher ziehen 200 A, der Erregerstrom ist 4 A. Wie groß ist der Ankerstrom?</dt><dd>204 A.</dd><dt>Welcher Strom ist beim Nebenschlussgenerator der größte?</dt><dd>Der Ankerstrom IA.</dd></dl></div><div class="falle"><ul><li>Minus, nicht plus: Ia = IA − IE.</li><li>Ia ist der abgegebene Strom, nicht der Ankerstrom. Groß A = Anker.</li><li>Die Formel gilt für den Nebenschluss. Beim Reihenschluss sind alle Ströme gleich.</li></ul></div><p class="merk">Anker liefert alles, Erregung zweigt ab, der Rest geht ins Netz.</p><p class="mehr">Mehr: <a href="#e6err">Erregung &amp; Starter</a> · <a href="#sp-neben">Nebenschluss</a></p></div></details>
+</svg><figcaption>Links teilt sich der Strom am Knoten (rote Punkte). Rechts gibt es nur einen Stromkreis, überall fließt derselbe Strom.</figcaption></figure></div><div class="tbl"><table><thead><tr><th>Zeichen</th><th>Strom</th><th>Größe</th></tr></thead><tbody><tr><td>IA</td><td>Ankerstrom, fließt durch den Anker</td><td>der größte</td></tr><tr><td>IE</td><td>Erregerstrom, durch die Nebenschlusswicklung</td><td>klein, einige A</td></tr><tr><td>Ia</td><td>abgegebener Strom (Laststrom) ans Bordnetz</td><td>IA minus IE</td></tr></tbody></table></div><ul><li>Umgestellt: IA = Ia + IE und IE = IA − Ia.</li><li>Der Generator muss im Anker also immer etwas mehr Strom liefern, als die Verbraucher bekommen.</li><li>Beim Reihenschluss gibt es keine Aufteilung: IA = IE = Ia.</li></ul><div class="fx">Ia = IA − IE · Beispiel: 105 A − 5 A = 100 A</div><div class="erg"><p>Kirchhoffs Knotenregel: Was in den Knoten hineinfließt (IA), fließt auch wieder heraus (IE + Ia). In der Lastaufteilung schreibt das Skript Ia · RA. Dort ist der kleine Unterschied zwischen Ia und IA vernachlässigt.</p></div><div class="fragen"><h4>So wird gefragt</h4><dl><dt>Ankerstrom 105 A, Erregerstrom 5 A. Wie groß ist der abgegebene Strom?</dt><dd>100 A.</dd><dt>Die Verbraucher ziehen 200 A, der Erregerstrom ist 4 A. Wie groß ist der Ankerstrom?</dt><dd>204 A.</dd><dt>Welcher Strom ist beim Nebenschlussgenerator der größte?</dt><dd>Der Ankerstrom IA.</dd></dl></div><div class="falle"><ul><li>Minus, nicht plus: Ia = IA − IE.</li><li>Ia ist der abgegebene Strom, nicht der Ankerstrom. Groß A = Anker.</li><li>Die Formel gilt für den Nebenschluss. Beim Reihenschluss sind alle Ströme gleich.</li></ul></div><p class="merk">Anker liefert alles, Erregung zweigt ab, der Rest geht ins Netz.</p><p class="mehr">Mehr: <a href="#e6err">Erregung &amp; Starter</a> · <a href="#sp-neben">Nebenschluss</a></p></div></details><details class="sp" id="sp-brush"><summary><h3><span class="spn">8</span>Aufbau des bürstenlosen Generators</h3></summary><div class="spb"><p class="src">Skript 11.6, Seiten 59 bis 61 und 69 bis 70</p><p class="kern">Moderne 400-Hz-Generatoren sind <strong>bürstenlos</strong>. Möglich wird das durch drei Maschinen auf einer Welle: <strong>PMG</strong> (Permanentmagnet-Hilfserregermaschine), <strong>Erregermaschine</strong> (Exciter, Außenpol) und <strong>Hauptgenerator</strong> (Innenpol). Dazwischen sitzt auf dem Rotor der <strong>rotierende Gleichrichter</strong> mit 6 Dioden. Energie wechselt zwischen Stator und Rotor nur durch Induktion, deshalb braucht er keine Schleifringe und keine Bürsten.</p><div class="tabsim bgsim" data-sim="bgen"></div><div class="tbl"><table><thead><tr><th>Teil</th><th>Bauart</th><th>Feld</th><th>Drehstrom­wicklung</th><th>Aufgabe</th></tr></thead><tbody><tr><td>PMG</td><td>Innenpol, Permanentmagnet</td><td>Rotor (Magnet, keine elektrische Erregung)</td><td>Stator</td><td>Selbsterregung, versorgt GCU und Regler</td></tr><tr><td>Erregermaschine (Exciter)</td><td>Außenpol</td><td>Stator, IE vom Regler</td><td>Rotor</td><td>erzeugt den Erregerstrom für den Hauptgenerator</td></tr><tr><td>Rotating Rectifier</td><td>6 Dioden, Drehstrombrücke</td><td>–</td><td>sitzt auf dem Rotor</td><td>macht aus dem Exciter-Drehstrom Gleichstrom</td></tr><tr><td>Hauptgenerator</td><td>Innenpol</td><td>Rotor (Gleichstrom)</td><td>Stator, Stern</td><td>3 × 115/200 V, 400 Hz an φA, φB, φC</td></tr></tbody></table></div><ul><li>Warum ein PMG? Anders als beim DC-Generator gibt es im Eisen keine Remanenz. Ohne Permanentmagnet könnte sich der Generator nicht selbst erregen.</li><li>Der PMG versorgt über eine Drehstrom-Gleichrichterschaltung die GCU mit dem Spannungsregler.</li><li>Stellgröße ist der Erregerstrom IE in die Erregermaschine. Er hängt von USOLL − UIST ab.</li><li>Die Erregermaschine ist eine Außenpolmaschine. Ihr Feld sitzt im Stator, deshalb kommt IE ohne Schleifringe hinein.</li><li>Ihr Drehstrom entsteht direkt auf dem Rotor. Die 6 Dioden richten ihn dort gleich und speisen die Erregerwicklung des Hauptgenerators.</li><li>Der Hauptgenerator ist eine Innenpolmaschine. Der Drehstrom wird direkt an den drei Statorwicklungen abgenommen.</li><li>Ein Feldrelais unterbricht IE, wenn der Pilot abschaltet oder der Monitor einen Fehler findet. Dann leuchtet GEN OFF.</li></ul><div class="fragen"><h4>So wird gefragt</h4><dl><dt>Warum hat der bürstenlose Generator einen PMG?</dt><dd>Ohne Remanenz gibt es keine Selbsterregung. Der PMG liefert sie und versorgt die GCU.</dd><dt>Wo sitzt die Erregerwicklung der Erregermaschine?</dt><dd>Im Stator (Außenpolmaschine), deshalb ohne Schleifringe.</dd><dt>Wo wird der Erregerstrom des Hauptgenerators gleichgerichtet?</dt><dd>Auf dem Rotor, durch 6 Dioden in Drehstrombrückenschaltung (rotating rectifier).</dd><dt>Was stellt der Spannungsregler?</dt><dd>Den Erregerstrom IE der Erregermaschine.</dd><dt>Welche Bauart hat der Hauptgenerator?</dt><dd>Innenpolmaschine: Feld auf dem Rotor, Drehstromwicklung im Stator.</dd></dl></div><div class="falle"><ul><li>Exciter ist Außenpol, Hauptgenerator Innenpol. Nicht vertauschen.</li><li>Der Regler stellt nicht direkt den Strom im Hauptfeld, sondern den Erregerstrom des Exciters.</li><li>Die 6 Dioden drehen mit, sie sitzen nicht in der GCU.</li><li>Der PMG hat keine elektrische Erregung, sein Feld kommt vom Permanentmagneten.</li></ul></div><p class="merk">Drei Maschinen auf einer Welle: PMG, Exciter, Hauptgenerator. Strom wechselt nur per Induktion, also keine Bürsten.</p><p class="mehr">Mehr: <a href="#e6acgen">AC-Generator</a> · <a href="#e6acreg">AC-Regler &amp; GCU</a></p></div></details><details class="sp" id="sp-csd"><summary><h3><span class="spn">9</span>CSD: Overdrive, Straight-Through, Underdrive</h3></summary><div class="spb"><p class="src">Skript 11.6, Seiten 62 bis 66</p><p class="kern">Der Generator braucht für 400 Hz eine <strong>konstante Drehzahl</strong> (n = 60 · f / p), die Triebwerksdrehzahl N2 schwankt aber zwischen etwa 50 und 100 %. Das <strong>CSD</strong> (Constant Speed Drive) gleicht das aus: Ein <strong>Differentialgetriebe</strong> bekommt die untersetzte Triebwerksdrehzahl ü · N2 und die Drehzahl nH eines <strong>Hydraulikmotors</strong>. Ein Fliehkraftregler stellt nH so, dass am Ausgang immer nCSD herauskommt. Ist das Triebwerk zu langsam, gibt der Hydraulikmotor Drehzahl dazu: <strong>Overdrive</strong>.</p><div class="tabsim bgsim csdsim" data-sim="csd"></div><div class="fx">nCSD = ü · N2 − nH</div><div class="tbl"><table><thead><tr><th>Zustand</th><th>Triebwerk</th><th>Hydraulikmotor</th></tr></thead><tbody><tr><td><strong>Overdrive</strong></td><td>zu langsam: N2 &lt; nCSD / ü</td><td>addiert nCSD − ü · N2</td></tr><tr><td>Straight-Through</td><td>passt genau: ü · N2 = nCSD</td><td>steht, nH = 0</td></tr><tr><td>Underdrive</td><td>zu schnell: ü · N2 &gt; nCSD</td><td>zieht ü · N2 − nCSD ab</td></tr></tbody></table></div><div class="tbl"><table><thead><tr><th>Polpaare p</th><th>2</th><th>3</th><th>4</th></tr></thead><tbody><tr><td>nCSD für 400 Hz in min⁻¹</td><td>12 000</td><td>8 000</td><td>6 000</td></tr></tbody></table></div><ul><li>Overdrive tritt bei niedriger Triebwerksdrehzahl auf, also im unteren Drehzahlbereich bis zum Straight-Through-Punkt.</li><li>Im Overdrive dreht der Hydraulikmotor so, dass seine Drehzahl zur Triebwerksdrehzahl addiert wird. Im Underdrive dreht er andersherum.</li><li>Das CSD hält die Frequenz in allen drei Zuständen bei 400 Hz ± 1 %, rein mechanisch und hydraulisch, ohne Elektronik.</li><li>Nur ein sehr kleiner elektrischer Anteil kommt von der Lastaufteilung (Wirklast), die am Regler eingreift.</li><li>CSD und Generator in einer Einheit heißen IDG (Integrated Drive Generator). Vorteile: weniger Gewicht, weniger Platz, Dämpfung von Vibrationen.</li></ul><div class="erg"><p>Rechenbeispiel (p = 4, nCSD = 6000 min⁻¹): Bei ü · N2 = 4500 min⁻¹ fehlen 1500 min⁻¹. Der Hydraulikmotor gibt diese 1500 min⁻¹ dazu, das ist Overdrive. Nach der Skriptformel ist nH dabei −1500 min⁻¹, denn 4500 − (−1500) = 6000.</p></div><div class="fragen"><h4>So wird gefragt</h4><dl><dt>Was passiert im Overdrive?</dt><dd>Die Triebwerksdrehzahl ist zu niedrig. Der Hydraulikmotor addiert die fehlende Drehzahl nCSD − ü · N2.</dd><dt>Wann arbeitet das CSD im Overdrive?</dt><dd>Wenn N2 &lt; nCSD / ü ist, also bei niedriger Triebwerksdrehzahl.</dd><dt>Wie groß ist nH im Straight-Through?</dt><dd>Null, der Hydraulikmotor steht.</dd><dt>Welche Generatordrehzahl braucht man bei p = 3 für 400 Hz?</dt><dd>8000 min⁻¹.</dd><dt>Wer stellt die Drehzahl des Hydraulikmotors?</dt><dd>Ein Fliehkraftregler.</dd></dl></div><div class="falle"><ul><li>Overdrive heißt Triebwerk zu langsam, nicht zu schnell. „Over“ bedeutet: Der Ausgang dreht schneller als ü · N2.</li><li>Im Overdrive steht der Hydraulikmotor nicht, er gibt Drehzahl dazu. Er steht nur im Straight-Through.</li><li>Das CSD regelt die Drehzahl und damit die Frequenz, nicht die Spannung.</li><li>Die Generatordrehzahl bleibt in allen drei Zuständen gleich.</li></ul></div><p class="merk">Overdrive: Triebwerk zu langsam, Hydraulik gibt dazu. Underdrive: Triebwerk zu schnell, Hydraulik nimmt weg.</p><p class="mehr">Mehr: <a href="#e6csd">CSD &amp; IDG</a> · <a href="#sp-brush">Bürstenloser Generator</a></p></div></details>
   </section>
   <section id="schwerpunkt118">
     <h2>★ Schwerpunkte 11.8 <span class="lvl">5 THEMEN · 5 FRAGEN</span></h2>
@@ -827,7 +881,7 @@ section:has(>details.sec:not([open])){padding-top:14px;padding-bottom:14px}
   <h2 class="chaptitle"><span>11.6</span> Elektrische Energie (ATA 24)</h2>
   <nav class="toc" aria-label="Inhalt"><a href="#ueberblick116">Überblick</a><a href="#schwerpunkt116" class="tocstar">★ Schwerpunkte (eigener Tab)</a><a href="#e6allg">Allgemeines</a><a href="#e6dcgen">DC-Generator</a><a href="#e6err">Erregung &amp; Starter</a><a href="#e6alt">Alternator</a><a href="#e6reg">DC-Regler</a><a href="#e6last">DC-Lastaufteilung</a><a href="#e6schutz">DC-Schutz</a><a href="#e6inv">Inverter</a><a href="#e6ac">Drehstromnetz</a><a href="#e6acgen">AC-Generator</a><a href="#e6csd">CSD &amp; IDG</a><a href="#e6acreg">AC-Regler &amp; GCU</a><a href="#e6para">AC-Lastaufteilung</a><a href="#e6gcu">AC-Schutz</a><a href="#e6tru">TRU</a><a href="#e6bat">Batterien</a><a href="#e6adg">ADG &amp; RAT</a><a href="#e6ext">Ext. Power &amp; APU</a><a href="#e6cb">Breaker &amp; CB</a><a href="#e6mess">Messgeräte</a><a href="#skriptfehler-11-6">Skriptfehler</a></nav><div class="spall" data-scope="chap"><button type="button" data-a="1">Alle aufklappen</button><button type="button" data-a="0">Alle zuklappen</button></div>
   <section id="ueberblick116"><details class="sec" open><summary><h2>Überblick 11.6 <span class="lvl">5 FRAGEN</span></h2></summary><div class="secb">
-    <p>Das Skript behandelt Gleich- und Drehstromnetze von der Erzeugung bis zur Messung. 11.6 ist für B1 Level 3. Für die Prüfung sind 5 Fragen vorgesehen. Schwerpunkte bisher: Batterie 30 min, Anker aus isolierten Blechen, Wendepole und Kompensationswicklung, Lastaufteilungs-Loop und Spannungsregler, Nebenschluss (Generator), Reihenschluss (Motor) und Ia = IA − IE. Die Prüfungsauswahl zieht alle Fragen daraus, ausführlich im Tab <a href="#schwerpunkt116">★ Schwerpunkte</a>.</p>
+    <p>Das Skript behandelt Gleich- und Drehstromnetze von der Erzeugung bis zur Messung. 11.6 ist für B1 Level 3. Für die Prüfung sind 5 Fragen vorgesehen. Schwerpunkte bisher: Batterie 30 min, Anker aus isolierten Blechen, Wendepole und Kompensationswicklung, Lastaufteilungs-Loop und Spannungsregler, Nebenschluss (Generator), Reihenschluss (Motor), Ia = IA − IE, Aufbau des bürstenlosen Generators und CSD-Overdrive. Die Prüfungsauswahl zieht alle Fragen daraus, ausführlich im Tab <a href="#schwerpunkt116">★ Schwerpunkte</a>.</p>
     <div class="tbl"><table><thead><tr><th>Teil</th><th>Thema</th><th>Seiten</th></tr></thead><tbody><tr><td>1</td><td>Allgemeines, ATA 24</td><td>8–9</td></tr><tr><td>2</td><td>Gleichstrombordnetz: Generator, Alternator, Regler, Lastaufteilung, Schutz, Inverter</td><td>10–53</td></tr><tr><td>3</td><td>Drehstrombordnetz: Generator, CSD/IDG, Regelung, Lastaufteilung, Schutz, TRU</td><td>54–105</td></tr><tr><td>4</td><td>Notstrom: Batterien, ADG, RAT</td><td>106–117</td></tr><tr><td>5</td><td>Außenbord und APU</td><td>118–124</td></tr><tr><td>6</td><td>Schalter, Sicherungen, Messgeräte</td><td>125–136</td></tr></tbody></table></div><p class="merk">DC: 28 V. AC: 115/200 V, 400 Hz. Notfall: 30 Minuten.</p>
   </div></details></section>
   <section id="e6allg"><details class="sec"><summary><h2>Allgemeines, ATA 24 &amp; einfaches DC-Bordnetz <span class="lvl">11.6 · LEVEL 3</span></h2></summary><div class="secb">
@@ -1108,7 +1162,146 @@ section:has(>details.sec:not([open])){padding-top:14px;padding-bottom:14px}
   window.addEventListener('hashchange',route);route();
 })();
 </script>
-<script>function tabSim(root){
+<script>function csdSim(root){
+  if(!root||root.dataset.ready)return;root.dataset.ready="1";
+  var NC=6000,X=function(p){return 44+(p-40)*286/60;},Y=function(n){return 310-(n-2000)*160/8000;};
+  function wheel(cx,cy,id){return '<circle class="box" cx="'+cx+'" cy="'+cy+'" r="9"/><g class="cw" id="'+id+'" style="transform-origin:'+cx+'px '+cy+'px"><path class="w" d="M'+cx+','+(cy-8)+' V'+(cy+8)+' M'+(cx-8)+','+cy+' H'+(cx+8)+'"/></g>';}
+  var A=' marker-end="url(#csA)"';
+  root.innerHTML=
+  '<svg viewBox="0 0 340 340" role="img" aria-label="CSD: Triebwerk, Getriebe, Differential, Generator, Hydraulikmotor mit Regler; darunter Diagramm Generatordrehzahl über N2">'+
+  '<defs><marker id="csA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="bgm"/></marker></defs>'+
+  '<rect class="box" x="4" y="30" width="50" height="34" rx="4"/><text class="tm" x="12" y="45">TW</text><text class="tl" x="12" y="60">N2</text>'+
+  '<path class="w" d="M54,47 H64"'+A+'/>'+
+  '<rect class="box" x="66" y="30" width="58" height="34" rx="4"/>'+wheel(82,47,"cwin")+'<text class="tl" x="100" y="52">ü</text>'+
+  '<path class="w" d="M124,47 H138"'+A+'/>'+
+  '<rect class="box" x="140" y="26" width="74" height="42" rx="4"/><text class="tm" x="150" y="44">Differen-</text><text class="tm" x="150" y="58">tial</text>'+
+  '<path class="w" d="M214,47 H230"'+A+'/>'+
+  '<rect class="box" x="232" y="30" width="50" height="34" rx="4"/>'+wheel(246,47,"cwout")+'<text class="tm" x="258" y="52">GEN</text><text class="tl" x="288" y="52">400 Hz</text>'+
+  '<rect class="box csh" x="140" y="92" width="74" height="30" rx="4"/>'+wheel(156,107,"cwh")+'<text class="tm" x="170" y="104">Hydr.</text><text class="tm csnh" x="170" y="118"></text>'+
+  '<path class="w csha" d="M177,92 V70"'+A+'/>'+
+  '<rect class="box" x="232" y="92" width="58" height="30" rx="4"/><text class="tm" x="240" y="111">Regler</text>'+
+  '<path class="ind" d="M276,64 V90"'+A+'/><path class="w" d="M232,107 H216"'+A+'/>'+
+  '<text class="tm csn2" x="4" y="80"></text><text class="tm csun" x="66" y="80"></text><text class="tm" x="232" y="80">6000</text>'+
+  /* Diagramm */
+  '<polygon class="csod" points="'+X(40)+','+Y(4000)+' '+X(60)+','+Y(6000)+' '+X(40)+','+Y(6000)+'"/>'+
+  '<polygon class="csud" points="'+X(60)+','+Y(6000)+' '+X(100)+','+Y(10000)+' '+X(100)+','+Y(6000)+'"/>'+
+  '<path class="ax" d="M44,150 V310 H330"/>'+
+  [4000,6000,8000,10000].map(function(n){return '<text class="tm" x="4" y="'+(Y(n)+4)+'">'+n+'</text><path class="tk" d="M40,'+Y(n)+' H44"/>';}).join("")+
+  [40,60,80,100].map(function(p){return '<text class="tm" x="'+(X(p)-10)+'" y="324">'+p+'</text>';}).join("")+
+  '<text class="tm" x="4" y="142">n in min⁻¹</text><text class="tm" x="250" y="338">N2 in %</text>'+
+  '<path class="w" d="M'+X(40)+','+Y(4000)+' L'+X(100)+','+Y(10000)+'"/><text class="tm" x="226" y="176">ü · N2</text>'+
+  '<path class="csl" d="M44,'+Y(6000)+' H330"/><text class="tm" x="48" y="'+(Y(6000)-6)+'">nCSD</text>'+
+  '<text class="tb csodt" x="48" y="'+(Y(6000)+14)+'">OVER</text><text class="tb csudt" x="252" y="'+(Y(6000)-10)+'">UNDERDRIVE</text>'+
+  '<text class="tm" x="146" y="252">Straight-Through</text>'+
+  '<path class="csv" d=""/><circle class="csp" r="4.5"/><circle class="csq" r="4.5"/>'+
+  '</svg>'+
+  '<label class="csrow"><span>N2</span><input type="range" min="45" max="100" step="1" value="50" aria-label="Triebwerksdrehzahl N2 in Prozent"><b class="csval"></b></label>'+
+  '<div class="bgbar csbar"><button type="button" class="tsplay">▶ Durchfahren</button></div>'+
+  '<div class="bgtxt" aria-live="polite"><p class="bgst"></p><p class="tsp"></p></div>'+
+  '<p class="bglegend">Beispiel nach Abb. 79: p = 4, nCSD = 6000 min⁻¹, ü · N2 = 10 000 min⁻¹ bei 100 %.</p>';
+  var q=function(s){return root.querySelector(s);},rg=q("input"),cur=50,play=false,tm=0,dir=1,
+      rm=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+      a={in:0,h:0,out:0},last=0,raf=0;
+  function upd(p){cur=p;rg.value=p;var un=p*100,nh=NC-un,md=nh>0?"od":nh<0?"ud":"st";
+    root.dataset.m=md;q(".csval").textContent=p+" %";
+    q(".csn2").textContent=p+" %";q(".csun").textContent=un;
+    q(".csnh").textContent=nh===0?"steht":(nh>0?"+":"−")+Math.abs(nh);
+    var x=X(p),y=Y(un),yc=Y(NC);q(".csp").setAttribute("cx",x);q(".csp").setAttribute("cy",y);q(".csq").setAttribute("cx",x);q(".csq").setAttribute("cy",yc);
+    var v=q(".csv");if(md==="st"){v.setAttribute("d","");v.removeAttribute("marker-end");}else{v.setAttribute("d","M"+x+","+y+" V"+(yc+(nh>0?3:-3)));v.setAttribute("marker-end","url(#csA)");}
+    var T={od:["Overdrive","Triebwerk zu langsam: ü · N2 = "+un+" min⁻¹ liegt unter 6000. Der Hydraulikmotor dreht so, dass er "+nh+" min⁻¹ dazugibt. Generator: 6000 min⁻¹, also 400 Hz."],
+           st:["Straight-Through","ü · N2 = 6000 min⁻¹ passt genau. Der Hydraulikmotor steht (nH = 0), das Differential reicht die Drehzahl direkt durch."],
+           ud:["Underdrive","Triebwerk zu schnell: ü · N2 = "+un+" min⁻¹ liegt über 6000. Der Hydraulikmotor zieht "+(-nh)+" min⁻¹ ab. Generator: 6000 min⁻¹, also 400 Hz."]}[md];
+    q(".bgst").textContent=T[0];q(".tsp").textContent=T[1];}
+  function spin(ts){if(!last)last=ts;var dt=Math.min(50,ts-last)/1000;last=ts;
+    if(!rm&&root.offsetParent){a.in+=cur*100*dt*0.06;a.out+=NC*dt*0.06;a.h+=(NC-cur*100)*dt*0.06;
+      [["cwin","in"],["cwout","out"],["cwh","h"]].forEach(function(k){root.querySelector("#"+k[0]).style.transform="rotate("+(a[k[1]]%360).toFixed(1)+"deg)";});}
+    raf=requestAnimationFrame(spin);}
+  function step(){if(!play)return;var p=cur+dir;if(p>=100){p=100;dir=-1;}if(p<=45){p=45;dir=1;}upd(p);tm=setTimeout(step,p===60?1600:160);}
+  function stop(){play=false;clearTimeout(tm);q(".tsplay").textContent="▶ Durchfahren";}
+  rg.addEventListener("input",function(){stop();upd(+rg.value);});
+  q(".tsplay").addEventListener("click",function(){if(play)stop();else{play=true;this.textContent="❚❚ Anhalten";step();}});
+  upd(50);raf=requestAnimationFrame(spin);
+}
+function bgenSim(root){
+  if(!root||root.dataset.ready)return;root.dataset.ready="1";
+  var S=[
+    {h:"Antrieb",t:"Das CSD dreht die Welle mit konstanter Drehzahl. Alles links vom Luftspalt sitzt auf dieser Welle und dreht mit: PMG-Magnet, Drehstromwicklung des Exciters, Dioden und Polrad des Hauptgenerators."},
+    {h:"PMG",t:"Der Permanentmagnet dreht und induziert in der Statorwicklung des PMG Drehstrom. Ohne ihn keine Selbsterregung, denn der Drehstromgenerator hat keine Remanenz. Der PMG-Strom versorgt die GCU."},
+    {h:"GCU und Regler",t:"Die GCU richtet den PMG-Strom gleich. Der Spannungsregler stellt daraus den Erregerstrom IE für den Elektromagneten im Exciter-Stator. Das Feld sitzt im Stator (Außenpol), also fließt IE ohne Schleifringe."},
+    {h:"Exciter",t:"Der Elektromagnet im Stator erzeugt ein festes Gleichfeld. Die Sternwicklung auf dem Rotor dreht durch dieses Feld, dabei wird in ihr Drehstrom induziert, direkt auf dem Rotor."},
+    {h:"Rotierende Dioden",t:"Sechs Dioden in Drehstrombrückenschaltung drehen mit (rotating rectifier). Sie machen aus dem Exciter-Drehstrom Gleichstrom für die Spule auf dem Polrad des Hauptgenerators."},
+    {h:"Hauptgenerator",t:"Das Polrad ist ein drehender Elektromagnet (Innenpol). Sein Feld induziert in den drei Statorwicklungen (Stern, Sternpunkt an Masse) 3 × 115/200 V bei 400 Hz für φA, φB und φC. Der Istwert geht zurück zur GCU."},
+    {h:"Gesamtbild",t:"Zwischen Rotor und Stator wechselt die Energie nur durch Induktion über den Luftspalt. Deshalb keine Schleifringe, keine Bürsten. Kette: PMG → GCU → Exciter → Dioden → Polrad → Bordnetz."}
+  ];
+  var A=' marker-end="url(#bgA)"';
+  function coil(x1,x2,y,n){var r=(x2-x1)/(2*n),d="M"+x1+","+y;for(var i=0;i<n;i++)d+=" a"+r.toFixed(2)+","+r.toFixed(2)+" 0 0 1 "+(2*r).toFixed(2)+",0";return d;}
+  /* Statorwicklung: drei Spulen in Stern, Sternpunkt links */
+  function star3(yc,x1,x2,gnd){var ys=[yc-12,yc,yc+12],d=ys.map(function(y){return coil(x1,x2,y,6);}).join(" ")+" M"+(x1-6)+","+ys[0]+" V"+ys[2]+" "+ys.map(function(y){return "M"+(x1-6)+","+y+" H"+x1;}).join(" ");
+    if(gnd)d+=" M"+(x1-6)+","+ys[2]+" V"+(ys[2]+8)+" M"+(x1-12)+","+(ys[2]+8)+" H"+x1+" M"+(x1-10)+","+(ys[2]+12)+" H"+(x1-2)+" M"+(x1-8)+","+(ys[2]+16)+" H"+(x1-4);
+    return '<path class="w" d="'+d+'"/>';}
+  /* Rotor-Sternwicklung (dreht) */
+  function ystar(cx,cy){var g="";[-90,30,150].forEach(function(a){g+='<path class="w" transform="rotate('+a+' '+cx+' '+cy+')" d="M'+cx+','+cy+' H'+(cx+5)+' '+coil(cx+5,cx+21,cy,3).slice(("M"+(cx+5)+","+cy).length)+'"/>';});
+    return g+'<circle class="bgdot" cx="'+cx+'" cy="'+cy+'" r="2.5"/>';}
+  function diode(x,y){return '<path class="w" d="M'+(x-5)+','+(y+4)+' L'+(x+5)+','+(y+4)+' L'+x+','+(y-4)+' Z M'+(x-5)+','+(y-4)+' H'+(x+5)+'"/>';}
+  var rect='<rect class="box" x="35" y="230" width="70" height="44" rx="4"/><path class="w" d="M46,235 H94 M46,270 H94 M50,235 V270 M70,235 V270 M90,235 V270"/>'+
+    [50,70,90].map(function(x){return diode(x,245)+diode(x,261);}).join("");
+  root.innerHTML=
+  '<svg viewBox="0 0 340 440" role="img" aria-label="Bürstenloser Generator: links der Rotor auf der Welle mit PMG-Magnet, Exciter-Sternwicklung, 6 Dioden und Polrad; rechts der Stator mit PMG-Wicklung, Exciter-Elektromagnet und Hauptwicklung in Stern; außen die GCU">'+
+  '<defs><marker id="bgA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="bgm"/></marker></defs>'+
+  '<text class="bgh" x="14" y="28">ROTOR <tspan class="bgsub">dreht</tspan></text>'+
+  '<text class="bgh" x="150" y="28">STATOR <tspan class="bgsub">steht</tspan></text>'+
+  '<rect class="band" x="8" y="44" width="230" height="92" rx="8"/><rect class="band" x="8" y="144" width="230" height="148" rx="8"/><rect class="band" x="8" y="300" width="230" height="92" rx="8"/>'+
+  '<text class="bgt" x="150" y="62">PMG</text><text class="bgt" x="150" y="162">EXCITER</text><text class="bgt" x="150" y="318">HAUPTGENERATOR</text>'+
+  '<line class="gap" x1="128" y1="40" x2="128" y2="396"/><text class="tm" x="132" y="414">Luftspalt:</text><text class="tm" x="132" y="428">nur Induktion</text>'+
+  '<line class="shaft" data-s="0" x1="70" y1="44" x2="70" y2="402"/>'+
+  '<g data-s="0"><rect class="box" x="35" y="402" width="70" height="26" rx="4"/><text class="tm" x="58" y="419">CSD</text></g>'+
+  /* PMG */
+  '<g data-s="0 1"><circle class="box" cx="70" cy="100" r="27"/><g class="rot" style="transform-origin:70px 100px"><rect class="bgn" x="52" y="94" width="18" height="12" rx="2"/><rect class="bgs" x="70" y="94" width="18" height="12" rx="2"/><text class="bgnt" x="57" y="104">N</text><text class="bgnt" x="75" y="104">S</text></g></g>'+
+  '<path class="ind" data-s="1" d="M100,100 H146"'+A+'/>'+
+  '<g data-s="1">'+star3(100,160,208,false)+'<path class="w" d="M208,88 H216 V112 H208 M208,100 H216"/></g>'+
+  '<path class="w" data-s="1 2" d="M216,100 H248"'+A+'/>'+
+  /* Exciter Stator: Elektromagnet */
+  '<g data-s="2 3"><rect class="bgn" x="144" y="178" width="10" height="28" rx="2"/><text class="bgnt" x="146" y="196">N</text><rect class="iron" x="154" y="186" width="60" height="12"/><path class="w" d="M158,182 L163,202 M165,182 L170,202 M172,182 L177,202 M179,182 L184,202 M186,182 L191,202 M193,182 L198,202 M200,182 L205,202 M207,182 L212,202"/><text class="tm" x="148" y="222">Elektromagnet</text><text class="tm" x="148" y="236">Gleichfeld</text></g>'+
+  '<path class="w" data-s="2 3" d="M250,192 H218"'+A+'/><text class="tl" data-s="2 3" x="225" y="185">IE</text>'+
+  '<path class="ind" data-s="3" d="M142,192 H101"'+A+'/>'+
+  /* Exciter Rotor: Sternwicklung */
+  '<g data-s="0 3"><circle class="box" cx="70" cy="192" r="27"/><g class="rot" style="transform-origin:70px 192px">'+ystar(70,192)+'</g></g>'+
+  '<path class="w" data-s="3 4" d="M92,212 V228"'+A+'/><text class="tm" data-s="3 4" x="98" y="224">3~</text>'+
+  '<g data-s="0 4">'+rect+'<text class="tm halo" x="41" y="287">6 Dioden</text></g>'+
+  '<path class="w" data-s="4" d="M92,274 V328"'+A+'/><text class="tl" data-s="4" x="98" y="300">=</text>'+
+  /* Hauptgenerator Rotor: Polrad */
+  '<g data-s="0 4 5"><circle class="box" cx="70" cy="346" r="27"/><g class="rot" style="transform-origin:70px 346px"><rect class="bgn" x="47" y="339" width="6" height="14" rx="1.5"/><rect class="bgs" x="87" y="339" width="6" height="14" rx="1.5"/><rect class="boxm" x="52" y="341" width="36" height="10"/><path class="w" d="M55,339 L58,353 M61,339 L64,353 M67,339 L70,353 M73,339 L76,353 M79,339 L82,353"/></g></g>'+
+  '<path class="ind" data-s="5" d="M101,346 H146"'+A+'/>'+
+  /* Hauptgenerator Stator: Stern */
+  '<g data-s="5">'+star3(346,160,208,true)+'</g>'+
+  '<path class="w" data-s="5" d="M208,334 H294 M208,346 H294 M208,358 H294"/><text class="tm" x="300" y="338">φA</text><text class="tm" x="300" y="350">φB</text><text class="tm" x="300" y="362">φC</text>'+
+  '<text class="tm" data-s="5" x="244" y="384">Bordnetz</text><text class="tm" data-s="5" x="244" y="398">400 Hz</text>'+
+  '<path class="w" data-s="5" d="M272,358 V266"'+A+'/><circle class="bgdot" data-s="5" cx="272" cy="358" r="3"/><text class="tm" data-s="5" x="277" y="312">U ist</text>'+
+  /* GCU */
+  '<g data-s="2 5"><rect class="box" x="250" y="80" width="82" height="184" rx="6"/><text class="bgh" x="274" y="104">GCU</text>'+
+  '<text class="tm" x="258" y="128">richtet</text><text class="tm" x="258" y="142">PMG-Strom</text><text class="tm" x="258" y="156">gleich</text>'+
+  '<text class="tm" x="258" y="226">Regler</text><text class="tm" x="258" y="240">stellt IE</text></g>'+
+  '</svg>'+
+  '<p class="bglegend"><span class="bgk bgkn">N</span><span class="bgk bgks">S</span> Pole · <span class="bgkc">⌇⌇⌇</span> Wicklung · gestrichelt: Induktion über den Luftspalt</p>'+
+  '<div class="bgbar"><button type="button" class="bgprev" aria-label="Schritt zurück">◀</button><button type="button" class="tsplay">▶ Abspielen</button><button type="button" class="bgnext" aria-label="Schritt weiter">▶</button></div>'+
+  '<div class="bgdots" role="group" aria-label="Schritt wählen">'+S.map(function(s,i){return '<button type="button" data-i="'+i+'" title="'+s.h+'">'+(i<S.length-1?i+1:"Alle")+'</button>';}).join("")+'</div>'+
+  '<div class="bgtxt" aria-live="polite"><p class="bgst"></p><p class="tsp"></p></div>';
+  var q=function(s){return root.querySelector(s);},cur=0,play=false,raf=0,N=S.length,
+      els=[].slice.call(root.querySelectorAll("[data-s]"));
+  function show(i){cur=(i+N)%N;var all=cur===N-1;
+    els.forEach(function(el){var on=all||el.dataset.s.split(" ").indexOf(String(cur))>-1;el.classList.toggle("on",on);el.classList.toggle("dim",!on);});
+    [].forEach.call(root.querySelectorAll(".bgdots button"),function(b){b.setAttribute("aria-pressed",+b.dataset.i===cur?"true":"false");});
+    q(".bgst").textContent=all?"Gesamtbild":"Schritt "+(cur+1)+" von "+(N-1)+": "+S[cur].h;q(".tsp").textContent=S[cur].t;}
+  function tick(){if(!play)return;show(cur+1);raf=setTimeout(tick,5000);}
+  function stop(){play=false;root.classList.remove("run");q(".tsplay").textContent="▶ Abspielen";clearTimeout(raf);}
+  root.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+    if(b.classList.contains("tsplay")){if(play)stop();else{play=true;show(cur===N-1?0:cur);root.classList.add("run");b.textContent="❚❚ Anhalten";raf=setTimeout(tick,5000);}}
+    else if(b.classList.contains("bgprev")){stop();show(cur-1);}
+    else if(b.classList.contains("bgnext")){stop();show(cur+1);}
+    else if(b.dataset.i!=null){stop();show(+b.dataset.i);}});
+  show(N-1);
+}
+function tabSim(root){
   if(!root||root.dataset.ready)return;root.dataset.ready="1";
   var T={servo:{n:"Servo Tab",p:"Pilot bewegt nur das Tab. Die Luftkraft am Tab bewegt die Fläche."},
          bal:{n:"Balance Tab",p:"Pilot bewegt die Fläche. Ein Gestänge zur festen Struktur dreht das Tab gegensinnig."},
@@ -1286,7 +1479,7 @@ function cdSim(root){
   r1.addEventListener("input",function(){if(play){play=false;q(".tsplay").textContent="▶ Bewegen";cancelAnimationFrame(raf);}draw();});
   draw();
 }
-function initSims(scope){[].forEach.call((scope||document).querySelectorAll("[data-sim]"),function(el){var f={tab:tabSim,slat:slatSim,bieg:biegSim,niet:nietSim,cd:cdSim}[el.dataset.sim];if(f)f(el);});}
+function initSims(scope){[].forEach.call((scope||document).querySelectorAll("[data-sim]"),function(el){var f={tab:tabSim,slat:slatSim,bieg:biegSim,niet:nietSim,cd:cdSim,bgen:bgenSim,csd:csdSim}[el.dataset.sim];if(f)f(el);});}
 initSims();</script>
 <script>
 (function(){
