@@ -2198,13 +2198,25 @@ function lehrerInit(){
   function fmt(d){d=new Date(d);return d.getDate()+"."+(d.getMonth()+1)+".";}
   function esc(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
   function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),x=a[i];a[i]=a[j];a[j]=x;}return a;}
-  function next(){var d=LESS.filter(function(l){return db[l.id]&&due(l.id);});return d[0]||LESS.filter(function(l){return !db[l.id];})[0]||null;}
+  var CKEY="m11lehrerch",OKEY="m11lehreropen",CUR=null,OPEN=null;
+  try{CUR=localStorage.getItem(CKEY)||null;}catch(e){}
+  try{OPEN=JSON.parse(localStorage.getItem(OKEY)||"null");}catch(e){}
+  function saveOpen(){try{localStorage.setItem(OKEY,JSON.stringify(OPEN||[]));}catch(e){}}
+  function setCur(c){CUR=c;try{localStorage.setItem(CKEY,c);}catch(e){}if(!OPEN)OPEN=[];if(OPEN.indexOf(c)<0){OPEN.push(c);saveOpen();}}
+  function pick(a){return a.filter(function(l){return db[l.id]&&due(l.id);})[0]||a.filter(function(l){return !db[l.id];})[0]||null;}
+  function nextIn(c){return pick(LESS.filter(function(l){return l.ch===c;}));}
+  function nextOther(c){return pick(LESS.filter(function(l){return l.ch!==c;}));}
+  function next(){return (CUR&&nextIn(CUR))||pick(LESS);}
+  function toGroup(c){var g=c&&home.querySelector('.lgrp[data-ch="'+c+'"]');if(g){g.open=true;g.scrollIntoView({block:"start"});}else root.scrollIntoView();}
+  home.addEventListener("toggle",function(e){var g=e.target;if(!g.classList||!g.classList.contains("lgrp"))return;if(!OPEN)OPEN=[];var c=g.dataset.ch,k=OPEN.indexOf(c);if(g.open&&k<0)OPEN.push(c);if(!g.open&&k>=0)OPEN.splice(k,1);saveOpen();},true);
   function renderHome(){
     var n=next(),open=LESS.filter(function(l){return due(l.id);}).length,h="";
-    h+='<div class="lstart">'+(n?'<p>Heute dran: <b>'+open+'</b> von '+LESS.length+' Lektionen.</p><button type="button" class="lgo" data-l="'+n.id+'">▶ Weiter lernen: '+esc(n.t)+'</button>':'<p>Alles erledigt für heute. Die nächsten Lektionen werden an den angegebenen Tagen wieder fällig.</p>')+'</div>';
+    var curDone=CUR&&!nextIn(CUR);
+    h+='<div class="lstart">'+(n?'<p>Heute dran: <b>'+open+'</b> von '+LESS.length+' Lektionen.'+(curDone?' In Modul '+CUR+' ist für heute alles erledigt.':'')+'</p><button type="button" class="lgo" data-l="'+n.id+'">▶ Weiter lernen ('+n.ch+'): '+esc(n.t)+'</button>':'<p>Alles erledigt für heute. Die nächsten Lektionen werden an den angegebenen Tagen wieder fällig.</p>')+'</div>';
     var chs=[];LESS.forEach(function(l){if(chs.indexOf(l.ch)<0)chs.push(l.ch);});
     chs.forEach(function(c){var ls=LESS.filter(function(l){return l.ch===c;}),nd=ls.filter(function(l){return due(l.id);}).length;
-      h+='<details class="lgrp"'+(n&&n.ch===c?' open':'')+'><summary><span class="lch">'+c+'</span><span class="lsub"><span class="lcn">'+esc((document.querySelector('.ch[data-t="k'+c.replace('.','-')+'"]')||{}).title||"")+'</span><span class="lcnt">'+ls.length+' Lektionen · '+(nd?nd+' fällig':'alles erledigt')+'</span></span></summary><ul class="llist">';
+      var isOpen=OPEN?OPEN.indexOf(c)>=0:(n&&n.ch===c);
+      h+='<details class="lgrp" data-ch="'+c+'"'+(isOpen?' open':'')+'><summary><span class="lch">'+c+'</span><span class="lsub"><span class="lcn">'+esc((document.querySelector('.ch[data-t="k'+c.replace('.','-')+'"]')||{}).title||"")+'</span><span class="lcnt">'+ls.length+' Lektionen · '+(nd?nd+' fällig':'alles erledigt')+'</span></span></summary><ul class="llist">';
       LESS.filter(function(l){return l.ch===c;}).forEach(function(l){var r=db[l.id],st=!r?'<span class="ltag lnew">neu</span>':due(l.id)?'<span class="ltag ldue">fällig</span>':'<span class="ltag lok">✓ wieder am '+fmt(r.d)+'</span>';
         h+='<li><button type="button" class="lpick" data-l="'+l.id+'"><span>'+esc(l.t)+'</span>'+st+'</button></li>';});
       h+='</ul></details>';});
@@ -2238,12 +2250,12 @@ function lehrerInit(){
       slots.forEach(function(n,j){st[n]=pick[j];});}
     return st.map(function(x){if(x.k&&x.k!=="mc")return x;var c={};for(var k in x)c[k]=x[k];c.k=x.k||"mc";c.h=qkey(x.q);c.rid=runId;return c;});}
   function start(id){var L0=LESS.filter(function(l){return l.id===id;})[0];if(!L0)return;i=0;err=0;
-    var runId=Date.now();L={id:L0.id,ch:L0.ch,sp:L0.sp,t:L0.t,rid:runId,st:buildSteps(L0,runId)};
+    var runId=Date.now();L={id:L0.id,ch:L0.ch,sp:L0.sp,t:L0.t,rid:runId,st:buildSteps(L0,runId)};setCur(L0.ch);
     var npool=0,sn={};L0.st.forEach(function(x){if(x.k==="mc"&&!CTX.test(x.q))sn[qkey(x.q)]=1;});(LPOOL[L0.id]||[]).forEach(function(x){sn[qkey(x.q)]=1;});npool=Object.keys(sn).length;
     var cb=document.querySelector('.ch[data-t="k'+L.ch.replace('.','-')+'"]'),cn=cb?cb.title:"";
     run.innerHTML='<div class="lmod"><span class="lchip">Modul '+L.ch+'</span>'+esc(cn)+'</div><div class="lhead"><b>🎓 '+esc(L.t)+'</b><span class="lprog"></span><span class="lpool">'+npool+' Fragen im Pool</span><button type="button" class="link lquit">✕ Beenden</button></div><div class="llog"></div><div class="lact"></div>';
     log=run.querySelector(".llog");act=run.querySelector(".lact");home.hidden=true;run.hidden=false;
-    run.querySelector(".lquit").onclick=function(){giveBack();renderHome();};
+    run.querySelector(".lquit").onclick=function(){giveBack();renderHome();toGroup(L.ch);};
     root.scrollIntoView();step();}
   function ask(o,done,retry){
     var b=say('<p>'+o.q+'</p>',"lt lq");var opts=shuffle(o.a.map(function(t,k){return k;}));
@@ -2280,8 +2292,11 @@ function lehrerInit(){
     var d=today();d.setDate(d.getDate()+IV[nb]);db[L.id]={b:nb,d:d.toISOString(),e:err,r:L.rid};save();
     var card=document.getElementById(L.sp),m=card&&card.querySelector(".merk");
     say('<p><b>Merksatz:</b> '+(m?m.innerHTML:"")+'</p><p>'+(err===0?'Ohne Fehler, sehr gut. ':err===1?'Ein Fehler. ':err+' Fehler. ')+'Ich hole die Lektion am <b>'+fmt(d)+'</b> wieder hervor'+(err>=3?', mit Wiederholung von vorn':'')+'.</p><p><a href="#'+L.sp+'">Zur Schwerpunkt-Karte</a></p>',"lt lend");
-    var n=next();act.innerHTML=(n&&n.id!==L.id?'<button type="button" class="lnext lgo" data-l="'+n.id+'">▶ Nächste: '+esc(n.t)+'</button>':'')+'<button type="button" class="lback">Zur Übersicht</button>';
-    act.querySelector(".lback").onclick=renderHome;scroll();}
+    var ni=nextIn(L.ch),no=nextOther(L.ch);if(ni&&ni.id===L.id)ni=null;
+    act.innerHTML=(ni?'<button type="button" class="lnext lgo" data-l="'+ni.id+'">▶ Nächste in '+L.ch+': '+esc(ni.t)+'</button>':'<p class="lpick-h">Modul '+L.ch+' ist für heute erledigt.</p>')
+      +(no?'<button type="button" class="lback lgo" data-l="'+no.id+'">▶ Anderes Modul ('+no.ch+'): '+esc(no.t)+'</button>':'')
+      +'<button type="button" class="lback lhome2">Zur Übersicht (Modul '+L.ch+')</button>';
+    act.querySelector(".lhome2").onclick=function(){var c=L.ch;giveBack();renderHome();toGroup(c);};scroll();}
   root.addEventListener("click",function(e){var b=e.target.closest("[data-l]");if(b&&(b.classList.contains("lgo")||b.classList.contains("lpick"))){start(b.dataset.l);return;}
     if(e.target.closest(".lclr")&&confirm("Lernstand der Lehrer-Lektionen löschen?")){db={};save();renderHome();}});
   document.addEventListener("click",function(e){var a=e.target.closest("a.lteach");if(!a)return;e.preventDefault();var id=a.dataset.l;
