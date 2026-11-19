@@ -2,6 +2,18 @@
 .q .tt th, .q .tt td, .missed .tt th, .missed .tt td { border: 1.5px solid var(--line); padding: 4px 14px; text-align: center; }
 .q .tt th, .missed .tt th { color: var(--ink-soft); font-weight: 500; }
 .q .tt td:last-child, .missed .tt td:last-child { background: var(--marker-soft); font-weight: 600; }
+.chips .cgrp{flex:1 1 100%;border:1.5px solid var(--line);border-radius:8px;background:var(--card);padding:0 10px}
+.chips .cgrp>summary{display:flex;align-items:center;gap:10px;min-height:44px;cursor:pointer;list-style:none}
+.chips .cgrp>summary::-webkit-details-marker{display:none}
+.chips .cgrp>summary::before{content:"▸";color:var(--ink-soft)}
+.chips .cgrp[open]>summary::before{content:"▾"}
+.chips .cgt{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;line-height:1.25}
+.chips .cgt b{font-family:var(--f-mono);font-size:14px;color:var(--ink)}
+.chips .cgt span{font-size:13px;color:var(--fg)}
+.chips .cgn{font-family:var(--f-mono);font-size:12px;color:var(--ink-soft);white-space:nowrap}
+.chips .cgall{flex:none;background:none;border:0;padding:4px 0;color:var(--ink);font:600 13px var(--f-body,inherit);text-decoration:underline;cursor:pointer;min-height:36px}
+.chips .cgb{display:flex;flex-wrap:wrap;gap:8px;padding:0 0 12px}
+.chips .cgs{flex:1 1 100%;margin:4px 0 0;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--ink-soft)}
 </style></head><body>
 <title>Lernquiz Modul 3–11</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1109,21 +1121,58 @@ sub, sup { line-height: 0; }
       ? "EASA-Verteilung für B1.1: " + n + " Fragen. Bisher sind " + ready + " davon belegt, weil noch nicht alle Kapitel vorliegen."
       : "EASA-Verteilung für B1.1: " + n + " Fragen, verteilt wie im Prüfungsstandard.";
   }
-  function buildChips() {
-  chips.innerHTML = "";
-  catKeys().forEach(function (k) {
+  // Aufgeklappte Kapitel-Gruppen merken (nur Module mit MOD.ch)
+  var GKEY = "quizChipOpen", gOpen = {};
+  try { gOpen = JSON.parse(localStorage.getItem(GKEY) || "{}") || {}; } catch (e) {}
+  function saveGOpen() { try { localStorage.setItem(GKEY, JSON.stringify(gOpen)); } catch (e) {} }
+  function mkChip(k, label) {
     var count = Q.filter(function (q) { return q.c === k; }).length;
     var lab = document.createElement("label");
     lab.className = "chip";
-    lab.innerHTML = '<input type="checkbox" value="' + k + '" checked><span>' + CATS[k] + ' <em>' + count + '</em></span>';
-    chips.appendChild(lab);
+    lab.innerHTML = '<input type="checkbox" value="' + k + '" checked><span>' + label + ' <em>' + count + '</em></span>';
+    return lab;
+  }
+  function buildChips() {
+  chips.innerHTML = "";
+  if (!MOD.ch) {
+    catKeys().forEach(function (k) { chips.appendChild(mkChip(k, CATS[k])); });
+    return;
+  }
+  var cs = chaps().filter(function (c) { return c.r.length; }), single = cs.length === 1;
+  cs.forEach(function (c) {
+    var g = document.createElement("details");
+    g.className = "cgrp"; g.dataset.ch = c.id;
+    g.open = single || !!gOpen[c.id];
+    g.innerHTML = '<summary><span class="cgt"><b>' + c.id + '</b><span>' + c.t.replace(/&/g, "&amp;") + '</span></span><span class="cgn"></span><button type="button" class="cgall"></button></summary><div class="cgb"></div>';
+    var body = g.querySelector(".cgb");
+    c.r.forEach(function (r) {
+      if (c.r.length > 1) { var h = document.createElement("p"); h.className = "cgs"; h.textContent = r.s + " · " + r.t; body.appendChild(h); }
+      r.c.forEach(function (k) { body.appendChild(mkChip(k, CATS[k].replace(/^\d+\.\d+[a-z]?\s+/, ""))); });
+    });
+    g.addEventListener("toggle", function () { if (single) return; if (g.open) gOpen[c.id] = 1; else delete gOpen[c.id]; saveGOpen(); });
+    chips.appendChild(g);
   });
   }
+  function updGroups() {
+    chips.querySelectorAll(".cgrp").forEach(function (g) {
+      var all = g.querySelectorAll("input"), on = g.querySelectorAll("input:checked").length;
+      g.querySelector(".cgn").textContent = on + "/" + all.length;
+      g.querySelector(".cgall").textContent = on === all.length ? "keine" : "alle";
+    });
+  }
+  chips.addEventListener("click", function (e) {
+    var b = e.target.closest(".cgall"); if (!b) return;
+    e.preventDefault();
+    var g = b.closest(".cgrp"), ins = g.querySelectorAll("input"), all = g.querySelectorAll("input:checked").length === ins.length;
+    ins.forEach(function (i) { i.checked = !all; });
+    refreshStart();
+  });
   function selectedCats() {
     return Array.prototype.map.call(chips.querySelectorAll("input:checked"), function (i) { return i.value; });
   }
   var resetArmed = false;
   function refreshStart() {
+    updGroups();
     $("focusOnly").hidden = !catKeys().some(function (k) { return CATS[k].indexOf("★") > -1; });
     var n = selectedCats().length;
     $("startBtn").disabled = n === 0;
