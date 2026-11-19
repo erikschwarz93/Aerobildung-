@@ -12,6 +12,10 @@
 .chips .cgt span{font-size:13px;color:var(--fg)}
 .chips .cgn{font-family:var(--f-mono);font-size:12px;color:var(--ink-soft);white-space:nowrap}
 .chips .cgall{flex:none;background:none;border:0;padding:4px 0;color:var(--ink);font:600 13px var(--f-body,inherit);text-decoration:underline;cursor:pointer;min-height:36px}
+.chips .cgf{align-self:flex-start;background:var(--marker-soft);border:0;border-radius:4px;margin:3px 0 6px;padding:3px 7px;color:var(--fg);font:600 12px var(--f-mono);cursor:pointer;min-height:28px}
+.chips .csub{margin:0 0 8px;background:var(--paper)}
+.chips .csub .cgt b{font-size:13px}
+.chips .csub .cgb{padding-bottom:10px}
 .chips .cgb{display:flex;flex-wrap:wrap;gap:8px;padding:0 0 12px}
 .chips .cgs{flex:1 1 100%;margin:4px 0 0;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--ink-soft)}
 </style></head><body>
@@ -1132,6 +1136,15 @@ sub, sup { line-height: 0; }
     lab.innerHTML = '<input type="checkbox" value="' + k + '" checked><span>' + label + ' <em>' + count + '</em></span>';
     return lab;
   }
+  function starBtn(n, what) { return n ? '<button type="button" class="cgf" title="Nur die Schwerpunkte ' + what + ' wählen">★ ' + n + ' Schwerpunkt' + (n > 1 ? 'e' : '') + '</button>' : ''; }
+  function nStar(keys) { return keys.filter(function (k) { return CATS[k].indexOf("★") > -1; }).length; }
+  function mkGroup(cls, id, title, sub, keys, isOpen, persist) {
+    var g = document.createElement("details");
+    g.className = cls; g.dataset.ch = id; g.open = isOpen;
+    g.innerHTML = '<summary><span class="cgt"><b>' + title + '</b><span>' + sub.replace(/&/g, "&amp;") + '</span>' + starBtn(nStar(keys), cls === "cgrp" ? "dieses Kapitels" : "dieses Teils") + '</span><span class="cgn"></span><button type="button" class="cgall"></button></summary><div class="cgb"></div>';
+    if (persist) g.addEventListener("toggle", function (e) { if (e.target !== g) return; if (g.open) gOpen[id] = 1; else delete gOpen[id]; saveGOpen(); });
+    return g;
+  }
   function buildChips() {
   chips.innerHTML = "";
   if (!MOD.ch) {
@@ -1140,27 +1153,29 @@ sub, sup { line-height: 0; }
   }
   var cs = chaps().filter(function (c) { return c.r.length; }), single = cs.length === 1;
   cs.forEach(function (c) {
-    var g = document.createElement("details");
-    g.className = "cgrp"; g.dataset.ch = c.id;
-    g.open = single || !!gOpen[c.id];
-    g.innerHTML = '<summary><span class="cgt"><b>' + c.id + '</b><span>' + c.t.replace(/&/g, "&amp;") + '</span></span><span class="cgn"></span><button type="button" class="cgall"></button></summary><div class="cgb"></div>';
-    var body = g.querySelector(".cgb");
+    var keys = []; c.r.forEach(function (r) { keys = keys.concat(r.c); });
+    var g = mkGroup("cgrp", c.id, c.id, c.t, keys, single || !!gOpen[c.id], !single), body = g.querySelector(".cgb");
     c.r.forEach(function (r) {
-      if (c.r.length > 1) { var h = document.createElement("p"); h.className = "cgs"; h.textContent = r.s + " · " + r.t; body.appendChild(h); }
-      r.c.forEach(function (k) { body.appendChild(mkChip(k, CATS[k].replace(/^\d+\.\d+[a-z]?\s+/, ""))); });
+      var tgt = body;
+      if (c.r.length > 1) {
+        var sg = mkGroup("cgrp csub", r.s, r.s, r.t, r.c, !!gOpen[r.s], true);
+        body.appendChild(sg); tgt = sg.querySelector(".cgb");
+      }
+      r.c.forEach(function (k) { tgt.appendChild(mkChip(k, CATS[k].replace(/^\d+(\.\d+)+[a-z]?\s+/, ""))); });
     });
-    g.addEventListener("toggle", function () { if (single) return; if (g.open) gOpen[c.id] = 1; else delete gOpen[c.id]; saveGOpen(); });
     chips.appendChild(g);
   });
   }
   function updGroups() {
     chips.querySelectorAll(".cgrp").forEach(function (g) {
-      var all = g.querySelectorAll("input"), on = g.querySelectorAll("input:checked").length;
-      g.querySelector(".cgn").textContent = on + "/" + all.length;
-      g.querySelector(".cgall").textContent = on === all.length ? "keine" : "alle";
+      var all = g.querySelectorAll("input"), on = g.querySelectorAll("input:checked").length, sm = g.querySelector(":scope>summary");
+      sm.querySelector(".cgn").textContent = on + "/" + all.length;
+      sm.querySelector(".cgall").textContent = on === all.length ? "keine" : "alle";
     });
   }
   chips.addEventListener("click", function (e) {
+    var f = e.target.closest(".cgf");
+    if (f) { e.preventDefault(); f.closest(".cgrp").querySelectorAll("input").forEach(function (i) { i.checked = CATS[i.value].indexOf("★") > -1; }); refreshStart(); return; }
     var b = e.target.closest(".cgall"); if (!b) return;
     e.preventDefault();
     var g = b.closest(".cgrp"), ins = g.querySelectorAll("input"), all = g.querySelectorAll("input:checked").length === ins.length;
